@@ -13,8 +13,8 @@ export default {
 	},
 
 	// 获取用户信息
-	getUserInfo: () => {
-		return request('/api/user/info', 'GET');
+	getUserInfo: (params) => {
+		return request(`/api/user/info${params}`, 'GET');
 	},
 
 	// 更新用户信息

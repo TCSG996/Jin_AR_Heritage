@@ -249,26 +249,57 @@
 							uni.setStorageSync('token', res.data.token);
 							
 							// 确保用户信息正确存储
-							console.log('存储的用户信息:', res.data.userInfo);
+							console.log('登录响应数据:', res.data);
 							
-							// 如果后端返回的是字符串，直接存储
-							if (typeof res.data.userInfo === 'string') {
-								uni.setStorageSync('userInfo', res.data.userInfo);
-							} 
-							// 如果后端返回的是对象，转为字符串后存储
-							else if (typeof res.data.userInfo === 'object') {
-								uni.setStorageSync('userInfo', JSON.stringify(res.data.userInfo));
+							// 构建用户信息对象
+							let userInfo = null;
+							
+							// 尝试从不同位置获取用户信息
+							if (res.data.userInfo) {
+								userInfo = typeof res.data.userInfo === 'string' 
+									? JSON.parse(res.data.userInfo) 
+									: res.data.userInfo;
+							} else if (res.data.user) {
+								userInfo = res.data.user;
 							}
-							// 如果后端没有返回用户信息，创建一个基本的用户信息对象
-							else {
-								const basicUserInfo = {
-									username: this.loginForm.username,
-									nickname: this.loginForm.username,
-									avatar: '/static/logo.png'
+							
+							// 如果没有获取到用户信息，创建基本信息
+							if (!userInfo) {
+								userInfo = {
+									username: this.loginForm.username
 								};
-								uni.setStorageSync('userInfo', JSON.stringify(basicUserInfo));
-								console.log('创建基本用户信息:', basicUserInfo);
 							}
+							
+							// 确保有用户ID
+							if (res.data.userId) {
+								userInfo.id = res.data.userId;
+							} else if (res.data.id) {
+								userInfo.id = res.data.id;
+							}
+							
+							// 如果仍然没有用户ID，尝试从其他地方获取
+							if (!userInfo.id && res.data.user && res.data.user.id) {
+								userInfo.id = res.data.user.id;
+							}
+							
+							// 补充其他可能缺失的信息
+							userInfo.nickname = userInfo.nickname || this.loginForm.username;
+							userInfo.avatar = userInfo.avatar || '/static/logo.png';
+							
+							console.log('保存的用户信息:', userInfo);
+							
+							// 验证是否有用户ID
+							if (!userInfo.id) {
+								console.error('登录响应中未找到用户ID');
+								uni.showToast({
+									title: '登录异常，请重试',
+									icon: 'none'
+								});
+								return;
+							}
+							
+							// 保存用户信息
+							uni.setStorageSync('userInfo', JSON.stringify(userInfo));
 
 							uni.showToast({
 								title: '登录成功',

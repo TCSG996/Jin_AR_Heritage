@@ -6,7 +6,8 @@
 			<view class="backdrop-overlay"></view>
 			<view class="user" @tap="goToUserInfo">
 				<view class="avatar-container">
-					<image class="avatar" :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'" mode="aspectFill"></image>
+					<image class="avatar" :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'"
+						mode="aspectFill"></image>
 					<view class="avatar-border"></view>
 				</view>
 				<view class="message">
@@ -64,7 +65,8 @@
 
 		<!-- 加载状态 -->
 		<view class="loading" v-if="isLoading">
-			<uni-load-more status="loading" :iconSize="18" :contentText="{contentdown: '加载中...',contentrefresh: '加载中...',contentnomore: '没有更多数据了'}" />
+			<uni-load-more status="loading" :iconSize="18"
+				:contentText="{contentdown: '加载中...',contentrefresh: '加载中...',contentnomore: '没有更多数据了'}" />
 		</view>
 	</view>
 </template>
@@ -87,7 +89,7 @@
 		onShow() {
 			// 每次显示页面时重新获取用户信息
 			this.getUserInfo();
-			
+
 			// 检查是否从登录页返回
 			const pages = getCurrentPages();
 			const currentPage = pages[pages.length - 1];
@@ -120,32 +122,32 @@
 				try {
 					const userInfoStr = uni.getStorageSync('userInfo');
 					const token = uni.getStorageSync('token');
-					
-					console.log('当前存储的用户信息:', userInfoStr);
-					console.log('当前存储的token:', token);
-					
+
+					// console.log('当前存储的用户信息:', userInfoStr);
+					// console.log('当前存储的token:', token);
+
 					if (!token || !userInfoStr) {
-						console.log('token或用户信息不存在');
+						// console.log('token或用户信息不存在');
 						this.userInfo = null;
 						return;
 					}
 
 					this.isLoading = true;
-					
+
 					try {
 						// 尝试解析存储的用户信息
 						const userInfo = JSON.parse(userInfoStr);
-						console.log('解析后的用户信息:', userInfo);
-						
+						// console.log('解析后的用户信息:', userInfo);
+
 						// 检查是否包含必要的基本信息
 						if (userInfo && (userInfo.username || userInfo.nickname)) {
 							this.userInfo = userInfo;
-							console.log('设置用户信息成功:', this.userInfo);
-							
+							// console.log('设置用户信息成功:', this.userInfo);
+
 							// 获取收藏和订单数量
 							this.getMockData();
 						} else {
-							console.log('用户信息不包含必要的基本信息');
+							// console.log('用户信息不包含必要的基本信息');
 							uni.removeStorageSync('userInfo');
 							this.userInfo = null;
 						}
@@ -154,9 +156,9 @@
 						uni.removeStorageSync('userInfo');
 						this.userInfo = null;
 					}
-					
+
 				} catch (e) {
-					console.error('获取用户信息失败:', e);
+					// console.error('获取用户信息失败:', e);
 					uni.showToast({
 						title: '获取用户信息失败',
 						icon: 'none'

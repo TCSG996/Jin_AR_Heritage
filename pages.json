@@ -41,6 +41,12 @@
 				"navigationBarTitleText": "",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/my/userInfo",
+			"style": {
+				"navigationBarTitleText": "个人资料"
+			}
 		}
 
 	],
