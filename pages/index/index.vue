@@ -50,13 +50,13 @@
 				</view>
 				<view class="right">更多景点 ></view>
 			</view>
-			
+
 			<!-- 加载状态 -->
 			<view class="loading-container" v-if="isLoading">
 				<view class="loading-spinner"></view>
 				<text class="loading-text">加载中...</text>
 			</view>
-			
+
 			<!-- 列表 -->
 			<view class="list" v-else>
 				<view class="one" v-for="(item, index) in hotSpots" :key="index">
@@ -69,7 +69,7 @@
 					</view>
 					<view class="right" @click="viewSpot(item)">查看</view>
 				</view>
-				
+
 				<!-- 无数据提示 -->
 				<view class="empty-tip" v-if="hotSpots.length === 0">
 					<text>暂无热门景点数据</text>
@@ -108,7 +108,7 @@
 			// 获取首页数据
 			getHomeData() {
 				this.isLoading = true;
-				
+
 				// 使用API接口获取首页数据
 				api.user.home()
 					.then(res => {
@@ -145,31 +145,30 @@
 						uni.stopPullDownRefresh();
 					});
 			},
-			
+
 			// 使用模拟数据（仅在API请求失败时使用）
 			useMockData() {
-				this.hotSpots = [
-					{
+				this.hotSpots = [{
 						id: 1,
 						name: '晋祠景区',
 						desc: '千年晋祠，国宝圣地。始建于北魏，是国家AAAAA级旅游景区，以圣母殿、难老泉、鱼沼飞梁等景观闻名。',
-						image: '/static/spots/jinci.jpg'
+						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.mnvAYqyx7gGumBavcxDztwHaE8?w=263&h=180&c=7&r=0&o=5&pid=1.7'
 					},
 					{
 						id: 2,
 						name: '平遥古城',
 						desc: '世界文化遗产，中国保存最为完整的古城之一。城墙、街道、店铺保持着明清时期的原貌。',
-						image: '/static/spots/pingyao.jpg'
+						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.8dp4PNg2KBG_kv1Pt5rnpQHaEh?w=284&h=180&c=7&r=0&o=5&pid=1.7'
 					},
 					{
 						id: 3,
 						name: '五台山',
 						desc: '中国佛教四大名山之一，以其悠久的历史、宏伟的建筑和深厚的佛教文化底蕴而闻名。',
-						image: '/static/spots/wutai.jpg'
+						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.owG3i3vg-omVw_Zh22HeQwHaE8?w=253&h=180&c=7&r=0&o=5&pid=1.7'
 					}
 				];
 			},
-			
+
 			// 搜索功能
 			search(e) {
 				console.log('搜索:', e.value);
@@ -179,12 +178,12 @@
 					icon: 'none'
 				});
 			},
-			
+
 			// 输入事件
 			input(e) {
 				this.searchValue = e.value;
 			},
-			
+
 			// 查看景点详情
 			viewSpot(spot) {
 				console.log('查看景点:', spot);
@@ -433,12 +432,12 @@
 			}
 		}
 	}
-	
+
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);
 		}
-		
+
 		100% {
 			transform: rotate(360deg);
 		}

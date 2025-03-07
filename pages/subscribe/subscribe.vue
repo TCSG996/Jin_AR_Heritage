@@ -7,7 +7,7 @@
 		<!-- 用户信息 -->
 		<view class="user">
 			<view class="avatar-container">
-				<view class="avatar">
+			<view class="avatar">
 					<image :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'" mode="aspectFill">
 					</image>
 				</view>
@@ -103,6 +103,8 @@
 </template>
 
 <script>
+	import api from '@/api/index.js';
+	
 	export default {
 		data() {
 			return {
@@ -112,7 +114,8 @@
 				isLoading: false,
 				page: 1,
 				pageSize: 5,
-				userInfo: null // 添加用户信息
+				userInfo: null, // 添加用户信息
+				hasMore: true
 			};
 		},
 		onLoad() {
@@ -143,44 +146,50 @@
 		},
 		methods: {
 			// 获取用户信息
-			getUserInfo() {
+			async getUserInfo() {
 				try {
 					const userInfoStr = uni.getStorageSync('userInfo');
-					if (userInfoStr) {
-						this.userInfo = JSON.parse(userInfoStr);
-						// console.log('获取到用户信息:', this.userInfo);
-					} else {
-						// console.log('未找到用户信息，可能未登录');
-
-						// 尝试从token获取用户信息
-						this.getUserInfoFromToken();
+					const token = uni.getStorageSync('token');
+					
+					console.log('当前存储的用户信息:', userInfoStr);
+					console.log('当前存储的token:', token);
+					
+					if (!token || !userInfoStr) {
+						console.log('token或用户信息不存在');
+						this.userInfo = null;
+						return;
 					}
+
+					this.isLoading = true;
+					
+					try {
+						// 尝试解析存储的用户信息
+						const userInfo = JSON.parse(userInfoStr);
+						console.log('解析后的用户信息:', userInfo);
+						
+						// 检查是否包含必要的基本信息
+						if (userInfo && (userInfo.username || userInfo.nickname)) {
+							this.userInfo = userInfo;
+							console.log('设置用户信息成功:', this.userInfo);
+						} else {
+							console.log('用户信息不包含必要的基本信息');
+							uni.removeStorageSync('userInfo');
+							this.userInfo = null;
+						}
+					} catch (parseError) {
+						console.error('解析用户信息失败:', parseError);
+						uni.removeStorageSync('userInfo');
+						this.userInfo = null;
+					}
+					
 				} catch (e) {
-					// console.error('获取用户信息失败:', e);
-
-					// 尝试从token获取用户信息
-					this.getUserInfoFromToken();
-				}
-			},
-
-			// 从token获取用户信息
-			getUserInfoFromToken() {
-				const token = uni.getStorageSync('token');
-				if (token) {
-					// console.log('尝试从token获取用户信息');
-
-					// 创建一个基本的用户信息
-					const basicUserInfo = {
-						username: '用户' + token.substring(0, 6),
-						nickname: '用户' + token.substring(0, 6),
-						avatar: '/static/logo.png'
-					};
-
-					// 保存到本地存储和当前状态
-					uni.setStorageSync('userInfo', JSON.stringify(basicUserInfo));
-					this.userInfo = basicUserInfo;
-
-					// console.log('从token创建的基本用户信息:', basicUserInfo);
+					console.error('获取用户信息失败:', e);
+					uni.showToast({
+						title: '获取用户信息失败',
+						icon: 'none'
+					});
+				} finally {
+					this.isLoading = false;
 				}
 			},
 
@@ -272,106 +281,102 @@
 			},
 
 			loadPosts() {
-				// 模拟获取帖子数据
+				// 设置加载状态
 				this.isLoading = true;
 
-				// 模拟网络请求延迟
-				setTimeout(() => {
-					// 模拟不同分类的帖子数据
-					const mockPosts = [{
-							id: 1,
-							username: '晋祠文化爱好者',
-							avatar: '/static/logo.png',
-							time: '2小时前',
-							category: '景点攻略',
-							title: '晋祠游览攻略，千年古建筑的魅力所在',
-							content: '晋祠是中国现存最早的皇家园林，始建于北魏，距今已有1400多年历史。这里有着众多国宝级文物和建筑，如难老泉、侍女像、圣母像等，值得细细品味...',
-							images: ['/static/subscribe/1.jpg', '/static/subscribe/1.jpg',
-								'/static/subscribe/1.jpg'
-							],
-							likes: 128,
-							comments: 36,
-							isLiked: false,
-							isFavorited: false
-						},
-						{
-							id: 2,
-							username: '文物研究员',
-							avatar: '/static/logo.png',
-							time: '昨天',
-							category: '文物鉴赏',
-							title: '晋祠圣母像：宋代彩塑艺术的巅峰之作',
-							content: '晋祠圣母像是中国宋代彩塑艺术的代表作品，其精湛的工艺和生动的表现力，展现了宋代工匠的高超技艺。圣母像神态庄重，衣纹流畅，是研究宋代雕塑艺术的重要实物资料...',
-							images: ['/static/subscribe/1.jpg', '/static/subscribe/1.jpg'],
-							likes: 95,
-							comments: 28,
-							isLiked: false,
-							isFavorited: false
-						},
-						{
-							id: 3,
-							username: 'AR技术爱好者',
-							avatar: '/static/logo.png',
-							time: '3天前',
-							category: 'AR体验',
-							title: '晋祠AR导览体验：科技与文化的完美结合',
-							content: '今天体验了晋祠的AR导览功能，通过手机就能看到各个建筑的历史变迁和文物复原效果，非常震撼！特别是难老泉和侍女像的AR展示，让人仿佛穿越回宋代...',
-							images: ['/static/subscribe/1.jpg', '/static/subscribe/1.jpg',
-								'/static/subscribe/1.jpg'
-							],
-							likes: 156,
-							comments: 42,
-							isLiked: false,
-							isFavorited: false
-						},
-						{
-							id: 4,
-							username: '旅行达人',
-							avatar: '/static/logo.png',
-							time: '上周',
-							category: '旅行分享',
-							title: '晋祠一日游：最佳路线规划与美食推荐',
-							content: '分享一下我的晋祠一日游攻略，包括交通、门票、最佳游览路线以及周边美食推荐。建议上午先游览难老泉和水镜台，下午参观圣母殿和侍女像，傍晚可以去周边品尝太原特色美食...',
-							images: ['/static/subscribe/1.jpg'],
-							likes: 87,
-							comments: 23,
-							isLiked: false,
-							isFavorited: false
-						},
-						{
-							id: 5,
-							username: '历史研究者',
-							avatar: '/static/logo.png',
-							time: '上个月',
-							category: '文物鉴赏',
-							title: '晋祠建筑群的历史沿革与文化价值',
-							content: '晋祠始建于北魏，历经唐宋元明清多次修缮扩建，形成了现在的规模。其中宋代遗存最为珍贵，如宋代的献殿、圣母殿、鱼沼飞梁等，都是中国古代建筑史上的重要实例...',
-							images: ['/static/subscribe/1.jpg', '/static/subscribe/1.jpg'],
-							likes: 112,
-							comments: 31,
-							isLiked: false,
-							isFavorited: false
+				// 准备请求参数
+				const params = {
+					page: this.page,
+					pageSize: this.pageSize,
+					category: this.activeCategory === '全部' ? '' : this.activeCategory
+				};
+
+				// 调用API获取帖子数据
+				api.user.getPosts(params)
+					.then(res => {
+						if (res && res.code === 200 && res.data && res.data.list) {
+							const posts = res.data.list.map(post => ({
+								id: post.id,
+								title: post.title,
+								content: post.summary,
+								images: post.coverImage ? [post.coverImage] : [],
+								username: '文化爱好者', // 默认用户名
+								avatar: '/static/logo.png', // 默认头像
+								time: this.formatTime(new Date(post.createTime).getTime()),
+								category: this.activeCategory === '全部' ? '文化分享' : this.activeCategory,
+								likes: post.viewCount || 0,
+								comments: 0,
+								isLiked: false,
+								isFavorited: false
+							}));
+
+							// 首次加载或切换分类时替换数据，加载更多时追加数据
+							if (this.page === 1) {
+								this.postList = posts;
+							} else {
+								this.postList = [...this.postList, ...posts];
+							}
+
+							// 判断是否还有更多数据
+							const total = res.data.total || 0;
+							this.hasMore = this.postList.length < total;
+
+							// 如果没有数据显示提示
+							if (posts.length === 0 && this.page === 1) {
+								uni.showToast({
+									title: '暂无数据',
+									icon: 'none'
+								});
+							}
+						} else {
+							uni.showToast({
+								title: res?.msg || '获取帖子失败',
+								icon: 'none'
+							});
 						}
-					];
-
-					// 根据分类筛选帖子
-					let filteredPosts = [];
-					if (this.activeCategory === '全部') {
-						filteredPosts = mockPosts;
-					} else {
-						filteredPosts = mockPosts.filter(post => post.category === this.activeCategory);
-					}
-
-					// 首次加载或切换分类时替换数据，加载更多时追加数据
-					if (this.page === 1) {
-						this.postList = filteredPosts;
-					} else {
-						this.postList = [...this.postList, ...filteredPosts];
-					}
-
-					this.isLoading = false;
-				}, 500);
+					})
+					.catch(err => {
+						console.error('获取帖子列表失败:', err);
+						uni.showToast({
+							title: '网络请求失败',
+							icon: 'none'
+						});
+					})
+					.finally(() => {
+						this.isLoading = false;
+						uni.stopPullDownRefresh();
+					});
 			},
+
+			// 格式化时间
+			formatTime(timestamp) {
+				if (!timestamp) return '未知时间';
+				
+				const now = new Date().getTime();
+				const diff = now - timestamp;
+				
+				// 小于1小时
+				if (diff < 3600000) {
+					const minutes = Math.floor(diff / 60000);
+					return `${minutes}分钟前`;
+				}
+				// 小于24小时
+				else if (diff < 86400000) {
+					const hours = Math.floor(diff / 3600000);
+					return `${hours}小时前`;
+				}
+				// 小于7天
+				else if (diff < 604800000) {
+					const days = Math.floor(diff / 86400000);
+					return `${days}天前`;
+				}
+				// 大于7天显示具体日期
+				else {
+					const date = new Date(timestamp);
+					return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+				}
+			},
+
 			changeCategory(category) {
 				if (this.activeCategory === category) return;
 
@@ -381,7 +386,7 @@
 				this.loadPosts();
 			},
 			loadMorePosts() {
-				if (this.isLoading) return;
+				if (this.isLoading || !this.hasMore) return;
 
 				this.page++;
 				this.loadPosts();
@@ -446,30 +451,53 @@
 					// 隐藏加载中
 					uni.hideLoading();
 
-					// 创建token和用户信息
-					const token = 'mock_token_' + Date.now();
-					const userInfo = {
-						username: loginData.username,
-						nickname: '张三',
-						avatar: '/static/logo.png'
+					// 模拟登录响应数据
+					const response = {
+						code: 200,
+						msg: "登录成功",
+						data: {
+							token: "fdc0a43d65a041458b868dd79a36a6ea",
+							userInfo: {
+								id: 1,
+								username: "zhangsan",
+								nickname: "张三",
+								avatar: "/static/logo.png"
+							}
+						}
 					};
 
-					// 保存到本地存储
-					uni.setStorageSync('token', token);
-					uni.setStorageSync('userInfo', JSON.stringify(userInfo));
+					console.log('登录响应数据:', response);
 
-					// 更新当前状态
-					this.userInfo = userInfo;
+					if (response.code === 200 && response.data) {
+						// 保存token
+						uni.setStorageSync('token', response.data.token);
+						console.log('保存token成功:', response.data.token);
 
-					// 显示登录成功
-					uni.showToast({
-						title: '登录成功',
-						icon: 'success'
-					});
+						// 保存用户信息
+						const userInfoStr = JSON.stringify(response.data.userInfo);
+						uni.setStorageSync('userInfo', userInfoStr);
+						console.log('保存用户信息成功:', userInfoStr);
 
-					// 刷新页面
-					this.getUserInfo();
-					this.debugLocalStorage();
+						// 更新当前状态
+						this.userInfo = response.data.userInfo;
+						console.log('更新组件状态成功:', this.userInfo);
+
+						// 显示登录成功
+						uni.showToast({
+							title: '登录成功',
+							icon: 'success'
+						});
+
+						// 刷新页面状态
+						this.getUserInfo();
+						console.log('刷新后的用户信息:', this.userInfo);
+					} else {
+						console.error('登录响应异常:', response);
+						uni.showToast({
+							title: response.msg || '登录失败',
+							icon: 'none'
+						});
+					}
 				}, 1000);
 			},
 		},
@@ -529,11 +557,11 @@
 				width: 130rpx;
 				height: 130rpx;
 
-				.avatar {
-					width: 120rpx;
-					height: 120rpx;
-					border-radius: 50%;
-					overflow: hidden;
+			.avatar {
+				width: 120rpx;
+				height: 120rpx;
+				border-radius: 50%;
+				overflow: hidden;
 					border: 4rpx solid #fff;
 					box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
 					position: absolute;
@@ -541,9 +569,9 @@
 					left: 5rpx;
 					z-index: 2;
 
-					image {
-						width: 100%;
-						height: 100%;
+				image {
+					width: 100%;
+					height: 100%;
 						object-fit: cover;
 					}
 				}
@@ -625,7 +653,7 @@
 							background: linear-gradient(135deg, #4a90e2, #57b6e9);
 							padding: 2rpx 4rpx;
 
-							image {
+					image {
 								width: 70rpx;
 								height: 40rpx;
 							}

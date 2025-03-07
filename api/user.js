@@ -35,5 +35,26 @@ export default {
 	// 获取首页数据
 	home: () => {
 		return request('/api/home', 'GET');
-	}
+	},
+
+	// 获取论坛帖子列表
+	getPosts: (params) => {
+		return request('/api/home/articles', 'GET', params);
+	},
+
+	// 获取订单列表
+	// getOrders: (params) => {
+	// 	return request('/api/shop/orders', 'GET', params);
+	// },
+
+	// // 获取用户收藏的建筑
+	// getCollectedBuildings: (params) => {
+	// 	return request('//api/user/favorites/buildings', 'GET', params);
+	// },
+
+	// // 获取用户收藏的帖子
+	// getCollectedPosts: (params) => {
+	// 	return request('/api/user/favorites/articles', 'GET', params);
+	// },
+	
 };
