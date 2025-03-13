@@ -48,7 +48,7 @@
 					<text class="icon">📍</text>
 					热门景点
 				</view>
-				<view class="right">更多景点 ></view>
+				<view class="right" @click="gteMore">更多景点 ></view>
 			</view>
 
 			<!-- 加载状态 -->
@@ -61,7 +61,7 @@
 			<view class="list" v-else>
 				<view class="one" v-for="(item, index) in hotSpots" :key="index">
 					<view class="left">
-						<image :src="item.image" mode="aspectFill"></image>
+						<image :src="`${baseURL}${item.image}`" mode="aspectFill"></image>
 					</view>
 					<view class="content">
 						<text class="name">{{ item.name }}</text>
@@ -91,7 +91,8 @@
 			return {
 				hotSpots: [], // 热门景点数据
 				isLoading: false, // 加载状态
-				searchValue: '' // 搜索值
+				searchValue: '', // 搜索值
+				baseURL: 'http://192.168.194.9:8080'
 			}
 		},
 		onLoad() {
@@ -113,17 +114,16 @@
 				api.user.home()
 					.then(res => {
 						console.log('首页数据:', res);
-						if (res && res.code === 200 && res.data && res.data.hotSpots) {
+						if (res && res.code === 200 && res.data && res.data.featuredBuildings) {
 							// 获取成功，更新热门景点数据
-							this.hotSpots = res.data.hotSpots.map(spot => ({
+							this.hotSpots = res.data.featuredBuildings.map(spot => ({
 								id: spot.id,
 								name: spot.name,
-								desc: spot.description || spot.desc,
-								image: spot.image || spot.imageUrl || '/static/spot-default.png'
+								desc: spot.description,
+								image: spot.arModelUrl || '/static/spot-default.png'
 							}));
 						} else {
-							// 获取失败，使用模拟数据
-							this.useMockData();
+							// 获取失败，显示提示
 							uni.showToast({
 								title: res?.msg || '获取数据失败',
 								icon: 'none'
@@ -131,9 +131,8 @@
 						}
 					})
 					.catch(err => {
-						// 请求出错，使用模拟数据
+						// 请求出错
 						console.error('请求首页数据出错:', err);
-						this.useMockData();
 						uni.showToast({
 							title: '网络请求失败',
 							icon: 'none'
@@ -144,29 +143,6 @@
 						// 停止下拉刷新动画
 						uni.stopPullDownRefresh();
 					});
-			},
-
-			// 使用模拟数据（仅在API请求失败时使用）
-			useMockData() {
-				this.hotSpots = [{
-						id: 1,
-						name: '晋祠景区',
-						desc: '千年晋祠，国宝圣地。始建于北魏，是国家AAAAA级旅游景区，以圣母殿、难老泉、鱼沼飞梁等景观闻名。',
-						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.mnvAYqyx7gGumBavcxDztwHaE8?w=263&h=180&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 2,
-						name: '平遥古城',
-						desc: '世界文化遗产，中国保存最为完整的古城之一。城墙、街道、店铺保持着明清时期的原貌。',
-						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.8dp4PNg2KBG_kv1Pt5rnpQHaEh?w=284&h=180&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 3,
-						name: '五台山',
-						desc: '中国佛教四大名山之一，以其悠久的历史、宏伟的建筑和深厚的佛教文化底蕴而闻名。',
-						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.owG3i3vg-omVw_Zh22HeQwHaE8?w=253&h=180&c=7&r=0&o=5&pid=1.7'
-					}
-				];
 			},
 
 			// 搜索功能
@@ -190,6 +166,13 @@
 				uni.navigateTo({
 					url: `/pages/spot/detail?id=${spot.id}`
 				});
+			},
+
+			// 页面跳转
+			gteMore() {
+				uni.navigateTo({
+					url: '/pages/index/more'
+				})
 			}
 		}
 	}

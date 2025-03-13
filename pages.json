@@ -47,6 +47,13 @@
 			"style": {
 				"navigationBarTitleText": "个人资料"
 			}
+		},
+		{
+			"path" : "pages/index/more",
+			"style" : 
+			{
+				"navigationBarTitleText" : "景点列表"
+			}
 		}
 
 	],
