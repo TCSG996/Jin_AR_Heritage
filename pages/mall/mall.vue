@@ -2,7 +2,7 @@
 	<view class="mall-container">
 		<!-- 顶部背景区域 -->
 		<view class="header-bg">
-			<image class="bg-image" src="/static/mall/生成古风动画.png" mode="aspectFill"></image>
+			<image class="bg-image" src="/static/mall/Ancient.png" mode="aspectFill"></image>
 			<view class="overlay"></view>
 			<view class="title">晋味山西</view>
 
@@ -87,101 +87,32 @@
 </template>
 
 <script>
+	import { categories, hotProducts, featureProducts, newProducts } from '@/static/mock/mall.js'
+
 	export default {
 		data() {
 			return {
-				categories: [{
-						id: 1,
-						name: '趣味文创',
-						icon: '../../static/mall/category-1.png'
-					},
-					{
-						id: 2,
-						name: '特产美食',
-						icon: '../../static/mall/category-2.jpg'
-					},
-					{
-						id: 3,
-						name: '特色非遗',
-						icon: '/static/mall/category-3.jpg'
-					}
-				],
-				hotProducts: [{
-						id: 101,
-						name: '晋祠文创杯',
-						price: 39.9,
-						image: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.sfUbVJqLxL7FwoMoSoiCEgHaE7?w=267&h=180&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 102,
-						name: '山西老陈醋',
-						price: 29.9,
-						image: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.6BX1avY0f4_2aYOJSpZoPgHaHa?w=207&h=207&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 103,
-						name: '手工剪纸',
-						price: 19.9,
-						image: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.pfaRHCYBwyjYCiwtqXr01QHaKd?w=129&h=184&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 104,
-						name: '太谷饼',
-						price: 25.8,
-						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.78A-kzuqg6lWKP6kiZaepwAAAA?w=224&h=192&c=7&r=0&o=5&pid=1.7'
-					}
-				],
-				featureProducts: [{
-						id: 201,
-						name: '晋祠纪念套装',
-						desc: '含晋祠微缩模型、明信片等',
-						price: 99.0,
-						image: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.9p1AgeaOAQLcIqBWaMtJWwHaFj?w=217&h=180&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 202,
-						name: '山西特色小吃礼盒',
-						desc: '囊括山西特色美食',
-						price: 128.0,
-						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C._ND3H6XEzGrCKzJoKM6svgHaG3?w=226&h=210&c=7&r=0&o=5&pid=1.7'
-					}
-				],
-				newProducts: [{
-						id: 301,
-						name: '晋祠文创T恤',
-						price: 89.0,
-						image: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.O5f1lauJZlRJam5ztRMRBgHaFP?w=273&h=193&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 302,
-						name: '山西民间工艺品',
-						price: 159.0,
-						image: 'https://tse1-mm.cn.bing.net/th/id/OIP-C._Zt8t6i4cnB4_--0GV_EcQHaFt?w=262&h=202&c=7&r=0&o=5&pid=1.7'
-					},
-					{
-						id: 303,
-						name: '晋祠AR互动书',
-						price: 49.9,
-						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.PGbj6sualkOgEPwYBCixPQHaHa?w=160&h=180&c=7&r=0&o=5&pid=1.7'
-					}
-				]
-			};
+				categories: categories,
+				hotProducts: hotProducts.slice(0, 4),
+				featureProducts: featureProducts.slice(0, 2),
+				newProducts: newProducts.slice(0, 3)
+			}
 		},
 		methods: {
 			navigateToCategory(id) {
 				uni.navigateTo({
 					url: `/pages/mall/category?id=${id}`
-				});
+				})
 			},
 			navigateToDetail(id) {
 				uni.navigateTo({
 					url: `/pages/mall/detail?id=${id}`
-				});
+				})
 			},
 			navigateToMore(type) {
 				uni.navigateTo({
 					url: `/pages/mall/list?type=${type}`
-				});
+				})
 			}
 		}
 	}

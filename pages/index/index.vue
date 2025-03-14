@@ -14,27 +14,27 @@
 		<view class="feature">
 			<!-- 首页 -->
 			<view class="home">
-				<image src="/static/taber/文物资源-copy.png" mode="aspectFit"></image>
+				<image src="/static/taber/cultural.png" mode="aspectFit"></image>
 				<view class="text">首页</view>
 			</view>
 			<!-- 景点导览 -->
 			<view class="home">
-				<image src="/static/taber/论坛.png" mode="aspectFit"></image>
+				<image src="/static/taber/forum_select.png" mode="aspectFit"></image>
 				<view class="text">导览</view>
 			</view>
 			<!-- AR体验 -->
 			<view class="home">
-				<image src="/static/taber/AR扫一扫.png" mode="aspectFit"></image>
+				<image src="/static/taber/AR_select.png" mode="aspectFit"></image>
 				<view class="text">AR体验</view>
 			</view>
 			<!-- 文物展示 -->
 			<view class="home">
-				<image src="/static/taber/文物资源-copy.png" mode="aspectFit"></image>
+				<image src="/static/taber/cultural.png" mode="aspectFit"></image>
 				<view class="text">文物</view>
 			</view>
 			<!-- 预约讲解 -->
 			<view class="home">
-				<image src="/static/taber/预约.png" mode="aspectFit"></image>
+				<image src="/static/taber/time_copy.png" mode="aspectFit"></image>
 				<view class="text">预约</view>
 			</view>
 		</view>
