@@ -1,0 +1,163 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/subscribe/subscribe",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/AR/AR",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/mall",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/userInfo",
+			"style": {
+				"navigationBarTitleText": "个人资料"
+			}
+		},
+		{
+			"path": "pages/index/more",
+			"style": {
+				"navigationBarTitleText": "景点列表"
+			}
+		},
+		{
+			"path": "pages/mall/list",
+			"style": {
+				"navigationBarTitleText": "商品列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/category",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/search",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/order",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/checkout",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mall/address-list",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/settings",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/guide/guide",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/guide/detail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"list": [{
+				"iconPath": "/static/taber/cultural_copy.png",
+				"selectedIconPath": "/static/taber/cultural.png",
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"iconPath": "/static/taber/forum.png",
+				"selectedIconPath": "/static/taber/forum_select.png",
+				"pagePath": "pages/subscribe/subscribe",
+				"text": "论坛"
+			},
+			{
+				"iconPath": "/static/taber/AR.png",
+				"selectedIconPath": "/static/taber/AR_select.png",
+				"pagePath": "pages/AR/AR",
+				"text": "AR"
+			},
+			{
+				"iconPath": "/static/taber/shop.png",
+				"selectedIconPath": "/static/taber/shop_select.png",
+				"pagePath": "pages/mall/mall",
+				"text": "商城"
+			},
+			{
+				"iconPath": "/static/taber/my.png",
+				"selectedIconPath": "/static/taber/my_copy.png",
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+
+		]
+	}
+}
