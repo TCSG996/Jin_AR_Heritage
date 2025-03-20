@@ -10,8 +10,8 @@
 		</view>
 
 		<!-- 搜索框组件开始 -->
-		<uni-search-bar class="custom-search" placeholder="搜索景点、文物、活动" @confirm="search" @input="input"
-			:radius="90" bgColor="rgba(255, 255, 255, 0.98)" cancelButton="none"></uni-search-bar>
+		<uni-search-bar class="custom-search" placeholder="搜索景点、文物、活动" @confirm="search" @input="input" :radius="90"
+			bgColor="rgba(255, 255, 255, 0.98)" cancelButton="none"></uni-search-bar>
 		<!-- 搜索框组件结束 -->
 
 		<!-- 功能区域模块开始 -->
@@ -103,12 +103,12 @@
 					{
 						icon: '/static/index/AR.png',
 						text: 'AR体验',
-						path: '/pages/AR/AR'
+						path: '/pages/index/AR'
 					},
 					{
 						icon: '/static/index/heritage.png',
 						text: '文物展示',
-						path: '/pages/heritage/list'
+						path: '/pages/index/heritage/list'
 					},
 					{
 						icon: '/static/index/book.png',
@@ -219,13 +219,13 @@
 		overflow: hidden;
 
 		.backdrop {
-			background: linear-gradient(135deg, 
-				#2c3448 0%,    // 深邃的藏青色
-				#3a4a66 25%,   // 暗蓝灰色
-				#4a5d80 50%,   // 青灰色
-				#647899 75%,   // 淡蓝灰色
-				#7a8ba8 100%   // 浅灰蓝色
-			);
+			background: linear-gradient(135deg,
+					#2c3448 0%, // 深邃的藏青色
+					#3a4a66 25%, // 暗蓝灰色
+					#4a5d80 50%, // 青灰色
+					#647899 75%, // 淡蓝灰色
+					#7a8ba8 100% // 浅灰蓝色
+				);
 			width: 100%;
 			height: 480rpx;
 			border-bottom-left-radius: 60rpx;
@@ -243,10 +243,9 @@
 				right: 0;
 				height: 120rpx;
 				background: linear-gradient(to bottom,
-					rgba(255, 255, 255, 0.1) 0%,
-					rgba(255, 255, 255, 0.05) 50%,
-					transparent 100%
-				);
+						rgba(255, 255, 255, 0.1) 0%,
+						rgba(255, 255, 255, 0.05) 50%,
+						transparent 100%);
 				backdrop-filter: blur(5px);
 			}
 
@@ -258,11 +257,10 @@
 				left: -50%;
 				right: -50%;
 				bottom: -50%;
-				background: radial-gradient(circle at center, 
-					rgba(255, 255, 255, 0.15) 0%,
-					rgba(255, 255, 255, 0.1) 25%,
-					transparent 50%
-				);
+				background: radial-gradient(circle at center,
+						rgba(255, 255, 255, 0.15) 0%,
+						rgba(255, 255, 255, 0.1) 25%,
+						transparent 50%);
 				animation: rotateGradient 15s linear infinite;
 			}
 
@@ -282,13 +280,11 @@
 					left: -100%;
 					width: 200%;
 					height: 200%;
-					background: repeating-linear-gradient(
-						45deg,
-						rgba(255, 255, 255, 0.05) 0%,
-						rgba(255, 255, 255, 0.05) 1px,
-						transparent 1px,
-						transparent 10px
-					);
+					background: repeating-linear-gradient(45deg,
+							rgba(255, 255, 255, 0.05) 0%,
+							rgba(255, 255, 255, 0.05) 1px,
+							transparent 1px,
+							transparent 10px);
 					animation: moveWave 20s linear infinite;
 				}
 
@@ -300,10 +296,8 @@
 					left: 0;
 					right: 0;
 					bottom: 0;
-					background-image: radial-gradient(
-						rgba(255, 255, 255, 0.1) 1px,
-						transparent 1px
-					);
+					background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px,
+							transparent 1px);
 					background-size: 20rpx 20rpx;
 					animation: twinkle 4s ease-in-out infinite;
 				}
@@ -314,7 +308,7 @@
 				top: 60rpx;
 				left: 40rpx;
 				z-index: 2;
-				
+
 				.main-text {
 					font-size: 56rpx;
 					color: #ffffff;
@@ -325,7 +319,7 @@
 					letter-spacing: 8rpx;
 					position: relative;
 					animation: fadeInUp 0.8s ease-out;
-					
+
 					&::after {
 						content: '';
 						position: absolute;
@@ -333,14 +327,13 @@
 						left: 0;
 						width: 140rpx;
 						height: 6rpx;
-						background: linear-gradient(to right, 
-							rgba(255, 255, 255, 0.9),
-							rgba(255, 255, 255, 0)
-						);
+						background: linear-gradient(to right,
+								rgba(255, 255, 255, 0.9),
+								rgba(255, 255, 255, 0));
 						border-radius: 6rpx;
 					}
 				}
-				
+
 				.sub-text {
 					font-size: 30rpx;
 					color: rgba(255, 255, 255, 0.9);
@@ -349,7 +342,7 @@
 					position: relative;
 					padding-left: 24rpx;
 					animation: fadeInUp 0.8s ease-out 0.2s both;
-					
+
 					&::before {
 						content: '';
 						position: absolute;
@@ -377,7 +370,7 @@
 				box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
 				border-radius: 90rpx;
 				padding: 0 20rpx;
-				
+
 				.uni-searchbar__box {
 					border-width: 0;
 				}
@@ -420,7 +413,7 @@
 					justify-content: center;
 					margin-bottom: 12rpx;
 					transition: all 0.3s ease;
-					
+
 					image {
 						width: 48rpx;
 						height: 48rpx;
@@ -577,14 +570,15 @@
 							display: flex;
 							align-items: center;
 							margin-top: 12rpx;
-							
-							.rating, .visits {
+
+							.rating,
+							.visits {
 								display: flex;
 								align-items: center;
 								font-size: 22rpx;
 								color: #666;
 								margin-right: 20rpx;
-								
+
 								text {
 									margin-left: 4rpx;
 								}
@@ -606,13 +600,13 @@
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					
+
 					image {
 						width: 240rpx;
 						height: 240rpx;
 						margin-bottom: 20rpx;
 					}
-					
+
 					text {
 						font-size: 26rpx;
 						color: #999;
@@ -646,6 +640,7 @@
 		0% {
 			transform: rotate(0deg);
 		}
+
 		100% {
 			transform: rotate(360deg);
 		}
@@ -655,15 +650,19 @@
 		0% {
 			transform: translateX(0) translateY(0);
 		}
+
 		100% {
 			transform: translateX(50%) translateY(-50%);
 		}
 	}
 
 	@keyframes twinkle {
-		0%, 100% {
+
+		0%,
+		100% {
 			opacity: 0.5;
 		}
+
 		50% {
 			opacity: 1;
 		}
@@ -674,6 +673,7 @@
 			opacity: 0;
 			transform: translateY(20rpx);
 		}
+
 		to {
 			opacity: 1;
 			transform: translateY(0);
