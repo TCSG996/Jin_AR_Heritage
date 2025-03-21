@@ -165,10 +165,35 @@
 				<text class="btn-icon">🔍</text>
 				AR体验
 			</button>
-			<button class="map-btn">
+			<button class="map-btn" @click="openMap">
 				<text class="btn-icon">🗺️</text>
 				查看地图
 			</button>
+		</view>
+
+		<!-- 地图弹窗 -->
+		<view class="map-popup" v-if="showMapPopup">
+			<view class="map-container">
+				<view class="map-header">
+					<text class="map-title">{{heritage.name}}的位置</text>
+					<view class="close-btn" @click="closeMapPopup">✕</view>
+				</view>
+				<map 
+					id="myMap"
+					class="location-map" 
+					:latitude="mapLocation.latitude" 
+					:longitude="mapLocation.longitude"
+					:markers="mapMarkers"
+					scale="14"
+					show-location
+					type="amap"
+					:style="{height: '100%'}"
+				></map>
+				<view class="map-footer">
+					<text class="address">{{heritage.location}}</text>
+					<button class="navigation-btn" @click="openSystemMap">导航到此处</button>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -221,7 +246,14 @@
 						label: '保存状况',
 						value: 3.8
 					}
-				]
+				],
+				showMapPopup: false,
+				mapLocation: {
+					latitude: 37.87059,
+					longitude: 112.548879
+				},
+				mapMarkers: [],
+				mapContext: null
 			};
 		},
 		computed: {
@@ -249,6 +281,9 @@
 				// 如果没有图片，设置为空数组
 				this.heritage.images = []
 			}
+
+			// 预设地图位置
+			this.setMapLocation();
 		},
 		onPageScroll(e) {
 			this.scrollTop = e.scrollTop;
@@ -387,6 +422,146 @@
 					this.navbarShadow = 'none';
 					this.navbarBackground = 'transparent';
 				}
+			},
+			openMap() {
+				// 检查是否有位置信息
+				if (!this.heritage.location) {
+					uni.showToast({
+						title: '暂无位置信息',
+						icon: 'none'
+					});
+					return;
+				}
+				
+				// 根据不同文物设置不同位置（模拟数据）
+				this.setMapLocation();
+				
+				// 检查地图模块是否可用
+				uni.getSystemInfo({
+					success: (sysInfo) => {
+						console.log('当前系统:', sysInfo.platform);
+						console.log('当前SDK版本:', sysInfo.SDKVersion);
+						
+						// 弹出确认框
+						uni.showModal({
+							title: '地图导航',
+							content: `是否打开地图查看"${this.heritage.name}"的位置？`,
+							confirmText: '打开',
+							cancelText: '应用内查看',
+							success: (res) => {
+								if (res.confirm) {
+									// 打开系统地图
+									try {
+										this.openSystemMap();
+									} catch (err) {
+										console.error('打开地图出错:', err);
+										uni.showToast({
+											title: '地图打开失败',
+											icon: 'none'
+										});
+										// 如果系统地图打开失败，显示应用内地图
+										this.showMapPopup = true;
+									}
+								} else if (res.cancel) {
+									// 显示应用内地图
+									this.showMapPopup = true;
+								}
+							}
+						});
+					},
+					fail: (err) => {
+						console.error('获取系统信息失败:', err);
+						// 直接显示应用内地图
+						this.showMapPopup = true;
+					}
+				});
+			},
+
+			setMapLocation() {
+				// 根据文物ID设置不同的地图位置（模拟数据）
+				// 实际应用中这些坐标应从后端API获取
+				switch (this.heritage.id) {
+					case 1: // 晋祠圣母殿
+						this.mapLocation = {
+							latitude: 37.708904,
+							longitude: 112.434296
+						};
+						break;
+					case 2: // 应县木塔
+						this.mapLocation = {
+							latitude: 39.554561,
+							longitude: 113.187607
+						};
+						break;
+					case 3: // 平遥古城
+						this.mapLocation = {
+							latitude: 37.201266,
+							longitude: 112.174349
+						};
+						break;
+					case 4: // 云冈石窟
+						this.mapLocation = {
+							latitude: 40.110764,
+							longitude: 113.132103
+						};
+						break;
+					default: // 默认太原市
+						this.mapLocation = {
+							latitude: 37.87059,
+							longitude: 112.548879
+						};
+				}
+
+				// 设置地图标记
+				this.mapMarkers = [{
+					id: 1,
+					latitude: this.mapLocation.latitude,
+					longitude: this.mapLocation.longitude,
+					title: this.heritage.name,
+					iconPath: '/static/index/heritage.png', // 使用已有图标
+					width: 32,
+					height: 32,
+					callout: {
+						content: this.heritage.name,
+						color: '#ffffff',
+						fontSize: 14,
+						borderRadius: 4,
+						bgColor: '#8B4513',
+						padding: 5,
+						display: 'ALWAYS'
+					}
+				}];
+			},
+
+			openSystemMap() {
+				// 打开系统地图
+				uni.openLocation({
+					latitude: this.mapLocation.latitude,
+					longitude: this.mapLocation.longitude,
+					name: this.heritage.name,
+					address: this.heritage.location,
+					success: () => {
+						console.log('地图打开成功');
+					},
+					fail: (err) => {
+						console.error('地图打开失败', err);
+						uni.showToast({
+							title: '地图打开失败',
+							icon: 'none'
+						});
+						// 如果系统地图打开失败，显示应用内地图
+						this.showMapPopup = true;
+					}
+				});
+			},
+
+			closeMapPopup() {
+				this.showMapPopup = false;
+			},
+
+			onReady() {
+				// 创建地图上下文对象
+				this.mapContext = uni.createMapContext('myMap', this);
 			}
 		}
 	}
@@ -1069,8 +1244,8 @@
 			background-color: rgba(255, 255, 255, 0.9);
 
 			button {
-				width: 200rpx;
-				height: 80rpx;
+				// width: 200rpx;
+				// height: 80rpx;
 				border-radius: 40rpx;
 				font-size: 28rpx;
 				display: flex;
@@ -1100,6 +1275,98 @@
 				background-color: rgba(139, 69, 19, 0.1);
 				color: #8B4513;
 				font-weight: 500;
+			}
+		}
+
+		.map-popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 100;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.map-container {
+				width: 90%;
+				height: 80%;
+				background-color: #fff;
+				border-radius: 20rpx;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
+
+				.map-header {
+					height: 100rpx;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 0 30rpx;
+					border-bottom: 1rpx solid #f0f0f0;
+
+					.map-title {
+						font-size: 34rpx;
+						font-weight: bold;
+						color: #333;
+					}
+
+					.close-btn {
+						width: 60rpx;
+						height: 60rpx;
+						border-radius: 30rpx;
+						background-color: #f0f0f0;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 30rpx;
+						color: #666;
+
+						&:active {
+							background-color: #e0e0e0;
+						}
+					}
+				}
+
+				.location-map {
+					flex: 1;
+					width: 100%;
+				}
+
+				.map-footer {
+					height: 150rpx;
+					padding: 20rpx 30rpx;
+					border-top: 1rpx solid #f0f0f0;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+
+					.address {
+						font-size: 28rpx;
+						color: #666;
+					}
+
+					.navigation-btn {
+						height: 80rpx;
+						border-radius: 40rpx;
+						background: linear-gradient(to right, #D2691E, #8B4513);
+						color: white;
+						font-size: 28rpx;
+						font-weight: 500;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);
+						margin: 0;
+
+						&:active {
+							transform: scale(0.98);
+						}
+					}
+				}
 			}
 		}
 	}
