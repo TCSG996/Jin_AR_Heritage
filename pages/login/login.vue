@@ -5,7 +5,7 @@
 			<view class="bg-circle circle-1"></view>
 			<view class="bg-circle circle-2"></view>
 			<view class="bg-circle circle-3"></view>
-			<image class="bg-pattern" src="/static/login/pattern.png" mode="aspectFill"></image>
+			<view class="bg-pattern"></view>
 		</view>
 
 		<!-- 返回按钮 -->
@@ -511,11 +511,20 @@
 			
 			.bg-pattern {
 				position: absolute;
-				width: 100%;
-				height: 100%;
-				opacity: 0.05;
-				z-index: -1;
-				/* 使用传统建筑纹理图案作为背景 */
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				/* 使用重复渐变替代图片，避免图片路径错误 */
+				background-image: 
+					repeating-linear-gradient(45deg, 
+						rgba(255, 255, 255, 0.05) 0px, 
+						rgba(255, 255, 255, 0.05) 2px, 
+						transparent 2px, 
+						transparent 12px);
+				opacity: 0.3;
+				mix-blend-mode: overlay;
+				z-index: 1;
 			}
 		}
 		

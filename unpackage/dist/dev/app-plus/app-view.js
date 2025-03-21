@@ -100,7 +100,7 @@ __webpack_require__(/*! uni-pages?{"type":"view"} */ 1);
 
 function initView() {
   function injectStyles(context) {
-    var style0 = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ 228);
+    var style0 = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ 236);
     if (style0.__inject__) style0.__inject__(context);
   }
   typeof injectStyles === 'function' && injectStyles();
@@ -227,6 +227,9 @@ __definePage('pages/index/heritage/3d-view', function () {
 __definePage('pages/index/heritage/ar-view', function () {
   return Vue.extend(__webpack_require__(/*! pages/index/heritage/ar-view.vue?mpType=page */ 220).default);
 });
+__definePage('pages/index/heritage/detail', function () {
+  return Vue.extend(__webpack_require__(/*! pages/index/heritage/detail.vue?mpType=page */ 228).default);
+});
 
 /***/ }),
 /* 2 */
@@ -345,14 +348,7 @@ var render = function () {
           _c("uni-view", { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } }),
           _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }),
           _c("uni-view", { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } }),
-          _c("v-uni-image", {
-            staticClass: _vm._$g(5, "sc"),
-            attrs: {
-              src: "/static/login/pattern.png",
-              mode: "aspectFill",
-              _i: 5,
-            },
-          }),
+          _c("uni-view", { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } }),
         ],
         1
       ),
@@ -2194,7 +2190,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.login-container {\n  min-height: 100vh;\n  background-color: #f9f6f2;\n  /* 米黄色背景，模拟宣纸质感 */\n  padding: 40rpx;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  /* 背景装饰 */\n  /* 返回按钮 */\n  /* 登录标题 */\n  /* 登录表单 */\n  /* 底部版权信息 */\n}\n.login-container .background-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 0;\n}\n.login-container .background-decoration .bg-circle {\n  position: absolute;\n  border-radius: 50%;\n  opacity: 0.8;\n}\n.login-container .background-decoration .circle-1 {\n  width: 600rpx;\n  height: 600rpx;\n  top: -200rpx;\n  right: -200rpx;\n  background: linear-gradient(135deg, rgba(193, 154, 107, 0.15), rgba(193, 154, 107, 0.05));\n  -webkit-animation: float 15s infinite ease-in-out;\n          animation: float 15s infinite ease-in-out;\n}\n.login-container .background-decoration .circle-2 {\n  width: 500rpx;\n  height: 500rpx;\n  bottom: -150rpx;\n  left: -200rpx;\n  background: linear-gradient(135deg, rgba(168, 95, 59, 0.1), rgba(168, 95, 59, 0.03));\n  animation: float 18s infinite ease-in-out reverse;\n}\n.login-container .background-decoration .circle-3 {\n  width: 300rpx;\n  height: 300rpx;\n  top: 40%;\n  right: -100rpx;\n  background: linear-gradient(135deg, rgba(0, 128, 85, 0.08), rgba(0, 128, 85, 0.02));\n  -webkit-animation: float 12s infinite ease-in-out;\n          animation: float 12s infinite ease-in-out;\n}\n.login-container .background-decoration .bg-pattern {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  opacity: 0.05;\n  z-index: -1;\n  /* 使用传统建筑纹理图案作为背景 */\n}\n.login-container .back-btn {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  color: #008055;\n  /* 中国传统青绿色 */\n  margin-bottom: 60rpx;\n  z-index: 1;\n}\n.login-container .back-btn:active {\n  opacity: 0.7;\n}\n.login-container .back-btn uni-text {\n  margin-left: 10rpx;\n  font-weight: 500;\n}\n.login-container .login-header {\n  margin-bottom: 80rpx;\n  z-index: 1;\n  -webkit-animation: fadeInDown 0.8s ease-out;\n          animation: fadeInDown 0.8s ease-out;\n}\n.login-container .login-header .login-title {\n  font-size: 56rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 20rpx;\n  letter-spacing: 4rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.login-container .login-header .login-subtitle {\n  font-size: 28rpx;\n  color: #666;\n  letter-spacing: 2rpx;\n}\n.login-container .login-form {\n  z-index: 1;\n  -webkit-animation: fadeInUp 0.8s ease-out;\n          animation: fadeInUp 0.8s ease-out;\n  /* 输入框样式 */\n  /* 操作区域 */\n  /* 登录按钮 */\n  /* 第三方登录 */\n  /* 第三方登录图标 */\n}\n.login-container .login-form .input-item {\n  display: flex;\n  align-items: center;\n  height: 100rpx;\n  margin-bottom: 40rpx;\n  transition: all 0.3s;\n  position: relative;\n  border-radius: 12rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n  padding: 0 20rpx;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .input-item.phone-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item .password-toggle {\n  width: 70rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-toggle:active {\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item.password-item .password-strength {\n  position: absolute;\n  bottom: -30rpx;\n  left: 20rpx;\n  right: 20rpx;\n  display: flex;\n  align-items: center;\n  -webkit-animation: fadeIn 0.3s ease-out;\n          animation: fadeIn 0.3s ease-out;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar {\n  flex: 1;\n  height: 6rpx;\n  background-color: #eee;\n  border-radius: 3rpx;\n  overflow: hidden;\n  margin-right: 10rpx;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level {\n  height: 100%;\n  width: 0%;\n  border-radius: 3rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.weak {\n  width: 25%;\n  background-color: #e74c3c;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.medium {\n  width: 50%;\n  background-color: #f39c12;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.strong {\n  width: 75%;\n  background-color: #27ae60;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.very-strong {\n  width: 100%;\n  background-color: #008055;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-text {\n  font-size: 22rpx;\n  color: #999;\n  width: 80rpx;\n  text-align: right;\n}\n.login-container .login-form .input-item .input-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 60rpx;\n  height: 60rpx;\n  margin-right: 20rpx;\n  border-radius: 30rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 30rpx;\n  color: #333;\n}\n.login-container .login-form .input-item uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item uni-input::placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item .input-clear {\n  padding: 10rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.login-container .login-form .action-area {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .action-area .register-link,\n.login-container .login-form .action-area .forgot-password {\n  font-size: 26rpx;\n  color: #008055;\n  display: flex;\n  align-items: center;\n}\n.login-container .login-form .action-area .register-link:active,\n.login-container .login-form .action-area .forgot-password:active {\n  opacity: 0.7;\n}\n.login-container .login-form .action-area .register-link uni-icons,\n.login-container .login-form .action-area .forgot-password uni-icons {\n  margin-right: 6rpx;\n}\n.login-container .login-form .login-btn {\n  height: 90rpx;\n  line-height: 90rpx;\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  font-size: 32rpx;\n  border-radius: 45rpx;\n  margin-bottom: 80rpx;\n  box-shadow: 0 10rpx 20rpx rgba(0, 128, 85, 0.2);\n  transition: all 0.3s;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  letter-spacing: 4rpx;\n  position: relative;\n  overflow: hidden;\n  font-weight: 500;\n}\n.login-container .login-form .login-btn::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);\n  transition: all 0.5s;\n}\n.login-container .login-form .login-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 5rpx 10rpx rgba(0, 128, 85, 0.2);\n}\n.login-container .login-form .login-btn:active::after {\n  left: 100%;\n}\n.login-container .login-form .login-btn:disabled {\n  opacity: 0.7;\n}\n.login-container .login-form .login-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.login-container .login-form .third-party-login {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .third-party-login .divider {\n  flex: 1;\n  height: 1px;\n  background-color: rgba(193, 154, 107, 0.3);\n  /* 木色分割线 */\n}\n.login-container .login-form .third-party-login uni-text {\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  color: #999;\n}\n.login-container .login-form .third-party-icons {\n  display: flex;\n  justify-content: center;\n}\n.login-container .login-form .third-party-icons .icon-item {\n  width: 90rpx;\n  height: 90rpx;\n  margin: 0 40rpx;\n  background-color: #fff;\n  border-radius: 50%;\n  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .third-party-icons .icon-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);\n}\n.login-container .login-form .third-party-icons .icon-item uni-image {\n  width: 60%;\n  height: 60%;\n  border-radius: 50%;\n}\n.login-container .footer {\n  margin-top: auto;\n  text-align: center;\n  padding: 30rpx 0;\n  font-size: 24rpx;\n  color: #999;\n  z-index: 1;\n}\n/* 注册弹窗样式 */\n.register-popup {\n  width: 600rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 40rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);\n  -webkit-animation: scaleIn 0.3s ease-out;\n          animation: scaleIn 0.3s ease-out;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 40rpx;\n}\n.register-popup .popup-header .popup-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  letter-spacing: 2rpx;\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.register-popup .popup-header .popup-close {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s;\n}\n.register-popup .popup-header .popup-close:active {\n  background-color: #f5f5f5;\n}\n.register-popup .popup-form .popup-input {\n  height: 90rpx;\n  border-bottom: 1px solid rgba(193, 154, 107, 0.3);\n  /* 木色边框 */\n  margin-bottom: 30rpx;\n  display: flex;\n  align-items: center;\n  padding: 0 10rpx;\n  position: relative;\n  transition: all 0.3s;\n}\n.register-popup .popup-form .popup-input uni-icons {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50rpx;\n  height: 50rpx;\n  margin-right: 20rpx;\n  border-radius: 25rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.register-popup .popup-form .popup-input uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n}\n.register-popup .popup-form .popup-input uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input uni-input::placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input:focus-within {\n  border-bottom-color: #008055;\n  background-color: rgba(0, 128, 85, 0.03);\n  border-radius: 8rpx 8rpx 0 0;\n}\n.register-popup .popup-form .popup-input::after {\n  content: \"\";\n  position: absolute;\n  bottom: -1px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(90deg, #008055, #00a878);\n  transition: all 0.3s ease;\n}\n.register-popup .popup-form .popup-input:focus-within::after {\n  width: 100%;\n}\n.register-popup .popup-buttons {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 40rpx;\n}\n.register-popup .popup-buttons uni-button {\n  width: 45%;\n  height: 80rpx;\n  line-height: 80rpx;\n  font-size: 30rpx;\n  border-radius: 40rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n}\n.register-popup .popup-buttons .cancel-btn {\n  background-color: #f5f5f5;\n  color: #666;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-buttons .cancel-btn:active {\n  background-color: #e9e9e9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.register-popup .popup-buttons .confirm-btn {\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  box-shadow: 0 5rpx 15rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:active {\n  opacity: 0.9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 2rpx 8rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:disabled {\n  opacity: 0.7;\n}\n.register-popup .popup-buttons .confirm-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n/* 动画效果 */\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@-webkit-keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.login-container {\n  min-height: 100vh;\n  background-color: #f9f6f2;\n  /* 米黄色背景，模拟宣纸质感 */\n  padding: 40rpx;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  /* 背景装饰 */\n  /* 返回按钮 */\n  /* 登录标题 */\n  /* 登录表单 */\n  /* 底部版权信息 */\n}\n.login-container .background-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 0;\n}\n.login-container .background-decoration .bg-circle {\n  position: absolute;\n  border-radius: 50%;\n  opacity: 0.8;\n}\n.login-container .background-decoration .circle-1 {\n  width: 600rpx;\n  height: 600rpx;\n  top: -200rpx;\n  right: -200rpx;\n  background: linear-gradient(135deg, rgba(193, 154, 107, 0.15), rgba(193, 154, 107, 0.05));\n  -webkit-animation: float 15s infinite ease-in-out;\n          animation: float 15s infinite ease-in-out;\n}\n.login-container .background-decoration .circle-2 {\n  width: 500rpx;\n  height: 500rpx;\n  bottom: -150rpx;\n  left: -200rpx;\n  background: linear-gradient(135deg, rgba(168, 95, 59, 0.1), rgba(168, 95, 59, 0.03));\n  animation: float 18s infinite ease-in-out reverse;\n}\n.login-container .background-decoration .circle-3 {\n  width: 300rpx;\n  height: 300rpx;\n  top: 40%;\n  right: -100rpx;\n  background: linear-gradient(135deg, rgba(0, 128, 85, 0.08), rgba(0, 128, 85, 0.02));\n  -webkit-animation: float 12s infinite ease-in-out;\n          animation: float 12s infinite ease-in-out;\n}\n.login-container .background-decoration .bg-pattern {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  /* 使用重复渐变替代图片，避免图片路径错误 */\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 12px);\n  opacity: 0.3;\n  mix-blend-mode: overlay;\n  z-index: 1;\n}\n.login-container .back-btn {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  color: #008055;\n  /* 中国传统青绿色 */\n  margin-bottom: 60rpx;\n  z-index: 1;\n}\n.login-container .back-btn:active {\n  opacity: 0.7;\n}\n.login-container .back-btn uni-text {\n  margin-left: 10rpx;\n  font-weight: 500;\n}\n.login-container .login-header {\n  margin-bottom: 80rpx;\n  z-index: 1;\n  -webkit-animation: fadeInDown 0.8s ease-out;\n          animation: fadeInDown 0.8s ease-out;\n}\n.login-container .login-header .login-title {\n  font-size: 56rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 20rpx;\n  letter-spacing: 4rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.login-container .login-header .login-subtitle {\n  font-size: 28rpx;\n  color: #666;\n  letter-spacing: 2rpx;\n}\n.login-container .login-form {\n  z-index: 1;\n  -webkit-animation: fadeInUp 0.8s ease-out;\n          animation: fadeInUp 0.8s ease-out;\n  /* 输入框样式 */\n  /* 操作区域 */\n  /* 登录按钮 */\n  /* 第三方登录 */\n  /* 第三方登录图标 */\n}\n.login-container .login-form .input-item {\n  display: flex;\n  align-items: center;\n  height: 100rpx;\n  margin-bottom: 40rpx;\n  transition: all 0.3s;\n  position: relative;\n  border-radius: 12rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n  padding: 0 20rpx;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .input-item.phone-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item .password-toggle {\n  width: 70rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-toggle:active {\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item.password-item .password-strength {\n  position: absolute;\n  bottom: -30rpx;\n  left: 20rpx;\n  right: 20rpx;\n  display: flex;\n  align-items: center;\n  -webkit-animation: fadeIn 0.3s ease-out;\n          animation: fadeIn 0.3s ease-out;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar {\n  flex: 1;\n  height: 6rpx;\n  background-color: #eee;\n  border-radius: 3rpx;\n  overflow: hidden;\n  margin-right: 10rpx;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level {\n  height: 100%;\n  width: 0%;\n  border-radius: 3rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.weak {\n  width: 25%;\n  background-color: #e74c3c;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.medium {\n  width: 50%;\n  background-color: #f39c12;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.strong {\n  width: 75%;\n  background-color: #27ae60;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.very-strong {\n  width: 100%;\n  background-color: #008055;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-text {\n  font-size: 22rpx;\n  color: #999;\n  width: 80rpx;\n  text-align: right;\n}\n.login-container .login-form .input-item .input-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 60rpx;\n  height: 60rpx;\n  margin-right: 20rpx;\n  border-radius: 30rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 30rpx;\n  color: #333;\n}\n.login-container .login-form .input-item uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item uni-input::placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item .input-clear {\n  padding: 10rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.login-container .login-form .action-area {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .action-area .register-link,\n.login-container .login-form .action-area .forgot-password {\n  font-size: 26rpx;\n  color: #008055;\n  display: flex;\n  align-items: center;\n}\n.login-container .login-form .action-area .register-link:active,\n.login-container .login-form .action-area .forgot-password:active {\n  opacity: 0.7;\n}\n.login-container .login-form .action-area .register-link uni-icons,\n.login-container .login-form .action-area .forgot-password uni-icons {\n  margin-right: 6rpx;\n}\n.login-container .login-form .login-btn {\n  height: 90rpx;\n  line-height: 90rpx;\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  font-size: 32rpx;\n  border-radius: 45rpx;\n  margin-bottom: 80rpx;\n  box-shadow: 0 10rpx 20rpx rgba(0, 128, 85, 0.2);\n  transition: all 0.3s;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  letter-spacing: 4rpx;\n  position: relative;\n  overflow: hidden;\n  font-weight: 500;\n}\n.login-container .login-form .login-btn::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);\n  transition: all 0.5s;\n}\n.login-container .login-form .login-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 5rpx 10rpx rgba(0, 128, 85, 0.2);\n}\n.login-container .login-form .login-btn:active::after {\n  left: 100%;\n}\n.login-container .login-form .login-btn:disabled {\n  opacity: 0.7;\n}\n.login-container .login-form .login-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.login-container .login-form .third-party-login {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .third-party-login .divider {\n  flex: 1;\n  height: 1px;\n  background-color: rgba(193, 154, 107, 0.3);\n  /* 木色分割线 */\n}\n.login-container .login-form .third-party-login uni-text {\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  color: #999;\n}\n.login-container .login-form .third-party-icons {\n  display: flex;\n  justify-content: center;\n}\n.login-container .login-form .third-party-icons .icon-item {\n  width: 90rpx;\n  height: 90rpx;\n  margin: 0 40rpx;\n  background-color: #fff;\n  border-radius: 50%;\n  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .third-party-icons .icon-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);\n}\n.login-container .login-form .third-party-icons .icon-item uni-image {\n  width: 60%;\n  height: 60%;\n  border-radius: 50%;\n}\n.login-container .footer {\n  margin-top: auto;\n  text-align: center;\n  padding: 30rpx 0;\n  font-size: 24rpx;\n  color: #999;\n  z-index: 1;\n}\n/* 注册弹窗样式 */\n.register-popup {\n  width: 600rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 40rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);\n  -webkit-animation: scaleIn 0.3s ease-out;\n          animation: scaleIn 0.3s ease-out;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 40rpx;\n}\n.register-popup .popup-header .popup-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  letter-spacing: 2rpx;\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.register-popup .popup-header .popup-close {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s;\n}\n.register-popup .popup-header .popup-close:active {\n  background-color: #f5f5f5;\n}\n.register-popup .popup-form .popup-input {\n  height: 90rpx;\n  border-bottom: 1px solid rgba(193, 154, 107, 0.3);\n  /* 木色边框 */\n  margin-bottom: 30rpx;\n  display: flex;\n  align-items: center;\n  padding: 0 10rpx;\n  position: relative;\n  transition: all 0.3s;\n}\n.register-popup .popup-form .popup-input uni-icons {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50rpx;\n  height: 50rpx;\n  margin-right: 20rpx;\n  border-radius: 25rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.register-popup .popup-form .popup-input uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n}\n.register-popup .popup-form .popup-input uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input uni-input::placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input:focus-within {\n  border-bottom-color: #008055;\n  background-color: rgba(0, 128, 85, 0.03);\n  border-radius: 8rpx 8rpx 0 0;\n}\n.register-popup .popup-form .popup-input::after {\n  content: \"\";\n  position: absolute;\n  bottom: -1px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(90deg, #008055, #00a878);\n  transition: all 0.3s ease;\n}\n.register-popup .popup-form .popup-input:focus-within::after {\n  width: 100%;\n}\n.register-popup .popup-buttons {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 40rpx;\n}\n.register-popup .popup-buttons uni-button {\n  width: 45%;\n  height: 80rpx;\n  line-height: 80rpx;\n  font-size: 30rpx;\n  border-radius: 40rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n}\n.register-popup .popup-buttons .cancel-btn {\n  background-color: #f5f5f5;\n  color: #666;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-buttons .cancel-btn:active {\n  background-color: #e9e9e9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.register-popup .popup-buttons .confirm-btn {\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  box-shadow: 0 5rpx 15rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:active {\n  opacity: 0.9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 2rpx 8rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:disabled {\n  opacity: 0.7;\n}\n.register-popup .popup-buttons .confirm-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n/* 动画效果 */\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@-webkit-keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -2209,10 +2205,10 @@ module.exports = exports;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=2be84a3c&mpType=page */ 38);
+/* harmony import */ var _index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=2be84a3c&scoped=true&mpType=page */ 38);
 /* harmony import */ var _index_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js&mpType=page */ 48);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=scss&mpType=page */ 50);
+/* harmony import */ var _index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page */ 50);
 /* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
@@ -2225,14 +2221,14 @@ var renderjs
 
 var component = Object(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _index_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"],
-  _index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "2be84a3c",
   null,
   false,
-  _index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"],
+  _index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"],
   renderjs
 )
 
@@ -2241,30 +2237,30 @@ component.options.__file = "pages/index/index.vue"
 
 /***/ }),
 /* 38 */
-/*!*******************************************************************************************************************************************!*\
-  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
-  \*******************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=template&id=2be84a3c&scoped=true&mpType=page ***!
+  \*******************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=template&id=2be84a3c&mpType=page */ 39);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=template&id=2be84a3c&scoped=true&mpType=page */ 39);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_template_id_2be84a3c_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
 
 
 
 /***/ }),
 /* 39 */
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=template&id=2be84a3c&scoped=true&mpType=page ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2331,12 +2327,35 @@ var render = function () {
             ],
             1
           ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+            [
+              _c("uni-view", {
+                staticClass: _vm._$g(7, "sc"),
+                attrs: { _i: 7 },
+              }),
+              _c("uni-view", {
+                staticClass: _vm._$g(8, "sc"),
+                attrs: { _i: 8 },
+              }),
+              _c("uni-view", {
+                staticClass: _vm._$g(9, "sc"),
+                attrs: { _i: 9 },
+              }),
+              _c("uni-view", {
+                staticClass: _vm._$g(10, "sc"),
+                attrs: { _i: 10 },
+              }),
+            ],
+            1
+          ),
         ],
         1
       ),
       _c("uni-search-bar", {
-        staticClass: _vm._$g(6, "sc"),
-        attrs: { _i: 6 },
+        staticClass: _vm._$g(11, "sc"),
+        attrs: { _i: 11 },
         on: {
           confirm: function ($event) {
             return _vm.$handleViewEvent($event)
@@ -2348,14 +2367,14 @@ var render = function () {
       }),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
-        _vm._l(_vm._$g(8, "f"), function (item, index, $20, $30) {
+        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+        _vm._l(_vm._$g(13, "f"), function (item, index, $20, $30) {
           return _c(
             "uni-view",
             {
               key: item,
-              staticClass: _vm._$g("8-" + $30, "sc"),
-              attrs: { _i: "8-" + $30 },
+              staticClass: _vm._$g("13-" + $30, "sc"),
+              attrs: { _i: "13-" + $30 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -2366,15 +2385,16 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g("9-" + $30, "sc"),
-                  attrs: { _i: "9-" + $30 },
+                  staticClass: _vm._$g("14-" + $30, "sc"),
+                  class: _vm._$g("14-" + $30, "c"),
+                  attrs: { _i: "14-" + $30 },
                 },
                 [
                   _c("v-uni-image", {
                     attrs: {
-                      src: _vm._$g("10-" + $30, "a-src"),
+                      src: _vm._$g("15-" + $30, "a-src"),
                       mode: "aspectFit",
-                      _i: "10-" + $30,
+                      _i: "15-" + $30,
                     },
                   }),
                 ],
@@ -2383,10 +2403,10 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g("11-" + $30, "sc"),
-                  attrs: { _i: "11-" + $30 },
+                  staticClass: _vm._$g("16-" + $30, "sc"),
+                  attrs: { _i: "16-" + $30 },
                 },
-                [_vm._v(_vm._$g("11-" + $30, "t0-0"))]
+                [_vm._v(_vm._$g("16-" + $30, "t0-0"))]
               ),
             ],
             1
@@ -2396,19 +2416,19 @@ var render = function () {
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
         [
           _c(
             "uni-view",
-            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
                 [
                   _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
                     [_vm._v("📍")]
                   ),
                   _vm._v("热门景点"),
@@ -2418,8 +2438,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(16, "sc"),
-                  attrs: { _i: 16 },
+                  staticClass: _vm._$g(21, "sc"),
+                  attrs: { _i: 21 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -2427,26 +2447,26 @@ var render = function () {
                   },
                 },
                 [
-                  _c("v-uni-text", { attrs: { _i: 17 } }, [_vm._v("更多景点")]),
-                  _c("uni-icons", { attrs: { _i: 18 } }),
+                  _c("v-uni-text", { attrs: { _i: 22 } }, [_vm._v("更多景点")]),
+                  _c("uni-icons", { attrs: { _i: 23 } }),
                 ],
                 1
               ),
             ],
             1
           ),
-          _vm._$g(19, "i")
+          _vm._$g(24, "i")
             ? _c(
                 "uni-view",
-                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
                 [
                   _c("uni-view", {
-                    staticClass: _vm._$g(20, "sc"),
-                    attrs: { _i: 20 },
+                    staticClass: _vm._$g(25, "sc"),
+                    attrs: { _i: 25 },
                   }),
                   _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
                     [_vm._v("加载中...")]
                   ),
                 ],
@@ -2454,15 +2474,15 @@ var render = function () {
               )
             : _c(
                 "uni-view",
-                { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
                 [
-                  _vm._l(_vm._$g(23, "f"), function (item, index, $21, $31) {
+                  _vm._l(_vm._$g(28, "f"), function (item, index, $21, $31) {
                     return _c(
                       "uni-view",
                       {
                         key: item,
-                        staticClass: _vm._$g("23-" + $31, "sc"),
-                        attrs: { _i: "23-" + $31 },
+                        staticClass: _vm._$g("28-" + $31, "sc"),
+                        attrs: { _i: "28-" + $31 },
                         on: {
                           click: function ($event) {
                             return _vm.$handleViewEvent($event)
@@ -2473,27 +2493,27 @@ var render = function () {
                         _c(
                           "uni-view",
                           {
-                            staticClass: _vm._$g("24-" + $31, "sc"),
-                            attrs: { _i: "24-" + $31 },
+                            staticClass: _vm._$g("29-" + $31, "sc"),
+                            attrs: { _i: "29-" + $31 },
                           },
                           [
                             _c("v-uni-image", {
                               attrs: {
-                                src: _vm._$g("25-" + $31, "a-src"),
+                                src: _vm._$g("30-" + $31, "a-src"),
                                 mode: "aspectFill",
-                                _i: "25-" + $31,
+                                _i: "30-" + $31,
                               },
                             }),
-                            _vm._$g("26-" + $31, "i")
+                            _vm._$g("31-" + $31, "i")
                               ? _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("26-" + $31, "sc"),
-                                    attrs: { _i: "26-" + $31 },
+                                    staticClass: _vm._$g("31-" + $31, "sc"),
+                                    attrs: { _i: "31-" + $31 },
                                   },
                                   [
                                     _vm._v(
-                                      "TOP " + _vm._$g("26-" + $31, "t0-0")
+                                      "TOP " + _vm._$g("31-" + $31, "t0-0")
                                     ),
                                   ]
                                 )
@@ -2504,47 +2524,47 @@ var render = function () {
                         _c(
                           "uni-view",
                           {
-                            staticClass: _vm._$g("27-" + $31, "sc"),
-                            attrs: { _i: "27-" + $31 },
+                            staticClass: _vm._$g("32-" + $31, "sc"),
+                            attrs: { _i: "32-" + $31 },
                           },
                           [
                             _c(
-                              "v-uni-text",
+                              "uni-view",
                               {
-                                staticClass: _vm._$g("28-" + $31, "sc"),
-                                attrs: { _i: "28-" + $31 },
+                                staticClass: _vm._$g("33-" + $31, "sc"),
+                                attrs: { _i: "33-" + $31 },
                               },
-                              [_vm._v(_vm._$g("28-" + $31, "t0-0"))]
-                            ),
-                            _c(
-                              "v-uni-text",
-                              {
-                                staticClass: _vm._$g("29-" + $31, "sc"),
-                                attrs: { _i: "29-" + $31 },
-                              },
-                              [_vm._v(_vm._$g("29-" + $31, "t0-0"))]
+                              [_vm._v(_vm._$g("33-" + $31, "t0-0"))]
                             ),
                             _c(
                               "uni-view",
                               {
-                                staticClass: _vm._$g("30-" + $31, "sc"),
-                                attrs: { _i: "30-" + $31 },
+                                staticClass: _vm._$g("34-" + $31, "sc"),
+                                attrs: { _i: "34-" + $31 },
+                              },
+                              [_vm._v(_vm._$g("34-" + $31, "t0-0"))]
+                            ),
+                            _c(
+                              "uni-view",
+                              {
+                                staticClass: _vm._$g("35-" + $31, "sc"),
+                                attrs: { _i: "35-" + $31 },
                               },
                               [
                                 _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("31-" + $31, "sc"),
-                                    attrs: { _i: "31-" + $31 },
+                                    staticClass: _vm._$g("36-" + $31, "sc"),
+                                    attrs: { _i: "36-" + $31 },
                                   },
                                   [
                                     _c("uni-icons", {
-                                      attrs: { _i: "32-" + $31 },
+                                      attrs: { _i: "37-" + $31 },
                                     }),
                                     _c(
                                       "v-uni-text",
-                                      { attrs: { _i: "33-" + $31 } },
-                                      [_vm._v(_vm._$g("33-" + $31, "t0-0"))]
+                                      { attrs: { _i: "38-" + $31 } },
+                                      [_vm._v(_vm._$g("38-" + $31, "t0-0"))]
                                     ),
                                   ],
                                   1
@@ -2552,17 +2572,17 @@ var render = function () {
                                 _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("34-" + $31, "sc"),
-                                    attrs: { _i: "34-" + $31 },
+                                    staticClass: _vm._$g("39-" + $31, "sc"),
+                                    attrs: { _i: "39-" + $31 },
                                   },
                                   [
                                     _c("uni-icons", {
-                                      attrs: { _i: "35-" + $31 },
+                                      attrs: { _i: "40-" + $31 },
                                     }),
                                     _c(
                                       "v-uni-text",
-                                      { attrs: { _i: "36-" + $31 } },
-                                      [_vm._v(_vm._$g("36-" + $31, "t0-0"))]
+                                      { attrs: { _i: "41-" + $31 } },
+                                      [_vm._v(_vm._$g("41-" + $31, "t0-0"))]
                                     ),
                                   ],
                                   1
@@ -2573,32 +2593,23 @@ var render = function () {
                           ],
                           1
                         ),
-                        _c(
-                          "uni-view",
-                          {
-                            staticClass: _vm._$g("37-" + $31, "sc"),
-                            attrs: { _i: "37-" + $31 },
-                          },
-                          [_c("uni-icons", { attrs: { _i: "38-" + $31 } })],
-                          1
-                        ),
                       ],
                       1
                     )
                   }),
-                  _vm._$g(39, "i")
+                  _vm._$g(42, "i")
                     ? _c(
                         "uni-view",
-                        { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                        { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
                         [
                           _c("v-uni-image", {
                             attrs: {
                               src: "/static/empty.png",
                               mode: "aspectFit",
-                              _i: 40,
+                              _i: 43,
                             },
                           }),
-                          _c("v-uni-text", { attrs: { _i: 41 } }, [
+                          _c("v-uni-text", { attrs: { _i: 44 } }, [
                             _vm._v("暂无热门景点数据"),
                           ]),
                         ],
@@ -2611,7 +2622,7 @@ var render = function () {
         ],
         1
       ),
-      _c("uni-view", { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } }),
+      _c("uni-view", { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } }),
     ],
     1
   )
@@ -2974,45 +2985,45 @@ exports.default = _default;
 
 /***/ }),
 /* 50 */
-/*!**********************************************************************************************************************************************!*\
-  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
-  \**********************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page ***!
+  \**********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=style&index=0&lang=scss&mpType=page */ 51);
-/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page */ 51);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_index_vue_vue_type_style_index_0_id_2be84a3c_scoped_true_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 /* 51 */
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=style&index=0&lang=scss&mpType=page */ 52);
+var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page */ 52);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader/lib/addStylesClient.js */ 16).default
-var update = add("7cfb108c", content, false, {"sourceMap":false,"shadowMode":false});
+var update = add("5857fb46", content, false, {"sourceMap":false,"shadowMode":false});
 // Hot Module Replacement
 if(false) {}
 
 /***/ }),
 /* 52 */
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/index.vue?vue&type=style&index=0&id=2be84a3c&scoped=true&lang=scss&mpType=page ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3020,7 +3031,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.index {\n  background-color: #f5f6fa;\n  min-height: 100vh;\n  position: relative;\n  overflow: hidden;\n}\n.index .backdrop {\n  background: linear-gradient(135deg, #2c3448 0%, #3a4a66 25%, #4a5d80 50%, #647899 75%, #7a8ba8 100%);\n  width: 100%;\n  height: 480rpx;\n  border-bottom-left-radius: 60rpx;\n  border-bottom-right-radius: 60rpx;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.15);\n}\n.index .backdrop::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 120rpx;\n  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.index .backdrop::after {\n  content: \"\";\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  right: -50%;\n  bottom: -50%;\n  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 25%, transparent 50%);\n  -webkit-animation: rotateGradient 15s linear infinite;\n          animation: rotateGradient 15s linear infinite;\n}\n.index .backdrop .overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n}\n.index .backdrop .overlay::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 200%;\n  height: 200%;\n  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 10px);\n  -webkit-animation: moveWave 20s linear infinite;\n          animation: moveWave 20s linear infinite;\n}\n.index .backdrop .overlay::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);\n  background-size: 20rpx 20rpx;\n  -webkit-animation: twinkle 4s ease-in-out infinite;\n          animation: twinkle 4s ease-in-out infinite;\n}\n.index .backdrop .welcome-text {\n  position: absolute;\n  top: 60rpx;\n  left: 40rpx;\n  z-index: 2;\n}\n.index .backdrop .welcome-text .main-text {\n  font-size: 56rpx;\n  color: #ffffff;\n  font-weight: 600;\n  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.3);\n  display: block;\n  margin-bottom: 20rpx;\n  letter-spacing: 8rpx;\n  position: relative;\n  -webkit-animation: fadeInUp 0.8s ease-out;\n          animation: fadeInUp 0.8s ease-out;\n}\n.index .backdrop .welcome-text .main-text::after {\n  content: \"\";\n  position: absolute;\n  bottom: -10rpx;\n  left: 0;\n  width: 140rpx;\n  height: 6rpx;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));\n  border-radius: 6rpx;\n}\n.index .backdrop .welcome-text .sub-text {\n  font-size: 30rpx;\n  color: rgba(255, 255, 255, 0.9);\n  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.2);\n  letter-spacing: 4rpx;\n  position: relative;\n  padding-left: 24rpx;\n  -webkit-animation: fadeInUp 0.8s ease-out 0.2s both;\n          animation: fadeInUp 0.8s ease-out 0.2s both;\n}\n.index .backdrop .welcome-text .sub-text::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 8rpx;\n  height: 8rpx;\n  background: #ffffff;\n  border-radius: 50%;\n  opacity: 0.8;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.index .custom-search {\n  position: relative;\n  width: 670rpx;\n  margin: -280rpx auto 0;\n  z-index: 10;\n}\n.index .custom-search :deep(.uni-searchbar) {\n  background-color: rgba(255, 255, 255, 0.98) !important;\n  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);\n  border-radius: 90rpx;\n  padding: 0 20rpx;\n}\n.index .custom-search :deep(.uni-searchbar) .uni-searchbar__box {\n  border-width: 0;\n}\n.index .feature {\n  margin: 100rpx 30rpx 0;\n  padding: 40rpx 20rpx;\n  background-color: rgba(255, 255, 255, 0.98);\n  border-radius: 24rpx;\n  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.08);\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  position: relative;\n  z-index: 5;\n}\n.index .feature .home {\n  width: 20%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  position: relative;\n  padding: 16rpx 0;\n}\n.index .feature .home:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n.index .feature .home .icon-wrapper {\n  width: 88rpx;\n  height: 88rpx;\n  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(126, 214, 223, 0.1));\n  border-radius: 24rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 12rpx;\n  transition: all 0.3s ease;\n}\n.index .feature .home .icon-wrapper uni-image {\n  width: 48rpx;\n  height: 48rpx;\n}\n.index .feature .home .text {\n  font-size: 24rpx;\n  color: #333;\n  text-align: center;\n  font-weight: 500;\n}\n.index .feature .home:active .icon-wrapper {\n  -webkit-transform: translateY(-4rpx);\n          transform: translateY(-4rpx);\n  box-shadow: 0 8rpx 16rpx rgba(74, 144, 226, 0.15);\n}\n.index .hot {\n  margin: 40rpx 30rpx;\n  padding: 20rpx 0;\n}\n.index .hot .title {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24rpx;\n  padding: 0 10rpx;\n}\n.index .hot .title .left {\n  font-size: 36rpx;\n  font-weight: 600;\n  color: #333;\n  display: flex;\n  align-items: center;\n}\n.index .hot .title .left .icon {\n  margin-right: 12rpx;\n  font-size: 40rpx;\n}\n.index .hot .title .right {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #666;\n  padding: 12rpx 20rpx;\n  border-radius: 20rpx;\n  background: rgba(74, 144, 226, 0.1);\n  transition: all 0.3s ease;\n}\n.index .hot .title .right uni-text {\n  margin-right: 4rpx;\n}\n.index .hot .title .right:active {\n  background: rgba(74, 144, 226, 0.2);\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.index .hot .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 40rpx 0;\n}\n.index .hot .loading-container .loading-spinner {\n  width: 40rpx;\n  height: 40rpx;\n  border: 4rpx solid rgba(74, 144, 226, 0.2);\n  border-top-color: rgba(74, 144, 226, 0.8);\n  border-radius: 50%;\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.index .hot .loading-container .loading-text {\n  margin-left: 16rpx;\n  font-size: 26rpx;\n  color: #666;\n}\n.index .hot .list .one {\n  margin-bottom: 24rpx;\n  display: flex;\n  align-items: center;\n  background-color: #ffffff;\n  padding: 20rpx;\n  border-radius: 20rpx;\n  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);\n  transition: all 0.3s ease;\n}\n.index .hot .list .one:active {\n  -webkit-transform: translateY(2rpx);\n          transform: translateY(2rpx);\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);\n}\n.index .hot .list .one .left {\n  margin-right: 24rpx;\n  position: relative;\n}\n.index .hot .list .one .left uni-image {\n  width: 200rpx;\n  height: 150rpx;\n  border-radius: 16rpx;\n  object-fit: cover;\n}\n.index .hot .list .one .left .tag {\n  position: absolute;\n  top: 12rpx;\n  left: 12rpx;\n  background: linear-gradient(135deg, #ff9900, #ff6b6b);\n  color: #fff;\n  font-size: 20rpx;\n  padding: 4rpx 12rpx;\n  border-radius: 8rpx;\n  font-weight: 500;\n}\n.index .hot .list .one .content {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 150rpx;\n  padding: 8rpx 0;\n}\n.index .hot .list .one .content .name {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #333;\n  margin-bottom: 8rpx;\n}\n.index .hot .list .one .content .desc {\n  font-size: 24rpx;\n  color: #666;\n  line-height: 1.4;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  overflow: hidden;\n}\n.index .hot .list .one .content .meta {\n  display: flex;\n  align-items: center;\n  margin-top: 12rpx;\n}\n.index .hot .list .one .content .meta .rating,\n.index .hot .list .one .content .meta .visits {\n  display: flex;\n  align-items: center;\n  font-size: 22rpx;\n  color: #666;\n  margin-right: 20rpx;\n}\n.index .hot .list .one .content .meta .rating uni-text,\n.index .hot .list .one .content .meta .visits uni-text {\n  margin-left: 4rpx;\n}\n.index .hot .list .one .right {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 60rpx;\n  opacity: 0.6;\n}\n.index .hot .list .empty-tip {\n  margin-top: 60rpx;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.index .hot .list .empty-tip uni-image {\n  width: 240rpx;\n  height: 240rpx;\n  margin-bottom: 20rpx;\n}\n.index .hot .list .empty-tip uni-text {\n  font-size: 26rpx;\n  color: #999;\n}\n.index .bottom-decor {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 120rpx;\n  background: linear-gradient(to top, #f5f6fa, rgba(245, 246, 250, 0));\n  pointer-events: none;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes rotateGradient {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes rotateGradient {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes moveWave {\n0% {\n    -webkit-transform: translateX(0) translateY(0);\n            transform: translateX(0) translateY(0);\n}\n100% {\n    -webkit-transform: translateX(50%) translateY(-50%);\n            transform: translateX(50%) translateY(-50%);\n}\n}\n@keyframes moveWave {\n0% {\n    -webkit-transform: translateX(0) translateY(0);\n            transform: translateX(0) translateY(0);\n}\n100% {\n    -webkit-transform: translateX(50%) translateY(-50%);\n            transform: translateX(50%) translateY(-50%);\n}\n}\n@-webkit-keyframes twinkle {\n0%, 100% {\n    opacity: 0.5;\n}\n50% {\n    opacity: 1;\n}\n}\n@keyframes twinkle {\n0%, 100% {\n    opacity: 0.5;\n}\n50% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.index[data-v-2be84a3c] {\n  background-color: #f8f4eb;\n  min-height: 100vh;\n  position: relative;\n  overflow: hidden;\n}\n.index .backdrop[data-v-2be84a3c] {\n  background: linear-gradient(135deg, #4a5d80 0%, #647899 25%, #7a8ba8 50%, #8a99b2 75%, #9aa7bd 100%);\n  width: 100%;\n  height: 500rpx;\n  border-bottom-left-radius: 70rpx;\n  border-bottom-right-radius: 70rpx;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 6rpx 30rpx rgba(0, 0, 0, 0.2);\n}\n.index .backdrop[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 140rpx;\n  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.index .backdrop[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  right: -50%;\n  bottom: -50%;\n  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 25%, transparent 50%);\n  -webkit-animation: rotateGradient-data-v-2be84a3c 20s linear infinite;\n          animation: rotateGradient-data-v-2be84a3c 20s linear infinite;\n}\n.index .backdrop .overlay[data-v-2be84a3c] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n}\n.index .backdrop .overlay[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 200%;\n  height: 200%;\n  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.07) 1px, transparent 1px, transparent 12px);\n  -webkit-animation: moveWave-data-v-2be84a3c 25s linear infinite;\n          animation: moveWave-data-v-2be84a3c 25s linear infinite;\n}\n.index .backdrop .overlay[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);\n  background-size: 24rpx 24rpx;\n  -webkit-animation: twinkle-data-v-2be84a3c 5s ease-in-out infinite;\n          animation: twinkle-data-v-2be84a3c 5s ease-in-out infinite;\n}\n.index .backdrop .welcome-text[data-v-2be84a3c] {\n  position: absolute;\n  top: 70rpx;\n  left: 50rpx;\n  z-index: 2;\n}\n.index .backdrop .welcome-text .main-text[data-v-2be84a3c] {\n  font-size: 64rpx;\n  color: #ffffff;\n  font-weight: 600;\n  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.35);\n  display: block;\n  margin-bottom: 26rpx;\n  letter-spacing: 10rpx;\n  position: relative;\n  -webkit-animation: fadeInUp-data-v-2be84a3c 0.9s ease-out;\n          animation: fadeInUp-data-v-2be84a3c 0.9s ease-out;\n}\n.index .backdrop .welcome-text .main-text[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  bottom: -12rpx;\n  left: 0;\n  width: 160rpx;\n  height: 6rpx;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));\n  border-radius: 6rpx;\n}\n.index .backdrop .welcome-text .sub-text[data-v-2be84a3c] {\n  font-size: 32rpx;\n  color: rgba(255, 255, 255, 0.95);\n  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.25);\n  letter-spacing: 6rpx;\n  position: relative;\n  padding-left: 30rpx;\n  -webkit-animation: fadeInUp-data-v-2be84a3c 0.9s ease-out 0.25s both;\n          animation: fadeInUp-data-v-2be84a3c 0.9s ease-out 0.25s both;\n}\n.index .backdrop .welcome-text .sub-text[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 10rpx;\n  height: 10rpx;\n  background: #ffffff;\n  border-radius: 50%;\n  opacity: 0.9;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.index .backdrop .chinese-decoration[data-v-2be84a3c] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c],\n.index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c] {\n  position: absolute;\n  width: 220rpx;\n  height: 80rpx;\n  border-radius: 50px;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c] {\n  top: 60rpx;\n  right: 80rpx;\n  -webkit-animation: floatCloud-data-v-2be84a3c 15s ease-in-out infinite;\n          animation: floatCloud-data-v-2be84a3c 15s ease-in-out infinite;\n}\n.index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c]::before, .index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c]::before {\n  width: 100rpx;\n  height: 100rpx;\n  top: -40rpx;\n  left: 20rpx;\n}\n.index .backdrop .chinese-decoration .cloud-1[data-v-2be84a3c]::after {\n  width: 80rpx;\n  height: 80rpx;\n  top: -30rpx;\n  right: 40rpx;\n}\n.index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c] {\n  top: 180rpx;\n  left: -30rpx;\n  width: 180rpx;\n  height: 60rpx;\n  animation: floatCloud-data-v-2be84a3c 18s ease-in-out 2s infinite reverse;\n}\n.index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c]::before, .index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c]::before {\n  width: 80rpx;\n  height: 80rpx;\n  top: -30rpx;\n  left: 10rpx;\n}\n.index .backdrop .chinese-decoration .cloud-2[data-v-2be84a3c]::after {\n  width: 60rpx;\n  height: 60rpx;\n  top: -20rpx;\n  right: 30rpx;\n}\n.index .backdrop .chinese-decoration .mountain-1[data-v-2be84a3c],\n.index .backdrop .chinese-decoration .mountain-2[data-v-2be84a3c] {\n  position: absolute;\n  bottom: 0;\n  width: 0;\n  height: 0;\n  border-style: solid;\n}\n.index .backdrop .chinese-decoration .mountain-1[data-v-2be84a3c] {\n  right: 150rpx;\n  border-width: 0 150rpx 120rpx 150rpx;\n  border-color: transparent transparent rgba(255, 255, 255, 0.05) transparent;\n}\n.index .backdrop .chinese-decoration .mountain-2[data-v-2be84a3c] {\n  right: -30rpx;\n  border-width: 0 120rpx 180rpx 120rpx;\n  border-color: transparent transparent rgba(255, 255, 255, 0.04) transparent;\n}\n.index .custom-search[data-v-2be84a3c] {\n  position: relative;\n  width: 680rpx;\n  margin: -280rpx auto 0;\n  z-index: 10;\n}\n.index .custom-search[data-v-2be84a3c] :deep(.uni-searchbar) {\n  background-color: rgba(255, 255, 255, 0.98) !important;\n  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.15);\n  border-radius: 90rpx;\n  padding: 0 20rpx;\n  transition: all 0.3s ease;\n}\n.index .custom-search[data-v-2be84a3c] :deep(.uni-searchbar):active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.index .custom-search :deep(.uni-searchbar) .uni-searchbar__box[data-v-2be84a3c] {\n  border-width: 0;\n}\n.index .features[data-v-2be84a3c] {\n  margin: 110rpx 30rpx 0;\n  padding: 46rpx 20rpx;\n  background-color: rgba(255, 255, 255, 0.98);\n  border-radius: 30rpx;\n  box-shadow: 0 15rpx 40rpx rgba(102, 51, 0, 0.08);\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  position: relative;\n  z-index: 5;\n}\n.index .features[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60rpx;\n  background: linear-gradient(to bottom, rgba(139, 69, 19, 0.05), transparent);\n  border-top-left-radius: 30rpx;\n  border-top-right-radius: 30rpx;\n  z-index: -1;\n}\n.index .features .one[data-v-2be84a3c] {\n  width: 20%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.35s ease;\n  position: relative;\n  padding: 20rpx 0;\n}\n.index .features .one[data-v-2be84a3c]:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n.index .features .one .icon-wrapper[data-v-2be84a3c] {\n  width: 110rpx;\n  height: 110rpx;\n  background: linear-gradient(145deg, rgba(139, 69, 19, 0.08), rgba(139, 69, 19, 0.05));\n  border-radius: 30rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 18rpx;\n  transition: all 0.35s ease;\n  position: relative;\n  overflow: hidden;\n  box-shadow: 0 8rpx 16rpx rgba(139, 69, 19, 0.1);\n}\n.index .features .one .icon-wrapper[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  width: 200%;\n  height: 200%;\n  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%);\n  opacity: 0;\n  -webkit-transform: scale(1.5);\n          transform: scale(1.5);\n  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;\n  transition: opacity 0.5s ease, transform 0.5s ease;\n  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;\n}\n.index .features .one .icon-wrapper[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  border-radius: 30rpx;\n  background-color: rgba(255, 255, 255, 0.4);\n  opacity: 0;\n  -webkit-transform: scale(0.8);\n          transform: scale(0.8);\n  -webkit-animation: iconPulse-data-v-2be84a3c 3s infinite;\n          animation: iconPulse-data-v-2be84a3c 3s infinite;\n}\n.index .features .one .icon-wrapper.icon-0[data-v-2be84a3c] {\n  background: linear-gradient(145deg, rgba(65, 105, 225, 0.1), rgba(65, 105, 225, 0.05));\n}\n.index .features .one .icon-wrapper.icon-0[data-v-2be84a3c]::before {\n  background-color: rgba(65, 105, 225, 0.2);\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.index .features .one .icon-wrapper.icon-1[data-v-2be84a3c] {\n  background: linear-gradient(145deg, rgba(50, 205, 50, 0.1), rgba(50, 205, 50, 0.05));\n}\n.index .features .one .icon-wrapper.icon-1[data-v-2be84a3c]::before {\n  background-color: rgba(50, 205, 50, 0.2);\n  -webkit-animation-delay: 0.5s;\n          animation-delay: 0.5s;\n}\n.index .features .one .icon-wrapper.icon-2[data-v-2be84a3c] {\n  background: linear-gradient(145deg, rgba(139, 69, 19, 0.1), rgba(139, 69, 19, 0.05));\n}\n.index .features .one .icon-wrapper.icon-2[data-v-2be84a3c]::before {\n  background-color: rgba(139, 69, 19, 0.2);\n  -webkit-animation-delay: 1s;\n          animation-delay: 1s;\n}\n.index .features .one .icon-wrapper.icon-3[data-v-2be84a3c] {\n  background: linear-gradient(145deg, rgba(255, 69, 0, 0.1), rgba(255, 69, 0, 0.05));\n}\n.index .features .one .icon-wrapper.icon-3[data-v-2be84a3c]::before {\n  background-color: rgba(255, 69, 0, 0.2);\n  -webkit-animation-delay: 1.5s;\n          animation-delay: 1.5s;\n}\n.index .features .one .icon-wrapper.icon-4[data-v-2be84a3c] {\n  background: linear-gradient(145deg, rgba(148, 0, 211, 0.1), rgba(148, 0, 211, 0.05));\n}\n.index .features .one .icon-wrapper.icon-4[data-v-2be84a3c]::before {\n  background-color: rgba(148, 0, 211, 0.2);\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n}\n.index .features .one .icon-wrapper uni-image[data-v-2be84a3c] {\n  width: 58rpx;\n  height: 58rpx;\n  transition: all 0.35s ease;\n  z-index: 1;\n}\n.index .features .one .text[data-v-2be84a3c] {\n  font-size: 26rpx;\n  color: #333;\n  text-align: center;\n  font-weight: 500;\n}\n.index .features .one:active .icon-wrapper[data-v-2be84a3c] {\n  -webkit-transform: translateY(-8rpx);\n          transform: translateY(-8rpx);\n  box-shadow: 0 12rpx 20rpx rgba(139, 69, 19, 0.15);\n}\n.index .features .one:active .icon-wrapper[data-v-2be84a3c]::after {\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n.index .features .one:active .icon-wrapper uni-image[data-v-2be84a3c] {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n.index .hot-spots[data-v-2be84a3c] {\n  margin: 50rpx 30rpx;\n  padding: 20rpx 0;\n}\n.index .hot-spots .title[data-v-2be84a3c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 30rpx;\n  padding: 0 10rpx;\n}\n.index .hot-spots .title .left[data-v-2be84a3c] {\n  font-size: 38rpx;\n  font-weight: 600;\n  color: #333;\n  display: flex;\n  align-items: center;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.08);\n}\n.index .hot-spots .title .left .icon[data-v-2be84a3c] {\n  margin-right: 12rpx;\n  font-size: 42rpx;\n}\n.index .hot-spots .title .right[data-v-2be84a3c] {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #666;\n  padding: 14rpx 22rpx;\n  border-radius: 25rpx;\n  background: linear-gradient(to right, rgba(139, 69, 19, 0.1), rgba(139, 69, 19, 0.05));\n  transition: all 0.3s ease;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.1);\n}\n.index .hot-spots .title .right uni-text[data-v-2be84a3c] {\n  margin-right: 6rpx;\n}\n.index .hot-spots .title .right[data-v-2be84a3c]:active {\n  background: linear-gradient(to right, rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.1));\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.08);\n}\n.index .hot-spots .loading-container[data-v-2be84a3c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 60rpx 0;\n}\n.index .hot-spots .loading-container .loading-spinner[data-v-2be84a3c] {\n  width: 46rpx;\n  height: 46rpx;\n  border: 4rpx solid rgba(139, 69, 19, 0.2);\n  border-top-color: rgba(139, 69, 19, 0.8);\n  border-radius: 50%;\n  -webkit-animation: spin-data-v-2be84a3c 1.2s linear infinite;\n          animation: spin-data-v-2be84a3c 1.2s linear infinite;\n}\n.index .hot-spots .loading-container .loading-text[data-v-2be84a3c] {\n  margin-left: 20rpx;\n  font-size: 28rpx;\n  color: #666;\n}\n.index .hot-spots .list .one[data-v-2be84a3c] {\n  margin-bottom: 30rpx;\n  display: flex;\n  padding: 26rpx;\n  background-color: #ffffff;\n  border-radius: 26rpx;\n  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.05);\n  position: relative;\n  overflow: hidden;\n}\n.index .hot-spots .list .one .left[data-v-2be84a3c] {\n  position: relative;\n  width: 230rpx;\n  height: 170rpx;\n  border-radius: 20rpx;\n  overflow: hidden;\n  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);\n}\n.index .hot-spots .list .one .left[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);\n  z-index: 1;\n}\n.index .hot-spots .list .one .left uni-image[data-v-2be84a3c] {\n  width: 100%;\n  height: 100%;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.index .hot-spots .list .one .left .tag[data-v-2be84a3c] {\n  position: absolute;\n  top: 12rpx;\n  left: 12rpx;\n  background: linear-gradient(135deg, #8B4513, #D2691E);\n  color: #fff;\n  font-size: 20rpx;\n  padding: 6rpx 14rpx;\n  border-radius: 8rpx;\n  font-weight: 500;\n  box-shadow: 0 4rpx 8rpx rgba(139, 69, 19, 0.3);\n  z-index: 2;\n}\n.index .hot-spots .list .one .right[data-v-2be84a3c] {\n  flex: 1;\n  padding-left: 24rpx;\n  position: relative;\n  height: 178rpx;\n}\n.index .hot-spots .list .one .right .title[data-v-2be84a3c] {\n  font-size: 34rpx;\n  font-weight: 600;\n  color: #333;\n  margin-bottom: 12rpx;\n}\n.index .hot-spots .list .one .right .desc[data-v-2be84a3c] {\n  font-size: 24rpx;\n  color: #666;\n  margin-top: 8rpx;\n  margin-bottom: 18rpx;\n  line-height: 1.4;\n  min-height: 84rpx;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.index .hot-spots .list .one .right .meta[data-v-2be84a3c] {\n  position: absolute;\n  bottom: 0;\n  left: 24rpx;\n  right: 10rpx;\n  display: flex;\n  align-items: center;\n  font-size: 22rpx;\n}\n.index .hot-spots .list .one .right .meta .rating[data-v-2be84a3c] {\n  display: flex;\n  align-items: center;\n  margin-right: 20rpx;\n  color: #ff9900;\n}\n.index .hot-spots .list .one .right .meta .rating uni-text[data-v-2be84a3c] {\n  margin-left: 4rpx;\n}\n.index .hot-spots .list .one .right .meta .visits[data-v-2be84a3c] {\n  display: flex;\n  align-items: center;\n  color: #666;\n}\n.index .hot-spots .list .one .right .meta .visits uni-text[data-v-2be84a3c] {\n  margin-left: 4rpx;\n}\n.index .hot-spots .list .one[data-v-2be84a3c]:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.index .hot-spots .list .one:active .left uni-image[data-v-2be84a3c] {\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05);\n}\n.index .hot-spots .list .empty-tip[data-v-2be84a3c] {\n  margin-top: 80rpx;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.index .hot-spots .list .empty-tip uni-image[data-v-2be84a3c] {\n  width: 280rpx;\n  height: 280rpx;\n  margin-bottom: 30rpx;\n  opacity: 0.8;\n}\n.index .hot-spots .list .empty-tip uni-text[data-v-2be84a3c] {\n  font-size: 28rpx;\n  color: #999;\n}\n.index .bottom-decor[data-v-2be84a3c] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 140rpx;\n  background: linear-gradient(to top, #f8f4eb, rgba(248, 244, 235, 0));\n  pointer-events: none;\n}\n@-webkit-keyframes spin-data-v-2be84a3c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-2be84a3c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes rotateGradient-data-v-2be84a3c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes rotateGradient-data-v-2be84a3c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes moveWave-data-v-2be84a3c {\n0% {\n    -webkit-transform: translateX(0) translateY(0);\n            transform: translateX(0) translateY(0);\n}\n100% {\n    -webkit-transform: translateX(50%) translateY(-50%);\n            transform: translateX(50%) translateY(-50%);\n}\n}\n@keyframes moveWave-data-v-2be84a3c {\n0% {\n    -webkit-transform: translateX(0) translateY(0);\n            transform: translateX(0) translateY(0);\n}\n100% {\n    -webkit-transform: translateX(50%) translateY(-50%);\n            transform: translateX(50%) translateY(-50%);\n}\n}\n@-webkit-keyframes twinkle-data-v-2be84a3c {\n0%, 100% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0.8;\n}\n}\n@keyframes twinkle-data-v-2be84a3c {\n0%, 100% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0.8;\n}\n}\n@-webkit-keyframes fadeInUp-data-v-2be84a3c {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp-data-v-2be84a3c {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes floatCloud-data-v-2be84a3c {\n0%, 100% {\n    -webkit-transform: translateY(0) translateX(0);\n            transform: translateY(0) translateX(0);\n}\n50% {\n    -webkit-transform: translateY(-15rpx) translateX(15rpx);\n            transform: translateY(-15rpx) translateX(15rpx);\n}\n}\n@keyframes floatCloud-data-v-2be84a3c {\n0%, 100% {\n    -webkit-transform: translateY(0) translateX(0);\n            transform: translateY(0) translateX(0);\n}\n50% {\n    -webkit-transform: translateY(-15rpx) translateX(15rpx);\n            transform: translateY(-15rpx) translateX(15rpx);\n}\n}\n@-webkit-keyframes iconPulse-data-v-2be84a3c {\n0% {\n    opacity: 0;\n    -webkit-transform: scale(0.8);\n            transform: scale(0.8);\n}\n20% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: scale(0.8);\n            transform: scale(0.8);\n}\n}\n@keyframes iconPulse-data-v-2be84a3c {\n0% {\n    opacity: 0;\n    -webkit-transform: scale(0.8);\n            transform: scale(0.8);\n}\n20% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: scale(0.8);\n            transform: scale(0.8);\n}\n}\n.features[data-v-2be84a3c] {\n  padding: 20rpx 30rpx 10rpx;\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.features .one[data-v-2be84a3c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 20rpx;\n}\n@-webkit-keyframes pulse-data-v-2be84a3c {\n0% {\n    box-shadow: 0 5rpx 15rpx rgba(139, 69, 19, 0.2);\n}\n50% {\n    box-shadow: 0 8rpx 25rpx rgba(139, 69, 19, 0.4);\n}\n100% {\n    box-shadow: 0 5rpx 15rpx rgba(139, 69, 19, 0.2);\n}\n}\n@keyframes pulse-data-v-2be84a3c {\n0% {\n    box-shadow: 0 5rpx 15rpx rgba(139, 69, 19, 0.2);\n}\n50% {\n    box-shadow: 0 8rpx 25rpx rgba(139, 69, 19, 0.4);\n}\n100% {\n    box-shadow: 0 5rpx 15rpx rgba(139, 69, 19, 0.2);\n}\n}\n.features .one .icon-wrapper[data-v-2be84a3c] {\n  width: 110rpx;\n  height: 110rpx;\n  background: linear-gradient(135deg, #fff5e6, #fff);\n  border-radius: 30rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 12rpx;\n  position: relative;\n  box-shadow: 0 5rpx 15rpx rgba(139, 69, 19, 0.2);\n  -webkit-animation: pulse-data-v-2be84a3c 3s infinite ease-in-out;\n          animation: pulse-data-v-2be84a3c 3s infinite ease-in-out;\n  transition: all 0.3s ease;\n}\n.features .one .icon-wrapper[data-v-2be84a3c]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.8), transparent 70%);\n  border-radius: 30rpx;\n  z-index: 1;\n}\n.features .one .icon-wrapper[data-v-2be84a3c]::after {\n  content: \"\";\n  position: absolute;\n  top: 2rpx;\n  left: 2rpx;\n  right: 2rpx;\n  height: 50%;\n  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);\n  border-radius: 28rpx 28rpx 50% 50%;\n  z-index: 1;\n}\n.features .one .icon-wrapper uni-image[data-v-2be84a3c] {\n  width: 64rpx;\n  height: 64rpx;\n  z-index: 2;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.features .one .icon-wrapper[data-v-2be84a3c]:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 3rpx 10rpx rgba(139, 69, 19, 0.15);\n}\n.features .one .icon-wrapper:active uni-image[data-v-2be84a3c] {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n.features .one .text[data-v-2be84a3c] {\n  font-size: 24rpx;\n  color: #333;\n  margin-top: 8rpx;\n  font-weight: 500;\n}\n.features .one:nth-child(1) .icon-wrapper[data-v-2be84a3c] {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.features .one:nth-child(2) .icon-wrapper[data-v-2be84a3c] {\n  -webkit-animation-delay: 0.6s;\n          animation-delay: 0.6s;\n}\n.features .one:nth-child(3) .icon-wrapper[data-v-2be84a3c] {\n  -webkit-animation-delay: 1.2s;\n          animation-delay: 1.2s;\n}\n.features .one:nth-child(4) .icon-wrapper[data-v-2be84a3c] {\n  -webkit-animation-delay: 1.8s;\n          animation-delay: 1.8s;\n}\n.features .one:nth-child(5) .icon-wrapper[data-v-2be84a3c] {\n  -webkit-animation-delay: 2.4s;\n          animation-delay: 2.4s;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -5564,15 +5575,74 @@ var render = function () {
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
       _c(
+        "uni-view",
+        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        [
+          _c("uni-view", { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } }),
+          _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }),
+          _c("uni-view", { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } }),
+          _c("uni-view", { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } }),
+        ],
+        1
+      ),
+      _c(
+        "uni-view",
+        {
+          staticClass: _vm._$g(6, "sc"),
+          style: _vm._$g(6, "s"),
+          attrs: { _i: 6 },
+        },
+        [
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(7, "sc"),
+              attrs: { _i: 7 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-view", {
+                staticClass: _vm._$g(8, "sc"),
+                attrs: { _i: 8 },
+              }),
+              _c("v-uni-text", { attrs: { _i: 9 } }, [_vm._v("返回")]),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                [_vm._v("热门景点")]
+              ),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+                [_vm._v("探索晋韵古建筑之美")]
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _c(
         "v-uni-scroll-view",
         {
-          staticClass: _vm._$g(1, "sc"),
-          style: _vm._$g(1, "s"),
+          staticClass: _vm._$g(13, "sc"),
+          style: _vm._$g(13, "s"),
           attrs: {
             "scroll-y": "true",
             "refresher-enabled": true,
-            "refresher-triggered": _vm._$g(1, "a-refresher-triggered"),
-            _i: 1,
+            "refresher-triggered": _vm._$g(13, "a-refresher-triggered"),
+            _i: 13,
           },
           on: {
             scrolltolower: function ($event) {
@@ -5586,15 +5656,20 @@ var render = function () {
         [
           _c(
             "uni-view",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+            [_vm._v("下拉刷新")]
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
             [
-              _vm._l(_vm._$g(3, "f"), function (item, index, $20, $30) {
+              _vm._l(_vm._$g(16, "f"), function (item, index, $20, $30) {
                 return _c(
                   "uni-view",
                   {
                     key: item,
-                    staticClass: _vm._$g("3-" + $30, "sc"),
-                    attrs: { _i: "3-" + $30 },
+                    staticClass: _vm._$g("16-" + $30, "sc"),
+                    attrs: { _i: "16-" + $30 },
                     on: {
                       click: function ($event) {
                         return _vm.$handleViewEvent($event)
@@ -5603,55 +5678,59 @@ var render = function () {
                   },
                   [
                     _c("v-uni-image", {
-                      staticClass: _vm._$g("4-" + $30, "sc"),
+                      staticClass: _vm._$g("17-" + $30, "sc"),
                       attrs: {
-                        src: _vm._$g("4-" + $30, "a-src"),
+                        src: _vm._$g("17-" + $30, "a-src"),
                         mode: "aspectFill",
-                        _i: "4-" + $30,
+                        _i: "17-" + $30,
                       },
+                    }),
+                    _c("uni-view", {
+                      staticClass: _vm._$g("18-" + $30, "sc"),
+                      attrs: { _i: "18-" + $30 },
                     }),
                     _c(
                       "uni-view",
                       {
-                        staticClass: _vm._$g("5-" + $30, "sc"),
-                        attrs: { _i: "5-" + $30 },
+                        staticClass: _vm._$g("19-" + $30, "sc"),
+                        attrs: { _i: "19-" + $30 },
                       },
                       [
                         _c(
                           "uni-view",
                           {
-                            staticClass: _vm._$g("6-" + $30, "sc"),
-                            attrs: { _i: "6-" + $30 },
+                            staticClass: _vm._$g("20-" + $30, "sc"),
+                            attrs: { _i: "20-" + $30 },
                           },
-                          [_vm._v(_vm._$g("6-" + $30, "t0-0"))]
+                          [_vm._v(_vm._$g("20-" + $30, "t0-0"))]
                         ),
                         _c(
                           "uni-view",
                           {
-                            staticClass: _vm._$g("7-" + $30, "sc"),
-                            attrs: { _i: "7-" + $30 },
+                            staticClass: _vm._$g("21-" + $30, "sc"),
+                            attrs: { _i: "21-" + $30 },
                           },
-                          [_vm._v(_vm._$g("7-" + $30, "t0-0"))]
+                          [_vm._v(_vm._$g("21-" + $30, "t0-0"))]
                         ),
                         _c(
                           "uni-view",
                           {
-                            staticClass: _vm._$g("8-" + $30, "sc"),
-                            attrs: { _i: "8-" + $30 },
+                            staticClass: _vm._$g("22-" + $30, "sc"),
+                            attrs: { _i: "22-" + $30 },
                           },
                           [
                             _c(
                               "uni-view",
                               {
-                                staticClass: _vm._$g("9-" + $30, "sc"),
-                                attrs: { _i: "9-" + $30 },
+                                staticClass: _vm._$g("23-" + $30, "sc"),
+                                attrs: { _i: "23-" + $30 },
                               },
                               [
-                                _c("uni-icons", { attrs: { _i: "10-" + $30 } }),
+                                _c("uni-icons", { attrs: { _i: "24-" + $30 } }),
                                 _c(
                                   "v-uni-text",
-                                  { attrs: { _i: "11-" + $30 } },
-                                  [_vm._v(_vm._$g("11-" + $30, "t0-0"))]
+                                  { attrs: { _i: "25-" + $30 } },
+                                  [_vm._v(_vm._$g("25-" + $30, "t0-0"))]
                                 ),
                               ],
                               1
@@ -5659,15 +5738,15 @@ var render = function () {
                             _c(
                               "uni-view",
                               {
-                                staticClass: _vm._$g("12-" + $30, "sc"),
-                                attrs: { _i: "12-" + $30 },
+                                staticClass: _vm._$g("26-" + $30, "sc"),
+                                attrs: { _i: "26-" + $30 },
                               },
                               [
-                                _c("uni-icons", { attrs: { _i: "13-" + $30 } }),
+                                _c("uni-icons", { attrs: { _i: "27-" + $30 } }),
                                 _c(
                                   "v-uni-text",
-                                  { attrs: { _i: "14-" + $30 } },
-                                  [_vm._v(_vm._$g("14-" + $30, "t0-0"))]
+                                  { attrs: { _i: "28-" + $30 } },
+                                  [_vm._v(_vm._$g("28-" + $30, "t0-0"))]
                                 ),
                               ],
                               1
@@ -5678,28 +5757,52 @@ var render = function () {
                       ],
                       1
                     ),
+                    _c("uni-view", {
+                      staticClass: _vm._$g("29-" + $30, "sc"),
+                      attrs: { _i: "29-" + $30 },
+                    }),
+                    _c("uni-view", {
+                      staticClass: _vm._$g("30-" + $30, "sc"),
+                      attrs: { _i: "30-" + $30 },
+                    }),
                   ],
                   1
                 )
               }),
-              _vm._$g(15, "i")
+              _vm._$g(31, "i")
                 ? _c(
                     "uni-view",
-                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                    { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
                     [
-                      _c("uni-icons", { attrs: { _i: 16 } }),
-                      _c("v-uni-text", { attrs: { _i: 17 } }, [
-                        _vm._v("加载中..."),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(32, "sc"),
+                        attrs: { _i: 32 },
+                      }),
+                      _c("v-uni-text", { attrs: { _i: 33 } }, [
+                        _vm._v("正在加载更多景点..."),
                       ]),
                     ],
                     1
                   )
                 : _vm._e(),
-              _vm._$g(18, "i")
+              _vm._$g(34, "i")
                 ? _c(
                     "uni-view",
-                    { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-                    [_vm._v("没有更多数据了")]
+                    { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
+                    [
+                      _c("uni-view", {
+                        staticClass: _vm._$g(35, "sc"),
+                        attrs: { _i: 35 },
+                      }),
+                      _c("v-uni-text", { attrs: { _i: 36 } }, [
+                        _vm._v("已经到达页面底部"),
+                      ]),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(37, "sc"),
+                        attrs: { _i: 37 },
+                      }),
+                    ],
+                    1
                   )
                 : _vm._e(),
             ],
@@ -5806,7 +5909,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.more-container {\n  min-height: 100vh;\n  background-color: #f5f6fa;\n}\n.more-container .attractions-list {\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #f5f6fa;\n}\n.more-container .attractions-list .attractions-content {\n  padding: 20rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item {\n  background-color: #fff;\n  border-radius: 16rpx;\n  margin-bottom: 20rpx;\n  overflow: hidden;\n  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-image {\n  width: 100%;\n  height: 360rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info {\n  padding: 20rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-title {\n  font-size: 32rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 12rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-desc {\n  font-size: 26rpx;\n  color: #666;\n  margin-bottom: 16rpx;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  overflow: hidden;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .location,\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .rating {\n  display: flex;\n  align-items: center;\n  font-size: 24rpx;\n  color: #666;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .location uni-text,\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .rating uni-text {\n  margin-left: 6rpx;\n}\n.more-container .loading-more,\n.more-container .no-more {\n  text-align: center;\n  padding: 30rpx;\n  color: #999;\n  font-size: 26rpx;\n}\n.more-container .loading-more .uni-icons,\n.more-container .no-more .uni-icons {\n  margin-right: 10rpx;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.more-container {\n  min-height: 100vh;\n  background-color: #f8f4eb;\n  position: relative;\n  overflow: hidden;\n}\n.more-container .page-backdrop {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 280rpx;\n  background: linear-gradient(135deg, #4a5d80 0%, #647899 25%, #7a8ba8 50%, #8a99b2 75%, #9aa7bd 100%);\n  box-shadow: 0 6rpx 30rpx rgba(0, 0, 0, 0.15);\n  overflow: hidden;\n  z-index: 1;\n}\n.more-container .page-backdrop::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);\n  background-size: 24rpx 24rpx;\n  -webkit-animation: twinkle 5s ease-in-out infinite;\n          animation: twinkle 5s ease-in-out infinite;\n  opacity: 0.6;\n}\n.more-container .page-backdrop .pattern-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  /* 使用重复渐变替代图片，避免图片路径错误 */\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 12px);\n  opacity: 0.5;\n  mix-blend-mode: overlay;\n}\n.more-container .page-backdrop .cloud-1,\n.more-container .page-backdrop .cloud-2 {\n  position: absolute;\n  border-radius: 50px;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.more-container .page-backdrop .cloud-1 {\n  width: 180rpx;\n  height: 60rpx;\n  top: 40rpx;\n  right: 60rpx;\n  -webkit-animation: floatCloud 15s ease-in-out infinite;\n          animation: floatCloud 15s ease-in-out infinite;\n}\n.more-container .page-backdrop .cloud-1::before, .more-container .page-backdrop .cloud-1::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.more-container .page-backdrop .cloud-1::before {\n  width: 80rpx;\n  height: 80rpx;\n  top: -30rpx;\n  left: 20rpx;\n}\n.more-container .page-backdrop .cloud-1::after {\n  width: 60rpx;\n  height: 60rpx;\n  top: -20rpx;\n  right: 30rpx;\n}\n.more-container .page-backdrop .cloud-2 {\n  width: 160rpx;\n  height: 50rpx;\n  top: 120rpx;\n  left: 80rpx;\n  animation: floatCloud 18s ease-in-out 2s infinite reverse;\n}\n.more-container .page-backdrop .cloud-2::before, .more-container .page-backdrop .cloud-2::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.1);\n  -webkit-backdrop-filter: blur(2px);\n          backdrop-filter: blur(2px);\n}\n.more-container .page-backdrop .cloud-2::before {\n  width: 70rpx;\n  height: 70rpx;\n  top: -25rpx;\n  left: 15rpx;\n}\n.more-container .page-backdrop .cloud-2::after {\n  width: 50rpx;\n  height: 50rpx;\n  top: -15rpx;\n  right: 25rpx;\n}\n.more-container .page-backdrop .mountain {\n  position: absolute;\n  bottom: -30rpx;\n  right: 100rpx;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-width: 0 120rpx 100rpx 120rpx;\n  border-color: transparent transparent rgba(255, 255, 255, 0.05) transparent;\n}\n.more-container .page-header {\n  position: fixed;\n  left: 0;\n  width: 100%;\n  z-index: 2;\n  padding-bottom: 20rpx;\n}\n.more-container .page-header .back-btn {\n  position: absolute;\n  left: 30rpx;\n  top: 20rpx;\n  display: flex;\n  align-items: center;\n  height: 64rpx;\n  padding: 0 24rpx;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 32rpx;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  z-index: 3;\n  transition: all 0.25s ease;\n}\n.more-container .page-header .back-btn:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n  background: rgba(255, 255, 255, 0.25);\n}\n.more-container .page-header .back-btn .back-icon {\n  width: 24rpx;\n  height: 24rpx;\n  border-left: 4rpx solid rgba(255, 255, 255, 0.9);\n  border-bottom: 4rpx solid rgba(255, 255, 255, 0.9);\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n  margin-right: 12rpx;\n  margin-left: -4rpx;\n}\n.more-container .page-header .back-btn uni-text {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.9);\n  letter-spacing: 2rpx;\n}\n.more-container .page-header .page-title {\n  padding: 110rpx 40rpx 0;\n}\n.more-container .page-header .page-title .title-text {\n  display: block;\n  font-size: 44rpx;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.35);\n  margin-bottom: 10rpx;\n  letter-spacing: 4rpx;\n}\n.more-container .page-header .page-title .subtitle-text {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.9);\n  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.25);\n  position: relative;\n}\n.more-container .page-header .page-title .subtitle-text::after {\n  content: \"\";\n  position: absolute;\n  bottom: -16rpx;\n  left: 0;\n  width: 80rpx;\n  height: 2px;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);\n  border-radius: 1px;\n}\n.more-container .attractions-list {\n  position: fixed;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 3;\n}\n.more-container .attractions-list .scroll-tip {\n  text-align: center;\n  padding: 20rpx 0;\n  color: rgba(139, 69, 19, 0.5);\n  font-size: 24rpx;\n  position: relative;\n  margin-bottom: 10rpx;\n}\n.more-container .attractions-list .scroll-tip::before, .more-container .attractions-list .scroll-tip::after {\n  content: \"\";\n  position: absolute;\n  width: 12rpx;\n  height: 12rpx;\n  border-radius: 50%;\n  background-color: rgba(139, 69, 19, 0.2);\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.more-container .attractions-list .scroll-tip::before {\n  left: calc(50% - 50rpx);\n}\n.more-container .attractions-list .scroll-tip::after {\n  right: calc(50% - 50rpx);\n}\n.more-container .attractions-list .attractions-content {\n  padding: 30rpx;\n  padding-bottom: 80rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item {\n  background-color: #fff;\n  border-radius: 24rpx;\n  margin-bottom: 36rpx;\n  overflow: hidden;\n  box-shadow: 0 10rpx 36rpx rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.35s ease;\n}\n.more-container .attractions-list .attractions-content .attraction-item::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-image: radial-gradient(rgba(139, 69, 19, 0.02) 1px, transparent 1px);\n  background-size: 20rpx 20rpx;\n  opacity: 0.5;\n  pointer-events: none;\n}\n.more-container .attractions-list .attractions-content .attraction-item:active {\n  -webkit-transform: translateY(6rpx) scale(0.98);\n          transform: translateY(6rpx) scale(0.98);\n  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.06);\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-image {\n  width: 100%;\n  height: 380rpx;\n  object-fit: cover;\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);\n}\n.more-container .attractions-list .attractions-content .attraction-item .overlay-gradient {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 100rpx;\n  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));\n  z-index: 1;\n  pointer-events: none;\n  opacity: 0.5;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info {\n  padding: 32rpx;\n  position: relative;\n  background: linear-gradient(to bottom, #fff, rgba(255, 250, 240, 0.5));\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 16rpx;\n  position: relative;\n  padding-left: 20rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-title::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 8rpx;\n  bottom: 8rpx;\n  width: 6rpx;\n  background: linear-gradient(to bottom, #8B4513, #D2691E);\n  border-radius: 3rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-desc {\n  font-size: 28rpx;\n  color: #666;\n  margin-bottom: 22rpx;\n  line-height: 1.5;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  overflow: hidden;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px dashed rgba(139, 69, 19, 0.1);\n  padding-top: 20rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .location,\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .rating {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8B4513;\n  background: rgba(139, 69, 19, 0.05);\n  padding: 8rpx 16rpx;\n  border-radius: 20rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .location:active,\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .rating:active {\n  background: rgba(139, 69, 19, 0.1);\n}\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .location uni-text,\n.more-container .attractions-list .attractions-content .attraction-item .attraction-info .attraction-meta .rating uni-text {\n  margin-left: 8rpx;\n}\n.more-container .attractions-list .attractions-content .attraction-item .corner-fold {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 60rpx;\n  height: 60rpx;\n  background: linear-gradient(135deg, transparent 50%, rgba(139, 69, 19, 0.08) 50%);\n  z-index: 2;\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n  transition: all 0.3s ease;\n}\n.more-container .attractions-list .attractions-content .attraction-item:active .corner-fold {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n}\n.more-container .attractions-list .attractions-content .attraction-item .item-decoration {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  width: 36rpx;\n  height: 36rpx;\n  background-image: radial-gradient(circle at right bottom, #8B4513 0%, transparent 70%);\n  opacity: 0.15;\n}\n.more-container .loading-more,\n.more-container .no-more {\n  text-align: center;\n  padding: 30rpx;\n  color: #8B4513;\n  font-size: 28rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.8;\n}\n.more-container .loading-more .loading-spinner,\n.more-container .no-more .loading-spinner {\n  width: 40rpx;\n  height: 40rpx;\n  border: 3rpx solid rgba(139, 69, 19, 0.2);\n  border-top-color: rgba(139, 69, 19, 0.8);\n  border-radius: 50%;\n  margin-right: 16rpx;\n  -webkit-animation: spin 1.2s linear infinite;\n          animation: spin 1.2s linear infinite;\n}\n.more-container .loading-more .divider,\n.more-container .no-more .divider {\n  width: 90rpx;\n  height: 1px;\n  background: linear-gradient(to right, transparent, rgba(139, 69, 19, 0.3), transparent);\n  margin: 0 20rpx;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes twinkle {\n0%, 100% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0.8;\n}\n}\n@keyframes twinkle {\n0%, 100% {\n    opacity: 0.4;\n}\n50% {\n    opacity: 0.8;\n}\n}\n@-webkit-keyframes floatCloud {\n0%, 100% {\n    -webkit-transform: translateY(0) translateX(0);\n            transform: translateY(0) translateX(0);\n}\n50% {\n    -webkit-transform: translateY(-10rpx) translateX(10rpx);\n            transform: translateY(-10rpx) translateX(10rpx);\n}\n}\n@keyframes floatCloud {\n0%, 100% {\n    -webkit-transform: translateY(0) translateX(0);\n            transform: translateY(0) translateX(0);\n}\n50% {\n    -webkit-transform: translateY(-10rpx) translateX(10rpx);\n            transform: translateY(-10rpx) translateX(10rpx);\n}\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -13524,6 +13627,920 @@ module.exports = exports;
 
 /***/ }),
 /* 228 */
+/*!***********************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?mpType=page ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./detail.vue?vue&type=template&id=5d43696a&mpType=page */ 229);
+/* harmony import */ var _detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./detail.vue?vue&type=script&lang=js&mpType=page */ 231);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detail.vue?vue&type=style&index=0&lang=scss&mpType=page */ 233);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null,
+  false,
+  _detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "pages/index/heritage/detail.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+/* 229 */
+/*!*****************************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=template&id=5d43696a&mpType=page ***!
+  \*****************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./detail.vue?vue&type=template&id=5d43696a&mpType=page */ 230);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_template_id_5d43696a_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+/* 230 */
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=template&id=5d43696a&mpType=page ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+try {
+  components = {
+    uniIcons:
+      __webpack_require__(/*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 5)
+        .default,
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "uni-view",
+    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
+    [
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        [
+          _c("v-uni-image", {
+            staticClass: _vm._$g(2, "sc"),
+            attrs: { src: _vm._$g(2, "a-src"), mode: "aspectFill", _i: 2 },
+          }),
+          _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }),
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(4, "sc"),
+              style: _vm._$g(4, "s"),
+              attrs: { _i: 4 },
+            },
+            [
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(5, "sc"),
+                  attrs: { _i: 5 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _c("uni-view", {
+                    staticClass: _vm._$g(6, "sc"),
+                    attrs: { _i: 6 },
+                  }),
+                  _c("v-uni-text", { attrs: { _i: 7 } }, [_vm._v("返回")]),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(9, "sc"),
+                      attrs: { _i: 9 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 10 } })],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(11, "sc"),
+                      attrs: { _i: 11 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 12 } })],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                [_vm._v("文物景点")]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                [_vm._v(_vm._$g(15, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                    [
+                      _c("uni-icons", { attrs: { _i: 18 } }),
+                      _c("uni-icons", { attrs: { _i: 19 } }),
+                      _c("uni-icons", { attrs: { _i: 20 } }),
+                      _c("uni-icons", { attrs: { _i: 21 } }),
+                      _c("uni-icons", { attrs: { _i: 22 } }),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+                    [_vm._v(_vm._$g(23, "t0-0"))]
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                    [_vm._v("(" + _vm._$g(24, "t0-0") + "条评价)")]
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(26, "sc"),
+                      attrs: { _i: 26 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [
+                      _c("uni-icons", { attrs: { _i: 27 } }),
+                      _c("v-uni-text", { attrs: { _i: 28 } }, [
+                        _vm._v(_vm._$g(28, "t0-0")),
+                      ]),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                    [
+                      _c("uni-icons", { attrs: { _i: 30 } }),
+                      _c("v-uni-text", { attrs: { _i: 31 } }, [
+                        _vm._v("建于" + _vm._$g(31, "t0-0")),
+                      ]),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _c("uni-view", { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } }),
+        ],
+        1
+      ),
+      _vm._$g(33, "i")
+        ? _c(
+            "uni-view",
+            { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+            [
+              _c("uni-view", {
+                staticClass: _vm._$g(34, "sc"),
+                attrs: { _i: 34 },
+              }),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                [_vm._v("加载中...")]
+              ),
+            ],
+            1
+          )
+        : _c(
+            "v-uni-scroll-view",
+            {
+              staticClass: _vm._$g(36, "sc"),
+              attrs: { "scroll-y": "true", _i: 36 },
+            },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(40, "sc"),
+                            attrs: { _i: 40 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 41 } }, [
+                            _vm._v("景点位置"),
+                          ]),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        {
+                          staticClass: _vm._$g(42, "sc"),
+                          attrs: { _i: 42 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [
+                          _c("v-uni-text", { attrs: { _i: 43 } }, [
+                            _vm._v(_vm._$g(43, "t0-0")),
+                          ]),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(44, "sc"),
+                              attrs: { _i: 44 },
+                            },
+                            [
+                              _c("v-uni-text", { attrs: { _i: 45 } }, [
+                                _vm._v("查看地图"),
+                              ]),
+                              _c("uni-icons", { attrs: { _i: 46 } }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(49, "sc"),
+                            attrs: { _i: 49 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 50 } }, [
+                            _vm._v("文物简介"),
+                          ]),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
+                        [
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(52, "sc"),
+                              class: _vm._$g(52, "c"),
+                              attrs: { _i: 52 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
+                            [_vm._v(_vm._$g(52, "t0-0"))]
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(53, "sc"),
+                              attrs: { _i: 53 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
+                            [
+                              _c("v-uni-text", { attrs: { _i: 54 } }, [
+                                _vm._v(_vm._$g(54, "t0-0")),
+                              ]),
+                              _c("uni-icons", { attrs: { _i: 55 } }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._$g(56, "i")
+                    ? _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(57, "sc"),
+                              attrs: { _i: 57 },
+                            },
+                            [
+                              _c("uni-view", {
+                                staticClass: _vm._$g(58, "sc"),
+                                attrs: { _i: 58 },
+                              }),
+                              _c("v-uni-text", { attrs: { _i: 59 } }, [
+                                _vm._v("景点图集"),
+                              ]),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-uni-scroll-view",
+                            {
+                              staticClass: _vm._$g(60, "sc"),
+                              attrs: {
+                                "scroll-x": "true",
+                                "show-scrollbar": "false",
+                                _i: 60,
+                              },
+                            },
+                            [
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(61, "sc"),
+                                  attrs: { _i: 61 },
+                                },
+                                _vm._l(
+                                  _vm._$g(62, "f"),
+                                  function (img, index, $20, $30) {
+                                    return _c(
+                                      "uni-view",
+                                      {
+                                        key: img,
+                                        staticClass: _vm._$g("62-" + $30, "sc"),
+                                        attrs: { _i: "62-" + $30 },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.$handleViewEvent($event)
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _c("v-uni-image", {
+                                          attrs: {
+                                            src: _vm._$g("63-" + $30, "a-src"),
+                                            mode: "aspectFill",
+                                            _i: "63-" + $30,
+                                          },
+                                        }),
+                                      ],
+                                      1
+                                    )
+                                  }
+                                ),
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(66, "sc"),
+                            attrs: { _i: 66 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 67 } }, [
+                            _vm._v("文物特色"),
+                          ]),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
+                        _vm._l(
+                          _vm._$g(69, "f"),
+                          function (feature, index, $21, $31) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: feature,
+                                staticClass: _vm._$g("69-" + $31, "sc"),
+                                attrs: { _i: "69-" + $31 },
+                              },
+                              [
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("70-" + $31, "sc"),
+                                    attrs: { _i: "70-" + $31 },
+                                  },
+                                  [_vm._v(_vm._$g("70-" + $31, "t0-0"))]
+                                ),
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("71-" + $31, "sc"),
+                                    attrs: { _i: "71-" + $31 },
+                                  },
+                                  [_vm._v(_vm._$g("71-" + $31, "t0-0"))]
+                                ),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
+                        [
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(74, "sc"),
+                              attrs: { _i: 74 },
+                            },
+                            [_vm._v(_vm._$g(74, "t0-0") + "人")]
+                          ),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(75, "sc"),
+                              attrs: { _i: 75 },
+                            },
+                            [_vm._v("月访问量")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
+                        [
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(77, "sc"),
+                              attrs: { _i: 77 },
+                            },
+                            [_vm._v(_vm._$g(77, "t0-0"))]
+                          ),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(78, "sc"),
+                              attrs: { _i: 78 },
+                            },
+                            [_vm._v("建成年份")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+                        [
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(80, "sc"),
+                              attrs: { _i: 80 },
+                            },
+                            [_vm._v(_vm._$g(80, "t0-0") + "%")]
+                          ),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(81, "sc"),
+                              attrs: { _i: 81 },
+                            },
+                            [_vm._v("游客满意度")]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._$g(82, "i")
+                ? _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(82, "sc"), attrs: { _i: 82 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
+                        [
+                          _c("v-uni-text", { attrs: { _i: 84 } }, [
+                            _vm._v("相关推荐"),
+                          ]),
+                          _c("uni-view", {
+                            staticClass: _vm._$g(85, "sc"),
+                            attrs: { _i: 85 },
+                          }),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(86, "sc"), attrs: { _i: 86 } },
+                        _vm._l(
+                          _vm._$g(87, "f"),
+                          function (item, index, $22, $32) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: item,
+                                staticClass: _vm._$g("87-" + $32, "sc"),
+                                attrs: { _i: "87-" + $32 },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$handleViewEvent($event)
+                                  },
+                                },
+                              },
+                              [
+                                _c("v-uni-image", {
+                                  attrs: {
+                                    src: _vm._$g("88-" + $32, "a-src"),
+                                    mode: "aspectFill",
+                                    _i: "88-" + $32,
+                                  },
+                                }),
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("89-" + $32, "sc"),
+                                    attrs: { _i: "89-" + $32 },
+                                  },
+                                  [
+                                    _c(
+                                      "v-uni-text",
+                                      {
+                                        staticClass: _vm._$g("90-" + $32, "sc"),
+                                        attrs: { _i: "90-" + $32 },
+                                      },
+                                      [_vm._v(_vm._$g("90-" + $32, "t0-0"))]
+                                    ),
+                                    _c(
+                                      "uni-view",
+                                      {
+                                        staticClass: _vm._$g("91-" + $32, "sc"),
+                                        attrs: { _i: "91-" + $32 },
+                                      },
+                                      [
+                                        _c(
+                                          "uni-view",
+                                          {
+                                            staticClass: _vm._$g(
+                                              "92-" + $32,
+                                              "sc"
+                                            ),
+                                            attrs: { _i: "92-" + $32 },
+                                          },
+                                          [
+                                            _c("uni-icons", {
+                                              attrs: { _i: "93-" + $32 },
+                                            }),
+                                            _c(
+                                              "v-uni-text",
+                                              { attrs: { _i: "94-" + $32 } },
+                                              [
+                                                _vm._v(
+                                                  _vm._$g("94-" + $32, "t0-0")
+                                                ),
+                                              ]
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                        _c(
+                                          "v-uni-text",
+                                          {
+                                            staticClass: _vm._$g(
+                                              "95-" + $32,
+                                              "sc"
+                                            ),
+                                            attrs: { _i: "95-" + $32 },
+                                          },
+                                          [_vm._v(_vm._$g("95-" + $32, "t0-0"))]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        1
+                      ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _c("uni-view", {
+                staticClass: _vm._$g(96, "sc"),
+                attrs: { _i: 96 },
+              }),
+            ],
+            1
+          ),
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(97, "sc"), attrs: { _i: 97 } },
+        [
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(98, "sc"),
+              attrs: { _i: 98 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 99 } }),
+              _c("v-uni-text", { attrs: { _i: 100 } }, [_vm._v("分享")]),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(101, "sc"),
+              attrs: { _i: 101 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 102 } }),
+              _c("v-uni-text", { attrs: { _i: 103 } }, [
+                _vm._v(_vm._$g(103, "t0-0")),
+              ]),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(104, "sc"),
+              attrs: { _i: 104 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 105 } }),
+              _c("v-uni-text", { attrs: { _i: 106 } }, [_vm._v("AR体验")]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 231 */
+/*!***********************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=script&lang=js&mpType=page ***!
+  \***********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./detail.vue?vue&type=script&lang=js&mpType=page */ 232);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 232 */
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=script&lang=js&mpType=page ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: function data() {
+    return {
+      wxsProps: {}
+    };
+  },
+  components: {}
+};
+exports.default = _default;
+
+/***/ }),
+/* 233 */
+/*!********************************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \********************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./detail.vue?vue&type=style&index=0&lang=scss&mpType=page */ 234);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_detail_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 234 */
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./detail.vue?vue&type=style&index=0&lang=scss&mpType=page */ 235);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader/lib/addStylesClient.js */ 16).default
+var update = add("7ebd7544", content, false, {"sourceMap":false,"shadowMode":false});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+/* 235 */
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/index/heritage/detail.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.detail-container {\n  min-height: 100vh;\n  background-color: #f8f4eb;\n  position: relative;\n}\n.detail-container .page-header {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 460rpx;\n  overflow: hidden;\n  z-index: 5;\n}\n.detail-container .page-header .header-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.detail-container .page-header .header-gradient {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 100%);\n}\n.detail-container .page-header .header-toolbar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30rpx;\n  z-index: 10;\n  height: 100rpx;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .back-btn {\n  display: flex;\n  align-items: center;\n  padding: 12rpx 24rpx;\n  border-radius: 50rpx;\n  background: rgba(0, 0, 0, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  transition: all 0.25s ease;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .back-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background: rgba(0, 0, 0, 0.4);\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon {\n  width: 34rpx;\n  height: 34rpx;\n  position: relative;\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::before, .detail-container .page-header .header-toolbar .back-btn .back-icon::after {\n  content: \"\";\n  position: absolute;\n  left: 10rpx;\n  width: 20rpx;\n  height: 3rpx;\n  background-color: #ffffff;\n  border-radius: 4rpx;\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::before {\n  top: 10rpx;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::after {\n  bottom: 10rpx;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n}\n.detail-container .page-header .header-toolbar .back-btn uni-text {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.95);\n  letter-spacing: 2rpx;\n  margin-left: 6rpx;\n}\n.detail-container .page-header .header-toolbar .action-buttons {\n  display: flex;\n  align-items: center;\n  gap: 20rpx;\n}\n.detail-container .page-header .header-toolbar .action-buttons .toolbar-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  transition: all 0.25s ease;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .action-buttons .toolbar-btn:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n  background: rgba(0, 0, 0, 0.4);\n}\n.detail-container .page-header .header-info {\n  position: absolute;\n  bottom: 90rpx;\n  left: 40rpx;\n  right: 40rpx;\n  z-index: 2;\n}\n.detail-container .page-header .header-info .header-tag {\n  display: inline-block;\n  font-size: 24rpx;\n  font-weight: bold;\n  color: #ffffff;\n  background-color: rgba(139, 69, 19, 0.8);\n  padding: 6rpx 16rpx;\n  border-radius: 6rpx;\n  margin-bottom: 16rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);\n}\n.detail-container .page-header .header-info .header-title {\n  font-size: 48rpx;\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 16rpx;\n  text-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.3);\n  letter-spacing: 2rpx;\n}\n.detail-container .page-header .header-info .header-meta {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-stars {\n  display: flex;\n  align-items: center;\n}\n.detail-container .page-header .header-info .header-meta .rating-stars uni-icons {\n  margin-right: 4rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-value {\n  font-size: 30rpx;\n  font-weight: bold;\n  color: #ffffff;\n  margin: 0 12rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-count {\n  font-size: 24rpx;\n  color: rgba(255, 255, 255, 0.8);\n}\n.detail-container .page-header .header-info .header-quick-info {\n  display: flex;\n  align-items: center;\n  gap: 30rpx;\n  margin-top: 20rpx;\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #ffffff;\n  background-color: rgba(0, 0, 0, 0.25);\n  padding: 8rpx 20rpx;\n  border-radius: 50rpx;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item uni-text {\n  margin-left: 8rpx;\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item:active {\n  background-color: rgba(0, 0, 0, 0.35);\n}\n.detail-container .page-header .header-wave {\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  right: 0;\n  height: 40rpx;\n  background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"white\" fill-opacity=\"1\" d=\"M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z\"></path></svg>');\n  background-size: cover;\n  background-position: center;\n}\n.detail-container .loading-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: #f8f4eb;\n  z-index: 20;\n}\n.detail-container .loading-container .loading-spinner {\n  width: 60rpx;\n  height: 60rpx;\n  border: 5rpx solid rgba(139, 69, 19, 0.2);\n  border-top-color: rgba(139, 69, 19, 0.8);\n  border-radius: 50%;\n  margin-bottom: 30rpx;\n  -webkit-animation: spin 1.2s linear infinite;\n          animation: spin 1.2s linear infinite;\n}\n.detail-container .loading-container .loading-text {\n  font-size: 28rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll {\n  position: relative;\n  flex: 1;\n  width: 100%;\n  height: calc(100vh - 100rpx);\n  z-index: 2;\n  padding-top: 460rpx;\n}\n.detail-container .detail-scroll .detail-card {\n  padding: 20rpx 30rpx;\n  background-color: #ffffff;\n  border-radius: 30rpx 30rpx 0 0;\n  position: relative;\n  z-index: 3;\n  box-shadow: 0 -6rpx 20rpx rgba(0, 0, 0, 0.08);\n  min-height: calc(100vh - 460rpx);\n}\n.detail-container .detail-scroll .detail-card::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 2px, transparent 2px, transparent 12px);\n  opacity: 0.5;\n  border-radius: 30rpx 30rpx 0 0;\n  z-index: -1;\n}\n.detail-container .detail-scroll .detail-card .info-section {\n  margin-bottom: 50rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title {\n  display: flex;\n  align-items: center;\n  margin-bottom: 20rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .title-icon {\n  width: 36rpx;\n  height: 36rpx;\n  margin-right: 14rpx;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/location.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon::before {\n  content: \"\";\n  width: 14rpx;\n  height: 14rpx;\n  background-color: #8B4513;\n  border-radius: 50%;\n  position: absolute;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon::after {\n  content: \"\";\n  width: 24rpx;\n  height: 24rpx;\n  border: 2rpx solid #8B4513;\n  border-radius: 50%;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .intro-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/info.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .intro-icon::before {\n  content: \"i\";\n  font-style: italic;\n  font-weight: bold;\n  color: #8B4513;\n  font-size: 24rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/gallery.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon::before {\n  content: \"\";\n  width: 20rpx;\n  height: 16rpx;\n  border: 2rpx solid #8B4513;\n  position: absolute;\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon::after {\n  content: \"\";\n  width: 16rpx;\n  height: 12rpx;\n  border: 2rpx solid #8B4513;\n  position: absolute;\n  background-color: rgba(139, 69, 19, 0.2);\n  top: 4rpx;\n  left: 4rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .feature-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/feature.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .feature-icon::before {\n  content: \"✓\";\n  color: #8B4513;\n  font-size: 24rpx;\n  font-weight: bold;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title uni-text {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #333;\n  position: relative;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title uni-text::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6rpx;\n  left: 0;\n  width: 40rpx;\n  height: 4rpx;\n  background: linear-gradient(to right, #8B4513, transparent);\n  border-radius: 2rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-content {\n  font-size: 28rpx;\n  color: #666;\n  line-height: 1.6;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgba(139, 69, 19, 0.05);\n  padding: 20rpx 24rpx;\n  border-radius: 16rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content .location-action {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content .location-action uni-text {\n  margin-right: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .heritage-desc {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n}\n.detail-container .detail-scroll .detail-card .info-section .heritage-desc.expanded {\n  -webkit-line-clamp: initial;\n}\n.detail-container .detail-scroll .detail-card .info-section .expand-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 16rpx;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .expand-btn uni-text {\n  margin-right: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll {\n  width: 100%;\n  white-space: nowrap;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container {\n  display: inline-flex;\n  padding: 10rpx 0;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item {\n  width: 240rpx;\n  height: 160rpx;\n  margin-right: 20rpx;\n  border-radius: 16rpx;\n  overflow: hidden;\n  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item:last-child {\n  margin-right: 0;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 24rpx;\n  padding: 16rpx 20rpx;\n  background-color: rgba(139, 69, 19, 0.05);\n  border-radius: 12rpx;\n  border-left: 6rpx solid #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-dot {\n  display: none;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-title {\n  font-size: 28rpx;\n  font-weight: 600;\n  color: #8B4513;\n  margin-bottom: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-description {\n  font-size: 26rpx;\n  color: #666;\n  line-height: 1.5;\n}\n.detail-container .detail-scroll .detail-card .visitors-section {\n  display: flex;\n  justify-content: space-around;\n  background-color: rgba(139, 69, 19, 0.05);\n  border-radius: 20rpx;\n  padding: 30rpx 0;\n  margin-bottom: 0;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item .visitor-count {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #8B4513;\n  margin-bottom: 10rpx;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item .visitor-label {\n  font-size: 24rpx;\n  color: #666;\n}\n.detail-container .detail-scroll .related-section {\n  margin: 50rpx 30rpx;\n}\n.detail-container .detail-scroll .related-section .section-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 30rpx;\n}\n.detail-container .detail-scroll .related-section .section-header uni-text {\n  font-size: 34rpx;\n  font-weight: 600;\n  color: #333;\n  margin-right: 20rpx;\n}\n.detail-container .detail-scroll .related-section .section-header .header-decor {\n  flex: 1;\n  height: 1px;\n  background: linear-gradient(to right, #8B4513, transparent);\n}\n.detail-container .detail-scroll .related-section .related-list .related-item {\n  display: flex;\n  background-color: #ffffff;\n  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.06);\n  border-radius: 20rpx;\n  padding: 20rpx;\n  margin-bottom: 24rpx;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item uni-image {\n  width: 160rpx;\n  height: 120rpx;\n  border-radius: 12rpx;\n  margin-right: 20rpx;\n  object-fit: cover;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-name {\n  font-size: 28rpx;\n  font-weight: 600;\n  color: #333;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-rating {\n  display: flex;\n  align-items: center;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-rating uni-text {\n  font-size: 24rpx;\n  color: #666;\n  margin-left: 6rpx;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-distance {\n  font-size: 24rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .bottom-space {\n  height: 120rpx;\n}\n.detail-container .action-bar {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 100rpx;\n  background-color: #ffffff;\n  display: flex;\n  align-items: center;\n  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.08);\n  z-index: 10;\n}\n.detail-container .action-bar .action-btn {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.detail-container .action-bar .action-btn uni-text {\n  font-size: 24rpx;\n  margin-top: 6rpx;\n  color: #666;\n}\n.detail-container .action-bar .action-btn.ar-btn {\n  flex: 1.5;\n  background: linear-gradient(135deg, #8B4513, #D2691E);\n  margin: 10rpx 30rpx;\n  border-radius: 50rpx;\n  box-shadow: 0 6rpx 16rpx rgba(139, 69, 19, 0.2);\n}\n.detail-container .action-bar .action-btn.ar-btn uni-text {\n  color: #FFFFFF;\n  font-weight: 500;\n}\n.detail-container .action-bar .action-btn:active {\n  opacity: 0.8;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 236 */
 /*!********************************************************************************************************************!*\
   !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/App.vue?vue&type=style&index=0&lang=css& ***!
   \********************************************************************************************************************/
@@ -13532,13 +14549,13 @@ module.exports = exports;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./App.vue?vue&type=style&index=0&lang=css& */ 229);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./App.vue?vue&type=style&index=0&lang=css& */ 237);
 /* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_6_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
-/* 229 */
+/* 237 */
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/App.vue?vue&type=style&index=0&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -13548,7 +14565,7 @@ __webpack_require__.r(__webpack_exports__);
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./App.vue?vue&type=style&index=0&lang=css& */ 230);
+var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./App.vue?vue&type=style&index=0&lang=css& */ 238);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -13559,7 +14576,7 @@ var update = add("060a9565", content, false, {"sourceMap":false,"shadowMode":fal
 if(false) {}
 
 /***/ }),
-/* 230 */
+/* 238 */
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/App.vue?vue&type=style&index=0&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

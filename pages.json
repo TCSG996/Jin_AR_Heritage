@@ -1,6 +1,5 @@
 {
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "",
@@ -51,7 +50,8 @@
 		{
 			"path": "pages/index/more",
 			"style": {
-				"navigationBarTitleText": "景点列表"
+				"navigationBarTitleText": "景点列表",
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -148,6 +148,13 @@
 					"bounce": "none",
 					"titleNView": false
 				}
+			}
+		},
+		{
+			"path": "pages/index/heritage/detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
 			}
 		}
 	],
