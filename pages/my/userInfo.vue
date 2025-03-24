@@ -6,7 +6,8 @@
 				<view class="one" @click="updateAvatar">
 					<view class="text">头像</view>
 					<view class="right">
-						<image :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'" mode="aspectFill"></image>
+						<image :src="userInfo && userInfo.avatar ? getAvatarUrl(userInfo.avatar) : '/static/logo.png'" 
+							mode="aspectFill" @click.stop="previewAvatar"></image>
 						<text class="arrow">›</text>
 					</view>
 				</view>
@@ -15,6 +16,13 @@
 					<view class="right">
 						<view class="value">{{ userInfo && userInfo.nickname ? userInfo.nickname : '未设置' }}</view>
 						<text class="arrow">›</text>
+					</view>
+				</view>
+				<view class="one">
+					<view class="text">账号</view>
+					<view class="right">
+						<view class="value account-value">{{ userInfo && userInfo.username ? userInfo.username : (userInfo && userInfo.account ? userInfo.account : '未设置') }}</view>
+						<view class="readonly-tag">不可修改</view>
 					</view>
 				</view>
 				<view class="one" @click="handleUpdate('gender')">
@@ -231,12 +239,112 @@
 					return
 				}
 
-				// 显示功能开发中的提示
-				uni.showToast({
-					title: '功能正在开发，敬请期待',
-					icon: 'none',
-					duration: 2000
+				if (!this.userInfo || !this.userInfo.id) {
+					uni.showToast({
+						title: '用户信息获取失败',
+						icon: 'none'
+					})
+					return
+				}
+
+				// 打开操作菜单
+				uni.showActionSheet({
+					itemList: ['拍照', '从相册选择'],
+					success: (res) => {
+						// res.tapIndex: 0-拍照，1-相册选择
+						if (res.tapIndex === 0) {
+							// 使用相机拍照
+							this.chooseImage('camera')
+						} else if (res.tapIndex === 1) {
+							// 从相册选择
+							this.chooseImage('album')
+						}
+					}
 				})
+			},
+			
+			// 选择图片
+			chooseImage(sourceType) {
+				uni.chooseImage({
+					count: 1, // 最多可以选择的图片张数
+					sizeType: ['compressed'], // 压缩图
+					sourceType: sourceType === 'camera' ? ['camera'] : ['album'], // 相册或相机
+					success: (res) => {
+						// 获取图片临时路径
+						const tempFilePath = res.tempFilePaths[0]
+						
+						// 显示上传中提示
+						uni.showLoading({
+							title: '上传中...',
+							mask: true
+						})
+						
+						// 上传图片
+						this.uploadAvatarImage(tempFilePath)
+					},
+					fail: (err) => {
+						console.error('选择图片失败:', err)
+						if (err.errMsg !== 'chooseImage:fail cancel') {
+							uni.showToast({
+								title: '选择图片失败',
+								icon: 'none'
+							})
+						}
+					}
+				})
+			},
+			
+			// 上传头像图片
+			uploadAvatarImage(filePath) {
+				const userId = this.userInfo.id
+				
+				// 调用上传API
+				api.uploadAvatar(userId, filePath)
+					.then(res => {
+						uni.hideLoading()
+						
+						if (res.code === 200) {
+							// 上传成功，更新用户头像
+							console.log('头像上传成功:', res.data)
+							
+							// 更新本地用户信息
+							this.userInfo.avatar = res.data
+							
+							// 更新本地存储
+							uni.setStorageSync('userInfo', JSON.stringify(this.userInfo))
+							
+							uni.showToast({
+								title: '头像更新成功',
+								icon: 'success'
+							})
+						} else if (res.code === 401) {
+							// token 过期处理
+							uni.removeStorageSync('token')
+							uni.removeStorageSync('userInfo')
+							uni.showToast({
+								title: '登录已过期，请重新登录',
+								icon: 'none'
+							})
+							setTimeout(() => {
+								uni.reLaunch({
+									url: '/pages/login/login'
+								})
+							}, 1500)
+						} else {
+							uni.showToast({
+								title: res.msg || '上传失败',
+								icon: 'none'
+							})
+						}
+					})
+					.catch(err => {
+						uni.hideLoading()
+						console.error('上传头像失败:', err)
+						uni.showToast({
+							title: '上传头像失败，请重试',
+							icon: 'none'
+						})
+					})
 			},
 			
 			// 处理信息更新
@@ -249,58 +357,207 @@
 					})
 					return
 				}
-
-				// 显示功能开发中的提示
+				
+				if (!this.userInfo || !this.userInfo.id) {
+					uni.showToast({
+						title: '用户信息获取失败',
+						icon: 'none'
+					})
+					return
+				}
+				
+				// 根据不同类型的信息更新，处理不同的逻辑
+				switch (type) {
+					case 'nickname':
+						// 修改昵称
+						this.updateNickname()
+						break
+					case 'gender':
+						// 选择性别
+						this.selectGender()
+						break
+					case 'region':
+						// 选择地区
+						this.selectRegion()
+						break
+					case 'phone':
+						// 修改手机号
+						this.updatePhone()
+						break
+					case 'password':
+						// 修改密码
+						this.updatePassword()
+						break
+					default:
+						uni.showToast({
+							title: '功能正在开发，敬请期待',
+							icon: 'none',
+							duration: 2000
+						})
+				}
+			},
+			
+			// 更新昵称
+			updateNickname() {
+				// 显示输入框让用户输入新昵称
+				this.showInputDialog('请输入新昵称').then(nickname => {
+					if (nickname) {
+						// 验证昵称长度
+						if (nickname.length < 2 || nickname.length > 20) {
+							uni.showToast({
+								title: '昵称长度应为2-20个字符',
+								icon: 'none'
+							})
+							return
+						}
+						
+						// 显示加载中
+						uni.showLoading({
+							title: '更新中...'
+						})
+						
+						// 调用更新API
+						const userId = this.userInfo.id
+						const data = { nickname }
+						
+						api.updateUserProfile(userId, data).then(res => {
+							uni.hideLoading()
+							
+							if (res.code === 200) {
+								// 更新成功
+								// 更新本地用户信息
+								this.userInfo.nickname = nickname
+								
+								// 更新本地存储
+								uni.setStorageSync('userInfo', JSON.stringify(this.userInfo))
+								
+								uni.showToast({
+									title: '昵称更新成功',
+									icon: 'success'
+								})
+							} else if (res.code === 401) {
+								// token过期
+								uni.removeStorageSync('token')
+								uni.removeStorageSync('userInfo')
+								uni.showToast({
+									title: '登录已过期，请重新登录',
+									icon: 'none'
+								})
+								setTimeout(() => {
+									uni.reLaunch({
+										url: '/pages/login/login'
+									})
+								}, 1500)
+							} else {
+								uni.showToast({
+									title: res.msg || '更新失败',
+									icon: 'none'
+								})
+							}
+						}).catch(err => {
+							uni.hideLoading()
+							console.error('更新昵称失败:', err)
+							uni.showToast({
+								title: '更新失败，请重试',
+								icon: 'none'
+							})
+						})
+					}
+				})
+			},
+			
+			// 选择性别
+			selectGender() {
+				uni.showActionSheet({
+					itemList: ['男', '女', '保密'],
+					success: (res) => {
+						// 用户选择了性别
+						const genderMap = {
+							0: '男',
+							1: '女',
+							2: '保密'
+						}
+						const gender = genderMap[res.tapIndex]
+						
+						// 显示加载中
+						uni.showLoading({
+							title: '更新中...'
+						})
+						
+						// 调用更新API
+						const userId = this.userInfo.id
+						const data = { gender }
+						
+						api.updateUserProfile(userId, data).then(res => {
+							uni.hideLoading()
+							
+							if (res.code === 200) {
+								// 更新成功
+								// 更新本地用户信息
+								this.userInfo.gender = gender
+								
+								// 更新本地存储
+								uni.setStorageSync('userInfo', JSON.stringify(this.userInfo))
+								
+								uni.showToast({
+									title: '性别更新成功',
+									icon: 'success'
+								})
+							} else if (res.code === 401) {
+								// token过期处理
+								uni.removeStorageSync('token')
+								uni.removeStorageSync('userInfo')
+								uni.showToast({
+									title: '登录已过期，请重新登录',
+									icon: 'none'
+								})
+								setTimeout(() => {
+									uni.reLaunch({
+										url: '/pages/login/login'
+									})
+								}, 1500)
+							} else {
+								uni.showToast({
+									title: res.msg || '更新失败',
+									icon: 'none'
+								})
+							}
+						}).catch(err => {
+							uni.hideLoading()
+							console.error('更新性别失败:', err)
+							uni.showToast({
+								title: '更新失败，请重试',
+								icon: 'none'
+							})
+						})
+					}
+				})
+			},
+			
+			// 选择地区
+			selectRegion() {
 				uni.showToast({
-					title: '功能正在开发，敬请期待',
+					title: '地区选择功能开发中',
 					icon: 'none',
 					duration: 2000
 				})
 			},
 			
-			// 更新用户数据
-			updateUserData(type, value) {
-				uni.showLoading({
-					title: '更新中...'
+			// 更新手机号
+			updatePhone() {
+				uni.showToast({
+					title: '手机号更新功能开发中',
+					icon: 'none',
+					duration: 2000
 				})
-
-				const data = {
-					[type]: value
-				}
-				
-				api.updateUserInfo(data).then(res => {
-					uni.hideLoading()
-					if (res.code === 200) {
-						uni.showToast({
-							title: '更新成功',
-							icon: 'success'
-						})
-						this.getUserInfo()
-					} else if (res.code === 401) {
-						uni.removeStorageSync('token')
-						uni.removeStorageSync('userInfo')
-						uni.showToast({
-							title: '登录已过期，请重新登录',
-							icon: 'none'
-						})
-						setTimeout(() => {
-							uni.reLaunch({
-								url: '/pages/login/login'
-							})
-						}, 1500)
-					} else {
-						uni.showToast({
-							title: res.msg || '更新失败',
-							icon: 'none'
-						})
-					}
-				}).catch(e => {
-					uni.hideLoading()
-					console.error('更新信息失败:', e)
-					uni.showToast({
-						title: '更新失败',
-						icon: 'none'
-					})
+			},
+			
+			// 更新密码
+			updatePassword() {
+				uni.showToast({
+					title: '密码更新功能开发中',
+					icon: 'none',
+					duration: 2000
 				})
 			},
 			
@@ -391,6 +648,36 @@
 						}
 					}
 				})
+			},
+			
+			// 预览头像
+			previewAvatar() {
+				// 只有当有头像时才预览
+				if (this.userInfo && this.userInfo.avatar) {
+					const avatarUrl = this.getAvatarUrl(this.userInfo.avatar);
+					uni.previewImage({
+						urls: [avatarUrl],
+						current: avatarUrl
+					});
+				}
+			},
+			
+			// 获取头像URL
+			getAvatarUrl(avatar) {
+				// 如果是完整的URL，直接返回
+				if (avatar && (avatar.startsWith('http://') || avatar.startsWith('https://'))) {
+					return avatar;
+				}
+				
+				// 如果是相对路径，拼接基础URL（根据实际情况调整）
+				if (avatar && avatar.startsWith('/')) {
+					// 假设API baseURL为 http://your-api-domain.com
+					const baseApiUrl = 'http://192.168.194.9:8080'; // 替换为实际的API基础URL
+					return baseApiUrl + avatar;
+				}
+				
+				// 返回默认头像
+				return '/static/logo.png';
 			}
 		}
 	}
@@ -468,6 +755,20 @@
 							font-size: 28rpx;
 							color: #666;
 							margin-right: 12rpx;
+							
+							&.account-value {
+								color: #4a90e2;
+								font-weight: 500;
+							}
+						}
+
+						.readonly-tag {
+							font-size: 20rpx;
+							color: #999;
+							background-color: #f5f5f5;
+							padding: 2rpx 8rpx;
+							border-radius: 4rpx;
+							margin-right: 8rpx;
 						}
 
 						.arrow {

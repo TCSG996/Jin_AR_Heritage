@@ -178,17 +178,8 @@
 					<text class="map-title">{{heritage.name}}的位置</text>
 					<view class="close-btn" @click="closeMapPopup">✕</view>
 				</view>
-				<map 
-					id="myMap"
-					class="location-map" 
-					:latitude="mapLocation.latitude" 
-					:longitude="mapLocation.longitude"
-					:markers="mapMarkers"
-					scale="14"
-					show-location
-					type="amap"
-					:style="{height: '100%'}"
-				></map>
+				<map id="myMap" class="location-map" :latitude="mapLocation.latitude" :longitude="mapLocation.longitude"
+					:markers="mapMarkers" scale="14" show-location type="amap" :style="{height: '100%'}"></map>
 				<view class="map-footer">
 					<text class="address">{{heritage.location}}</text>
 					<button class="navigation-btn" @click="openSystemMap">导航到此处</button>
@@ -432,16 +423,16 @@
 					});
 					return;
 				}
-				
+
 				// 根据不同文物设置不同位置（模拟数据）
 				this.setMapLocation();
-				
+
 				// 检查地图模块是否可用
 				uni.getSystemInfo({
 					success: (sysInfo) => {
 						console.log('当前系统:', sysInfo.platform);
 						console.log('当前SDK版本:', sysInfo.SDKVersion);
-						
+
 						// 弹出确认框
 						uni.showModal({
 							title: '地图导航',
@@ -518,7 +509,7 @@
 					latitude: this.mapLocation.latitude,
 					longitude: this.mapLocation.longitude,
 					title: this.heritage.name,
-					iconPath: '/static/index/heritage.png', // 使用已有图标
+					iconPath: '/static/index/marker1.png', // 使用已有图标
 					width: 32,
 					height: 32,
 					callout: {

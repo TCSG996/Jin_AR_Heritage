@@ -7,8 +7,9 @@
 		<!-- 用户信息 -->
 		<view class="user">
 			<view class="avatar-container">
-			<view class="avatar">
-					<image :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'" mode="aspectFill">
+				<view class="avatar">
+					<image :src="userInfo && userInfo.avatar ? getAvatarUrl(userInfo.avatar) : '/static/logo.png'"
+						mode="aspectFill">
 					</image>
 				</view>
 				<view class="avatar-border"></view>
@@ -49,7 +50,8 @@
 				<view class="post-item" v-for="(item, index) in postList" :key="index">
 					<view class="post-header">
 						<view class="post-user">
-							<image class="post-avatar" :src="item.avatar || '/static/logo.png'" mode="aspectFill">
+							<image class="post-avatar"
+								:src="item.avatar ? getAvatarUrl(item.avatar) : '/static/logo.png'" mode="aspectFill">
 							</image>
 							<view class="post-info">
 								<view class="post-username">{{ item.username || '文化爱好者' }}</view>
@@ -104,7 +106,7 @@
 
 <script>
 	import api from '@/api/index.js';
-	
+
 	export default {
 		data() {
 			return {
@@ -123,7 +125,7 @@
 			this.getUserInfo();
 			// 调试本地存储
 			this.debugLocalStorage();
-			// 模拟获取帖子数据
+			// 获取帖子数据
 			this.loadPosts();
 		},
 		// 页面显示时刷新用户信息
@@ -150,10 +152,10 @@
 				try {
 					const userInfoStr = uni.getStorageSync('userInfo');
 					const token = uni.getStorageSync('token');
-					
+
 					console.log('当前存储的用户信息:', userInfoStr);
 					console.log('当前存储的token:', token);
-					
+
 					if (!token || !userInfoStr) {
 						console.log('token或用户信息不存在');
 						this.userInfo = null;
@@ -161,12 +163,12 @@
 					}
 
 					this.isLoading = true;
-					
+
 					try {
 						// 尝试解析存储的用户信息
 						const userInfo = JSON.parse(userInfoStr);
 						console.log('解析后的用户信息:', userInfo);
-						
+
 						// 检查是否包含必要的基本信息
 						if (userInfo && (userInfo.username || userInfo.nickname)) {
 							this.userInfo = userInfo;
@@ -181,7 +183,7 @@
 						uni.removeStorageSync('userInfo');
 						this.userInfo = null;
 					}
-					
+
 				} catch (e) {
 					console.error('获取用户信息失败:', e);
 					uni.showToast({
@@ -191,6 +193,23 @@
 				} finally {
 					this.isLoading = false;
 				}
+			},
+
+			// 获取头像URL
+			getAvatarUrl(avatar) {
+				// 如果是完整的URL，直接返回
+				if (avatar && (avatar.startsWith('http://') || avatar.startsWith('https://'))) {
+					return avatar;
+				}
+
+				// 如果是相对路径，拼接基础URL
+				if (avatar && avatar.startsWith('/')) {
+					const baseApiUrl = 'http://192.168.194.9:8080'; // 替换为实际的API基础URL
+					return baseApiUrl + avatar;
+				}
+
+				// 返回默认头像
+				return '/static/logo.png';
 			},
 
 			// 检查登录状态
@@ -255,7 +274,7 @@
 				// 实现收藏帖子逻辑
 				post.isFavorited = !post.isFavorited;
 				// 实际应用中应该调用API更新收藏状态
-				console.log('收藏帖子:', post.id, '收藏状态:', post.isFavorited);
+				// console.log('收藏帖子:', post.id, '收藏状态:', post.isFavorited);
 			},
 
 			// 分享前检查登录状态
@@ -271,13 +290,13 @@
 					summary: post.content,
 					imageUrl: post.images && post.images.length > 0 ? post.images[0] : '',
 					success: function(res) {
-						console.log('分享成功:', res);
+						// console.log('分享成功:', res);
 					},
 					fail: function(err) {
-						console.log('分享失败:', err);
+						// console.log('分享失败:', err);
 					}
 				});
-				console.log('分享帖子:', post.id);
+				// console.log('分享帖子:', post.id);
 			},
 
 			loadPosts() {
@@ -300,8 +319,8 @@
 								title: post.title,
 								content: post.summary,
 								images: post.coverImage ? [post.coverImage] : [],
-								username: '文化爱好者', // 默认用户名
-								avatar: '/static/logo.png', // 默认头像
+								username: post.authorName || '文化爱好者', // 使用返回的作者名称
+								avatar: post.authorAvatar || '/static/logo.png', // 使用返回的作者头像
 								time: this.formatTime(new Date(post.createTime).getTime()),
 								category: this.activeCategory === '全部' ? '文化分享' : this.activeCategory,
 								likes: post.viewCount || 0,
@@ -336,7 +355,7 @@
 						}
 					})
 					.catch(err => {
-						console.error('获取帖子列表失败:', err);
+						// console.error('获取帖子列表失败:', err);
 						uni.showToast({
 							title: '网络请求失败',
 							icon: 'none'
@@ -351,10 +370,10 @@
 			// 格式化时间
 			formatTime(timestamp) {
 				if (!timestamp) return '未知时间';
-				
+
 				const now = new Date().getTime();
 				const diff = now - timestamp;
-				
+
 				// 小于1小时
 				if (diff < 3600000) {
 					const minutes = Math.floor(diff / 60000);
@@ -557,11 +576,11 @@
 				width: 130rpx;
 				height: 130rpx;
 
-			.avatar {
-				width: 120rpx;
-				height: 120rpx;
-				border-radius: 50%;
-				overflow: hidden;
+				.avatar {
+					width: 120rpx;
+					height: 120rpx;
+					border-radius: 50%;
+					overflow: hidden;
 					border: 4rpx solid #fff;
 					box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
 					position: absolute;
@@ -569,9 +588,9 @@
 					left: 5rpx;
 					z-index: 2;
 
-				image {
-					width: 100%;
-					height: 100%;
+					image {
+						width: 100%;
+						height: 100%;
 						object-fit: cover;
 					}
 				}
@@ -653,7 +672,7 @@
 							background: linear-gradient(135deg, #4a90e2, #57b6e9);
 							padding: 2rpx 4rpx;
 
-					image {
+							image {
 								width: 70rpx;
 								height: 40rpx;
 							}

@@ -6,15 +6,13 @@
 			<view class="backdrop-overlay"></view>
 			<view class="user" @tap="goToUserInfo">
 				<view class="avatar-container">
-					<image class="avatar" :src="userInfo && userInfo.avatar ? userInfo.avatar : '/static/logo.png'"
-						mode="aspectFill"></image>
+					<image class="avatar" :src="userInfo && userInfo.avatar ? getAvatarUrl(userInfo.avatar) : '/static/logo.png'"
+						mode="aspectFill" @click.stop="previewAvatar"></image>
 					<view class="avatar-border"></view>
 				</view>
 				<view class="message">
 					<view class="name">{{ userInfo ? userInfo.nickname || userInfo.username : '游客' }}</view>
-					<view class="ID">ID：000000
-						<!-- {{ userInfo ? userInfo.id || '未登录' : '未登录' }} -->
-					</view>
+					<view class="ID">ID：{{ userInfo && userInfo.id ? '100' + userInfo.id : '未登录' }}</view>
 				</view>
 				<view class="userinfo">
 					<uni-icons type="right" size="18" color="#FFFFFF"></uni-icons>
@@ -106,6 +104,23 @@
 			}
 		},
 		methods: {
+			// 获取头像URL
+			getAvatarUrl(avatar) {
+				// 如果是完整的URL，直接返回
+				if (avatar && (avatar.startsWith('http://') || avatar.startsWith('https://'))) {
+					return avatar;
+				}
+				
+				// 如果是相对路径，拼接基础URL
+				if (avatar && avatar.startsWith('/')) {
+					const baseApiUrl = 'http://192.168.194.9:8080'; // 替换为实际的API基础URL
+					return baseApiUrl + avatar;
+				}
+				
+				// 返回默认头像
+				return '/static/logo.png';
+			},
+
 			// 获取模拟数据
 			getMockData() {
 				// 模拟延迟加载效果
@@ -224,6 +239,18 @@
 					return false;
 				}
 				return true;
+			},
+
+			// 预览头像
+			previewAvatar() {
+				// 只有当有头像时才预览
+				if (this.userInfo && this.userInfo.avatar) {
+					const avatarUrl = this.getAvatarUrl(this.userInfo.avatar);
+					uni.previewImage({
+						urls: [avatarUrl],
+						current: avatarUrl
+					});
+				}
 			}
 		}
 	}
