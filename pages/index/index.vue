@@ -119,8 +119,8 @@
 					},
 					{
 						icon: '/static/index/book.png',
-						text: '预约讲解',
-						path: '/pages/booking/guide'
+						text: '景点预约',
+						path: '/pages/index/booking/booking'
 					},
 					{
 						icon: '/static/index/activity.png',

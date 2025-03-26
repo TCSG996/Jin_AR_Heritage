@@ -81,18 +81,49 @@ export default {
 	},
 
 	// 获取订单列表
-	// getOrders: (params) => {
-	// 	return request('/api/shop/orders', 'GET', params);
-	// },
+	getOrders: (params) => {
+		return request('/api/orders', 'GET', params);
+	},
 
-	// // 获取用户收藏的建筑
-	// getCollectedBuildings: (params) => {
-	// 	return request('//api/user/favorites/buildings', 'GET', params);
-	// },
+	// 获取订单详情
+	getOrderDetail: (orderNo) => {
+		return request(`/api/orders/${orderNo}`, 'GET');
+	},
 
-	// // 获取用户收藏的帖子
-	// getCollectedPosts: (params) => {
-	// 	return request('/api/user/favorites/articles', 'GET', params);
-	// },
+	// 支付订单
+	payOrder: (orderNo, paymentMethod) => {
+		return request('/api/orders/pay', 'POST', { orderNo, paymentMethod });
+	},
+
+	// 支付预约门票
+	payTicket: (orderNo, paymentMethod) => {
+		// 这里使用PUT请求，参数在URL中，无需在body中传递额外参数
+		return request(`/api/tickets/pay/${orderNo}`, 'PUT');
+	},
+
+	// 取消订单
+	cancelOrder: (orderNo) => {
+		return request('/api/orders/cancel', 'POST', { orderNo });
+	},
+
+	// 获取我的门票列表
+	getMyTickets: () => {
+		return request('/api/tickets/my', 'GET');
+	},
+
+	// 获取门票详情
+	getTicketDetail: (ticketId) => {
+		return request(`/api/tickets/${ticketId}`, 'GET');
+	},
+	
+	// 预约门票
+	reserveTicket: (params) => {
+		return request('/api/tickets/reserve', 'POST', params);
+	},
+	
+	// 申请退款
+	requestRefund: (orderNo) => {
+		return request('/api/orders/refund', 'POST', { orderNo });
+	},
 	
 };

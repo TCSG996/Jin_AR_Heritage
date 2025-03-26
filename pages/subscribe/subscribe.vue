@@ -25,7 +25,7 @@
 						<image src="/static/forum/Grade/LV13.png" mode="aspectFit"></image>
 					</view>
 					<view class="badge member">
-						<image src="/static/forum/会员亮.png" mode="aspectFit"></image>
+						<image src="/static/forum/vip_bright.png" mode="aspectFit"></image>
 					</view>
 				</view>
 			</view>
