@@ -122,14 +122,30 @@
 			},
 
 			// 获取模拟数据
-			getMockData() {
-				// 模拟延迟加载效果
-				setTimeout(() => {
-					// 模拟收藏数量（1-99之间的随机数）
-					this.collectionCount = Math.floor(Math.random() * 99) + 1;
+			async getMockData() {
+				try {
+					if (!this.userInfo) return;
+					
+					// 获取收藏数量
+					const favoritesRes = await api.user.getUserFavorites({
+						userId: this.userInfo.id,
+						type: 1,  // 1-帖子收藏
+						page: 1,
+						pageSize: 1  // 只需要总数，所以每页1条即可
+					});
+					
+					if (favoritesRes && favoritesRes.code === 200) {
+						this.collectionCount = favoritesRes.data.total || 0;
+					}
+					
 					// 模拟订单数量（1-20之间的随机数）
 					this.orderCount = Math.floor(Math.random() * 20) + 1;
-				}, 500);
+				} catch (error) {
+					console.error('获取收藏数量失败:', error);
+					// 如果获取失败，使用默认值
+					this.collectionCount = 0;
+					this.orderCount = 0;
+				}
 			},
 
 			// 获取用户信息
@@ -199,9 +215,8 @@
 			// 跳转到收藏页面
 			goToCollection() {
 				if (!this.checkLogin()) return;
-				uni.showToast({
-					title: '收藏功能开发中',
-					icon: 'none'
+				uni.navigateTo({
+					url: '/pages/my/collection'
 				});
 			},
 

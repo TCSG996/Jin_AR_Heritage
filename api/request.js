@@ -46,9 +46,12 @@ const responseInterceptor = (response) => {
 
 // 请求方法封装
 const request = (url, method, data, header = {}) => {
+  // 确保URL以/开头
+  const apiUrl = url.startsWith('/') ? url : `/${url}`;
+  
   // 创建请求配置
   const config = {
-    url: `${BASE_URL}${url}`,
+    url: `${BASE_URL}${apiUrl}`,
     method,
     data,
     header: {

@@ -80,6 +80,31 @@ export default {
 		return request('/api/home/articles', 'GET', params);
 	},
 
+	// 获取论坛分类列表
+	getForumCategories: () => {
+		return request('/api/forum/categories', 'GET');
+	},
+
+	// 获取论坛帖子列表
+	getForumPosts: (params) => {
+		return request('/api/forum/posts', 'GET', params);
+	},
+
+	// 获取帖子详情
+	getForumPostDetail: (id) => {
+		return request(`/api/forum/posts/${id}`, 'GET');
+	},
+
+	// 发布论坛帖子
+	createForumPost: (data) => {
+		return request('/api/forum/posts', 'POST', data);
+	},
+
+	// 更新论坛帖子
+	updateForumPost: (id, data) => {
+		return request(`/api/forum/posts/${id}`, 'PUT', data);
+	},
+
 	// 获取订单列表
 	getOrders: (params) => {
 		return request('/api/orders', 'GET', params);
@@ -124,6 +149,42 @@ export default {
 	// 申请退款
 	requestRefund: (orderNo) => {
 		return request('/api/orders/refund', 'POST', { orderNo });
+	},
+
+	// 创建帖子回复
+	createForumReply: (data) => {
+		return request(`/api/forum/posts/${data.postId}/replies`, 'POST', data);
+	},
+
+	// 获取帖子回复列表
+	getForumReplies: (postId, params) => {
+		return request(`/api/forum/posts/${postId}/replies`, 'GET', params);
+	},
+	
+	// 点赞帖子
+	likeForumPost: (postId, userId) => {
+		return request(`/api/forum/posts/${postId}/like?userId=${userId}`, 'POST');
+	},
+	
+	// 收藏帖子
+	favoriteForumPost: (data) => {
+		return request('/api/forum/favorites', 'POST', data);
+	},
+	
+	// 获取用户收藏的文章列表
+	getUserFavorites: (params) => {
+		const queryString = params ? `?userId=${params.userId}&type=${params.type}&page=${params.page || 1}&pageSize=${params.pageSize || 10}` : '';
+		return request(`/api/articles/favorites${queryString}`, 'GET');
+	},
+	
+	// 删除帖子
+	deleteForumPost: (id, userId) => {
+		return request(`/api/forum/posts/${id}?userId=${userId}`, 'DELETE');
+	},
+	
+	// 删除回复
+	deleteForumReply: (postId, replyId, userId) => {
+		return request(`/api/forum/posts/${postId}/replies/${replyId}?userId=${userId}`, 'DELETE');
 	},
 	
 };

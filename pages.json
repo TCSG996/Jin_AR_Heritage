@@ -192,6 +192,34 @@
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": true
 			}
+		},
+		{
+			"path": "pages/post/create",
+			"style": {
+				"navigationBarTitleText": "发布帖子",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/post/detail",
+			"style": {
+				"navigationBarTitleText": "帖子详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/post/edit",
+			"style": {
+				"navigationBarTitleText": "编辑帖子",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/collection",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
 		}
 	],
 	"globalStyle": {
@@ -202,36 +230,60 @@
 	},
 	"uniIdRouter": {},
 	"tabBar": {
+		"color": "#8b4513",
+		"selectedColor": "#8b4513",
+		"backgroundColor": "#f8f5f0",
+		"borderStyle": "white",
 		"list": [{
-				"iconPath": "/static/taber/cultural_copy.png",
-				"selectedIconPath": "/static/taber/cultural.png",
 				"pagePath": "pages/index/index",
-				"text": "首页"
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-active.png"
 			},
 			{
-				"iconPath": "/static/taber/forum.png",
-				"selectedIconPath": "/static/taber/forum_select.png",
 				"pagePath": "pages/subscribe/subscribe",
-				"text": "论坛"
+				"text": "论坛",
+				"iconPath": "static/tabbar/forum.png",
+				"selectedIconPath": "static/tabbar/forum-active.png"
 			},
 			{
-				"iconPath": "/static/taber/AR.png",
-				"selectedIconPath": "/static/taber/AR_select.png",
 				"pagePath": "pages/AR/AR",
-				"text": "AR"
+				"text": "AR",
+				"iconPath": "static/tabbar/ar.png",
+				"selectedIconPath": "static/tabbar/ar-active.png",
+				"badge": "new"
 			},
 			{
-				"iconPath": "/static/taber/shop.png",
-				"selectedIconPath": "/static/taber/shop_select.png",
 				"pagePath": "pages/mall/mall",
-				"text": "商城"
+				"text": "商城",
+				"iconPath": "static/tabbar/shop.png",
+				"selectedIconPath": "/static/tabbar/shop-active.png"
 			},
 			{
-				"iconPath": "/static/taber/my.png",
-				"selectedIconPath": "/static/taber/my_copy.png",
 				"pagePath": "pages/my/my",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "static/tabbar/user.png",
+				"selectedIconPath": "static/tabbar/user-active.png"
 			}
-		]
+		],
+		"custom": true,
+		"height": "60px",
+		"backgroundImage": "linear-gradient(to top, rgba(139, 69, 19, 0.05), rgba(139, 69, 19, 0))",
+		"borderTopWidth": "1px",
+		"borderTopColor": "rgba(139, 69, 19, 0.1)",
+		"fontFamily": "楷体, KaiTi, serif",
+		"fontSize": "12px",
+		"iconWidth": "24px",
+		"iconHeight": "24px",
+		"spacing": "3px",
+		"iconfontSrc": "static/tabbar/iconfont.ttf",
+		"midButton": {
+			"height": "50px",
+			"width": "50px",
+			"backgroundColor": "#8b4513",
+			"iconPath": "static/tabbar/ar.png",
+			"iconWidth": "24px",
+			"backgroundImage": "none"
+		}
 	}
 }
