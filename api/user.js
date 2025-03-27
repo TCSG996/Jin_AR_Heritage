@@ -75,6 +75,18 @@ export default {
 		return request('/api/home', 'GET');
 	},
 
+	// 获取建筑列表数据（用于景点导览）
+	getBuildings: (params) => {
+		// 支持传入可选参数，如分页、筛选条件等
+		const queryString = params ? `?${Object.entries(params).map(([key, value]) => `${key}=${value}`).join('&')}` : '';
+		return request(`/api/manage/buildings${queryString}`, 'GET');
+	},
+
+	// 获取建筑详情
+	getBuildingDetail: (id) => {
+		return request(`/api/manage/buildings/${id}`, 'GET');
+	},
+
 	// 获取论坛帖子列表
 	getPosts: (params) => {
 		return request('/api/home/articles', 'GET', params);

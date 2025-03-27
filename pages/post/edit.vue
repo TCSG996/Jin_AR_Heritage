@@ -198,21 +198,26 @@
 <style lang="scss">
 	.edit-post {
 		min-height: 100vh;
-		background-color: #f5f6fa;
+		background-color: #f8f5f0;
+		background: linear-gradient(135deg, #f8f5f0 0%, #fff5e6 100%);
+		padding-top: var(--status-bar-height);
+		padding-bottom: 100rpx;
 
 		.nav-bar {
 			position: fixed;
-			top: 0;
+			top: var(--status-bar-height);
 			left: 0;
 			right: 0;
 			height: 88rpx;
-			background-color: #fff;
+			background-color: rgba(248, 245, 240, 0.95);
+			backdrop-filter: blur(10px);
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: 0 30rpx;
 			z-index: 100;
 			box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+			border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);
 
 			.left {
 				padding: 20rpx;
@@ -243,7 +248,7 @@
 		}
 
 		.form {
-			margin-top: 108rpx;
+			margin-top: calc(var(--status-bar-height) + 108rpx);
 			padding: 30rpx;
 
 			.form-item {

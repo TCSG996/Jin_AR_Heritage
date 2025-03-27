@@ -160,19 +160,22 @@
 							const defaultImage = '/static/spot-default.png';
 							let imageUrl = defaultImage;
 
-							if (item.arModelUrl) {
+							if (item.imageUrl) {
 								// 如果已经是绝对URL
-								if (item.arModelUrl.startsWith('http')) {
-									imageUrl = item.arModelUrl;
+								if (item.imageUrl.startsWith('http')) {
+									imageUrl = item.imageUrl;
 								}
 								// 如果是相对路径
 								else {
-									imageUrl = `${this.baseURL}${item.arModelUrl}`;
+									imageUrl = `${this.baseURL}${item.imageUrl}`;
 								}
 							}
 
+							// 确保ID是数字类型，这对于detail页面很重要
+							const numericId = parseInt(item.id);
+							
 							return {
-								id: item.id,
+								id: numericId || item.id, // 使用解析后的数字ID，如果解析失败则使用原始ID
 								name: item.name,
 								description: item.description || '暂无描述',
 								image: imageUrl,
@@ -224,6 +227,7 @@
 
 			// 跳转到详情页
 			goToDetail(id) {
+				console.log('跳转到详情页，ID:', id);
 				uni.navigateTo({
 					url: `/pages/index/heritage/detail?id=${id}`
 				})

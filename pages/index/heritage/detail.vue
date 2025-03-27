@@ -1,50 +1,39 @@
 <template>
-	<view class="detail-container">
-		<!-- 页面背景装饰 -->
-		<view class="page-header">
-			<image class="header-image" :src="detail.image || '/static/spot-default.png'" mode="aspectFill"></image>
-			<view class="header-gradient"></view>
+	<view class="heritage-detail-page">
+		<!-- 顶部图片区域 -->
+		<view class="header-section">
+			<image class="header-image" :src="detail.image" mode="aspectFill"></image>
+			<view class="header-overlay"></view>
 			
-			<!-- 顶部工具栏 -->
-			<view class="header-toolbar" :style="{paddingTop: statusBarHeight + 'px'}">
-				<view class="back-btn" @tap="goBack">
-					<view class="back-icon"></view>
-					<text>返回</text>
+			<!-- 古建筑元素装饰 -->
+			<view class="header-decoration">
+				<view class="decoration-line"></view>
+			</view>
+			
+			<!-- 顶部导航栏 -->
+			<view class="top-toolbar" :style="{paddingTop: statusBarHeight + 'px'}">
+				<view class="back-button" @tap="goBack">
+					<text class="back-icon">〈</text>
+					<text class="back-text">返回</text>
 				</view>
 				<view class="action-buttons">
-					<view class="toolbar-btn collect-btn" @tap="toggleCollect">
-						<uni-icons :type="isCollected ? 'star-filled' : 'star'" size="22" color="#FFFFFF"></uni-icons>
+					<view class="action-btn collect-btn" @tap="toggleCollect">
+						<text class="icon-star" :class="{'filled': isCollected}">♥</text>
 					</view>
-					<view class="toolbar-btn share-btn" @tap="shareHeritage">
-						<uni-icons type="redo" size="22" color="#FFFFFF"></uni-icons>
+					<view class="action-btn share-btn" @tap="shareHeritage">
+						<text class="icon-share">⊕</text>
 					</view>
 				</view>
 			</view>
 			
-			<!-- 标题信息 -->
+			<!-- 标题信息区域 -->
 			<view class="header-info">
-				<view class="header-tag">文物景点</view>
+				<view class="header-category">{{detail.category || '文物景点'}}</view>
 				<view class="header-title">{{detail.name}}</view>
-				<view class="header-meta">
-					<view class="rating-stars">
-						<uni-icons type="star-filled" size="16" color="#FFD700"></uni-icons>
-						<uni-icons type="star-filled" size="16" color="#FFD700"></uni-icons>
-						<uni-icons type="star-filled" size="16" color="#FFD700"></uni-icons>
-						<uni-icons type="star-filled" size="16" color="#FFD700"></uni-icons>
-						<uni-icons type="star-half" size="16" color="#FFD700"></uni-icons>
-					</view>
-					<text class="rating-value">{{detail.rating}}</text>
-					<text class="rating-count">({{detail.ratingCount}}条评价)</text>
-				</view>
-				<view class="header-quick-info">
-					<view class="quick-info-item" @tap="viewLocation">
-						<uni-icons type="location" size="16" color="#FFFFFF"></uni-icons>
-						<text>{{detail.location}}</text>
-					</view>
-					<view class="quick-info-item">
-						<uni-icons type="calendar" size="16" color="#FFFFFF"></uni-icons>
-						<text>建于{{detail.foundYear}}</text>
-					</view>
+				<view class="header-period">{{detail.period}}</view>
+				<view class="header-location" @tap="viewLocation">
+					<text class="location-icon">📍</text>
+					<text class="location-text">{{detail.location}}</text>
 				</view>
 			</view>
 			
@@ -52,178 +41,169 @@
 			<view class="header-wave"></view>
 		</view>
 		
-		<!-- 加载状态 -->
-		<view class="loading-container" v-if="isLoading">
-			<view class="loading-spinner"></view>
-			<text class="loading-text">加载中...</text>
-		</view>
-		
-		<!-- 景点详情内容 -->
-		<scroll-view v-else class="detail-scroll" scroll-y="true">
-			<!-- 信息卡片 -->
-			<view class="detail-card">
-				<!-- 地址信息 -->
-				<view class="info-section">
-					<view class="section-title">
-						<view class="title-icon location-icon"></view>
-						<text>景点位置</text>
-					</view>
-					<view class="section-content location-content" @tap="viewLocation">
-						<text>{{detail.location}}</text>
-						<view class="location-action">
-							<text>查看地图</text>
-							<uni-icons type="right" size="14" color="#8B4513"></uni-icons>
+		<!-- 内容区域 -->
+		<scroll-view class="content-scroll" scroll-y="true" :bounces="false" enhanced>
+			<!-- 描述卡片 -->
+			<view class="content-card">
+				<view class="section description-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>文物简介</text>
 						</view>
-					</view>
-				</view>
-				
-				<!-- 简介 -->
-				<view class="info-section">
-					<view class="section-title">
-						<view class="title-icon intro-icon"></view>
-						<text>文物简介</text>
 					</view>
 					<view class="section-content">
-						<text class="heritage-desc" :class="{'expanded': descExpanded}" @tap="toggleDesc">{{detail.description}}</text>
+						<text class="description-text" :class="{'expanded': descExpanded}">{{detail.description}}</text>
 						<view class="expand-btn" @tap="toggleDesc">
-							<text>{{descExpanded ? '收起' : '展开全部'}}</text>
-							<uni-icons :type="descExpanded ? 'top' : 'bottom'" size="14" color="#8B4513"></uni-icons>
+							<text>{{descExpanded ? '收起' : '展开'}}</text>
+							<text class="expand-icon">{{descExpanded ? '↑' : '↓'}}</text>
 						</view>
 					</view>
 				</view>
 				
-				<!-- 图片集 -->
-				<view class="info-section" v-if="detail.images && detail.images.length > 0">
-					<view class="section-title">
-						<view class="title-icon gallery-icon"></view>
-						<text>景点图集</text>
+				<!-- 特点标签区域 -->
+				<view class="section features-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>文物特点</text>
+						</view>
 					</view>
-					<scroll-view class="gallery-scroll" scroll-x="true" show-scrollbar="false">
-						<view class="gallery-container">
-							<view class="gallery-item" v-for="(img, index) in detail.images" :key="index" @tap="previewImage(index)">
+					<view class="features-tags">
+						<view class="feature-tag">建于{{detail.period}}</view>
+						<view class="feature-tag">{{detail.category}}类别</view>
+						<view class="feature-tag">国家一级文物</view>
+						<view class="feature-tag">可AR体验</view>
+					</view>
+				</view>
+				
+				<!-- 图片区域 -->
+				<view class="section gallery-section" v-if="galleryImages.length > 0">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>实景图集</text>
+						</view>
+						<view class="view-all" @tap="viewAllImages">
+							<text>查看全部</text>
+							<text class="arrow-icon">›</text>
+						</view>
+					</view>
+					<scroll-view class="gallery-scroll" scroll-x="true" :show-scrollbar="false" enhanced>
+						<view class="gallery-items">
+							<view 
+								class="gallery-item" 
+								v-for="(img, index) in galleryImages" 
+								:key="index"
+								@tap="previewImage(index)"
+							>
 								<image :src="img" mode="aspectFill"></image>
+								<view class="item-overlay"></view>
 							</view>
 						</view>
 					</scroll-view>
 				</view>
 				
-				<!-- 景点特色 -->
-				<view class="info-section">
-					<view class="section-title">
-						<view class="title-icon feature-icon"></view>
-						<text>文物特色</text>
-					</view>
-					<view class="section-content">
-						<view class="feature-item" v-for="(feature, index) in detail.features" :key="index">
-							<view class="feature-title">{{feature.title}}</view>
-							<view class="feature-description">{{feature.description}}</view>
+				<!-- 相关推荐 -->
+				<view class="section related-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>相关文物</text>
 						</view>
 					</view>
-				</view>
-				
-				<!-- 游客数据 -->
-				<view class="info-section visitors-section">
-					<view class="visitor-item">
-						<text class="visitor-count">{{detail.monthlyCounts.length}}人</text>
-						<text class="visitor-label">月访问量</text>
-					</view>
-					<view class="visitor-item">
-						<text class="visitor-count">{{detail.foundYear}}</text>
-						<text class="visitor-label">建成年份</text>
-					</view>
-					<view class="visitor-item">
-						<text class="visitor-count">{{detail.popularity}}%</text>
-						<text class="visitor-label">游客满意度</text>
-					</view>
-				</view>
-			</view>
-			
-			<!-- 相关推荐 -->
-			<view class="related-section" v-if="relatedItems.length > 0">
-				<view class="section-header">
-					<text>相关推荐</text>
-					<view class="header-decor"></view>
-				</view>
-				
-				<view class="related-list">
-					<view class="related-item" v-for="(item, index) in relatedItems" :key="index" @tap="viewRelatedItem(item)">
-						<image :src="item.image" mode="aspectFill"></image>
-						<view class="related-info">
-							<text class="related-name">{{item.name}}</text>
-							<view class="related-meta">
-								<view class="related-rating">
-									<uni-icons type="star-filled" size="12" color="#FFD700"></uni-icons>
-									<text>{{item.rating}}</text>
-								</view>
-								<text class="related-distance">{{item.distance}}</text>
+					<view class="related-items">
+						<view 
+							class="related-item" 
+							v-for="(item, index) in relatedItems" 
+							:key="index"
+							@tap="viewRelatedItem(item)"
+						>
+							<view class="item-image-container">
+								<image :src="item.image" mode="aspectFill"></image>
+								<view class="item-overlay"></view>
+							</view>
+							<view class="item-info">
+								<text class="item-name">{{item.name}}</text>
+								<text class="item-period">{{item.period}}</text>
 							</view>
 						</view>
 					</view>
 				</view>
 			</view>
 			
-			<!-- 底部装饰 -->
-			<view class="bottom-space"></view>
+			<!-- 底部安全区域 -->
+			<view class="safe-area-bottom"></view>
 		</scroll-view>
 		
-		<!-- 底部操作栏 -->
-		<view class="action-bar">
-			<view class="action-btn share-btn" @tap="shareHeritage">
-				<uni-icons type="redo" size="20" color="#8B4513"></uni-icons>
-				<text>分享</text>
+		<!-- 底部AR体验按钮 -->
+		<view class="bottom-action">
+			<view class="ar-button" @tap="viewAR">
+				<text class="ar-icon">AR</text>
+				<text class="ar-text">体验此文物</text>
 			</view>
-			<view class="action-btn collect-btn" @tap="toggleCollect">
-				<uni-icons :type="isCollected ? 'star-filled' : 'star'" size="20" :color="isCollected ? '#FFD700' : '#8B4513'"></uni-icons>
-				<text>{{isCollected ? '已收藏' : '收藏'}}</text>
-			</view>
-			<view class="action-btn ar-btn" @tap="viewAR">
-				<uni-icons type="eye-filled" size="20" color="#FFFFFF"></uni-icons>
-				<text>AR体验</text>
+		</view>
+		
+		<!-- 加载中状态 -->
+		<view class="loading-mask" v-if="isLoading">
+			<view class="loading-content">
+				<view class="loading-spinner"></view>
+				<text class="loading-text">加载中...</text>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import api from '@/api/index.js';
+	import { heritageList } from './mock.js'
 	
 	export default {
 		data() {
 			return {
-				statusBarHeight: 0,
+				statusBarHeight: 20,
 				heritageId: null,
 				isLoading: true,
 				descExpanded: false,
 				isCollected: false,
-				baseURL: 'http://192.168.194.9:8080',
-				detail: {
-					id: 0,
-					name: '',
-					description: '',
-					image: '',
-					location: '',
-					rating: 0,
-					ratingCount: 0,
-					monthlyCounts: [],
-					foundYear: '',
-					popularity: 0,
-					images: [],
-					features: []
-				},
+				detail: {},
 				relatedItems: [],
-				isShowDesc: false
+				galleryImages: []
 			};
+		},
+		computed: {
+			// 计算相关文物，获取同类别的最多4个文物
+			computedRelatedItems() {
+				if (!this.detail || !this.detail.category) return [];
+				
+				return heritageList
+					.filter(item => 
+						item.category === this.detail.category && 
+						item.id !== this.detail.id
+					)
+					.slice(0, 4);
+			}
 		},
 		onLoad(option) {
 			// 获取状态栏高度
 			const systemInfo = uni.getSystemInfoSync();
 			this.statusBarHeight = systemInfo.statusBarHeight;
 			
-			// 获取传入的景点ID
+			// 获取传入的文物ID
 			if (option && option.id) {
+				console.log('接收到ID参数:', option.id, '类型:', typeof option.id);
+				// 保存原始ID字符串
+				const originalId = option.id;
+				// 尝试转换为数字
 				this.heritageId = parseInt(option.id);
-				this.fetchHeritageDetail(this.heritageId);
-				this.checkCollectionStatus(this.heritageId);
+				
+				// 如果转换失败（NaN），则使用原始ID
+				if (isNaN(this.heritageId)) {
+					this.heritageId = originalId;
+				}
+				
+				console.log('处理后ID:', this.heritageId, '类型:', typeof this.heritageId);
+				this.fetchHeritageDetail();
+				this.checkCollectionStatus();
 			} else {
 				uni.showToast({
 					title: '参数无效',
@@ -235,122 +215,71 @@
 			}
 		},
 		methods: {
-			// 获取景点详情
-			fetchHeritageDetail(id) {
+			// 获取文物详情
+			fetchHeritageDetail() {
 				this.isLoading = true;
 				
-				// 使用与more.vue页面相同的默认图片
-				const defaultImage = '/static/spot-default.png';
-				
-				// 调用API获取数据
-				api.user.home()
-					.then(response => {
-						console.log('API响应数据:', response);
-						
-						if (response.code === 200 || response.code === 0) {
-							// 从featuredBuildings数组中查找对应ID的景点
-							const buildings = response.data?.featuredBuildings || [];
-							const building = buildings.find(item => Number(item.id) === Number(id));
-							
-							if (building) {
-								// 确保图片路径有效，处理不同情况的URL
-								let imageUrl = defaultImage;
-								
-								if (building.arModelUrl) {
-									// 如果已经是绝对URL
-									if (building.arModelUrl.startsWith('http')) {
-										imageUrl = building.arModelUrl;
-									}
-									// 如果是相对路径
-									else {
-										imageUrl = `${this.baseURL}${building.arModelUrl}`;
-									}
-								}
-								
-								// 设置景点详情信息
-								this.detail = {
-									id: building.id,
-									name: building.name,
-									description: building.description || '这是一座历史悠久的古建筑，具有典型的晋派建筑风格。建筑结构精巧，工艺精湛，是研究中国古代建筑艺术和历史文化的重要实例。',
-									image: imageUrl,
-									location: building.location || '山西省太原市',
-									rating: ((Math.random() * 0.5) + 4.5).toFixed(1),
-									ratingCount: Math.floor(Math.random() * 500) + 300,
-									monthlyCounts: [1200, 1400, 1800, 2000, 2200, 2500, 3000, 3200, 2800, 2600, 2400, 2000],
-									foundYear: `${Math.floor(Math.random() * 500) + 1000}年`,
-									popularity: Math.floor(Math.random() * 10) + 90,
-									images: [
-										imageUrl,
-										defaultImage,
-										defaultImage,
-										defaultImage
-									],
-									features: [
-										{
-											title: '历史价值',
-											description: '见证了中国北方地区建筑风格的发展变迁，是研究传统建筑工艺的重要实物资料。'
-										},
-										{
-											title: '艺术价值',
-											description: '建筑装饰精美，木雕、砖雕和彩绘艺术水平高超，展现了古代工匠的卓越技艺。'
-										},
-										{
-											title: '文化价值',
-											description: '蕴含丰富的历史文化信息，对研究古代社会生活和民俗文化具有重要意义。'
-										}
-									]
-								};
-								
-								// 生成相关景点推荐
-								this.relatedItems = buildings
-									.filter(item => Number(item.id) !== Number(id))
-									.slice(0, 3)
-									.map(item => {
-										// 确保图片路径有效
-										let itemImage = defaultImage;
-										if (item.arModelUrl) {
-											if (item.arModelUrl.startsWith('http')) {
-												itemImage = item.arModelUrl;
-											} else {
-												itemImage = `${this.baseURL}${item.arModelUrl}`;
-											}
-										}
-										
-										return {
-											id: item.id,
-											name: item.name,
-											image: itemImage,
-											rating: ((Math.random() * 0.5) + 4.5).toFixed(1),
-											distance: `${(Math.random() * 10 + 1).toFixed(1)}公里`
-										};
-									});
-							} else {
-								uni.showToast({
-									title: '未找到景点信息',
-									icon: 'none'
-								});
-								setTimeout(() => {
-									this.goBack();
-								}, 1500);
-							}
-						} else {
-							uni.showToast({
-								title: response.msg || '获取数据失败',
-								icon: 'none'
+				// 从mock数据获取文物详情
+				setTimeout(() => {
+					let item;
+					
+					// 先尝试精确类型匹配
+					item = heritageList.find(h => h.id === this.heritageId);
+					
+					// 如果没找到，尝试字符串比较
+					if (!item) {
+						item = heritageList.find(h => String(h.id) === String(this.heritageId));
+					}
+					
+					// 如果仍然没找到，尝试数字比较
+					if (!item) {
+						const numericId = parseInt(this.heritageId);
+						if (!isNaN(numericId)) {
+							item = heritageList.find(h => {
+								const hId = parseInt(h.id);
+								return !isNaN(hId) && hId === numericId;
 							});
 						}
-					})
-					.catch(error => {
-						console.error('请求数据出错:', error);
+					}
+					
+					if (item) {
+						this.detail = {...item};
+						
+						// 生成图集 - 实际项目中这应该从API获取
+						this.galleryImages = [
+							this.detail.image,
+							// 添加几个模拟图片
+							'https://tse1-mm.cn.bing.net/th/id/OIP-C.92RfCiBBxLcASR6CJ0GdXgHaEb?w=282&h=180&c=7&r=0&o=5&pid=1.7',
+							'https://tse2-mm.cn.bing.net/th/id/OIP-C.RR7H1OfckA28aB1uq0n6bQHaE8?w=227&h=180&c=7&r=0&o=5&pid=1.7',
+							'https://tse3-mm.cn.bing.net/th/id/OIP-C.db3MOrsKiJHGp7dvizGrtAHaFj?w=232&h=180&c=7&r=0&o=5&pid=1.7'
+						];
+						
+						// 获取相关文物
+						this.relatedItems = this.computedRelatedItems;
+						
+						this.isLoading = false;
+					} else {
 						uni.showToast({
-							title: '网络请求失败',
+							title: '文物不存在',
 							icon: 'none'
 						});
-					})
-					.finally(() => {
-						this.isLoading = false;
-					});
+						setTimeout(() => {
+							uni.navigateBack();
+						}, 1500);
+					}
+				}, 800);
 			},
+			
+			// 返回按钮
+			goBack() {
+				uni.navigateBack();
+			},
+			
+			// 切换描述展开状态
+			toggleDesc() {
+				this.descExpanded = !this.descExpanded;
+			},
+			
 			// 切换收藏状态
 			toggleCollect() {
 				try {
@@ -391,124 +320,61 @@
 					uni.setStorageSync('collections', collectionList);
 				} catch (e) {
 					console.error('收藏操作失败:', e);
-					uni.showToast({
-						title: '操作失败，请重试',
-						icon: 'none'
-					});
 				}
 			},
+			
 			// 检查收藏状态
-			checkCollectionStatus(id) {
+			checkCollectionStatus() {
 				try {
 					const collectionList = uni.getStorageSync('collections') || [];
-					const isFound = collectionList.some(item => item.id === id);
-					this.isCollected = isFound;
+					this.isCollected = collectionList.some(item => item.id === this.heritageId);
 				} catch (e) {
 					console.error('检查收藏状态失败:', e);
 					this.isCollected = false;
 				}
 			},
-			// 分享景点
+			
+			// 分享文物
 			shareHeritage() {
-				const title = this.detail.name;
-				const summary = this.detail.description.substring(0, 50) + '...';
-				const imageUrl = this.detail.image;
-				const path = `/pages/index/heritage/detail?id=${this.detail.id}`;
-				
-				// 真机环境
-				if (typeof plus !== 'undefined') {
-					plus.share.sendWithSystem({
-						type: 'web',
-						title: title,
-						href: path,
-						pictures: [imageUrl],
-						summary: summary
-					}, function() {
-						uni.showToast({
-							title: '分享成功',
-							icon: 'success'
-						});
-					}, function(e) {
-						uni.showToast({
-							title: '分享失败',
-							icon: 'none'
-						});
-						console.error('分享失败: ' + JSON.stringify(e));
-					});
-				} else {
-					// 开发环境
-					uni.showModal({
-						title: '分享',
-						content: `分享"${title}"到社交媒体`,
-						success: function(res) {
-							if (res.confirm) {
-								uni.showToast({
-									title: '分享成功(模拟)',
-									icon: 'success'
-								});
-							}
-						}
-					});
-				}
+				uni.showToast({
+					title: '分享功能开发中',
+					icon: 'none'
+				});
 			},
+			
 			// 查看位置
 			viewLocation() {
 				uni.showToast({
-					title: '正在打开地图...',
+					title: '位置查看功能开发中',
 					icon: 'none'
 				});
-				// 这里应该打开地图并定位到景点位置
 			},
+			
 			// 预览图片
 			previewImage(index) {
 				uni.previewImage({
-					current: index,
-					urls: this.detail.images,
-					indicator: 'number',
-					loop: true
+					urls: this.galleryImages,
+					current: index
 				});
 			},
-			// 返回
-			goBack() {
-				console.log('返回按钮被点击');
-				// 显示点击反馈
-				uni.showToast({
-					title: '正在返回...',
-					icon: 'none',
-					duration: 300
-				});
-				// 返回上一页
-				setTimeout(() => {
-					uni.navigateBack({
-						delta: 1,
-						fail: function() {
-							// 如果返回失败，可能是没有上一页，则跳转到首页
-							uni.switchTab({
-								url: '/pages/index/index'
-							});
-						}
-					});
-				}, 200);
+			
+			// 查看所有图片
+			viewAllImages() {
+				this.previewImage(0);
 			},
-			// 切换描述展开/收起
-			toggleDesc() {
-				this.descExpanded = !this.descExpanded;
-			},
-			// 查看AR
+			
+			// AR查看体验
 			viewAR() {
 				uni.showToast({
-					title: '正在打开AR体验...',
+					title: 'AR体验功能开发中',
 					icon: 'none'
 				});
-				// 这里应该跳转到AR体验页面
-				// uni.navigateTo({
-				//     url: `/pages/ar/viewer?id=${this.detail.id}`
-				// });
 			},
-			// 查看相关景点
+			
+			// 查看相关文物
 			viewRelatedItem(item) {
 				uni.navigateTo({
-					url: `/pages/index/heritage/detail?id=${item.id}`
+					url: `./detail?id=${item.id}`
 				});
 			}
 		}
@@ -516,686 +382,483 @@
 </script>
 
 <style lang="scss">
-	.detail-container {
-		min-height: 100vh;
-		background-color: #f8f4eb;
-		position: relative;
-		
-		// 页面背景装饰
-		.page-header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 460rpx;
-			overflow: hidden;
-			z-index: 5;
-			
-			.header-image {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-			
-			.header-gradient {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: linear-gradient(to bottom, 
-					rgba(0, 0, 0, 0.2), 
-					rgba(0, 0, 0, 0.5) 70%, 
-					rgba(0, 0, 0, 0.7) 100%);
-			}
-			
-			.header-toolbar {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 0 30rpx;
-				z-index: 10;
-				height: 100rpx;
-				pointer-events: auto;
-				
-				.back-btn {
-					display: flex;
-					align-items: center;
-					padding: 12rpx 24rpx;
-					border-radius: 50rpx;
-					background: rgba(0, 0, 0, 0.3);
-					backdrop-filter: blur(10px);
-					box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
-					transition: all 0.25s ease;
-					pointer-events: auto;
-					
-					&:active {
-						transform: scale(0.95);
-						background: rgba(0, 0, 0, 0.4);
-					}
-					
-					.back-icon {
-						width: 34rpx;
-						height: 34rpx;
-						position: relative;
-						
-						&::before, &::after {
-							content: '';
-							position: absolute;
-							left: 10rpx;
-							width: 20rpx;
-							height: 3rpx;
-							background-color: #ffffff;
-							border-radius: 4rpx;
-						}
-						
-						&::before {
-							top: 10rpx;
-							transform: rotate(-45deg);
-						}
-						
-						&::after {
-							bottom: 10rpx;
-							transform: rotate(45deg);
-						}
-					}
-					
-					text {
-						font-size: 28rpx;
-						color: rgba(255, 255, 255, 0.95);
-						letter-spacing: 2rpx;
-						margin-left: 6rpx;
-					}
-				}
-				
-				.action-buttons {
-					display: flex;
-					align-items: center;
-					gap: 20rpx;
-					
-					.toolbar-btn {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						width: 70rpx;
-						height: 70rpx;
-						border-radius: 50%;
-						background: rgba(0, 0, 0, 0.3);
-						backdrop-filter: blur(10px);
-						box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
-						transition: all 0.25s ease;
-						pointer-events: auto;
-						
-						&:active {
-							transform: scale(0.92);
-							background: rgba(0, 0, 0, 0.4);
-						}
-					}
-				}
-			}
-			
-			.header-info {
-				position: absolute;
-				bottom: 90rpx;
-				left: 40rpx;
-				right: 40rpx;
-				z-index: 2;
-				
-				.header-tag {
-					display: inline-block;
-					font-size: 24rpx;
-					font-weight: bold;
-					color: #ffffff;
-					background-color: rgba(139, 69, 19, 0.8);
-					padding: 6rpx 16rpx;
-					border-radius: 6rpx;
-					margin-bottom: 16rpx;
-					text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
-				}
-				
-				.header-title {
-					font-size: 48rpx;
-					font-weight: bold;
-					color: #ffffff;
-					margin-bottom: 16rpx;
-					text-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.3);
-					letter-spacing: 2rpx;
-				}
-				
-				.header-meta {
-					display: flex;
-					align-items: center;
-					margin-bottom: 16rpx;
-					
-					.rating-stars {
-						display: flex;
-						align-items: center;
-						
-						uni-icons {
-							margin-right: 4rpx;
-						}
-					}
-					
-					.rating-value {
-						font-size: 30rpx;
-						font-weight: bold;
-						color: #ffffff;
-						margin: 0 12rpx;
-					}
-					
-					.rating-count {
-						font-size: 24rpx;
-						color: rgba(255, 255, 255, 0.8);
-					}
-				}
-				
-				.header-quick-info {
-					display: flex;
-					align-items: center;
-					gap: 30rpx;
-					margin-top: 20rpx;
-					
-					.quick-info-item {
-						display: flex;
-						align-items: center;
-						font-size: 26rpx;
-						color: #ffffff;
-						background-color: rgba(0, 0, 0, 0.25);
-						padding: 8rpx 20rpx;
-						border-radius: 50rpx;
-						backdrop-filter: blur(10px);
-						
-						text {
-							margin-left: 8rpx;
-						}
-						
-						&:active {
-							background-color: rgba(0, 0, 0, 0.35);
-						}
-					}
-				}
-			}
-			
-			.header-wave {
-				position: absolute;
-				bottom: -2rpx;
-				left: 0;
-				right: 0;
-				height: 40rpx;
-				background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
-				background-size: cover;
-				background-position: center;
-			}
-		}
-		
-		// 加载状态
-		.loading-container {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			background-color: #f8f4eb;
-			z-index: 20;
-			
-			.loading-spinner {
-				width: 60rpx;
-				height: 60rpx;
-				border: 5rpx solid rgba(139, 69, 19, 0.2);
-				border-top-color: rgba(139, 69, 19, 0.8);
-				border-radius: 50%;
-				margin-bottom: 30rpx;
-				animation: spin 1.2s linear infinite;
-			}
-			
-			.loading-text {
-				font-size: 28rpx;
-				color: #8B4513;
-			}
-		}
-		
-		// 详情滚动区域
-		.detail-scroll {
-			position: relative;
-			flex: 1;
-			width: 100%;
-			height: calc(100vh - 100rpx); // 减去底部操作栏高度
-			z-index: 2;
-			padding-top: 460rpx; // 添加顶部边距，避免内容被头部遮挡
-			
-			// 详情卡片区域
-			.detail-card {
-				padding: 20rpx 30rpx;
-				background-color: #ffffff;
-				border-radius: 30rpx 30rpx 0 0;
-				position: relative;
-				z-index: 3;
-				box-shadow: 0 -6rpx 20rpx rgba(0, 0, 0, 0.08);
-				min-height: calc(100vh - 460rpx); // 确保内容区域足够高
-				
-				// 添加中国风纹理背景
-				&::before {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					background-image: 
-						repeating-linear-gradient(45deg, 
-							rgba(139, 69, 19, 0.02) 0px, 
-							rgba(139, 69, 19, 0.02) 2px, 
-							transparent 2px, 
-							transparent 12px);
-					opacity: 0.5;
-					border-radius: 30rpx 30rpx 0 0;
-					z-index: -1;
-				}
-				
-				// 信息区块
-				.info-section {
-					margin-bottom: 50rpx;
-					
-					.section-title {
-						display: flex;
-						align-items: center;
-						margin-bottom: 20rpx;
-						
-						.title-icon {
-							width: 36rpx;
-							height: 36rpx;
-							margin-right: 14rpx;
-							background-size: contain;
-							background-repeat: no-repeat;
-							background-position: center;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							border-radius: 50%;
-						}
-						
-						.location-icon {
-							/* 删除对外部图片的依赖 */
-							/*background-image: url('/static/icons/location.png');*/
-							background-color: rgba(139, 69, 19, 0.1);
-							position: relative;
-							/* 使用CSS创建图标 */
-							&::before {
-								content: '';
-								width: 14rpx;
-								height: 14rpx;
-								background-color: #8B4513;
-								border-radius: 50%;
-								position: absolute;
-							}
-							&::after {
-								content: '';
-								width: 24rpx;
-								height: 24rpx;
-								border: 2rpx solid #8B4513;
-								border-radius: 50%;
-							}
-						}
-						
-						.intro-icon {
-							/* 删除对外部图片的依赖 */
-							/*background-image: url('/static/icons/info.png');*/
-							background-color: rgba(139, 69, 19, 0.1);
-							position: relative;
-							/* 使用CSS创建图标 */
-							&::before {
-								content: 'i';
-								font-style: italic;
-								font-weight: bold;
-								color: #8B4513;
-								font-size: 24rpx;
-							}
-						}
-						
-						.gallery-icon {
-							/* 删除对外部图片的依赖 */
-							/*background-image: url('/static/icons/gallery.png');*/
-							background-color: rgba(139, 69, 19, 0.1);
-							position: relative;
-							/* 使用CSS创建图标 */
-							&::before {
-								content: '';
-								width: 20rpx;
-								height: 16rpx;
-								border: 2rpx solid #8B4513;
-								position: absolute;
-								background-color: rgba(139, 69, 19, 0.1);
-							}
-							&::after {
-								content: '';
-								width: 16rpx;
-								height: 12rpx;
-								border: 2rpx solid #8B4513;
-								position: absolute;
-								background-color: rgba(139, 69, 19, 0.2);
-								top: 4rpx;
-								left: 4rpx;
-							}
-						}
-						
-						.feature-icon {
-							/* 删除对外部图片的依赖 */
-							/*background-image: url('/static/icons/feature.png');*/
-							background-color: rgba(139, 69, 19, 0.1);
-							position: relative;
-							/* 使用CSS创建图标 */
-							&::before {
-								content: '✓';
-								color: #8B4513;
-								font-size: 24rpx;
-								font-weight: bold;
-							}
-						}
-						
-						text {
-							font-size: 32rpx;
-							font-weight: 600;
-							color: #333;
-							position: relative;
-							
-							&::after {
-								content: '';
-								position: absolute;
-								bottom: -6rpx;
-								left: 0;
-								width: 40rpx;
-								height: 4rpx;
-								background: linear-gradient(to right, #8B4513, transparent);
-								border-radius: 2rpx;
-							}
-						}
-					}
-					
-					.section-content {
-						font-size: 28rpx;
-						color: #666;
-						line-height: 1.6;
-					}
-					
-					// 地址内容样式
-					.location-content {
-						display: flex;
-						justify-content: space-between;
-						align-items: center;
-						background-color: rgba(139, 69, 19, 0.05);
-						padding: 20rpx 24rpx;
-						border-radius: 16rpx;
-						
-						.location-action {
-							display: flex;
-							align-items: center;
-							font-size: 26rpx;
-							color: #8B4513;
-							
-							text {
-								margin-right: 8rpx;
-							}
-						}
-					}
-					
-					// 描述内容样式
-					.heritage-desc {
-						display: -webkit-box;
-						-webkit-box-orient: vertical;
-						-webkit-line-clamp: 3;
-						overflow: hidden;
-						
-						&.expanded {
-							-webkit-line-clamp: initial;
-						}
-					}
-					
-					.expand-btn {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						margin-top: 16rpx;
-						font-size: 26rpx;
-						color: #8B4513;
-						
-						text {
-							margin-right: 8rpx;
-						}
-					}
-					
-					// 图片集样式
-					.gallery-scroll {
-						width: 100%;
-						white-space: nowrap;
-						
-						.gallery-container {
-							display: inline-flex;
-							padding: 10rpx 0;
-							
-							.gallery-item {
-								width: 240rpx;
-								height: 160rpx;
-								margin-right: 20rpx;
-								border-radius: 16rpx;
-								overflow: hidden;
-								box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
-								
-								image {
-									width: 100%;
-									height: 100%;
-									object-fit: cover;
-								}
-								
-								&:last-child {
-									margin-right: 0;
-								}
-							}
-						}
-					}
-					
-					// 特色列表样式
-					.feature-item {
-						display: flex;
-						flex-direction: column;
-						margin-bottom: 24rpx;
-						padding: 16rpx 20rpx;
-						background-color: rgba(139, 69, 19, 0.05);
-						border-radius: 12rpx;
-						border-left: 6rpx solid #8B4513;
-						
-						.feature-dot {
-							display: none;
-						}
-						
-						.feature-title {
-							font-size: 28rpx;
-							font-weight: 600;
-							color: #8B4513;
-							margin-bottom: 8rpx;
-						}
-						
-						.feature-description {
-							font-size: 26rpx;
-							color: #666;
-							line-height: 1.5;
-						}
-					}
-				}
-				
-				// 游客数据区域
-				.visitors-section {
-					display: flex;
-					justify-content: space-around;
-					background-color: rgba(139, 69, 19, 0.05);
-					border-radius: 20rpx;
-					padding: 30rpx 0;
-					margin-bottom: 0;
-					
-					.visitor-item {
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						
-						.visitor-count {
-							font-size: 36rpx;
-							font-weight: bold;
-							color: #8B4513;
-							margin-bottom: 10rpx;
-						}
-						
-						.visitor-label {
-							font-size: 24rpx;
-							color: #666;
-						}
-					}
-				}
-			}
-			
-			// 相关推荐区域
-			.related-section {
-				margin: 50rpx 30rpx;
-				
-				.section-header {
-					display: flex;
-					align-items: center;
-					margin-bottom: 30rpx;
-					
-					text {
-						font-size: 34rpx;
-						font-weight: 600;
-						color: #333;
-						margin-right: 20rpx;
-					}
-					
-					.header-decor {
-						flex: 1;
-						height: 1px;
-						background: linear-gradient(to right, #8B4513, transparent);
-					}
-				}
-				
-				.related-list {
-					.related-item {
-						display: flex;
-						background-color: #ffffff;
-						box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.06);
-						border-radius: 20rpx;
-						padding: 20rpx;
-						margin-bottom: 24rpx;
-						
-						image {
-							width: 160rpx;
-							height: 120rpx;
-							border-radius: 12rpx;
-							margin-right: 20rpx;
-							object-fit: cover;
-						}
-						
-						.related-info {
-							flex: 1;
-							display: flex;
-							flex-direction: column;
-							justify-content: space-between;
-							
-							.related-name {
-								font-size: 28rpx;
-								font-weight: 600;
-								color: #333;
-							}
-							
-							.related-meta {
-								display: flex;
-								align-items: center;
-								justify-content: space-between;
-								
-								.related-rating {
-									display: flex;
-									align-items: center;
-									
-									text {
-										font-size: 24rpx;
-										color: #666;
-										margin-left: 6rpx;
-									}
-								}
-								
-								.related-distance {
-									font-size: 24rpx;
-									color: #8B4513;
-								}
-							}
-						}
-					}
-				}
-			}
-			
-			.bottom-space {
-				height: 120rpx;
-			}
-		}
-		
-		// 底部操作栏
-		.action-bar {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			height: 100rpx;
-			background-color: #ffffff;
-			display: flex;
-			align-items: center;
-			box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.08);
-			z-index: 10;
-			
-			.action-btn {
-				flex: 1;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				height: 100%;
-				
-				text {
-					font-size: 24rpx;
-					margin-top: 6rpx;
-					color: #666;
-				}
-				
-				&.ar-btn {
-					flex: 1.5;
-					background: linear-gradient(135deg, #8B4513, #D2691E);
-					margin: 10rpx 30rpx;
-					border-radius: 50rpx;
-					box-shadow: 0 6rpx 16rpx rgba(139, 69, 19, 0.2);
-					
-					text {
-						color: #FFFFFF;
-						font-weight: 500;
-					}
-				}
-				
-				&:active {
-					opacity: 0.8;
-				}
-			}
-		}
-	}
-	
-	// 动画
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
-	}
+.heritage-detail-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8f5f0;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 顶部图片区域 */
+.header-section {
+  position: relative;
+  height: 500rpx;
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.4) 70%, 
+    rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* 古建筑风格顶部装饰 */
+.header-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20rpx;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.decoration-line {
+  width: 100%;
+  height: 15rpx;
+  background-image: repeating-linear-gradient(90deg, 
+    rgba(255,255,255,0.6) 0px, 
+    rgba(255,255,255,0.6) 10px, 
+    transparent 10px, 
+    transparent 20px);
+}
+
+/* 顶部导航栏 */
+.top-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  z-index: 10;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  padding: 0 20rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 35rpx;
+  backdrop-filter: blur(5px);
+}
+
+.back-icon {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 8rpx;
+}
+
+.back-text {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  backdrop-filter: blur(5px);
+}
+
+.icon-star, .icon-share {
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.icon-star.filled {
+  color: #FFD700;
+}
+
+/* 标题信息区域 */
+.header-info {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 80rpx;
+  z-index: 10;
+}
+
+.header-category {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: rgba(139, 69, 19, 0.8);
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 15rpx;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10rpx;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-period {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15rpx;
+}
+
+.header-location {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.location-icon {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.location-text {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 波浪形装饰 */
+.header-wave {
+  position: absolute;
+  bottom: -2rpx;
+  left: 0;
+  right: 0;
+  height: 40rpx;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8f5f0" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+}
+
+/* 内容区域 */
+.content-scroll {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 500rpx);
+  z-index: 2;
+}
+
+.content-card {
+  padding: 30rpx;
+  padding-top: 0;
+  background-color: #f8f5f0;
+  position: relative;
+  z-index: 3;
+}
+
+/* 区块通用样式 */
+.section {
+  margin-bottom: 40rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  
+  /* 背景纹理 */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(45deg, 
+      rgba(139, 69, 19, 0.02) 0px, 
+      rgba(139, 69, 19, 0.02) 2px, 
+      transparent 2px, 
+      transparent 12px);
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #654321;
+}
+
+.title-decoration {
+  width: 8rpx;
+  height: 30rpx;
+  background-color: #8B4513;
+  margin-right: 15rpx;
+  border-radius: 4rpx;
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #8B4513;
+}
+
+.arrow-icon {
+  margin-left: 5rpx;
+  font-size: 26rpx;
+}
+
+/* 描述区块 */
+.description-text {
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.description-text.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
+
+.expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #8B4513;
+}
+
+.expand-icon {
+  margin-left: 10rpx;
+}
+
+/* 特点标签区域 */
+.features-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.feature-tag {
+  font-size: 24rpx;
+  padding: 10rpx 25rpx;
+  border-radius: 30rpx;
+  color: #8B4513;
+  background-color: rgba(139, 69, 19, 0.08);
+  border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+/* 图片区域 */
+.gallery-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.gallery-items {
+  display: inline-flex;
+  padding: 10rpx 0;
+}
+
+.gallery-item {
+  width: 240rpx;
+  height: 180rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  position: relative;
+  
+  image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.5));
+  }
+  
+  &:active {
+    image {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* 相关推荐 */
+.related-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.related-item {
+  border-radius: 15rpx;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.item-image-container {
+  height: 180rpx;
+  position: relative;
+  
+  image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.4));
+  }
+}
+
+.item-info {
+  padding: 15rpx;
+}
+
+.item-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-period {
+  font-size: 22rpx;
+  color: #8B4513;
+}
+
+/* 底部安全区域 */
+.safe-area-bottom {
+  height: 120rpx;
+}
+
+/* 底部AR体验按钮 */
+.bottom-action {
+  position: fixed;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 30rpx;
+  z-index: 50;
+}
+
+.ar-button {
+  height: 90rpx;
+  border-radius: 45rpx;
+  background: linear-gradient(135deg, #9B5523, #7B3503);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(139, 69, 19, 0.3);
+}
+
+.ar-icon {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 15rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.ar-text {
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 加载中状态 */
+.loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(248, 245, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 70rpx;
+  height: 70rpx;
+  border: 4rpx solid rgba(139, 69, 19, 0.1);
+  border-top-color: #8B4513;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #8B4513;
+  margin-top: 20rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>

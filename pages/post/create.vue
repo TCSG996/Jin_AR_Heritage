@@ -220,7 +220,7 @@
 
 		.nav-bar {
 			position: fixed;
-			top: 0;
+			top: var(--status-bar-height);
 			left: 0;
 			right: 0;
 			height: 88rpx;
@@ -258,7 +258,7 @@
 		}
 
 		.post-content {
-			margin-top: 108rpx;
+			margin-top: calc(var(--status-bar-height) + 108rpx);
 			padding: 30rpx;
 
 			.input-group {

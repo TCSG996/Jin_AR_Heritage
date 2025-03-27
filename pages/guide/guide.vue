@@ -53,27 +53,35 @@
 			@touchmove.stop.prevent="() => {}"
 		>
 			<view class="spots-list" @touchmove.stop="() => {}">
+				<view v-if="isLoading && spots.length === 0" class="loading-container">
+					<view class="loading-spinner"></view>
+					<text class="loading-text">加载中...</text>
+				</view>
 				<view 
 					v-for="(spot, index) in filteredSpots" 
 					:key="index"
 					class="spot-item"
 					@tap="navigateToDetail(spot.id)"
 				>
-					<image :src="spot.image" mode="aspectFill" class="spot-image"></image>
+					<image :src="getImageUrl(spot.imageUrl)" mode="aspectFill" class="spot-image"></image>
 					<view class="spot-info">
 						<text class="spot-name">{{ spot.name }}</text>
 						<text class="spot-desc">{{ spot.description }}</text>
 						<view class="spot-meta">
 							<view class="spot-rating">
 								<uni-icons type="star-filled" size="14" color="#FFB800"></uni-icons>
-								<text>{{ spot.rating }}</text>
+								<text>{{ generateRating(spot) }}</text>
 							</view>
 							<view class="spot-distance">
 								<uni-icons type="location" size="14" color="#666"></uni-icons>
-								<text>{{ spot.distance }}km</text>
+								<text>{{ getRandomDistance() }}km</text>
 							</view>
 						</view>
 					</view>
+				</view>
+				<view v-if="spots.length === 0 && !isLoading" class="empty-tip">
+					<image src="/static/empty.png" mode="aspectFit"></image>
+					<text>暂无景点数据</text>
 				</view>
 			</view>
 			<uni-load-more :status="loadMoreStatus"></uni-load-more>
@@ -82,6 +90,8 @@
 </template>
 
 <script>
+	import api from '@/api/index.js';
+	
 	export default {
 		data() {
 			return {
@@ -89,8 +99,12 @@
 				searchKeyword: '',
 				currentCategory: 0,
 				isRefreshing: false,
+				isLoading: false,
 				loadMoreStatus: 'more',
 				page: 1,
+				pageSize: 10,
+				total: 0,
+				baseURL: 'http://192.168.194.9:8080',
 				categories: [
 					{ id: 0, name: '全部' },
 					{ id: 1, name: '寺庙' },
@@ -99,96 +113,140 @@
 					{ id: 4, name: '古街巷' },
 					{ id: 5, name: '古村落' }
 				],
-				spots: [
-					{
-						id: 1,
-						name: '双塔寺',
-						description: '始建于北魏，是中国现存最古老的砖塔之一',
-						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.RosxJuZmIW9TH8hyGxrSdAHaEK?w=295&h=180&c=7&r=0&o=5&pid=1.7',
-						rating: 4.8,
-						distance: 2.5,
-						category: 1
-					},
-					{
-						id: 2,
-						name: '平遥古城',
-						description: '中国保存最为完整的古城墙，UNESCO世界文化遗产',
-						image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.08mviyqVC5Z3HQojVhR5vAHaFj?w=243&h=183&c=7&r=0&o=5&pid=1.7',
-						rating: 4.9,
-						distance: 5.1,
-						category: 2
-					},
-					{
-						id: 3,
-						name: '乔家大院',
-						description: '清代著名商人乔致庸的宅院，晋商文化的典范',
-						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.1Euuw0IB4b4mr_kD7Ed-AgHaFj?w=240&h=180&c=7&r=0&o=5&pid=1.7',
-						rating: 4.7,
-						distance: 3.2,
-						category: 2
-					},
-					{
-						id: 4,
-						name: '王家大院',
-						description: '清代巨商王家的私人宅院，展现晋商的辉煌',
-						image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.YQnuj09esuVfgxteWCckCQAAAA?w=262&h=189&c=7&r=0&o=5&pid=1.7',
-						rating: 4.6,
-						distance: 4.8,
-						category: 2
-					}
-				]
+				spots: [],
+				// 缓存评分
+				ratingsCache: {}
 			}
 		},
 		computed: {
 			filteredSpots() {
+				if (!this.searchKeyword.trim()) {
+					return this.spots;
+				}
 				return this.spots.filter(spot => {
-					const matchCategory = this.currentCategory === 0 || spot.category === this.currentCategory;
-					const matchKeyword = spot.name.includes(this.searchKeyword) || 
-									   spot.description.includes(this.searchKeyword);
-					return matchCategory && matchKeyword;
+					return spot.name.includes(this.searchKeyword) || 
+						   (spot.description && spot.description.includes(this.searchKeyword));
 				});
 			}
 		},
 		onLoad() {
 			// 获取状态栏高度
 			this.statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
+			// 加载景点数据
+			this.loadBuildingsData();
 		},
 		methods: {
+			// 加载建筑数据
+			async loadBuildingsData() {
+				this.isLoading = true;
+				
+				try {
+					// 构建请求参数
+					const params = {
+						page: this.page,
+						size: this.pageSize
+					};
+					
+					// 如果选择了特定分类，添加分类筛选
+					if (this.currentCategory !== 0) {
+						params.category = this.currentCategory;
+					}
+					
+					const res = await api.user.getBuildings(params);
+					
+					console.log('建筑数据响应:', res);
+					
+					if (res.code === 200 && res.data) {
+						// 如果是第一页，替换数据；否则追加数据
+						if (this.page === 1) {
+							this.spots = res.data;
+						} else {
+							this.spots = [...this.spots, ...res.data];
+						}
+						
+						// 更新总数
+						if (res.total !== undefined) {
+							this.total = res.total;
+						}
+						
+						// 判断是否还有更多数据
+						this.loadMoreStatus = this.spots.length < this.total ? 'more' : 'noMore';
+					} else {
+						uni.showToast({
+							title: res.msg || '获取景点数据失败',
+							icon: 'none'
+						});
+					}
+				} catch (error) {
+					console.error('加载景点数据失败:', error);
+					uni.showToast({
+						title: '网络请求失败，请重试',
+						icon: 'none'
+					});
+				} finally {
+					this.isLoading = false;
+				}
+			},
+			
+			// 获取图片URL
+			getImageUrl(imageUrl) {
+				if (!imageUrl) {
+					return '/static/spot-default.png';
+				}
+				
+				if (imageUrl.startsWith('http')) {
+					return imageUrl;
+				}
+				
+				return `${this.baseURL}${imageUrl}`;
+			},
+			
+			// 生成随机评分
+			generateRating(spot) {
+				// 使用缓存，避免每次渲染时评分变化
+				if (!this.ratingsCache[spot.id]) {
+					this.ratingsCache[spot.id] = (4 + Math.random() * 0.9).toFixed(1);
+				}
+				return this.ratingsCache[spot.id];
+			},
+			
+			// 生成随机距离（实际项目中应使用真实地理位置计算）
+			getRandomDistance() {
+				return (Math.random() * 10).toFixed(1);
+			},
+			
 			goBack() {
 				uni.navigateBack();
 			},
+			
 			handleSearch(e) {
 				this.searchKeyword = e.detail.value;
 			},
+			
 			selectCategory(categoryId) {
+				if (this.currentCategory === categoryId) return;
+				
 				this.currentCategory = categoryId;
+				this.page = 1;
+				this.spots = [];
+				this.loadBuildingsData();
 			},
+			
 			async loadMore() {
-				if (this.loadMoreStatus !== 'more') return;
+				if (this.loadMoreStatus !== 'more' || this.isLoading) return;
 				
 				this.loadMoreStatus = 'loading';
-				await new Promise(resolve => setTimeout(resolve, 1000));
-				
-				// 模拟加载更多数据
-				if (this.page < 3) {
-					const newSpots = this.spots.map(spot => ({
-						...spot,
-						id: spot.id + this.page * 4
-					}));
-					this.spots = [...this.spots, ...newSpots];
-					this.page++;
-					this.loadMoreStatus = 'more';
-				} else {
-					this.loadMoreStatus = 'noMore';
-				}
+				this.page++;
+				await this.loadBuildingsData();
 			},
+			
 			async onRefresh() {
 				this.isRefreshing = true;
-				await new Promise(resolve => setTimeout(resolve, 1000));
 				this.page = 1;
-				this.loadMoreStatus = 'more';
+				await this.loadBuildingsData();
 				this.isRefreshing = false;
 			},
+			
 			navigateToDetail(spotId) {
 				uni.navigateTo({
 					url: `/pages/guide/detail?id=${spotId}`
@@ -283,6 +341,53 @@
 
 		.spots-scroll {
 			height: calc(100vh - 44px - var(--status-bar-height));
+
+			.loading-container {
+				padding: 40px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				.loading-spinner {
+					width: 40px;
+					height: 40px;
+					border: 3px solid #f3f3f3;
+					border-top: 3px solid #4A5568;
+					border-radius: 50%;
+					animation: spin 1s linear infinite;
+					margin-bottom: 10px;
+				}
+				
+				.loading-text {
+					color: #666;
+					font-size: 14px;
+				}
+				
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+			}
+			
+			.empty-tip {
+				padding: 60px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				image {
+					width: 120px;
+					height: 120px;
+					margin-bottom: 16px;
+					opacity: 0.6;
+				}
+				
+				text {
+					color: #999;
+					font-size: 14px;
+				}
+			}
 
 			.spots-list {
 				padding: 16px;

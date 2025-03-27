@@ -113,21 +113,31 @@
 
         <!-- 底部操作栏 -->
         <view class="detail-footer">
-            <view class="ar-btn" @tap="startAR">
-                <uni-icons type="camera" size="20" color="#FFFFFF"></uni-icons>
-                <text>开启AR导览体验</text>
+            <view class="action-buttons">
+                <view class="ar-btn" @tap="startAR">
+                    <uni-icons type="camera" size="20" color="#FFFFFF"></uni-icons>
+                    <text>开启AR导览体验</text>
+                </view>
+                <view class="model-btn" @tap="start3DView">
+                    <uni-icons type="eye" size="20" color="#FFFFFF"></uni-icons>
+                    <text>3D观影体验</text>
+                </view>
             </view>
         </view>
     </view>
 </template>
 
 <script>
+import api from '@/api/index.js';
+
 export default {
     data() {
         return {
             id: null,
             statusBarHeight: 0,
+            isLoading: true,
             isCollected: false,
+            baseURL: 'http://192.168.194.9:8080',
             spotDetail: {
                 id: 0,
                 name: '',
@@ -142,7 +152,7 @@ export default {
                 bestSeason: '',
                 images: []
             },
-            // 虚拟数据映射表
+            // 备用虚拟数据，当API没有返回完整数据时使用
             spotsData: {
                 1: {
                     id: 1,
@@ -294,24 +304,137 @@ export default {
         }
     },
     methods: {
-        loadSpotDetail() {
-            // 从虚拟数据中获取景点详情
-            if (this.spotsData[this.id]) {
-                this.spotDetail = this.spotsData[this.id];
-            } else {
-                // 如果ID不存在，显示提示并返回
-                uni.showToast({
-                    title: '景点信息不存在',
-                    icon: 'none'
-                });
-                setTimeout(() => {
-                    this.goBack();
-                }, 1500);
+        async loadSpotDetail() {
+            this.isLoading = true;
+            
+            try {
+                // 从API获取景点详情
+                const res = await api.user.getBuildingDetail(this.id);
+                console.log('建筑详情响应:', res);
+                
+                if (res.code === 200 && res.data) {
+                    // 处理API返回的数据
+                    const buildingData = res.data;
+                    
+                    // 处理图片URL
+                    let mainImage = this.getProcessedImageUrl(buildingData.imageUrl);
+                    
+                    // 设置图片集合
+                    const images = [mainImage];
+                    
+                    // 如果有AR模型图也加入图片集合
+                    if (buildingData.arModelUrl) {
+                        const arImageUrl = this.getProcessedImageUrl(buildingData.arModelUrl);
+                        if (arImageUrl !== mainImage) {
+                            images.push(arImageUrl);
+                        }
+                    }
+                    
+                    // 为图片集合添加一些备用图片，确保有足够的轮播内容
+                    if (images.length < 3 && this.spotsData[this.id]) {
+                        const backupImages = this.spotsData[this.id].images.slice(0, 3 - images.length);
+                        images.push(...backupImages);
+                    }
+                    
+                    // 生成分类标签
+                    const tags = [];
+                    if (buildingData.buildYear) {
+                        tags.push(buildingData.buildYear + '年建造');
+                    }
+                    // 添加一些默认标签
+                    tags.push('历史建筑', '文化遗产');
+                    
+                    // 构建特色内容，如果API没有提供则使用备用数据
+                    let features = [];
+                    if (this.spotsData[this.id]) {
+                        features = this.spotsData[this.id].features;
+                    } else {
+                        // 创建默认特色
+                        features = [
+                            {
+                                title: '历史价值',
+                                description: buildingData.description || '该建筑具有重要的历史价值，见证了当地历史文化的发展。'
+                            },
+                            {
+                                title: '建筑特点',
+                                description: '建筑风格独特，展现了传统建筑工艺的精湛技术。'
+                            },
+                            {
+                                title: '文化意义',
+                                description: '作为重要的文化遗产，对研究当地历史文化具有重要意义。'
+                            }
+                        ];
+                    }
+                    
+                    // 更新详情数据
+                    this.spotDetail = {
+                        id: buildingData.id,
+                        name: buildingData.name,
+                        rating: 4.7 + Math.random() * 0.3, // 随机生成评分
+                        address: buildingData.location || '山西省',
+                        tags: tags,
+                        description: buildingData.description || '暂无详细描述',
+                        features: features,
+                        openingHours: '08:00-17:30（周一至周日）',
+                        ticketPrice: '¥60/人（学生半价）',
+                        suggestedVisitTime: '2-3小时',
+                        bestSeason: '春季、秋季',
+                        images: images
+                    };
+                    
+                } else {
+                    // 如果API请求失败，尝试使用备用数据
+                    if (this.spotsData[this.id]) {
+                        this.spotDetail = this.spotsData[this.id];
+                        console.log('使用备用数据:', this.spotDetail);
+                    } else {
+                        uni.showToast({
+                            title: res?.msg || '景点信息不存在',
+                            icon: 'none'
+                        });
+                        setTimeout(() => {
+                            this.goBack();
+                        }, 1500);
+                    }
+                }
+            } catch (error) {
+                console.error('加载景点详情失败:', error);
+                
+                // 尝试使用备用数据
+                if (this.spotsData[this.id]) {
+                    this.spotDetail = this.spotsData[this.id];
+                    console.log('出错后使用备用数据:', this.spotDetail);
+                } else {
+                    uni.showToast({
+                        title: '获取景点信息失败',
+                        icon: 'none'
+                    });
+                    setTimeout(() => {
+                        this.goBack();
+                    }, 1500);
+                }
+            } finally {
+                this.isLoading = false;
             }
         },
+        
+        // 处理图片URL
+        getProcessedImageUrl(imageUrl) {
+            if (!imageUrl) {
+                return '/static/spot-default.png';
+            }
+            
+            if (imageUrl.startsWith('http')) {
+                return imageUrl;
+            }
+            
+            return `${this.baseURL}${imageUrl}`;
+        },
+        
         goBack() {
             uni.navigateBack();
         },
+        
         handleCollect() {
             this.isCollected = !this.isCollected;
             uni.showToast({
@@ -319,12 +442,14 @@ export default {
                 icon: 'none'
             });
         },
+        
         handleShare() {
             uni.showShareMenu({
                 withShareTicket: true,
                 menus: ['shareAppMessage', 'shareTimeline']
             });
         },
+        
         openMap() {
             // 实际应用中应使用真实的经纬度
             uni.showToast({
@@ -332,6 +457,7 @@ export default {
                 icon: 'none'
             });
         },
+        
         startAR() {
             uni.showModal({
                 title: 'AR导览体验',
@@ -340,6 +466,21 @@ export default {
                     if (res.confirm) {
                         uni.navigateTo({
                             url: `/pages/AR/AR?spotId=${this.id}&spotName=${encodeURIComponent(this.spotDetail.name)}`
+                        });
+                    }
+                }
+            });
+        },
+        
+        start3DView() {
+            uni.showModal({
+                title: '3D观影体验',
+                content: '即将开启3D观影体验，让您更清晰地欣赏建筑模型',
+                success: (res) => {
+                    if (res.confirm) {
+                        // 跳转到3D观影页面，传递建筑ID和arModelUrl参数
+                        uni.navigateTo({
+                            url: `/pages/guide/3d-view?id=${this.id}&modelUrl=${encodeURIComponent(this.spotDetail.arModelUrl || '')}`
                         });
                     }
                 }
@@ -578,28 +719,40 @@ export default {
         justify-content: center;
         z-index: 999;
         
-        .ar-btn {
+        .action-buttons {
             width: 90%;
-            background: linear-gradient(135deg, #4A5568, #2D3748);
-            height: 52px;
-            border-radius: 26px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 6px 15px rgba(45, 55, 72, 0.25);
-            transition: all 0.3s ease;
+            gap: 10px;
             
-            &:active {
-                transform: scale(0.98);
-                box-shadow: 0 3px 8px rgba(45, 55, 72, 0.2);
+            .ar-btn, .model-btn {
+                flex: 1;
+                height: 52px;
+                border-radius: 26px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                box-shadow: 0 6px 15px rgba(45, 55, 72, 0.25);
+                transition: all 0.3s ease;
+                
+                &:active {
+                    transform: scale(0.98);
+                    box-shadow: 0 3px 8px rgba(45, 55, 72, 0.2);
+                }
+                
+                text {
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
             }
             
-            text {
-                color: #fff;
-                font-size: 16px;
-                font-weight: 500;
-                letter-spacing: 1px;
+            .ar-btn {
+                background: linear-gradient(135deg, #4A5568, #2D3748);
+            }
+            
+            .model-btn {
+                background: linear-gradient(135deg, #3182CE, #2B6CB0);
             }
         }
     }

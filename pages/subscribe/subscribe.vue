@@ -54,7 +54,8 @@
 						<view class="post-header">
 							<view class="post-user">
 								<image class="post-avatar"
-									:src="item.avatar ? getAvatarUrl(item.avatar) : '/static/logo.png'" mode="aspectFill">
+									:src="item.avatar ? getAvatarUrl(item.avatar) : '/static/logo.png'"
+									mode="aspectFill">
 								</image>
 								<view class="post-info">
 									<view class="post-username">{{ item.username || '文化爱好者' }}</view>
@@ -332,7 +333,7 @@
 
 					// 调用点赞API
 					const res = await api.user.likeForumPost(post.id, this.userInfo.id);
-					
+
 					if (res && res.code === 200) {
 						// 更新帖子点赞状态
 						post.isLiked = !post.isLiked;
@@ -341,7 +342,7 @@
 						} else {
 							post.likes--;
 						}
-						
+
 						// 显示操作结果
 						uni.showToast({
 							title: post.isLiked ? '点赞成功' : '取消点赞',
@@ -656,7 +657,7 @@
 <style lang="scss">
 	.subscribe {
 		background-color: #f8f5f0;
-		background-image: url('/static/forum/paper-texture.png');
+		// background-image: url('/static/forum/paper-texture.png');
 		background-repeat: repeat;
 		min-height: 100vh;
 		position: relative;
@@ -683,11 +684,12 @@
 			animation: fadeIn 1.5s ease-in-out;
 
 			@keyframes fadeIn {
-				from { 
+				from {
 					opacity: 0;
 					transform: scale(1.1);
 				}
-				to { 
+
+				to {
 					opacity: 1;
 					transform: scale(1);
 				}
@@ -699,11 +701,10 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background: linear-gradient(to bottom, 
-					rgba(0,0,0,0.2) 0%,
-					rgba(0,0,0,0.3) 50%,
-					rgba(0,0,0,0.4) 100%
-				);
+				background: linear-gradient(to bottom,
+						rgba(0, 0, 0, 0.2) 0%,
+						rgba(0, 0, 0, 0.3) 50%,
+						rgba(0, 0, 0, 0.4) 100%);
 			}
 		}
 
@@ -732,11 +733,10 @@
 				left: 0;
 				right: 0;
 				height: 4rpx;
-				background: linear-gradient(90deg, 
-					transparent 0%,
-					rgba(139, 69, 19, 0.3) 50%,
-					transparent 100%
-				);
+				background: linear-gradient(90deg,
+						transparent 0%,
+						rgba(139, 69, 19, 0.3) 50%,
+						transparent 100%);
 			}
 
 			&:active {
@@ -792,11 +792,10 @@
 						right: -2rpx;
 						bottom: -2rpx;
 						border-radius: 50%;
-						background: linear-gradient(135deg, 
-							rgba(255,255,255,0.2) 0%,
-							rgba(255,255,255,0) 50%,
-							rgba(255,255,255,0.2) 100%
-						);
+						background: linear-gradient(135deg,
+								rgba(255, 255, 255, 0.2) 0%,
+								rgba(255, 255, 255, 0) 50%,
+								rgba(255, 255, 255, 0.2) 100%);
 					}
 				}
 			}
@@ -810,7 +809,7 @@
 					font-weight: 600;
 					color: #8b4513;
 					margin-bottom: 12rpx;
-					text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+					text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 					font-family: "楷体", KaiTi, serif;
 					position: relative;
 					display: inline-block;
@@ -822,11 +821,10 @@
 						left: 0;
 						width: 100%;
 						height: 2rpx;
-						background: linear-gradient(90deg, 
-							transparent 0%,
-							rgba(139, 69, 19, 0.3) 50%,
-							transparent 100%
-						);
+						background: linear-gradient(90deg,
+								transparent 0%,
+								rgba(139, 69, 19, 0.3) 50%,
+								transparent 100%);
 					}
 				}
 
@@ -894,11 +892,10 @@
 								left: 0;
 								right: 0;
 								bottom: 0;
-								background: linear-gradient(45deg, 
-									rgba(255,255,255,0.1) 0%,
-									rgba(255,255,255,0) 50%,
-									rgba(255,255,255,0.1) 100%
-								);
+								background: linear-gradient(45deg,
+										rgba(255, 255, 255, 0.1) 0%,
+										rgba(255, 255, 255, 0) 50%,
+										rgba(255, 255, 255, 0.1) 100%);
 							}
 
 							image {
@@ -919,11 +916,10 @@
 								left: 0;
 								right: 0;
 								bottom: 0;
-								background: linear-gradient(45deg, 
-									rgba(255,255,255,0.1) 0%,
-									rgba(255,255,255,0) 50%,
-									rgba(255,255,255,0.1) 100%
-								);
+								background: linear-gradient(45deg,
+										rgba(255, 255, 255, 0.1) 0%,
+										rgba(255, 255, 255, 0) 50%,
+										rgba(255, 255, 255, 0.1) 100%);
 							}
 
 							image {
@@ -961,11 +957,10 @@
 					left: 0;
 					right: 0;
 					bottom: 0;
-					background: linear-gradient(45deg, 
-						rgba(255,255,255,0.1) 0%,
-						rgba(255,255,255,0) 50%,
-						rgba(255,255,255,0.1) 100%
-					);
+					background: linear-gradient(45deg,
+							rgba(255, 255, 255, 0.1) 0%,
+							rgba(255, 255, 255, 0) 50%,
+							rgba(255, 255, 255, 0.1) 100%);
 				}
 
 				text {
@@ -992,11 +987,10 @@
 				transform: translateX(-50%);
 				width: 200rpx;
 				height: 4rpx;
-				background: linear-gradient(90deg, 
-					transparent 0%,
-					rgba(139, 69, 19, 0.3) 50%,
-					transparent 100%
-				);
+				background: linear-gradient(90deg,
+						transparent 0%,
+						rgba(139, 69, 19, 0.3) 50%,
+						transparent 100%);
 			}
 
 			.categories {
@@ -1039,11 +1033,10 @@
 						left: 0;
 						right: 0;
 						height: 2rpx;
-						background: linear-gradient(90deg, 
-							transparent 0%,
-							rgba(139, 69, 19, 0.3) 50%,
-							transparent 100%
-						);
+						background: linear-gradient(90deg,
+								transparent 0%,
+								rgba(139, 69, 19, 0.3) 50%,
+								transparent 100%);
 					}
 
 					&.active {
@@ -1053,11 +1046,10 @@
 						box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);
 
 						&::before {
-							background: linear-gradient(90deg, 
-								transparent 0%,
-								rgba(255,255,255,0.3) 50%,
-								transparent 100%
-							);
+							background: linear-gradient(90deg,
+									transparent 0%,
+									rgba(255, 255, 255, 0.3) 50%,
+									transparent 100%);
 						}
 					}
 
@@ -1088,11 +1080,10 @@
 						left: 0;
 						right: 0;
 						height: 4rpx;
-						background: linear-gradient(90deg, 
-							transparent 0%,
-							rgba(139, 69, 19, 0.3) 50%,
-							transparent 100%
-						);
+						background: linear-gradient(90deg,
+								transparent 0%,
+								rgba(139, 69, 19, 0.3) 50%,
+								transparent 100%);
 					}
 
 					@keyframes slideUp {
@@ -1100,6 +1091,7 @@
 							opacity: 0;
 							transform: translateY(20rpx);
 						}
+
 						to {
 							opacity: 1;
 							transform: translateY(0);
@@ -1125,11 +1117,10 @@
 							left: 0;
 							right: 0;
 							height: 1rpx;
-							background: linear-gradient(90deg, 
-								transparent 0%,
-								rgba(139, 69, 19, 0.2) 50%,
-								transparent 100%
-							);
+							background: linear-gradient(90deg,
+									transparent 0%,
+									rgba(139, 69, 19, 0.2) 50%,
+									transparent 100%);
 						}
 
 						.post-user {
@@ -1154,11 +1145,10 @@
 									right: 0;
 									bottom: 0;
 									border-radius: 50%;
-									background: linear-gradient(45deg, 
-										rgba(255,255,255,0.1) 0%,
-										rgba(255,255,255,0) 50%,
-										rgba(255,255,255,0.1) 100%
-									);
+									background: linear-gradient(45deg,
+											rgba(255, 255, 255, 0.1) 0%,
+											rgba(255, 255, 255, 0) 50%,
+											rgba(255, 255, 255, 0.1) 100%);
 								}
 							}
 
@@ -1167,7 +1157,7 @@
 									font-size: 28rpx;
 									font-weight: 500;
 									color: #8b4513;
-									text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+									text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 									font-family: "楷体", KaiTi, serif;
 									position: relative;
 									display: inline-block;
@@ -1179,11 +1169,10 @@
 										left: 0;
 										width: 100%;
 										height: 1rpx;
-										background: linear-gradient(90deg, 
-											transparent 0%,
-											rgba(139, 69, 19, 0.3) 50%,
-											transparent 100%
-										);
+										background: linear-gradient(90deg,
+												transparent 0%,
+												rgba(139, 69, 19, 0.3) 50%,
+												transparent 100%);
 									}
 								}
 
@@ -1219,11 +1208,10 @@
 									left: 0;
 									right: 0;
 									bottom: 0;
-									background: linear-gradient(45deg, 
-										rgba(255,255,255,0.1) 0%,
-										rgba(255,255,255,0) 50%,
-										rgba(255,255,255,0.1) 100%
-									);
+									background: linear-gradient(45deg,
+											rgba(255, 255, 255, 0.1) 0%,
+											rgba(255, 255, 255, 0) 50%,
+											rgba(255, 255, 255, 0.1) 100%);
 								}
 
 								&.essence {
@@ -1250,7 +1238,7 @@
 							color: #8b4513;
 							margin-bottom: 16rpx;
 							line-height: 1.4;
-							text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+							text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 							font-family: "楷体", KaiTi, serif;
 							position: relative;
 							padding-left: 20rpx;
@@ -1279,7 +1267,7 @@
 							font-family: "楷体", KaiTi, serif;
 							text-indent: 2em;
 							letter-spacing: 1rpx;
-							text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+							text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 							position: relative;
 							padding: 10rpx 0;
 
@@ -1290,11 +1278,10 @@
 								top: 0;
 								width: 100%;
 								height: 1rpx;
-								background: linear-gradient(90deg, 
-									transparent 0%,
-									rgba(139, 69, 19, 0.2) 50%,
-									transparent 100%
-								);
+								background: linear-gradient(90deg,
+										transparent 0%,
+										rgba(139, 69, 19, 0.2) 50%,
+										transparent 100%);
 							}
 
 							&::after {
@@ -1304,11 +1291,10 @@
 								bottom: 0;
 								width: 100%;
 								height: 1rpx;
-								background: linear-gradient(90deg, 
-									transparent 0%,
-									rgba(139, 69, 19, 0.2) 50%,
-									transparent 100%
-								);
+								background: linear-gradient(90deg,
+										transparent 0%,
+										rgba(139, 69, 19, 0.2) 50%,
+										transparent 100%);
 							}
 						}
 					}
@@ -1336,11 +1322,10 @@
 								left: 0;
 								right: 0;
 								bottom: 0;
-								background: linear-gradient(45deg, 
-									rgba(255,255,255,0.1) 0%,
-									rgba(255,255,255,0) 50%,
-									rgba(255,255,255,0.1) 100%
-								);
+								background: linear-gradient(45deg,
+										rgba(255, 255, 255, 0.1) 0%,
+										rgba(255, 255, 255, 0) 50%,
+										rgba(255, 255, 255, 0.1) 100%);
 							}
 
 							&:hover {
@@ -1376,11 +1361,10 @@
 								left: 0;
 								right: 0;
 								bottom: 0;
-								background: linear-gradient(45deg, 
-									rgba(255,255,255,0.1) 0%,
-									rgba(255,255,255,0) 50%,
-									rgba(255,255,255,0.1) 100%
-								);
+								background: linear-gradient(45deg,
+										rgba(255, 255, 255, 0.1) 0%,
+										rgba(255, 255, 255, 0) 50%,
+										rgba(255, 255, 255, 0.1) 100%);
 							}
 
 							uni-icons {
@@ -1413,11 +1397,10 @@
 					transform: translate(-50%, -50%);
 					width: 200rpx;
 					height: 1rpx;
-					background: linear-gradient(90deg, 
-						transparent 0%,
-						rgba(139, 69, 19, 0.3) 50%,
-						transparent 100%
-					);
+					background: linear-gradient(90deg,
+							transparent 0%,
+							rgba(139, 69, 19, 0.3) 50%,
+							transparent 100%);
 					z-index: 0;
 				}
 

@@ -765,13 +765,13 @@
 	.post-detail {
 		min-height: 100vh;
 		background-color: #f8f5f0;
-		/* 移除背景图片，改用渐变背景 */
 		background: linear-gradient(135deg, #f8f5f0 0%, #fff5e6 100%);
+		padding-top: var(--status-bar-height);
 		padding-bottom: 100rpx;
 
 		.nav-bar {
 			position: fixed;
-			top: 0;
+			top: var(--status-bar-height);
 			left: 0;
 			right: 0;
 			height: 88rpx;
@@ -805,13 +805,13 @@
 		}
 
 		.post-content {
-			margin-top: 108rpx;
+			margin-top: calc(var(--status-bar-height) + 108rpx);
 			background-color: rgba(255, 255, 255, 0.95);
 			backdrop-filter: blur(10px);
 			padding: 30rpx;
 			animation: fadeIn 0.5s ease-out;
 			border-radius: 20rpx;
-			margin: 118rpx 20rpx 20rpx;
+			margin: calc(var(--status-bar-height) + 108rpx) 20rpx 20rpx;
 			box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.1);
 			border: 1rpx solid rgba(139, 69, 19, 0.1);
 

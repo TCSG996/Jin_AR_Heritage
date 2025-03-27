@@ -215,6 +215,9 @@ __definePage('pages/guide/guide', function () {
 __definePage('pages/guide/detail', function () {
   return Vue.extend(__webpack_require__(/*! pages/guide/detail.vue?mpType=page */ 188).default);
 });
+__definePage('pages/guide/3d-view', function () {
+  return Vue.extend(__webpack_require__(/*! pages/guide/3d-view.vue?mpType=page */ 319).default);
+});
 __definePage('pages/index/heritage/heritage', function () {
   return Vue.extend(__webpack_require__(/*! pages/index/heritage/heritage.vue?mpType=page */ 196).default);
 });
@@ -256,6 +259,9 @@ __definePage('pages/post/edit', function () {
 });
 __definePage('pages/my/collection', function () {
   return Vue.extend(__webpack_require__(/*! pages/my/collection.vue?mpType=page */ 308).default);
+});
+__definePage('pages/guide/3d-view', function () {
+  return Vue.extend(__webpack_require__(/*! pages/guide/3d-view.vue?mpType=page */ 319).default);
 });
 
 /***/ }),
@@ -2217,7 +2223,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.login-container {\n  min-height: 100vh;\n  background-color: #f9f6f2;\n  /* 米黄色背景，模拟宣纸质感 */\n  padding: 40rpx;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  /* 背景装饰 */\n  /* 返回按钮 */\n  /* 登录标题 */\n  /* 登录表单 */\n  /* 底部版权信息 */\n}\n.login-container .background-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 0;\n}\n.login-container .background-decoration .bg-circle {\n  position: absolute;\n  border-radius: 50%;\n  opacity: 0.8;\n}\n.login-container .background-decoration .circle-1 {\n  width: 600rpx;\n  height: 600rpx;\n  top: -200rpx;\n  right: -200rpx;\n  background: linear-gradient(135deg, rgba(193, 154, 107, 0.15), rgba(193, 154, 107, 0.05));\n  -webkit-animation: float 15s infinite ease-in-out;\n          animation: float 15s infinite ease-in-out;\n}\n.login-container .background-decoration .circle-2 {\n  width: 500rpx;\n  height: 500rpx;\n  bottom: -150rpx;\n  left: -200rpx;\n  background: linear-gradient(135deg, rgba(168, 95, 59, 0.1), rgba(168, 95, 59, 0.03));\n  animation: float 18s infinite ease-in-out reverse;\n}\n.login-container .background-decoration .circle-3 {\n  width: 300rpx;\n  height: 300rpx;\n  top: 40%;\n  right: -100rpx;\n  background: linear-gradient(135deg, rgba(0, 128, 85, 0.08), rgba(0, 128, 85, 0.02));\n  -webkit-animation: float 12s infinite ease-in-out;\n          animation: float 12s infinite ease-in-out;\n}\n.login-container .background-decoration .bg-pattern {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  /* 使用重复渐变替代图片，避免图片路径错误 */\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 12px);\n  opacity: 0.3;\n  mix-blend-mode: overlay;\n  z-index: 1;\n}\n.login-container .back-btn {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  color: #008055;\n  /* 中国传统青绿色 */\n  margin-bottom: 60rpx;\n  z-index: 1;\n}\n.login-container .back-btn:active {\n  opacity: 0.7;\n}\n.login-container .back-btn uni-text {\n  margin-left: 10rpx;\n  font-weight: 500;\n}\n.login-container .login-header {\n  margin-bottom: 80rpx;\n  z-index: 1;\n  -webkit-animation: fadeInDown 0.8s ease-out;\n          animation: fadeInDown 0.8s ease-out;\n}\n.login-container .login-header .login-title {\n  font-size: 56rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 20rpx;\n  letter-spacing: 4rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.login-container .login-header .login-subtitle {\n  font-size: 28rpx;\n  color: #666;\n  letter-spacing: 2rpx;\n}\n.login-container .login-form {\n  z-index: 1;\n  -webkit-animation: fadeInUp 0.8s ease-out;\n          animation: fadeInUp 0.8s ease-out;\n  /* 输入框样式 */\n  /* 操作区域 */\n  /* 登录按钮 */\n  /* 第三方登录 */\n  /* 第三方登录图标 */\n}\n.login-container .login-form .input-item {\n  display: flex;\n  align-items: center;\n  height: 100rpx;\n  margin-bottom: 40rpx;\n  transition: all 0.3s;\n  position: relative;\n  border-radius: 12rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n  padding: 0 20rpx;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .input-item.phone-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item .password-toggle {\n  width: 70rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-toggle:active {\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item.password-item .password-strength {\n  position: absolute;\n  bottom: -30rpx;\n  left: 20rpx;\n  right: 20rpx;\n  display: flex;\n  align-items: center;\n  -webkit-animation: fadeIn 0.3s ease-out;\n          animation: fadeIn 0.3s ease-out;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar {\n  flex: 1;\n  height: 6rpx;\n  background-color: #eee;\n  border-radius: 3rpx;\n  overflow: hidden;\n  margin-right: 10rpx;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level {\n  height: 100%;\n  width: 0%;\n  border-radius: 3rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.weak {\n  width: 25%;\n  background-color: #e74c3c;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.medium {\n  width: 50%;\n  background-color: #f39c12;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.strong {\n  width: 75%;\n  background-color: #27ae60;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.very-strong {\n  width: 100%;\n  background-color: #008055;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-text {\n  font-size: 22rpx;\n  color: #999;\n  width: 80rpx;\n  text-align: right;\n}\n.login-container .login-form .input-item .input-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 60rpx;\n  height: 60rpx;\n  margin-right: 20rpx;\n  border-radius: 30rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 30rpx;\n  color: #333;\n}\n.login-container .login-form .input-item uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item uni-input::placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item .input-clear {\n  padding: 10rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.login-container .login-form .action-area {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .action-area .register-link,\n.login-container .login-form .action-area .forgot-password {\n  font-size: 26rpx;\n  color: #008055;\n  display: flex;\n  align-items: center;\n}\n.login-container .login-form .action-area .register-link:active,\n.login-container .login-form .action-area .forgot-password:active {\n  opacity: 0.7;\n}\n.login-container .login-form .action-area .register-link uni-icons,\n.login-container .login-form .action-area .forgot-password uni-icons {\n  margin-right: 6rpx;\n}\n.login-container .login-form .login-btn {\n  height: 90rpx;\n  line-height: 90rpx;\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  font-size: 32rpx;\n  border-radius: 45rpx;\n  margin-bottom: 80rpx;\n  box-shadow: 0 10rpx 20rpx rgba(0, 128, 85, 0.2);\n  transition: all 0.3s;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  letter-spacing: 4rpx;\n  position: relative;\n  overflow: hidden;\n  font-weight: 500;\n}\n.login-container .login-form .login-btn::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);\n  transition: all 0.5s;\n}\n.login-container .login-form .login-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 5rpx 10rpx rgba(0, 128, 85, 0.2);\n}\n.login-container .login-form .login-btn:active::after {\n  left: 100%;\n}\n.login-container .login-form .login-btn:disabled {\n  opacity: 0.7;\n}\n.login-container .login-form .login-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.login-container .login-form .third-party-login {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .third-party-login .divider {\n  flex: 1;\n  height: 1px;\n  background-color: rgba(193, 154, 107, 0.3);\n  /* 木色分割线 */\n}\n.login-container .login-form .third-party-login uni-text {\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  color: #999;\n}\n.login-container .login-form .third-party-icons {\n  display: flex;\n  justify-content: center;\n}\n.login-container .login-form .third-party-icons .icon-item {\n  width: 90rpx;\n  height: 90rpx;\n  margin: 0 40rpx;\n  background-color: #fff;\n  border-radius: 50%;\n  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .third-party-icons .icon-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);\n}\n.login-container .login-form .third-party-icons .icon-item uni-image {\n  width: 60%;\n  height: 60%;\n  border-radius: 50%;\n}\n.login-container .footer {\n  margin-top: auto;\n  text-align: center;\n  padding: 30rpx 0;\n  font-size: 24rpx;\n  color: #999;\n  z-index: 1;\n}\n/* 注册弹窗样式 */\n.register-popup {\n  width: 600rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 40rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);\n  -webkit-animation: scaleIn 0.3s ease-out;\n          animation: scaleIn 0.3s ease-out;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 40rpx;\n}\n.register-popup .popup-header .popup-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  letter-spacing: 2rpx;\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.register-popup .popup-header .popup-close {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s;\n}\n.register-popup .popup-header .popup-close:active {\n  background-color: #f5f5f5;\n}\n.register-popup .popup-form .popup-input {\n  height: 90rpx;\n  border-bottom: 1px solid rgba(193, 154, 107, 0.3);\n  /* 木色边框 */\n  margin-bottom: 30rpx;\n  display: flex;\n  align-items: center;\n  padding: 0 10rpx;\n  position: relative;\n  transition: all 0.3s;\n}\n.register-popup .popup-form .popup-input uni-icons {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50rpx;\n  height: 50rpx;\n  margin-right: 20rpx;\n  border-radius: 25rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.register-popup .popup-form .popup-input uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n}\n.register-popup .popup-form .popup-input uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input uni-input::placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input:focus-within {\n  border-bottom-color: #008055;\n  background-color: rgba(0, 128, 85, 0.03);\n  border-radius: 8rpx 8rpx 0 0;\n}\n.register-popup .popup-form .popup-input::after {\n  content: \"\";\n  position: absolute;\n  bottom: -1px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(90deg, #008055, #00a878);\n  transition: all 0.3s ease;\n}\n.register-popup .popup-form .popup-input:focus-within::after {\n  width: 100%;\n}\n.register-popup .popup-buttons {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 40rpx;\n}\n.register-popup .popup-buttons uni-button {\n  width: 45%;\n  height: 80rpx;\n  line-height: 80rpx;\n  font-size: 30rpx;\n  border-radius: 40rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n}\n.register-popup .popup-buttons .cancel-btn {\n  background-color: #f5f5f5;\n  color: #666;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-buttons .cancel-btn:active {\n  background-color: #e9e9e9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.register-popup .popup-buttons .confirm-btn {\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  box-shadow: 0 5rpx 15rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:active {\n  opacity: 0.9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 2rpx 8rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:disabled {\n  opacity: 0.7;\n}\n.register-popup .popup-buttons .confirm-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n/* 动画效果 */\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@-webkit-keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.login-container {\n  min-height: 100vh;\n  background-color: #f9f6f2;\n  /* 米黄色背景，模拟宣纸质感 */\n  padding: 40rpx;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  /* 背景装饰 */\n  /* 返回按钮 */\n  /* 登录标题 */\n  /* 登录表单 */\n  /* 底部版权信息 */\n}\n.login-container .background-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 0;\n}\n.login-container .background-decoration .bg-circle {\n  position: absolute;\n  border-radius: 50%;\n  opacity: 0.8;\n}\n.login-container .background-decoration .circle-1 {\n  width: 600rpx;\n  height: 600rpx;\n  top: -200rpx;\n  right: -200rpx;\n  background: linear-gradient(135deg, rgba(193, 154, 107, 0.15), rgba(193, 154, 107, 0.05));\n  -webkit-animation: float 15s infinite ease-in-out;\n          animation: float 15s infinite ease-in-out;\n}\n.login-container .background-decoration .circle-2 {\n  width: 500rpx;\n  height: 500rpx;\n  bottom: -150rpx;\n  left: -200rpx;\n  background: linear-gradient(135deg, rgba(168, 95, 59, 0.1), rgba(168, 95, 59, 0.03));\n  animation: float 18s infinite ease-in-out reverse;\n}\n.login-container .background-decoration .circle-3 {\n  width: 300rpx;\n  height: 300rpx;\n  top: 40%;\n  right: -100rpx;\n  background: linear-gradient(135deg, rgba(0, 128, 85, 0.08), rgba(0, 128, 85, 0.02));\n  -webkit-animation: float 12s infinite ease-in-out;\n          animation: float 12s infinite ease-in-out;\n}\n.login-container .background-decoration .bg-pattern {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  /* 使用重复渐变替代图片，避免图片路径错误 */\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 12px);\n  opacity: 0.3;\n  mix-blend-mode: overlay;\n  z-index: 1;\n}\n.login-container .back-btn {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  color: #008055;\n  /* 中国传统青绿色 */\n  margin-top: 50rpx;\n  margin-bottom: 60rpx;\n  z-index: 1;\n}\n.login-container .back-btn:active {\n  opacity: 0.7;\n}\n.login-container .back-btn uni-text {\n  margin-left: 10rpx;\n  font-weight: 500;\n}\n.login-container .login-header {\n  margin-bottom: 80rpx;\n  z-index: 1;\n  -webkit-animation: fadeInDown 0.8s ease-out;\n          animation: fadeInDown 0.8s ease-out;\n}\n.login-container .login-header .login-title {\n  font-size: 56rpx;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 20rpx;\n  letter-spacing: 4rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.login-container .login-header .login-subtitle {\n  font-size: 28rpx;\n  color: #666;\n  letter-spacing: 2rpx;\n}\n.login-container .login-form {\n  z-index: 1;\n  -webkit-animation: fadeInUp 0.8s ease-out;\n          animation: fadeInUp 0.8s ease-out;\n  /* 输入框样式 */\n  /* 操作区域 */\n  /* 登录按钮 */\n  /* 第三方登录 */\n  /* 第三方登录图标 */\n}\n.login-container .login-form .input-item {\n  display: flex;\n  align-items: center;\n  height: 100rpx;\n  margin-bottom: 40rpx;\n  transition: all 0.3s;\n  position: relative;\n  border-radius: 12rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n  padding: 0 20rpx;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .input-item.phone-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item.input-focus {\n  border-color: #008055;\n  box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);\n}\n.login-container .login-form .input-item.password-item .password-toggle {\n  width: 70rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-toggle:active {\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item.password-item .password-strength {\n  position: absolute;\n  bottom: -30rpx;\n  left: 20rpx;\n  right: 20rpx;\n  display: flex;\n  align-items: center;\n  -webkit-animation: fadeIn 0.3s ease-out;\n          animation: fadeIn 0.3s ease-out;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar {\n  flex: 1;\n  height: 6rpx;\n  background-color: #eee;\n  border-radius: 3rpx;\n  overflow: hidden;\n  margin-right: 10rpx;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level {\n  height: 100%;\n  width: 0%;\n  border-radius: 3rpx;\n  transition: all 0.3s;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.weak {\n  width: 25%;\n  background-color: #e74c3c;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.medium {\n  width: 50%;\n  background-color: #f39c12;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.strong {\n  width: 75%;\n  background-color: #27ae60;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-bar .strength-level.very-strong {\n  width: 100%;\n  background-color: #008055;\n}\n.login-container .login-form .input-item.password-item .password-strength .strength-text {\n  font-size: 22rpx;\n  color: #999;\n  width: 80rpx;\n  text-align: right;\n}\n.login-container .login-form .input-item .input-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 60rpx;\n  height: 60rpx;\n  margin-right: 20rpx;\n  border-radius: 30rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.login-container .login-form .input-item uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 30rpx;\n  color: #333;\n}\n.login-container .login-form .input-item uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item uni-input::placeholder {\n  color: #999;\n  font-size: 28rpx;\n}\n.login-container .login-form .input-item .input-clear {\n  padding: 10rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.login-container .login-form .action-area {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .action-area .register-link,\n.login-container .login-form .action-area .forgot-password {\n  font-size: 26rpx;\n  color: #008055;\n  display: flex;\n  align-items: center;\n}\n.login-container .login-form .action-area .register-link:active,\n.login-container .login-form .action-area .forgot-password:active {\n  opacity: 0.7;\n}\n.login-container .login-form .action-area .register-link uni-icons,\n.login-container .login-form .action-area .forgot-password uni-icons {\n  margin-right: 6rpx;\n}\n.login-container .login-form .login-btn {\n  height: 90rpx;\n  line-height: 90rpx;\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  font-size: 32rpx;\n  border-radius: 45rpx;\n  margin-bottom: 80rpx;\n  box-shadow: 0 10rpx 20rpx rgba(0, 128, 85, 0.2);\n  transition: all 0.3s;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  letter-spacing: 4rpx;\n  position: relative;\n  overflow: hidden;\n  font-weight: 500;\n}\n.login-container .login-form .login-btn::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);\n  transition: all 0.5s;\n}\n.login-container .login-form .login-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 5rpx 10rpx rgba(0, 128, 85, 0.2);\n}\n.login-container .login-form .login-btn:active::after {\n  left: 100%;\n}\n.login-container .login-form .login-btn:disabled {\n  opacity: 0.7;\n}\n.login-container .login-form .login-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.login-container .login-form .third-party-login {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 60rpx;\n}\n.login-container .login-form .third-party-login .divider {\n  flex: 1;\n  height: 1px;\n  background-color: rgba(193, 154, 107, 0.3);\n  /* 木色分割线 */\n}\n.login-container .login-form .third-party-login uni-text {\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  color: #999;\n}\n.login-container .login-form .third-party-icons {\n  display: flex;\n  justify-content: center;\n}\n.login-container .login-form .third-party-icons .icon-item {\n  width: 90rpx;\n  height: 90rpx;\n  margin: 0 40rpx;\n  background-color: #fff;\n  border-radius: 50%;\n  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.login-container .login-form .third-party-icons .icon-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);\n}\n.login-container .login-form .third-party-icons .icon-item uni-image {\n  width: 60%;\n  height: 60%;\n  border-radius: 50%;\n}\n.login-container .footer {\n  margin-top: auto;\n  text-align: center;\n  padding: 30rpx 0;\n  font-size: 24rpx;\n  color: #999;\n  z-index: 1;\n}\n/* 注册弹窗样式 */\n.register-popup {\n  width: 600rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 40rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);\n  -webkit-animation: scaleIn 0.3s ease-out;\n          animation: scaleIn 0.3s ease-out;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 40rpx;\n}\n.register-popup .popup-header .popup-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  letter-spacing: 2rpx;\n  font-family: \"FangSong\", \"仿宋\", serif;\n  /* 使用仿宋字体增强传统感 */\n}\n.register-popup .popup-header .popup-close {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s;\n}\n.register-popup .popup-header .popup-close:active {\n  background-color: #f5f5f5;\n}\n.register-popup .popup-form .popup-input {\n  height: 90rpx;\n  border-bottom: 1px solid rgba(193, 154, 107, 0.3);\n  /* 木色边框 */\n  margin-bottom: 30rpx;\n  display: flex;\n  align-items: center;\n  padding: 0 10rpx;\n  position: relative;\n  transition: all 0.3s;\n}\n.register-popup .popup-form .popup-input uni-icons {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50rpx;\n  height: 50rpx;\n  margin-right: 20rpx;\n  border-radius: 25rpx;\n  background-color: rgba(0, 128, 85, 0.1);\n}\n.register-popup .popup-form .popup-input uni-input {\n  flex: 1;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n}\n.register-popup .popup-form .popup-input uni-input::-webkit-input-placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input uni-input::placeholder {\n  color: #999;\n  font-size: 26rpx;\n}\n.register-popup .popup-form .popup-input:focus-within {\n  border-bottom-color: #008055;\n  background-color: rgba(0, 128, 85, 0.03);\n  border-radius: 8rpx 8rpx 0 0;\n}\n.register-popup .popup-form .popup-input::after {\n  content: \"\";\n  position: absolute;\n  bottom: -1px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(90deg, #008055, #00a878);\n  transition: all 0.3s ease;\n}\n.register-popup .popup-form .popup-input:focus-within::after {\n  width: 100%;\n}\n.register-popup .popup-buttons {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 40rpx;\n}\n.register-popup .popup-buttons uni-button {\n  width: 45%;\n  height: 80rpx;\n  line-height: 80rpx;\n  font-size: 30rpx;\n  border-radius: 40rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.3s;\n}\n.register-popup .popup-buttons .cancel-btn {\n  background-color: #f5f5f5;\n  color: #666;\n  border: 1px solid rgba(193, 154, 107, 0.2);\n  /* 木色边框 */\n}\n.register-popup .popup-buttons .cancel-btn:active {\n  background-color: #e9e9e9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.register-popup .popup-buttons .confirm-btn {\n  background: linear-gradient(135deg, #008055, #00a878);\n  color: #fff;\n  box-shadow: 0 5rpx 15rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:active {\n  opacity: 0.9;\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 2rpx 8rpx rgba(0, 128, 85, 0.2);\n}\n.register-popup .popup-buttons .confirm-btn:disabled {\n  opacity: 0.7;\n}\n.register-popup .popup-buttons .confirm-btn .loading-icon {\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n/* 动画效果 */\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@-webkit-keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@keyframes float {\n0%, 100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-20rpx);\n            transform: translateY(-20rpx);\n}\n}\n@-webkit-keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInDown {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(-30rpx);\n            transform: translateY(-30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes scaleIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -3719,13 +3725,11 @@ if(false) {}
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/app-plus/getUrl.js */ 14);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/static/forum/paper-texture.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(/*! @/static/subscribe/1.jpg */ 61);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/subscribe/1.jpg */ 61);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.subscribe {\n  background-color: #f8f5f0;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-repeat: repeat;\n  min-height: 100vh;\n  position: relative;\n}\n.subscribe::before {\n  content: \"\";\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 400rpx;\n  background: linear-gradient(180deg, rgba(139, 69, 19, 0.1) 0%, rgba(139, 69, 19, 0) 100%);\n  pointer-events: none;\n  z-index: 1;\n}\n.subscribe .backdrop {\n  width: 100%;\n  height: 400rpx;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n  -webkit-animation: fadeIn 1.5s ease-in-out;\n          animation: fadeIn 1.5s ease-in-out;\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.subscribe .backdrop-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%);\n}\n.subscribe .user {\n  margin: 0 30rpx;\n  margin-top: -120rpx;\n  display: flex;\n  align-items: center;\n  position: relative;\n  z-index: 10;\n  background: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(20px);\n          backdrop-filter: blur(20px);\n  border-radius: 24rpx;\n  padding: 24rpx 30rpx;\n  box-shadow: 0 8rpx 32rpx rgba(139, 69, 19, 0.15);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  transition: all 0.3s ease;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .user::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .user:active {\n  -webkit-transform: translateY(2rpx);\n          transform: translateY(2rpx);\n}\n.subscribe .user .avatar-container {\n  position: relative;\n  width: 130rpx;\n  height: 130rpx;\n}\n.subscribe .user .avatar-container .avatar {\n  width: 120rpx;\n  height: 120rpx;\n  border-radius: 50%;\n  overflow: hidden;\n  border: 4rpx solid #8b4513;\n  box-shadow: 0 4rpx 16rpx rgba(139, 69, 19, 0.2);\n  position: absolute;\n  top: 5rpx;\n  left: 5rpx;\n  z-index: 2;\n  transition: all 0.3s ease;\n}\n.subscribe .user .avatar-container .avatar:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .user .avatar-container .avatar uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.subscribe .user .avatar-container .avatar-border {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 130rpx;\n  height: 130rpx;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #8b4513, #a0522d, #8b4513);\n  z-index: 1;\n  -webkit-animation: rotate 8s linear infinite;\n          animation: rotate 8s linear infinite;\n  box-shadow: 0 0 20rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .avatar-container .avatar-border::before {\n  content: \"\";\n  position: absolute;\n  top: -2rpx;\n  left: -2rpx;\n  right: -2rpx;\n  bottom: -2rpx;\n  border-radius: 50%;\n  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 100%);\n}\n.subscribe .user .content {\n  margin-left: 24rpx;\n  flex: 1;\n}\n.subscribe .user .content .name {\n  font-size: 36rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 12rpx;\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  display: inline-block;\n}\n.subscribe .user .content .name::after {\n  content: \"\";\n  position: absolute;\n  bottom: -4rpx;\n  left: 0;\n  width: 100%;\n  height: 2rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .user .content .login-tip {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8b4513;\n  margin-top: 8rpx;\n  transition: all 0.3s ease;\n  position: relative;\n  padding: 4rpx 0;\n}\n.subscribe .user .content .login-tip uni-text {\n  margin-right: 4rpx;\n}\n.subscribe .user .content .login-tip:active {\n  opacity: 0.7;\n  -webkit-transform: translateX(4rpx);\n          transform: translateX(4rpx);\n}\n.subscribe .user .content .login-tip::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 4rpx;\n  height: 24rpx;\n  background: #8b4513;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  border-radius: 2rpx;\n}\n.subscribe .user .content .vip {\n  display: flex;\n  align-items: center;\n  height: 50rpx;\n  margin-top: 8rpx;\n}\n.subscribe .user .content .vip .badge {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: 16rpx;\n  border-radius: 8rpx;\n  overflow: hidden;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.subscribe .user .content .vip .badge:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .user .content .vip .badge.level {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  padding: 2rpx 4rpx;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .content .vip .badge.level::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .content .vip .badge.level uni-image {\n  width: 70rpx;\n  height: 40rpx;\n}\n.subscribe .user .content .vip .badge.member {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  padding: 2rpx 4rpx;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .content .vip .badge.member::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .content .vip .badge.member uni-image {\n  width: 70rpx;\n  height: 40rpx;\n}\n.subscribe .user .button {\n  min-width: 160rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #FFFFFF;\n  font-size: 28rpx;\n  font-weight: 500;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.3);\n  padding: 0 24rpx;\n  transition: all 0.3s ease;\n  border: none;\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .user .button::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .button uni-text {\n  margin-right: 8rpx;\n}\n.subscribe .user .button:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum {\n  margin-top: 40rpx;\n  padding: 0 20rpx;\n  position: relative;\n}\n.subscribe .forum::before {\n  content: \"\";\n  position: absolute;\n  top: -20rpx;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 200rpx;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories {\n  display: flex;\n  overflow-x: auto;\n  padding: 10rpx 0;\n  margin-bottom: 30rpx;\n  -webkit-overflow-scrolling: touch;\n  position: relative;\n}\n.subscribe .forum .categories::-webkit-scrollbar {\n  display: none;\n}\n.subscribe .forum .categories .category {\n  padding: 12rpx 30rpx;\n  background-color: rgba(248, 245, 240, 0.8);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 30rpx;\n  margin-right: 20rpx;\n  font-size: 26rpx;\n  color: #8b4513;\n  white-space: nowrap;\n  transition: all 0.3s ease;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  overflow: hidden;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 60rpx;\n  line-height: 1;\n}\n.subscribe .forum .categories .category::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 2rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories .category.active {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  font-weight: 500;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .categories .category.active::before {\n  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories .category:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .forum .posts .post-item {\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  border-radius: 20rpx;\n  padding: 30rpx;\n  margin-bottom: 30rpx;\n  box-shadow: 0 4rpx 16rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  transition: all 0.3s ease;\n  -webkit-animation: slideUp 0.5s ease-out;\n          animation: slideUp 0.5s ease-out;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n@-webkit-keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.subscribe .forum .posts .post-item:active {\n  -webkit-transform: translateY(2rpx);\n          transform: translateY(2rpx);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.05);\n}\n.subscribe .forum .posts .post-item .post-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.subscribe .forum .posts .post-item .post-header::after {\n  content: \"\";\n  position: absolute;\n  bottom: -10rpx;\n  left: 0;\n  right: 0;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user {\n  display: flex;\n  align-items: center;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-avatar {\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  margin-right: 16rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-avatar::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  border-radius: 50%;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-username {\n  font-size: 28rpx;\n  font-weight: 500;\n  color: #8b4513;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  display: inline-block;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-username::after {\n  content: \"\";\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-time {\n  font-size: 22rpx;\n  color: #a0522d;\n  margin-top: 4rpx;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags {\n  display: flex;\n  align-items: center;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag {\n  padding: 6rpx 16rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  border-radius: 20rpx;\n  margin-right: 10rpx;\n  font-size: 22rpx;\n  color: #8b4513;\n  white-space: nowrap;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag.essence {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag.category {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .posts .post-item .post-content {\n  margin-bottom: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 16rpx;\n  line-height: 1.4;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  padding-left: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-title::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  width: 4rpx;\n  height: 32rpx;\n  background: #8b4513;\n  border-radius: 2rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-text {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.8;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n  font-family: \"楷体\", KaiTi, serif;\n  text-indent: 2em;\n  letter-spacing: 1rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  position: relative;\n  padding: 10rpx 0;\n}\n.subscribe .forum .posts .post-item .post-content .post-text::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-content .post-text::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-images {\n  display: flex;\n  margin-bottom: 20rpx;\n  gap: 10rpx;\n}\n.subscribe .forum .posts .post-item .post-images uni-image {\n  width: 210rpx;\n  height: 160rpx;\n  border-radius: 12rpx;\n  object-fit: cover;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-images uni-image::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-images uni-image:hover {\n  -webkit-transform: scale(1.02);\n          transform: scale(1.02);\n}\n.subscribe .forum .posts .post-item .post-footer {\n  display: flex;\n  justify-content: space-between;\n  border-top: 2rpx solid rgba(139, 69, 19, 0.1);\n  padding-top: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-footer .action {\n  display: flex;\n  align-items: center;\n  font-size: 24rpx;\n  color: #8b4513;\n  padding: 8rpx 16rpx;\n  border-radius: 20rpx;\n  transition: all 0.3s ease;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-footer .action::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-footer .action uni-icons {\n  margin-right: 6rpx;\n}\n.subscribe .forum .posts .post-item .post-footer .action:active {\n  background-color: rgba(139, 69, 19, 0.1);\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .forum .load-more {\n  text-align: center;\n  padding: 30rpx 0;\n  color: #8b4513;\n  font-size: 26rpx;\n  transition: opacity 0.3s ease;\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n}\n.subscribe .forum .load-more::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 200rpx;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n  z-index: 0;\n}\n.subscribe .forum .load-more uni-text {\n  position: relative;\n  z-index: 1;\n  background: #f8f5f0;\n  padding: 0 20rpx;\n}\n.subscribe .forum .load-more:active {\n  opacity: 0.7;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.subscribe {\n  background-color: #f8f5f0;\n  background-repeat: repeat;\n  min-height: 100vh;\n  position: relative;\n}\n.subscribe::before {\n  content: \"\";\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 400rpx;\n  background: linear-gradient(180deg, rgba(139, 69, 19, 0.1) 0%, rgba(139, 69, 19, 0) 100%);\n  pointer-events: none;\n  z-index: 1;\n}\n.subscribe .backdrop {\n  width: 100%;\n  height: 400rpx;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n  -webkit-animation: fadeIn 1.5s ease-in-out;\n          animation: fadeIn 1.5s ease-in-out;\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\nto {\n    opacity: 1;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n}\n.subscribe .backdrop-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%);\n}\n.subscribe .user {\n  margin: 0 30rpx;\n  margin-top: -120rpx;\n  display: flex;\n  align-items: center;\n  position: relative;\n  z-index: 10;\n  background: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(20px);\n          backdrop-filter: blur(20px);\n  border-radius: 24rpx;\n  padding: 24rpx 30rpx;\n  box-shadow: 0 8rpx 32rpx rgba(139, 69, 19, 0.15);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  transition: all 0.3s ease;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .user::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .user:active {\n  -webkit-transform: translateY(2rpx);\n          transform: translateY(2rpx);\n}\n.subscribe .user .avatar-container {\n  position: relative;\n  width: 130rpx;\n  height: 130rpx;\n}\n.subscribe .user .avatar-container .avatar {\n  width: 120rpx;\n  height: 120rpx;\n  border-radius: 50%;\n  overflow: hidden;\n  border: 4rpx solid #8b4513;\n  box-shadow: 0 4rpx 16rpx rgba(139, 69, 19, 0.2);\n  position: absolute;\n  top: 5rpx;\n  left: 5rpx;\n  z-index: 2;\n  transition: all 0.3s ease;\n}\n.subscribe .user .avatar-container .avatar:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .user .avatar-container .avatar uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.subscribe .user .avatar-container .avatar-border {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 130rpx;\n  height: 130rpx;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #8b4513, #a0522d, #8b4513);\n  z-index: 1;\n  -webkit-animation: rotate 8s linear infinite;\n          animation: rotate 8s linear infinite;\n  box-shadow: 0 0 20rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .avatar-container .avatar-border::before {\n  content: \"\";\n  position: absolute;\n  top: -2rpx;\n  left: -2rpx;\n  right: -2rpx;\n  bottom: -2rpx;\n  border-radius: 50%;\n  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 100%);\n}\n.subscribe .user .content {\n  margin-left: 24rpx;\n  flex: 1;\n}\n.subscribe .user .content .name {\n  font-size: 36rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 12rpx;\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  display: inline-block;\n}\n.subscribe .user .content .name::after {\n  content: \"\";\n  position: absolute;\n  bottom: -4rpx;\n  left: 0;\n  width: 100%;\n  height: 2rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .user .content .login-tip {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8b4513;\n  margin-top: 8rpx;\n  transition: all 0.3s ease;\n  position: relative;\n  padding: 4rpx 0;\n}\n.subscribe .user .content .login-tip uni-text {\n  margin-right: 4rpx;\n}\n.subscribe .user .content .login-tip:active {\n  opacity: 0.7;\n  -webkit-transform: translateX(4rpx);\n          transform: translateX(4rpx);\n}\n.subscribe .user .content .login-tip::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 4rpx;\n  height: 24rpx;\n  background: #8b4513;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  border-radius: 2rpx;\n}\n.subscribe .user .content .vip {\n  display: flex;\n  align-items: center;\n  height: 50rpx;\n  margin-top: 8rpx;\n}\n.subscribe .user .content .vip .badge {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: 16rpx;\n  border-radius: 8rpx;\n  overflow: hidden;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.subscribe .user .content .vip .badge:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .user .content .vip .badge.level {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  padding: 2rpx 4rpx;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .content .vip .badge.level::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .content .vip .badge.level uni-image {\n  width: 70rpx;\n  height: 40rpx;\n}\n.subscribe .user .content .vip .badge.member {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  padding: 2rpx 4rpx;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.3);\n}\n.subscribe .user .content .vip .badge.member::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .content .vip .badge.member uni-image {\n  width: 70rpx;\n  height: 40rpx;\n}\n.subscribe .user .button {\n  min-width: 160rpx;\n  height: 70rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 35rpx;\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #FFFFFF;\n  font-size: 28rpx;\n  font-weight: 500;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.3);\n  padding: 0 24rpx;\n  transition: all 0.3s ease;\n  border: none;\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .user .button::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .user .button uni-text {\n  margin-right: 8rpx;\n}\n.subscribe .user .button:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum {\n  margin-top: 40rpx;\n  padding: 0 20rpx;\n  position: relative;\n}\n.subscribe .forum::before {\n  content: \"\";\n  position: absolute;\n  top: -20rpx;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 200rpx;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories {\n  display: flex;\n  overflow-x: auto;\n  padding: 10rpx 0;\n  margin-bottom: 30rpx;\n  -webkit-overflow-scrolling: touch;\n  position: relative;\n}\n.subscribe .forum .categories::-webkit-scrollbar {\n  display: none;\n}\n.subscribe .forum .categories .category {\n  padding: 12rpx 30rpx;\n  background-color: rgba(248, 245, 240, 0.8);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 30rpx;\n  margin-right: 20rpx;\n  font-size: 26rpx;\n  color: #8b4513;\n  white-space: nowrap;\n  transition: all 0.3s ease;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  overflow: hidden;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 60rpx;\n  line-height: 1;\n}\n.subscribe .forum .categories .category::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 2rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories .category.active {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  font-weight: 500;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .categories .category.active::before {\n  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .categories .category:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .forum .posts .post-item {\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  border-radius: 20rpx;\n  padding: 30rpx;\n  margin-bottom: 30rpx;\n  box-shadow: 0 4rpx 16rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  transition: all 0.3s ease;\n  -webkit-animation: slideUp 0.5s ease-out;\n          animation: slideUp 0.5s ease-out;\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n@-webkit-keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.subscribe .forum .posts .post-item:active {\n  -webkit-transform: translateY(2rpx);\n          transform: translateY(2rpx);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.05);\n}\n.subscribe .forum .posts .post-item .post-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.subscribe .forum .posts .post-item .post-header::after {\n  content: \"\";\n  position: absolute;\n  bottom: -10rpx;\n  left: 0;\n  right: 0;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user {\n  display: flex;\n  align-items: center;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-avatar {\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  margin-right: 16rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-avatar::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  border-radius: 50%;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-username {\n  font-size: 28rpx;\n  font-weight: 500;\n  color: #8b4513;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  display: inline-block;\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-username::after {\n  content: \"\";\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-user .post-info .post-time {\n  font-size: 22rpx;\n  color: #a0522d;\n  margin-top: 4rpx;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags {\n  display: flex;\n  align-items: center;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag {\n  padding: 6rpx 16rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  border-radius: 20rpx;\n  margin-right: 10rpx;\n  font-size: 22rpx;\n  color: #8b4513;\n  white-space: nowrap;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag.essence {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .posts .post-item .post-header .post-tags .post-tag.category {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.subscribe .forum .posts .post-item .post-content {\n  margin-bottom: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 16rpx;\n  line-height: 1.4;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n  padding-left: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-title::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  width: 4rpx;\n  height: 32rpx;\n  background: #8b4513;\n  border-radius: 2rpx;\n}\n.subscribe .forum .posts .post-item .post-content .post-text {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.8;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n  font-family: \"楷体\", KaiTi, serif;\n  text-indent: 2em;\n  letter-spacing: 1rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  position: relative;\n  padding: 10rpx 0;\n}\n.subscribe .forum .posts .post-item .post-content .post-text::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-content .post-text::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.2) 50%, transparent 100%);\n}\n.subscribe .forum .posts .post-item .post-images {\n  display: flex;\n  margin-bottom: 20rpx;\n  gap: 10rpx;\n}\n.subscribe .forum .posts .post-item .post-images uni-image {\n  width: 210rpx;\n  height: 160rpx;\n  border-radius: 12rpx;\n  object-fit: cover;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-images uni-image::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-images uni-image:hover {\n  -webkit-transform: scale(1.02);\n          transform: scale(1.02);\n}\n.subscribe .forum .posts .post-item .post-footer {\n  display: flex;\n  justify-content: space-between;\n  border-top: 2rpx solid rgba(139, 69, 19, 0.1);\n  padding-top: 20rpx;\n}\n.subscribe .forum .posts .post-item .post-footer .action {\n  display: flex;\n  align-items: center;\n  font-size: 24rpx;\n  color: #8b4513;\n  padding: 8rpx 16rpx;\n  border-radius: 20rpx;\n  transition: all 0.3s ease;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n  position: relative;\n  overflow: hidden;\n}\n.subscribe .forum .posts .post-item .post-footer .action::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);\n}\n.subscribe .forum .posts .post-item .post-footer .action uni-icons {\n  margin-right: 6rpx;\n}\n.subscribe .forum .posts .post-item .post-footer .action:active {\n  background-color: rgba(139, 69, 19, 0.1);\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.subscribe .forum .load-more {\n  text-align: center;\n  padding: 30rpx 0;\n  color: #8b4513;\n  font-size: 26rpx;\n  transition: opacity 0.3s ease;\n  font-family: \"楷体\", KaiTi, serif;\n  position: relative;\n}\n.subscribe .forum .load-more::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 200rpx;\n  height: 1rpx;\n  background: linear-gradient(90deg, transparent 0%, rgba(139, 69, 19, 0.3) 50%, transparent 100%);\n  z-index: 0;\n}\n.subscribe .forum .load-more uni-text {\n  position: relative;\n  z-index: 1;\n  background: #f8f5f0;\n  padding: 0 20rpx;\n}\n.subscribe .forum .load-more:active {\n  opacity: 0.7;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -10035,99 +10039,142 @@ var render = function () {
                 },
               },
             },
-            _vm._l(_vm._$g(14, "f"), function (spot, index, $21, $31) {
-              return _c(
-                "uni-view",
-                {
-                  key: spot,
-                  staticClass: _vm._$g("14-" + $31, "sc"),
-                  attrs: { _i: "14-" + $31 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
-                [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g("15-" + $31, "sc"),
-                    attrs: {
-                      src: _vm._$g("15-" + $31, "a-src"),
-                      mode: "aspectFill",
-                      _i: "15-" + $31,
-                    },
-                  }),
-                  _c(
+            [
+              _vm._$g(14, "i")
+                ? _c(
                     "uni-view",
-                    {
-                      staticClass: _vm._$g("16-" + $31, "sc"),
-                      attrs: { _i: "16-" + $31 },
-                    },
+                    { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
                     [
+                      _c("uni-view", {
+                        staticClass: _vm._$g(15, "sc"),
+                        attrs: { _i: 15 },
+                      }),
                       _c(
                         "v-uni-text",
-                        {
-                          staticClass: _vm._$g("17-" + $31, "sc"),
-                          attrs: { _i: "17-" + $31 },
-                        },
-                        [_vm._v(_vm._$g("17-" + $31, "t0-0"))]
-                      ),
-                      _c(
-                        "v-uni-text",
-                        {
-                          staticClass: _vm._$g("18-" + $31, "sc"),
-                          attrs: { _i: "18-" + $31 },
-                        },
-                        [_vm._v(_vm._$g("18-" + $31, "t0-0"))]
-                      ),
-                      _c(
-                        "uni-view",
-                        {
-                          staticClass: _vm._$g("19-" + $31, "sc"),
-                          attrs: { _i: "19-" + $31 },
-                        },
-                        [
-                          _c(
-                            "uni-view",
-                            {
-                              staticClass: _vm._$g("20-" + $31, "sc"),
-                              attrs: { _i: "20-" + $31 },
-                            },
-                            [
-                              _c("uni-icons", { attrs: { _i: "21-" + $31 } }),
-                              _c("v-uni-text", { attrs: { _i: "22-" + $31 } }, [
-                                _vm._v(_vm._$g("22-" + $31, "t0-0")),
-                              ]),
-                            ],
-                            1
-                          ),
-                          _c(
-                            "uni-view",
-                            {
-                              staticClass: _vm._$g("23-" + $31, "sc"),
-                              attrs: { _i: "23-" + $31 },
-                            },
-                            [
-                              _c("uni-icons", { attrs: { _i: "24-" + $31 } }),
-                              _c("v-uni-text", { attrs: { _i: "25-" + $31 } }, [
-                                _vm._v(_vm._$g("25-" + $31, "t0-0") + "km"),
-                              ]),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
+                        { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                        [_vm._v("加载中...")]
                       ),
                     ],
                     1
-                  ),
-                ],
-                1
-              )
-            }),
-            1
+                  )
+                : _vm._e(),
+              _vm._l(_vm._$g(17, "f"), function (spot, index, $21, $31) {
+                return _c(
+                  "uni-view",
+                  {
+                    key: spot,
+                    staticClass: _vm._$g("17-" + $31, "sc"),
+                    attrs: { _i: "17-" + $31 },
+                    on: {
+                      click: function ($event) {
+                        return _vm.$handleViewEvent($event)
+                      },
+                    },
+                  },
+                  [
+                    _c("v-uni-image", {
+                      staticClass: _vm._$g("18-" + $31, "sc"),
+                      attrs: {
+                        src: _vm._$g("18-" + $31, "a-src"),
+                        mode: "aspectFill",
+                        _i: "18-" + $31,
+                      },
+                    }),
+                    _c(
+                      "uni-view",
+                      {
+                        staticClass: _vm._$g("19-" + $31, "sc"),
+                        attrs: { _i: "19-" + $31 },
+                      },
+                      [
+                        _c(
+                          "v-uni-text",
+                          {
+                            staticClass: _vm._$g("20-" + $31, "sc"),
+                            attrs: { _i: "20-" + $31 },
+                          },
+                          [_vm._v(_vm._$g("20-" + $31, "t0-0"))]
+                        ),
+                        _c(
+                          "v-uni-text",
+                          {
+                            staticClass: _vm._$g("21-" + $31, "sc"),
+                            attrs: { _i: "21-" + $31 },
+                          },
+                          [_vm._v(_vm._$g("21-" + $31, "t0-0"))]
+                        ),
+                        _c(
+                          "uni-view",
+                          {
+                            staticClass: _vm._$g("22-" + $31, "sc"),
+                            attrs: { _i: "22-" + $31 },
+                          },
+                          [
+                            _c(
+                              "uni-view",
+                              {
+                                staticClass: _vm._$g("23-" + $31, "sc"),
+                                attrs: { _i: "23-" + $31 },
+                              },
+                              [
+                                _c("uni-icons", { attrs: { _i: "24-" + $31 } }),
+                                _c(
+                                  "v-uni-text",
+                                  { attrs: { _i: "25-" + $31 } },
+                                  [_vm._v(_vm._$g("25-" + $31, "t0-0"))]
+                                ),
+                              ],
+                              1
+                            ),
+                            _c(
+                              "uni-view",
+                              {
+                                staticClass: _vm._$g("26-" + $31, "sc"),
+                                attrs: { _i: "26-" + $31 },
+                              },
+                              [
+                                _c("uni-icons", { attrs: { _i: "27-" + $31 } }),
+                                _c(
+                                  "v-uni-text",
+                                  { attrs: { _i: "28-" + $31 } },
+                                  [_vm._v(_vm._$g("28-" + $31, "t0-0") + "km")]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                )
+              }),
+              _vm._$g(29, "i")
+                ? _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                    [
+                      _c("v-uni-image", {
+                        attrs: {
+                          src: "/static/empty.png",
+                          mode: "aspectFit",
+                          _i: 30,
+                        },
+                      }),
+                      _c("v-uni-text", { attrs: { _i: 31 } }, [
+                        _vm._v("暂无景点数据"),
+                      ]),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+            ],
+            2
           ),
-          _c("uni-load-more", { attrs: { _i: 26 } }),
+          _c("uni-load-more", { attrs: { _i: 32 } }),
         ],
         1
       ),
@@ -10229,7 +10276,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.guide-container {\n  min-height: 100vh;\n  background-color: #f8f8f8;\n}\n.guide-container .header {\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  height: 44px;\n  position: relative;\n}\n.guide-container .header .back-btn {\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  left: 5px;\n}\n.guide-container .header .title {\n  color: #fff;\n  font-size: 18px;\n  font-weight: bold;\n  width: 100%;\n  text-align: center;\n}\n.guide-container .search-section {\n  padding: 12px 16px;\n  background-color: #fff;\n}\n.guide-container .search-section .search-box {\n  background-color: #f5f5f5;\n  border-radius: 8px;\n  padding: 8px 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.guide-container .search-section .search-box uni-input {\n  flex: 1;\n  font-size: 14px;\n  color: #333;\n}\n.guide-container .category-scroll {\n  background-color: #fff;\n  padding: 12px 0;\n  white-space: nowrap;\n  border-bottom: 1px solid #eee;\n  position: relative;\n  z-index: 10;\n  touch-action: pan-x;\n}\n.guide-container .category-scroll .category-list {\n  padding: 0 16px;\n  display: inline-flex;\n  gap: 12px;\n}\n.guide-container .category-scroll .category-list .category-item {\n  padding: 6px 16px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #666;\n  background-color: #f5f5f5;\n  transition: all 0.3s;\n  -webkit-tap-highlight-color: transparent;\n}\n.guide-container .category-scroll .category-list .category-item.active {\n  background-color: #4A5568;\n  color: #fff;\n}\n.guide-container .spots-scroll {\n  height: calc(100vh - 44px - var(--status-bar-height));\n}\n.guide-container .spots-scroll .spots-list {\n  padding: 16px;\n}\n.guide-container .spots-scroll .spots-list .spot-item {\n  background-color: #fff;\n  border-radius: 16px;\n  margin-bottom: 20px;\n  overflow: hidden;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n  position: relative;\n  will-change: transform;\n  touch-action: pan-y;\n  -webkit-tap-highlight-color: transparent;\n}\n.guide-container .spots-scroll .spots-list .spot-item:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-image {\n  width: 100%;\n  height: 200px;\n  position: relative;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-image::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 40px;\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info {\n  padding: 16px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-name {\n  font-size: 18px;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 8px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-desc {\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 12px;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  line-height: 1.5;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-rating, .guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-distance {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 13px;\n  color: #666;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-rating {\n  color: #FFB800;\n  font-weight: 500;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.guide-container {\n  min-height: 100vh;\n  background-color: #f8f8f8;\n}\n.guide-container .header {\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  height: 44px;\n  position: relative;\n}\n.guide-container .header .back-btn {\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  left: 5px;\n}\n.guide-container .header .title {\n  color: #fff;\n  font-size: 18px;\n  font-weight: bold;\n  width: 100%;\n  text-align: center;\n}\n.guide-container .search-section {\n  padding: 12px 16px;\n  background-color: #fff;\n}\n.guide-container .search-section .search-box {\n  background-color: #f5f5f5;\n  border-radius: 8px;\n  padding: 8px 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.guide-container .search-section .search-box uni-input {\n  flex: 1;\n  font-size: 14px;\n  color: #333;\n}\n.guide-container .category-scroll {\n  background-color: #fff;\n  padding: 12px 0;\n  white-space: nowrap;\n  border-bottom: 1px solid #eee;\n  position: relative;\n  z-index: 10;\n  touch-action: pan-x;\n}\n.guide-container .category-scroll .category-list {\n  padding: 0 16px;\n  display: inline-flex;\n  gap: 12px;\n}\n.guide-container .category-scroll .category-list .category-item {\n  padding: 6px 16px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #666;\n  background-color: #f5f5f5;\n  transition: all 0.3s;\n  -webkit-tap-highlight-color: transparent;\n}\n.guide-container .category-scroll .category-list .category-item.active {\n  background-color: #4A5568;\n  color: #fff;\n}\n.guide-container .spots-scroll {\n  height: calc(100vh - 44px - var(--status-bar-height));\n}\n.guide-container .spots-scroll .loading-container {\n  padding: 40px 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.guide-container .spots-scroll .loading-container .loading-spinner {\n  width: 40px;\n  height: 40px;\n  border: 3px solid #f3f3f3;\n  border-top: 3px solid #4A5568;\n  border-radius: 50%;\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n  margin-bottom: 10px;\n}\n.guide-container .spots-scroll .loading-container .loading-text {\n  color: #666;\n  font-size: 14px;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n.guide-container .spots-scroll .empty-tip {\n  padding: 60px 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.guide-container .spots-scroll .empty-tip uni-image {\n  width: 120px;\n  height: 120px;\n  margin-bottom: 16px;\n  opacity: 0.6;\n}\n.guide-container .spots-scroll .empty-tip uni-text {\n  color: #999;\n  font-size: 14px;\n}\n.guide-container .spots-scroll .spots-list {\n  padding: 16px;\n}\n.guide-container .spots-scroll .spots-list .spot-item {\n  background-color: #fff;\n  border-radius: 16px;\n  margin-bottom: 20px;\n  overflow: hidden;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n  position: relative;\n  will-change: transform;\n  touch-action: pan-y;\n  -webkit-tap-highlight-color: transparent;\n}\n.guide-container .spots-scroll .spots-list .spot-item:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-image {\n  width: 100%;\n  height: 200px;\n  position: relative;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-image::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 40px;\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info {\n  padding: 16px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-name {\n  font-size: 18px;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 8px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-desc {\n  font-size: 14px;\n  color: #666;\n  margin-bottom: 12px;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  line-height: 1.5;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-rating, .guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-distance {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 13px;\n  color: #666;\n}\n.guide-container .spots-scroll .spots-list .spot-item .spot-info .spot-meta .spot-rating {\n  color: #FFB800;\n  font-weight: 500;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -10697,20 +10744,46 @@ var render = function () {
         [
           _c(
             "uni-view",
-            {
-              staticClass: _vm._$g(59, "sc"),
-              attrs: { _i: 59 },
-              on: {
-                click: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-              },
-            },
+            { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
             [
-              _c("uni-icons", { attrs: { _i: 60 } }),
-              _c("v-uni-text", { attrs: { _i: 61 } }, [
-                _vm._v("开启AR导览体验"),
-              ]),
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(60, "sc"),
+                  attrs: { _i: 60 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _c("uni-icons", { attrs: { _i: 61 } }),
+                  _c("v-uni-text", { attrs: { _i: 62 } }, [
+                    _vm._v("开启AR导览体验"),
+                  ]),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(63, "sc"),
+                  attrs: { _i: 63 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _c("uni-icons", { attrs: { _i: 64 } }),
+                  _c("v-uni-text", { attrs: { _i: 65 } }, [
+                    _vm._v("3D观影体验"),
+                  ]),
+                ],
+                1
+              ),
             ],
             1
           ),
@@ -10815,7 +10888,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.detail-container {\n  background-color: #f8f8f8;\n  min-height: 100vh;\n  position: relative;\n}\n.detail-container .swiper {\n  height: 45vh;\n  position: relative;\n}\n.detail-container .swiper::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);\n  z-index: 5;\n}\n.detail-container .swiper .swiper-image {\n  width: 100%;\n  height: 100%;\n}\n.detail-container .back-btn {\n  position: absolute;\n  left: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.detail-container .content {\n  margin-top: -30px;\n  background-color: #fff;\n  border-radius: 20px 20px 0 0;\n  padding: 24px;\n  padding-bottom: 80px;\n  position: relative;\n  z-index: 10;\n  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);\n}\n.detail-container .content .basic-info {\n  margin-bottom: 24px;\n}\n.detail-container .content .basic-info .title-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.detail-container .content .basic-info .title-row .title {\n  font-size: 24px;\n  font-weight: bold;\n  color: #333;\n}\n.detail-container .content .basic-info .title-row .rating {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.detail-container .content .basic-info .title-row .rating uni-text {\n  color: #666;\n  font-size: 16px;\n}\n.detail-container .content .basic-info .address-row {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  margin-bottom: 16px;\n}\n.detail-container .content .basic-info .address-row uni-text {\n  color: #666;\n  font-size: 14px;\n}\n.detail-container .content .basic-info .tag-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 16px;\n}\n.detail-container .content .basic-info .tag-row .tag {\n  padding: 4px 14px;\n  background-color: #f0f2f5;\n  border-radius: 16px;\n  font-size: 12px;\n  color: #4A5568;\n  font-weight: 500;\n}\n.detail-container .content .basic-info .action-row {\n  display: flex;\n  justify-content: space-around;\n  border-top: 1px solid #eee;\n  margin-top: 5px;\n  padding-top: 16px;\n}\n.detail-container .content .basic-info .action-row .action-btn {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n.detail-container .content .basic-info .action-row .action-btn uni-text {\n  font-size: 13px;\n  color: #666;\n}\n.detail-container .content .section {\n  margin-bottom: 30px;\n}\n.detail-container .content .section .section-title {\n  margin-bottom: 16px;\n  border-left: 4px solid #4A5568;\n  padding-left: 12px;\n}\n.detail-container .content .section .section-title uni-text {\n  font-size: 18px;\n  font-weight: bold;\n  color: #333;\n}\n.detail-container .content .section .section-content .description {\n  font-size: 15px;\n  color: #666;\n  line-height: 1.7;\n  text-align: justify;\n}\n.detail-container .content .section .section-content .feature-item {\n  display: flex;\n  margin-bottom: 18px;\n}\n.detail-container .content .section .section-content .feature-item .feature-number {\n  width: 28px;\n  height: 28px;\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  margin-right: 12px;\n  flex-shrink: 0;\n  box-shadow: 0 2px 6px rgba(74, 85, 104, 0.2);\n}\n.detail-container .content .section .section-content .feature-item .feature-content {\n  flex: 1;\n}\n.detail-container .content .section .section-content .feature-item .feature-content .feature-title {\n  font-size: 16px;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 6px;\n  display: block;\n}\n.detail-container .content .section .section-content .feature-item .feature-content .feature-desc {\n  font-size: 14px;\n  color: #666;\n  line-height: 1.6;\n}\n.detail-container .content .section .section-content.info-grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 16px;\n}\n.detail-container .content .section .section-content.info-grid .info-item {\n  background-color: #f5f7fa;\n  padding: 16px;\n  border-radius: 12px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);\n}\n.detail-container .content .section .section-content.info-grid .info-item .info-label {\n  font-size: 12px;\n  color: #999;\n  margin-bottom: 6px;\n  display: block;\n}\n.detail-container .content .section .section-content.info-grid .info-item .info-value {\n  font-size: 15px;\n  color: #333;\n  font-weight: 500;\n}\n.detail-container .detail-footer {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #fff;\n  padding: 12px 20px 20px;\n  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);\n  display: flex;\n  justify-content: center;\n  z-index: 999;\n}\n.detail-container .detail-footer .ar-btn {\n  width: 90%;\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  height: 52px;\n  border-radius: 26px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  box-shadow: 0 6px 15px rgba(45, 55, 72, 0.25);\n  transition: all 0.3s ease;\n}\n.detail-container .detail-footer .ar-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 3px 8px rgba(45, 55, 72, 0.2);\n}\n.detail-container .detail-footer .ar-btn uni-text {\n  color: #fff;\n  font-size: 16px;\n  font-weight: 500;\n  letter-spacing: 1px;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.detail-container {\n  background-color: #f8f8f8;\n  min-height: 100vh;\n  position: relative;\n}\n.detail-container .swiper {\n  height: 45vh;\n  position: relative;\n}\n.detail-container .swiper::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);\n  z-index: 5;\n}\n.detail-container .swiper .swiper-image {\n  width: 100%;\n  height: 100%;\n}\n.detail-container .back-btn {\n  position: absolute;\n  left: 20px;\n  width: 40px;\n  height: 40px;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.detail-container .content {\n  margin-top: -30px;\n  background-color: #fff;\n  border-radius: 20px 20px 0 0;\n  padding: 24px;\n  padding-bottom: 80px;\n  position: relative;\n  z-index: 10;\n  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);\n}\n.detail-container .content .basic-info {\n  margin-bottom: 24px;\n}\n.detail-container .content .basic-info .title-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.detail-container .content .basic-info .title-row .title {\n  font-size: 24px;\n  font-weight: bold;\n  color: #333;\n}\n.detail-container .content .basic-info .title-row .rating {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.detail-container .content .basic-info .title-row .rating uni-text {\n  color: #666;\n  font-size: 16px;\n}\n.detail-container .content .basic-info .address-row {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  margin-bottom: 16px;\n}\n.detail-container .content .basic-info .address-row uni-text {\n  color: #666;\n  font-size: 14px;\n}\n.detail-container .content .basic-info .tag-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 16px;\n}\n.detail-container .content .basic-info .tag-row .tag {\n  padding: 4px 14px;\n  background-color: #f0f2f5;\n  border-radius: 16px;\n  font-size: 12px;\n  color: #4A5568;\n  font-weight: 500;\n}\n.detail-container .content .basic-info .action-row {\n  display: flex;\n  justify-content: space-around;\n  border-top: 1px solid #eee;\n  margin-top: 5px;\n  padding-top: 16px;\n}\n.detail-container .content .basic-info .action-row .action-btn {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n.detail-container .content .basic-info .action-row .action-btn uni-text {\n  font-size: 13px;\n  color: #666;\n}\n.detail-container .content .section {\n  margin-bottom: 30px;\n}\n.detail-container .content .section .section-title {\n  margin-bottom: 16px;\n  border-left: 4px solid #4A5568;\n  padding-left: 12px;\n}\n.detail-container .content .section .section-title uni-text {\n  font-size: 18px;\n  font-weight: bold;\n  color: #333;\n}\n.detail-container .content .section .section-content .description {\n  font-size: 15px;\n  color: #666;\n  line-height: 1.7;\n  text-align: justify;\n}\n.detail-container .content .section .section-content .feature-item {\n  display: flex;\n  margin-bottom: 18px;\n}\n.detail-container .content .section .section-content .feature-item .feature-number {\n  width: 28px;\n  height: 28px;\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  margin-right: 12px;\n  flex-shrink: 0;\n  box-shadow: 0 2px 6px rgba(74, 85, 104, 0.2);\n}\n.detail-container .content .section .section-content .feature-item .feature-content {\n  flex: 1;\n}\n.detail-container .content .section .section-content .feature-item .feature-content .feature-title {\n  font-size: 16px;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 6px;\n  display: block;\n}\n.detail-container .content .section .section-content .feature-item .feature-content .feature-desc {\n  font-size: 14px;\n  color: #666;\n  line-height: 1.6;\n}\n.detail-container .content .section .section-content.info-grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 16px;\n}\n.detail-container .content .section .section-content.info-grid .info-item {\n  background-color: #f5f7fa;\n  padding: 16px;\n  border-radius: 12px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);\n}\n.detail-container .content .section .section-content.info-grid .info-item .info-label {\n  font-size: 12px;\n  color: #999;\n  margin-bottom: 6px;\n  display: block;\n}\n.detail-container .content .section .section-content.info-grid .info-item .info-value {\n  font-size: 15px;\n  color: #333;\n  font-weight: 500;\n}\n.detail-container .detail-footer {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #fff;\n  padding: 12px 20px 20px;\n  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);\n  display: flex;\n  justify-content: center;\n  z-index: 999;\n}\n.detail-container .detail-footer .action-buttons {\n  width: 90%;\n  display: flex;\n  gap: 10px;\n}\n.detail-container .detail-footer .action-buttons .ar-btn, .detail-container .detail-footer .action-buttons .model-btn {\n  flex: 1;\n  height: 52px;\n  border-radius: 26px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  box-shadow: 0 6px 15px rgba(45, 55, 72, 0.25);\n  transition: all 0.3s ease;\n}\n.detail-container .detail-footer .action-buttons .ar-btn:active, .detail-container .detail-footer .action-buttons .model-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 3px 8px rgba(45, 55, 72, 0.2);\n}\n.detail-container .detail-footer .action-buttons .ar-btn uni-text, .detail-container .detail-footer .action-buttons .model-btn uni-text {\n  color: #fff;\n  font-size: 14px;\n  font-weight: 500;\n}\n.detail-container .detail-footer .action-buttons .ar-btn {\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n}\n.detail-container .detail-footer .action-buttons .model-btn {\n  background: linear-gradient(135deg, #3182CE, #2B6CB0);\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -10906,38 +10979,20 @@ var render = function () {
     [
       _c(
         "uni-view",
-        {
-          staticClass: _vm._$g(1, "sc"),
-          style: _vm._$g(1, "s"),
-          attrs: { _i: 1 },
-        },
+        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
         [
+          _c("v-uni-image", {
+            staticClass: _vm._$g(2, "sc"),
+            attrs: { src: _vm._$g(2, "a-src"), mode: "aspectFill", _i: 2 },
+          }),
+          _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }),
           _c(
             "uni-view",
-            {
-              staticClass: _vm._$g(2, "sc"),
-              style: _vm._$g(2, "s"),
-              attrs: { _i: 2 },
-              on: {
-                click: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-              },
-            },
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
             [
-              _c(
-                "uni-view",
-                {
-                  staticClass: _vm._$g(3, "sc"),
-                  style: _vm._$g(3, "s"),
-                  attrs: { _i: 3 },
-                },
-                [_vm._v("〈")]
-              ),
               _c("uni-view", {
-                staticClass: _vm._$g(4, "sc"),
-                class: _vm._$g(4, "c"),
-                attrs: { _i: 4 },
+                staticClass: _vm._$g(5, "sc"),
+                attrs: { _i: 5 },
               }),
             ],
             1
@@ -10945,153 +11000,146 @@ var render = function () {
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(5, "sc"),
-              style: _vm._$g(5, "s"),
-              attrs: { _i: 5 },
-            },
-            [_vm._v(_vm._$g(5, "t0-0"))]
-          ),
-          _c(
-            "uni-view",
-            {
               staticClass: _vm._$g(6, "sc"),
               style: _vm._$g(6, "s"),
               attrs: { _i: 6 },
-              on: {
-                click: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-              },
             },
             [
               _c(
                 "uni-view",
                 {
                   staticClass: _vm._$g(7, "sc"),
-                  style: _vm._$g(7, "s"),
                   attrs: { _i: 7 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
                 },
-                [_vm._v("⋮")]
-              ),
-              _vm._$g(8, "i")
-                ? _c(
-                    "uni-view",
+                [
+                  _c(
+                    "v-uni-text",
                     { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                    [_vm._v("〈")]
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                    [_vm._v("返回")]
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(11, "sc"),
+                      attrs: { _i: 11 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
                     [
                       _c(
-                        "uni-view",
-                        {
-                          staticClass: _vm._$g(9, "sc"),
-                          attrs: { _i: 9 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event, {
-                                stop: true,
-                              })
-                            },
-                          },
-                        },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(10, "sc"),
-                              attrs: { _i: 10 },
-                            },
-                            [_vm._v("💬")]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(11, "sc"),
-                              attrs: { _i: 11 },
-                            },
-                            [_vm._v("微信分享")]
-                          ),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
+                        "v-uni-text",
                         {
                           staticClass: _vm._$g(12, "sc"),
+                          class: _vm._$g(12, "c"),
                           attrs: { _i: 12 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event, {
-                                stop: true,
-                              })
-                            },
-                          },
                         },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(13, "sc"),
-                              attrs: { _i: 13 },
-                            },
-                            [_vm._v("♥")]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(14, "sc"),
-                              attrs: { _i: 14 },
-                            },
-                            [_vm._v("添加收藏")]
-                          ),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        {
-                          staticClass: _vm._$g(15, "sc"),
-                          attrs: { _i: 15 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event, {
-                                stop: true,
-                              })
-                            },
-                          },
-                        },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(16, "sc"),
-                              attrs: { _i: 16 },
-                            },
-                            [_vm._v("⚠️")]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(17, "sc"),
-                              attrs: { _i: 17 },
-                            },
-                            [_vm._v("报告问题")]
-                          ),
-                        ],
-                        1
+                        [_vm._v("♥")]
                       ),
                     ],
                     1
-                  )
-                : _vm._e(),
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(13, "sc"),
+                      attrs: { _i: 13 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                        [_vm._v("⊕")]
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
             ],
             1
           ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                [_vm._v("文物景点")]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                [_vm._v(_vm._$g(17, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                [_vm._v(_vm._$g(18, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(19, "sc"),
+                  attrs: { _i: 19 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                    [_vm._v("📍")]
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                    [_vm._v(_vm._$g(21, "t0-0"))]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _c("uni-view", { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } }),
         ],
         1
       ),
       _c(
         "v-uni-scroll-view",
         {
-          staticClass: _vm._$g(18, "sc"),
-          attrs: { "scroll-y": true, "scroll-with-animation": true, _i: 18 },
+          staticClass: _vm._$g(23, "sc"),
+          attrs: { "scroll-y": "true", bounces: false, _i: 23 },
           on: {
             scroll: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -11101,498 +11149,299 @@ var render = function () {
         [
           _c(
             "uni-view",
-            {
-              staticClass: _vm._$g(19, "sc"),
-              style: _vm._$g(19, "s"),
-              attrs: { _i: 19 },
-            },
+            { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
             [
               _c(
-                "v-uni-swiper",
-                {
-                  staticClass: _vm._$g(20, "sc"),
-                  attrs: {
-                    current: _vm._$g(20, "a-current"),
-                    "indicator-dots": false,
-                    autoplay: true,
-                    interval: "4000",
-                    circular: true,
-                    _i: 20,
-                  },
-                  on: {
-                    change: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
-                _vm._l(_vm._$g(21, "f"), function (image, index, $20, $30) {
-                  return _c(
-                    "v-uni-swiper-item",
-                    { key: image, attrs: { _i: "21-" + $30 } },
-                    [
-                      _c("v-uni-image", {
-                        staticClass: _vm._$g("22-" + $30, "sc"),
-                        attrs: {
-                          src: _vm._$g("22-" + $30, "a-src"),
-                          mode: "aspectFill",
-                          _i: "22-" + $30,
-                        },
-                        on: {
-                          click: function ($event) {
-                            return _vm.$handleViewEvent($event)
-                          },
-                        },
-                      }),
-                    ],
-                    1
-                  )
-                }),
-                1
-              ),
-              _c(
                 "uni-view",
-                { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-                _vm._l(_vm._$g(24, "f"), function (_, index, $21, $31) {
-                  return _c("uni-view", {
-                    key: _,
-                    staticClass: _vm._$g("24-" + $31, "sc"),
-                    class: _vm._$g("24-" + $31, "c"),
-                    attrs: { _i: "24-" + $31 },
-                  })
-                }),
-                1
-              ),
-              _c(
-                "uni-view",
-                {
-                  staticClass: _vm._$g(25, "sc"),
-                  attrs: { _i: 25 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
                 [
                   _c(
-                    "v-uni-text",
+                    "uni-view",
                     { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
-                    [_vm._v("3D")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
-                    [_vm._v("查看3D")]
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-        ],
-        1
-      ),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
-        [
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-            [
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
-                [_vm._v(_vm._$g(30, "t0-0"))]
-              ),
-              _c(
-                "uni-view",
-                {
-                  staticClass: _vm._$g(31, "sc"),
-                  attrs: { _i: 31 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
-                [
-                  _c(
-                    "v-uni-text",
-                    { class: _vm._$g(32, "c"), attrs: { _i: 32 } },
-                    [_vm._v("♥")]
-                  ),
-                  _vm._$g(33, "i")
-                    ? _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
-                        [_vm._v("已添加到收藏")]
-                      )
-                    : _vm._e(),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
-                [_vm._v(_vm._$g(35, "t0-0"))]
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
-                [_vm._v("国家一级文物")]
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
-                [_vm._v("山西特色")]
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
-                    [_vm._v("🕰️")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
-                    [_vm._v("年代")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
-                    [_vm._v(_vm._$g(42, "t0-0"))]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
-                    [_vm._v("📍")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
-                    [_vm._v("位置")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
-                    [_vm._v(_vm._$g(46, "t0-0"))]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
-                    [_vm._v("🕒")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
-                    [_vm._v("开放时间")]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
-                    [_vm._v("9:00-17:00")]
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
-                [
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
-                    [_vm._v("文物简介")]
-                  ),
-                  _c("uni-view", {
-                    staticClass: _vm._$g(54, "sc"),
-                    attrs: { _i: 54 },
-                  }),
-                ],
-                1
-              ),
-              _c(
-                "v-uni-text",
-                {
-                  staticClass: _vm._$g(55, "sc"),
-                  class: _vm._$g(55, "c"),
-                  attrs: { _i: 55 },
-                },
-                [_vm._v(_vm._$g(55, "t0-0"))]
-              ),
-              _c(
-                "uni-view",
-                {
-                  staticClass: _vm._$g(56, "sc"),
-                  attrs: { _i: 56 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
-                [
-                  _c("v-uni-text", { attrs: { _i: 57 } }, [
-                    _vm._v(_vm._$g(57, "t0-0")),
-                  ]),
-                  _c(
-                    "v-uni-text",
-                    { class: _vm._$g(58, "c"), attrs: { _i: 58 } },
-                    [_vm._v("▼")]
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
-                [
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
-                    [_vm._v("文物特色")]
-                  ),
-                  _c("uni-view", {
-                    staticClass: _vm._$g(62, "sc"),
-                    attrs: { _i: 62 },
-                  }),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
-                _vm._l(_vm._$g(64, "f"), function (feature, idx, $22, $32) {
-                  return _c(
-                    "uni-view",
-                    {
-                      key: feature,
-                      staticClass: _vm._$g("64-" + $32, "sc"),
-                      attrs: { _i: "64-" + $32 },
-                    },
                     [
                       _c(
                         "uni-view",
-                        {
-                          staticClass: _vm._$g("65-" + $32, "sc"),
-                          attrs: { _i: "65-" + $32 },
-                        },
-                        [_vm._v(_vm._$g("65-" + $32, "t0-0"))]
-                      ),
-                      _c(
-                        "v-uni-text",
-                        {
-                          staticClass: _vm._$g("66-" + $32, "sc"),
-                          attrs: { _i: "66-" + $32 },
-                        },
-                        [_vm._v(_vm._$g("66-" + $32, "t0-0"))]
-                      ),
-                    ],
-                    1
-                  )
-                }),
-                1
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
-                [
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
-                    [_vm._v("评分")]
-                  ),
-                  _c("uni-view", {
-                    staticClass: _vm._$g(70, "sc"),
-                    attrs: { _i: 70 },
-                  }),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
-                        _vm._l(5, function (i, $13, $23, $33) {
-                          return _c(
-                            "uni-view",
-                            {
-                              key: i,
-                              staticClass: _vm._$g("74-" + $33, "sc"),
-                              class: _vm._$g("74-" + $33, "c"),
-                              attrs: { _i: "74-" + $33 },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$handleViewEvent($event)
-                                },
-                              },
-                            },
-                            [_vm._v("★")]
-                          )
-                        }),
+                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(28, "sc"),
+                            attrs: { _i: 28 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 29 } }, [
+                            _vm._v("文物简介"),
+                          ]),
+                        ],
                         1
                       ),
-                      _c(
-                        "v-uni-text",
-                        { staticClass: _vm._$g(75, "sc"), attrs: { _i: 75 } },
-                        [_vm._v(_vm._$g(75, "t0-0") + ".0")]
-                      ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
-                    _vm._l(_vm._$g(77, "f"), function (item, idx, $24, $34) {
-                      return _c(
+                    { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                    [
+                      _c(
+                        "v-uni-text",
+                        {
+                          staticClass: _vm._$g(31, "sc"),
+                          class: _vm._$g(31, "c"),
+                          attrs: { _i: 31 },
+                        },
+                        [_vm._v(_vm._$g(31, "t0-0"))]
+                      ),
+                      _c(
                         "uni-view",
                         {
-                          key: item,
-                          staticClass: _vm._$g("77-" + $34, "sc"),
-                          attrs: { _i: "77-" + $34 },
+                          staticClass: _vm._$g(32, "sc"),
+                          attrs: { _i: 32 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
                         },
                         [
+                          _c("v-uni-text", { attrs: { _i: 33 } }, [
+                            _vm._v(_vm._$g(33, "t0-0")),
+                          ]),
                           _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g("78-" + $34, "sc"),
-                              attrs: { _i: "78-" + $34 },
+                              staticClass: _vm._$g(34, "sc"),
+                              attrs: { _i: 34 },
                             },
-                            [_vm._v(_vm._$g("78-" + $34, "t0-0"))]
+                            [_vm._v(_vm._$g(34, "t0-0"))]
                           ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(38, "sc"),
+                            attrs: { _i: 38 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 39 } }, [
+                            _vm._v("文物特点"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
+                    [
+                      _vm._l(
+                        _vm._$g(41, "f"),
+                        function (feature, idx, $20, $30) {
+                          return _c(
+                            "uni-view",
+                            {
+                              key: feature,
+                              staticClass: _vm._$g("41-" + $30, "sc"),
+                              attrs: { _i: "41-" + $30 },
+                            },
+                            [_vm._v(_vm._$g("41-" + $30, "t0-0"))]
+                          )
+                        }
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                        [_vm._v("建于" + _vm._$g(42, "t0-0"))]
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
+                        [_vm._v("国家一级文物")]
+                      ),
+                    ],
+                    2
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(47, "sc"),
+                            attrs: { _i: 47 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 48 } }, [
+                            _vm._v("文物评分"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
+                        [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g("79-" + $34, "sc"),
-                              attrs: { _i: "79-" + $34 },
+                              staticClass: _vm._$g(51, "sc"),
+                              attrs: { _i: 51 },
                             },
-                            [
-                              _c("uni-view", {
-                                staticClass: _vm._$g("80-" + $34, "sc"),
-                                style: _vm._$g("80-" + $34, "s"),
-                                attrs: { _i: "80-" + $34 },
-                              }),
-                            ],
+                            _vm._l(5, function (i, $11, $21, $31) {
+                              return _c(
+                                "uni-view",
+                                {
+                                  key: i,
+                                  staticClass: _vm._$g("52-" + $31, "sc"),
+                                  class: _vm._$g("52-" + $31, "c"),
+                                  attrs: { _i: "52-" + $31 },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.$handleViewEvent($event)
+                                    },
+                                  },
+                                },
+                                [_vm._v("★")]
+                              )
+                            }),
                             1
                           ),
                           _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g("81-" + $34, "sc"),
-                              attrs: { _i: "81-" + $34 },
+                              staticClass: _vm._$g(53, "sc"),
+                              attrs: { _i: 53 },
                             },
-                            [_vm._v(_vm._$g("81-" + $34, "t0-0"))]
+                            [_vm._v(_vm._$g(53, "t0-0") + ".0")]
                           ),
                         ],
                         1
-                      )
-                    }),
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(54, "sc"), attrs: { _i: 54 } },
+                        _vm._l(
+                          _vm._$g(55, "f"),
+                          function (item, idx, $22, $32) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: item,
+                                staticClass: _vm._$g("55-" + $32, "sc"),
+                                attrs: { _i: "55-" + $32 },
+                              },
+                              [
+                                _c(
+                                  "v-uni-text",
+                                  {
+                                    staticClass: _vm._$g("56-" + $32, "sc"),
+                                    attrs: { _i: "56-" + $32 },
+                                  },
+                                  [_vm._v(_vm._$g("56-" + $32, "t0-0"))]
+                                ),
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("57-" + $32, "sc"),
+                                    attrs: { _i: "57-" + $32 },
+                                  },
+                                  [
+                                    _c("uni-view", {
+                                      staticClass: _vm._$g("58-" + $32, "sc"),
+                                      style: _vm._$g("58-" + $32, "s"),
+                                      attrs: { _i: "58-" + $32 },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _c(
+                                  "v-uni-text",
+                                  {
+                                    staticClass: _vm._$g("59-" + $32, "sc"),
+                                    attrs: { _i: "59-" + $32 },
+                                  },
+                                  [_vm._v(_vm._$g("59-" + $32, "t0-0"))]
+                                ),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        1
+                      ),
+                    ],
                     1
                   ),
                 ],
                 1
               ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(82, "sc"), attrs: { _i: 82 } },
-            [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
-                [
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(84, "sc"), attrs: { _i: 84 } },
-                    [_vm._v("附近文物")]
-                  ),
-                  _c("uni-view", {
-                    staticClass: _vm._$g(85, "sc"),
-                    attrs: { _i: 85 },
-                  }),
-                ],
-                1
-              ),
-              _c(
-                "v-uni-scroll-view",
-                {
-                  staticClass: _vm._$g(86, "sc"),
-                  attrs: { "scroll-x": true, "show-scrollbar": false, _i: 86 },
-                },
+                { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(87, "sc"), attrs: { _i: 87 } },
-                    _vm._l(_vm._$g(88, "f"), function (item, idx, $25, $35) {
+                    { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(62, "sc"), attrs: { _i: 62 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(63, "sc"),
+                            attrs: { _i: 63 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 64 } }, [
+                            _vm._v("附近文物"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                    _vm._l(_vm._$g(66, "f"), function (item, idx, $23, $33) {
                       return _c(
                         "uni-view",
                         {
                           key: item,
-                          staticClass: _vm._$g("88-" + $35, "sc"),
-                          attrs: { _i: "88-" + $35 },
+                          staticClass: _vm._$g("66-" + $33, "sc"),
+                          attrs: { _i: "66-" + $33 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -11603,44 +11452,55 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g("89-" + $35, "sc"),
-                              attrs: { _i: "89-" + $35 },
+                              staticClass: _vm._$g("67-" + $33, "sc"),
+                              attrs: { _i: "67-" + $33 },
                             },
                             [
                               _c("v-uni-image", {
-                                staticClass: _vm._$g("90-" + $35, "sc"),
                                 attrs: {
-                                  src: _vm._$g("90-" + $35, "a-src"),
+                                  src: _vm._$g("68-" + $33, "a-src"),
                                   mode: "aspectFill",
-                                  _i: "90-" + $35,
+                                  _i: "68-" + $33,
                                 },
                               }),
                               _c("uni-view", {
-                                staticClass: _vm._$g("91-" + $35, "sc"),
-                                attrs: { _i: "91-" + $35 },
+                                staticClass: _vm._$g("69-" + $33, "sc"),
+                                attrs: { _i: "69-" + $33 },
                               }),
                             ],
                             1
                           ),
                           _c(
-                            "v-uni-text",
+                            "uni-view",
                             {
-                              staticClass: _vm._$g("92-" + $35, "sc"),
-                              attrs: { _i: "92-" + $35 },
-                            },
-                            [_vm._v(_vm._$g("92-" + $35, "t0-0"))]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g("93-" + $35, "sc"),
-                              attrs: { _i: "93-" + $35 },
+                              staticClass: _vm._$g("70-" + $33, "sc"),
+                              attrs: { _i: "70-" + $33 },
                             },
                             [
-                              _vm._v(
-                                "距离 " + _vm._$g("93-" + $35, "t0-0") + "km"
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("71-" + $33, "sc"),
+                                  attrs: { _i: "71-" + $33 },
+                                },
+                                [_vm._v(_vm._$g("71-" + $33, "t0-0"))]
                               ),
-                            ]
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("72-" + $33, "sc"),
+                                  attrs: { _i: "72-" + $33 },
+                                },
+                                [
+                                  _vm._v(
+                                    "距离 " +
+                                      _vm._$g("72-" + $33, "t0-0") +
+                                      "km"
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
                           ),
                         ],
                         1
@@ -11654,31 +11514,19 @@ var render = function () {
             ],
             1
           ),
+          _c("uni-view", { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } }),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(94, "sc"), attrs: { _i: 94 } },
+        { staticClass: _vm._$g(74, "sc"), attrs: { _i: 74 } },
         [
           _c(
-            "v-uni-button",
-            { staticClass: _vm._$g(95, "sc"), attrs: { _i: 95 } },
-            [
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(96, "sc"), attrs: { _i: 96 } },
-                [_vm._v("🔍")]
-              ),
-              _vm._v("AR体验"),
-            ],
-            1
-          ),
-          _c(
-            "v-uni-button",
+            "uni-view",
             {
-              staticClass: _vm._$g(97, "sc"),
-              attrs: { _i: 97 },
+              staticClass: _vm._$g(75, "sc"),
+              attrs: { _i: 75 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -11688,39 +11536,93 @@ var render = function () {
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(98, "sc"), attrs: { _i: 98 } },
+                { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
+                [_vm._v("AR")]
+              ),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(77, "sc"), attrs: { _i: 77 } },
+                [_vm._v("AR体验")]
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(78, "sc"),
+              attrs: { _i: 78 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+                [_vm._v("3D")]
+              ),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(80, "sc"), attrs: { _i: 80 } },
+                [_vm._v("3D观看")]
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(81, "sc"),
+              attrs: { _i: 81 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(82, "sc"), attrs: { _i: 82 } },
                 [_vm._v("🗺️")]
               ),
-              _vm._v("查看地图"),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
+                [_vm._v("查看地图")]
+              ),
             ],
             1
           ),
         ],
         1
       ),
-      _vm._$g(99, "i")
+      _vm._$g(84, "i")
         ? _c(
             "uni-view",
-            { staticClass: _vm._$g(99, "sc"), attrs: { _i: 99 } },
+            { staticClass: _vm._$g(84, "sc"), attrs: { _i: 84 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(100, "sc"), attrs: { _i: 100 } },
+                { staticClass: _vm._$g(85, "sc"), attrs: { _i: 85 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(101, "sc"), attrs: { _i: 101 } },
+                    { staticClass: _vm._$g(86, "sc"), attrs: { _i: 86 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(102, "sc"), attrs: { _i: 102 } },
-                        [_vm._v(_vm._$g(102, "t0-0") + "的位置")]
+                        { staticClass: _vm._$g(87, "sc"), attrs: { _i: 87 } },
+                        [_vm._v(_vm._$g(87, "t0-0") + "的位置")]
                       ),
                       _c(
                         "uni-view",
                         {
-                          staticClass: _vm._$g(103, "sc"),
-                          attrs: { _i: 103 },
+                          staticClass: _vm._$g(88, "sc"),
+                          attrs: { _i: 88 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -11733,33 +11635,33 @@ var render = function () {
                     1
                   ),
                   _c("v-uni-map", {
-                    staticClass: _vm._$g(104, "sc"),
-                    style: _vm._$g(104, "s"),
+                    staticClass: _vm._$g(89, "sc"),
+                    style: _vm._$g(89, "s"),
                     attrs: {
                       id: "myMap",
-                      latitude: _vm._$g(104, "a-latitude"),
-                      longitude: _vm._$g(104, "a-longitude"),
-                      markers: _vm._$g(104, "a-markers"),
+                      latitude: _vm._$g(89, "a-latitude"),
+                      longitude: _vm._$g(89, "a-longitude"),
+                      markers: _vm._$g(89, "a-markers"),
                       scale: "14",
                       "show-location": true,
                       type: "amap",
-                      _i: 104,
+                      _i: 89,
                     },
                   }),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(105, "sc"), attrs: { _i: 105 } },
+                    { staticClass: _vm._$g(90, "sc"), attrs: { _i: 90 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(106, "sc"), attrs: { _i: 106 } },
-                        [_vm._v(_vm._$g(106, "t0-0"))]
+                        { staticClass: _vm._$g(91, "sc"), attrs: { _i: 91 } },
+                        [_vm._v(_vm._$g(91, "t0-0"))]
                       ),
                       _c(
                         "v-uni-button",
                         {
-                          staticClass: _vm._$g(107, "sc"),
-                          attrs: { _i: 107 },
+                          staticClass: _vm._$g(92, "sc"),
+                          attrs: { _i: 92 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -11770,6 +11672,31 @@ var render = function () {
                       ),
                     ],
                     1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._$g(93, "i")
+        ? _c(
+            "uni-view",
+            { staticClass: _vm._$g(93, "sc"), attrs: { _i: 93 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(94, "sc"), attrs: { _i: 94 } },
+                [
+                  _c("uni-view", {
+                    staticClass: _vm._$g(95, "sc"),
+                    attrs: { _i: 95 },
+                  }),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(96, "sc"), attrs: { _i: 96 } },
+                    [_vm._v("加载中...")]
                   ),
                 ],
                 1
@@ -11876,7 +11803,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n@-webkit-keyframes ripple {\n0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0.5;\n}\n100% {\n    -webkit-transform: scale(2.5);\n            transform: scale(2.5);\n    opacity: 0;\n}\n}\n@keyframes ripple {\n0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0.5;\n}\n100% {\n    -webkit-transform: scale(2.5);\n            transform: scale(2.5);\n    opacity: 0;\n}\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(10rpx);\n            transform: translateY(10rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(10rpx);\n            transform: translateY(10rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.heritage-detail {\n  min-height: 100vh;\n  background-color: #fff;\n  position: relative;\n}\n.heritage-detail .nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 10;\n  padding: 0 30rpx;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 100rpx;\n  transition: background-color 0.3s, box-shadow 0.3s;\n  -webkit-backdrop-filter: blur(10rpx);\n          backdrop-filter: blur(10rpx);\n  background-color: v-bind(navbarBackground);\n  box-shadow: v-bind(navbarShadow);\n}\n.heritage-detail .nav-bar .back-btn,\n.heritage-detail .nav-bar .action-btn {\n  width: 60rpx;\n  height: 60rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  border-radius: 50%;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: all 0.2s ease;\n}\n.heritage-detail .nav-bar .back-btn:active,\n.heritage-detail .nav-bar .action-btn:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n.heritage-detail .nav-bar .back-btn .back-icon {\n  font-size: 36rpx;\n  color: #666;\n}\n.heritage-detail .nav-bar .back-btn .back-ripple {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  background-color: rgba(139, 69, 19, 0.2);\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.heritage-detail .nav-bar .back-btn .back-ripple.animate {\n  -webkit-animation: ripple 0.8s cubic-bezier(0, 0.5, 0.5, 1);\n          animation: ripple 0.8s cubic-bezier(0, 0.5, 0.5, 1);\n}\n.heritage-detail .nav-bar .action-btn .action-icon {\n  font-size: 32rpx;\n  font-weight: bold;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n.heritage-detail .nav-bar .action-btn .action-menu {\n  position: absolute;\n  top: 90rpx;\n  right: 0;\n  width: 240rpx;\n  background-color: #fff;\n  border-radius: 15rpx;\n  box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.15);\n  padding: 15rpx 0;\n  z-index: 101;\n  -webkit-animation: fadeIn 0.2s ease;\n          animation: fadeIn 0.2s ease;\n}\n.heritage-detail .nav-bar .action-btn .action-menu:before {\n  content: \"\";\n  position: absolute;\n  top: -10rpx;\n  right: 30rpx;\n  width: 0;\n  height: 0;\n  border-left: 10rpx solid transparent;\n  border-right: 10rpx solid transparent;\n  border-bottom: 10rpx solid #fff;\n}\n.heritage-detail .nav-bar .action-btn .action-menu .menu-item {\n  display: flex;\n  align-items: center;\n  padding: 20rpx 30rpx;\n  transition: background-color 0.2s ease;\n}\n.heritage-detail .nav-bar .action-btn .action-menu .menu-item:active {\n  background-color: #f5f5f5;\n}\n.heritage-detail .nav-bar .action-btn .action-menu .menu-item .menu-icon {\n  margin-right: 15rpx;\n  font-size: 32rpx;\n}\n.heritage-detail .nav-bar .action-btn .action-menu .menu-item .menu-text {\n  font-size: 28rpx;\n  color: #333;\n}\n.heritage-detail .nav-bar .nav-title {\n  font-size: 34rpx;\n  font-weight: bold;\n  transition: opacity 0.3s, -webkit-transform 0.3s;\n  transition: opacity 0.3s, transform 0.3s;\n  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 60%;\n  text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.1);\n  color: #333;\n  opacity: v-bind(navbarOpacity);\n  -webkit-transform: translateY(v-bind('navbarOpacity * 0 + \"rpx\"'));\n          transform: translateY(v-bind('navbarOpacity * 0 + \"rpx\"'));\n}\n.heritage-detail .heritage-gallery {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n.heritage-detail .heritage-gallery .gallery-swiper {\n  width: 100%;\n  height: 100%;\n}\n.heritage-detail .heritage-gallery .gallery-image {\n  width: 100%;\n  height: 100%;\n}\n.heritage-detail .heritage-gallery .gallery-indicator {\n  position: absolute;\n  bottom: 30rpx;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  display: flex;\n}\n.heritage-detail .heritage-gallery .gallery-indicator .indicator-dot {\n  width: 16rpx;\n  height: 16rpx;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.5);\n  margin: 0 8rpx;\n  transition: all 0.3s;\n}\n.heritage-detail .heritage-gallery .gallery-indicator .indicator-dot.active {\n  width: 40rpx;\n  border-radius: 8rpx;\n  background-color: white;\n}\n.heritage-detail .heritage-gallery .view-3d-btn {\n  position: absolute;\n  bottom: 30rpx;\n  right: 30rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  border-radius: 30rpx;\n  padding: 10rpx 20rpx;\n  display: flex;\n  align-items: center;\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(255, 255, 255, 0.8);\n  transition: all 0.3s ease;\n}\n.heritage-detail .heritage-gallery .view-3d-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background-color: white;\n}\n.heritage-detail .heritage-gallery .view-3d-btn .icon {\n  font-size: 28rpx;\n  color: #8B4513;\n  font-weight: bold;\n  margin-right: 6rpx;\n}\n.heritage-detail .heritage-gallery .view-3d-btn .text {\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.heritage-detail .heritage-content {\n  padding: 40rpx 30rpx 120rpx;\n  margin-top: -100rpx;\n  border-radius: 40rpx 40rpx 0 0;\n  background-color: #fff;\n  position: relative;\n  z-index: 1;\n  box-shadow: 0 -30rpx 60rpx rgba(0, 0, 0, 0.1);\n}\n.heritage-detail .heritage-content .title-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20rpx;\n}\n.heritage-detail .heritage-content .title-row .heritage-name {\n  font-size: 44rpx;\n  font-weight: bold;\n  color: #333;\n  flex: 1;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);\n  background: linear-gradient(90deg, #8B4513, #D2691E);\n  -webkit-background-clip: text;\n  color: transparent;\n}\n.heritage-detail .heritage-content .title-row .favorite-btn {\n  width: 80rpx;\n  height: 80rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n.heritage-detail .heritage-content .title-row .favorite-btn .favorite-icon {\n  font-size: 46rpx;\n  color: #ddd;\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  -webkit-transform-origin: center;\n          transform-origin: center;\n}\n.heritage-detail .heritage-content .title-row .favorite-btn .favorite-icon.active {\n  color: #ff4a4a;\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n  -webkit-animation: pulse 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n          animation: pulse 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n@-webkit-keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n50% {\n    -webkit-transform: scale(1.4);\n            transform: scale(1.4);\n}\n100% {\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n}\n@keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n50% {\n    -webkit-transform: scale(1.4);\n            transform: scale(1.4);\n}\n100% {\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n}\n.heritage-detail .heritage-content .title-row .favorite-btn .favorite-tooltip {\n  position: absolute;\n  top: -60rpx;\n  right: -40rpx;\n  background-color: rgba(0, 0, 0, 0.7);\n  color: white;\n  padding: 10rpx 20rpx;\n  border-radius: 10rpx;\n  font-size: 24rpx;\n  white-space: nowrap;\n  -webkit-animation: fadeIn 0.3s ease;\n          animation: fadeIn 0.3s ease;\n}\n.heritage-detail .heritage-content .title-row .favorite-btn .favorite-tooltip:after {\n  content: \"\";\n  position: absolute;\n  bottom: -10rpx;\n  right: 50rpx;\n  width: 0;\n  height: 0;\n  border-left: 10rpx solid transparent;\n  border-right: 10rpx solid transparent;\n  border-top: 10rpx solid rgba(0, 0, 0, 0.7);\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(10rpx);\n            transform: translateY(10rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.heritage-detail .heritage-content .tag-row {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 16rpx;\n  margin-bottom: 30rpx;\n}\n.heritage-detail .heritage-content .tag-row .heritage-tag {\n  padding: 10rpx 24rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  color: #8B4513;\n  border-radius: 20rpx;\n  font-size: 24rpx;\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(255, 255, 255, 0.8);\n}\n.heritage-detail .heritage-content .tag-row .heritage-tag.primary {\n  background-color: rgba(139, 69, 19, 0.8);\n  color: white;\n}\n.heritage-detail .heritage-content .tag-row .heritage-tag:active {\n  -webkit-transform: translateY(-6rpx);\n          transform: translateY(-6rpx);\n  box-shadow: 0 6rpx 10rpx rgba(139, 69, 19, 0.1);\n}\n.heritage-detail .heritage-content .heritage-info {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50rpx;\n  padding: 30rpx;\n  background-color: rgba(249, 245, 240, 0.8);\n  border-radius: 16rpx;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03), 0 1rpx 4rpx rgba(0, 0, 0, 0.02);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(255, 255, 255, 0.8);\n}\n.heritage-detail .heritage-content .heritage-info .info-item {\n  text-align: center;\n  position: relative;\n}\n.heritage-detail .heritage-content .heritage-info .info-item:not(:last-child):after {\n  content: \"\";\n  position: absolute;\n  right: -20rpx;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  height: 60%;\n  width: 1px;\n  background: rgba(0, 0, 0, 0.1);\n}\n.heritage-detail .heritage-content .heritage-info .info-item .info-icon {\n  font-size: 36rpx;\n  margin-bottom: 10rpx;\n}\n.heritage-detail .heritage-content .heritage-info .info-item .label {\n  font-size: 24rpx;\n  color: #666;\n  margin-bottom: 10rpx;\n  display: block;\n}\n.heritage-detail .heritage-content .heritage-info .info-item .value {\n  font-size: 30rpx;\n  color: #333;\n  font-weight: 500;\n}\n.heritage-detail .heritage-content .heritage-description {\n  margin-bottom: 50rpx;\n}\n.heritage-detail .heritage-content .heritage-description .section-title {\n  display: flex;\n  align-items: center;\n  margin-bottom: 30rpx;\n}\n.heritage-detail .heritage-content .heritage-description .section-title .title-text {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n  margin-right: 20rpx;\n  position: relative;\n}\n.heritage-detail .heritage-content .heritage-description .section-title .title-text:after {\n  content: \"\";\n  position: absolute;\n  bottom: -8rpx;\n  left: 0;\n  width: 40rpx;\n  height: 4rpx;\n  background: linear-gradient(to right, #8B4513, transparent);\n  border-radius: 2rpx;\n}\n.heritage-detail .heritage-content .heritage-description .section-title .title-line {\n  flex: 1;\n  height: 2rpx;\n  background: linear-gradient(to right, #8B4513, transparent);\n}\n.heritage-detail .heritage-content .heritage-description .description-content {\n  font-size: 30rpx;\n  color: #666;\n  line-height: 1.8;\n  text-align: justify;\n  max-height: 180rpx;\n  overflow: hidden;\n  transition: all 0.3s ease;\n  background-color: rgba(249, 245, 240, 0.4);\n  padding: 20rpx;\n  border-radius: 16rpx;\n  box-shadow: inset 0 0 10rpx rgba(0, 0, 0, 0.03);\n  position: relative;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 9;\n}\n.heritage-detail .heritage-content .heritage-description .description-content.expanded {\n  -webkit-line-clamp: unset;\n  max-height: none;\n}\n.heritage-detail .heritage-content .heritage-description .expand-btn {\n  margin-top: 20rpx;\n  text-align: center;\n  color: #8B4513;\n  font-size: 28rpx;\n  padding: 10rpx 0;\n  background-color: rgba(249, 245, 240, 0.8);\n  border-radius: 10rpx;\n  width: 200rpx;\n  margin-left: auto;\n  margin-right: auto;\n  position: relative;\n}\n.heritage-detail .heritage-content .heritage-description .expand-btn:active {\n  opacity: 0.7;\n}\n.heritage-detail .heritage-content .heritage-description .expand-btn .expand-icon {\n  font-size: 24rpx;\n  margin-left: 10rpx;\n  transition: -webkit-transform 0.3s;\n  transition: transform 0.3s;\n  transition: transform 0.3s, -webkit-transform 0.3s;\n  display: inline-block;\n}\n.heritage-detail .heritage-content .heritage-description .expand-btn .expand-icon.up {\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n.heritage-detail .heritage-content .heritage-features {\n  margin-bottom: 50rpx;\n}\n.heritage-detail .heritage-content .heritage-features .feature-items {\n  display: flex;\n  justify-content: space-between;\n  padding: 10rpx 0;\n}\n.heritage-detail .heritage-content .heritage-features .feature-items .feature-item {\n  width: 30%;\n  background-color: rgba(249, 245, 240, 0.6);\n  border-radius: 16rpx;\n  padding: 30rpx 20rpx;\n  text-align: center;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(255, 255, 255, 0.8);\n}\n.heritage-detail .heritage-content .heritage-features .feature-items .feature-item:active {\n  -webkit-transform: translateY(-10rpx);\n          transform: translateY(-10rpx);\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.08);\n}\n.heritage-detail .heritage-content .heritage-features .feature-items .feature-item .feature-icon {\n  font-size: 50rpx;\n  margin-bottom: 20rpx;\n}\n.heritage-detail .heritage-content .heritage-features .feature-items .feature-item .feature-text {\n  font-size: 26rpx;\n  color: #333;\n  font-weight: 500;\n}\n.heritage-detail .heritage-content .heritage-rating {\n  margin-bottom: 50rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container {\n  background-color: #f9f5f0;\n  border-radius: 16rpx;\n  padding: 30rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-stars {\n  display: flex;\n  align-items: center;\n  margin-bottom: 30rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-stars .star-row {\n  display: flex;\n  margin-right: 20rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-stars .star {\n  font-size: 40rpx;\n  color: #ddd;\n  margin-right: 10rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-stars .star.active {\n  color: #FFBB00;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-stars .rating-value {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-bars .rating-item {\n  display: flex;\n  align-items: center;\n  margin-bottom: 20rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-bars .rating-item .rating-label {\n  width: 120rpx;\n  font-size: 26rpx;\n  color: #666;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-bars .rating-item .rating-bar-bg {\n  flex: 1;\n  height: 10rpx;\n  background-color: #e0e0e0;\n  border-radius: 5rpx;\n  overflow: hidden;\n  margin: 0 20rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-bars .rating-item .rating-bar-bg .rating-bar {\n  height: 100%;\n  background: linear-gradient(to right, #8B4513, #D2691E);\n  border-radius: 5rpx;\n}\n.heritage-detail .heritage-content .heritage-rating .rating-container .rating-bars .rating-item .rating-number {\n  font-size: 26rpx;\n  color: #333;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll {\n  margin: 0 -30rpx;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items {\n  display: flex;\n  padding: 20rpx 30rpx;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item {\n  margin-right: 30rpx;\n  width: 220rpx;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item .nearby-image-container {\n  position: relative;\n  width: 220rpx;\n  height: 160rpx;\n  border-radius: 12rpx;\n  overflow: hidden;\n  margin-bottom: 12rpx;\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item .nearby-image-container .nearby-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item .nearby-image-container .nearby-overlay {\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item .nearby-name {\n  font-size: 26rpx;\n  color: #333;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: block;\n}\n.heritage-detail .heritage-content .nearby-heritage .nearby-scroll .nearby-items .nearby-item .nearby-distance {\n  font-size: 22rpx;\n  color: #8B4513;\n}\n.heritage-detail .action-bar {\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100rpx;\n  padding: 0 30rpx;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);\n  z-index: 5;\n  background-color: rgba(255, 255, 255, 0.9);\n}\n.heritage-detail .action-bar uni-button {\n  border-radius: 40rpx;\n  font-size: 28rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease;\n  border: none;\n}\n.heritage-detail .action-bar uni-button:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.heritage-detail .action-bar uni-button .button-icon {\n  font-size: 32rpx;\n  margin-right: 10rpx;\n}\n.heritage-detail .action-bar .ar-btn {\n  background: linear-gradient(to right, #D2691E, #8B4513);\n  color: white;\n  font-weight: 500;\n  box-shadow: 0 6rpx 12rpx rgba(139, 69, 19, 0.2);\n}\n.heritage-detail .action-bar .map-btn {\n  background-color: rgba(139, 69, 19, 0.1);\n  color: #8B4513;\n  font-weight: 500;\n}\n.heritage-detail .map-popup {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 100;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.heritage-detail .map-popup .map-container {\n  width: 90%;\n  height: 80%;\n  background-color: #fff;\n  border-radius: 20rpx;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);\n}\n.heritage-detail .map-popup .map-container .map-header {\n  height: 100rpx;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30rpx;\n  border-bottom: 1rpx solid #f0f0f0;\n}\n.heritage-detail .map-popup .map-container .map-header .map-title {\n  font-size: 34rpx;\n  font-weight: bold;\n  color: #333;\n}\n.heritage-detail .map-popup .map-container .map-header .close-btn {\n  width: 60rpx;\n  height: 60rpx;\n  border-radius: 30rpx;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 30rpx;\n  color: #666;\n}\n.heritage-detail .map-popup .map-container .map-header .close-btn:active {\n  background-color: #e0e0e0;\n}\n.heritage-detail .map-popup .map-container .location-map {\n  flex: 1;\n  width: 100%;\n}\n.heritage-detail .map-popup .map-container .map-footer {\n  height: 150rpx;\n  padding: 20rpx 30rpx;\n  border-top: 1rpx solid #f0f0f0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.heritage-detail .map-popup .map-container .map-footer .address {\n  font-size: 28rpx;\n  color: #666;\n}\n.heritage-detail .map-popup .map-container .map-footer .navigation-btn {\n  height: 80rpx;\n  border-radius: 40rpx;\n  background: linear-gradient(to right, #D2691E, #8B4513);\n  color: white;\n  font-size: 28rpx;\n  font-weight: 500;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);\n  margin: 0;\n}\n.heritage-detail .map-popup .map-container .map-footer .navigation-btn:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.heritage-detail-page {\n  position: relative;\n  min-height: 100vh;\n  background-color: #f8f5f0;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif;\n}\n/* 顶部图片区域 */\n.header-section {\n  position: relative;\n  height: 500rpx;\n  overflow: hidden;\n}\n.header-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.header-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.7) 100%);\n}\n/* 古建筑风格顶部装饰 */\n.header-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 20rpx;\n  z-index: 5;\n  overflow: hidden;\n}\n.decoration-line {\n  width: 100%;\n  height: 15rpx;\n  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0px, rgba(255, 255, 255, 0.6) 10px, transparent 10px, transparent 20px);\n}\n/* 顶部导航栏 */\n.top-toolbar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 90rpx;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 10;\n}\n.back-button {\n  display: flex;\n  align-items: center;\n  height: 70rpx;\n  padding: 0 20rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 35rpx;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.back-icon {\n  font-size: 40rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-right: 8rpx;\n}\n.back-text {\n  font-size: 28rpx;\n  color: #fff;\n}\n.action-buttons {\n  display: flex;\n  align-items: center;\n}\n.action-btn {\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 35rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-left: 20rpx;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.icon-star, .icon-share {\n  font-size: 36rpx;\n  color: #fff;\n}\n.icon-star.filled {\n  color: #FFD700;\n}\n/* 标题信息区域 */\n.header-info {\n  position: absolute;\n  left: 30rpx;\n  right: 30rpx;\n  bottom: 80rpx;\n  z-index: 10;\n}\n.header-category {\n  display: inline-block;\n  font-size: 24rpx;\n  color: #fff;\n  background-color: rgba(139, 69, 19, 0.8);\n  padding: 6rpx 20rpx;\n  border-radius: 20rpx;\n  margin-bottom: 15rpx;\n}\n.header-title {\n  font-size: 48rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-bottom: 10rpx;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n}\n.header-period {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.9);\n  margin-bottom: 15rpx;\n}\n.header-location {\n  display: flex;\n  align-items: center;\n  margin-top: 20rpx;\n}\n.location-icon {\n  font-size: 28rpx;\n  margin-right: 10rpx;\n}\n.location-text {\n  font-size: 26rpx;\n  color: rgba(255, 255, 255, 0.9);\n}\n/* 波浪形装饰 */\n.header-wave {\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  right: 0;\n  height: 40rpx;\n  background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%23f8f5f0\" fill-opacity=\"1\" d=\"M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z\"></path></svg>');\n  background-size: cover;\n  background-position: center;\n  z-index: 5;\n}\n/* 内容区域 */\n.content-scroll {\n  position: relative;\n  flex: 1;\n  width: 100%;\n  height: calc(100vh - 500rpx);\n  z-index: 2;\n}\n.content-card {\n  padding: 30rpx;\n  padding-top: 0;\n  background-color: #f8f5f0;\n  position: relative;\n  z-index: 3;\n}\n/* 区块通用样式 */\n.section {\n  margin-bottom: 40rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 30rpx;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);\n  position: relative;\n  overflow: hidden;\n  /* 背景纹理 */\n}\n.section::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 2px, transparent 2px, transparent 12px);\n  opacity: 0.3;\n  z-index: -1;\n}\n.section-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 25rpx;\n}\n.section-title {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  font-weight: bold;\n  color: #654321;\n}\n.title-decoration {\n  width: 8rpx;\n  height: 30rpx;\n  background-color: #8B4513;\n  margin-right: 15rpx;\n  border-radius: 4rpx;\n}\n/* 描述区块 */\n.description-text {\n  font-size: 28rpx;\n  line-height: 1.7;\n  color: #333;\n  text-align: justify;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n  transition: all 0.3s ease;\n}\n.description-text.expanded {\n  -webkit-line-clamp: unset;\n  max-height: none;\n}\n.expand-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 20rpx;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.expand-icon {\n  margin-left: 10rpx;\n}\n/* 特点标签区域 */\n.features-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 20rpx;\n}\n.feature-tag {\n  font-size: 24rpx;\n  padding: 10rpx 25rpx;\n  border-radius: 30rpx;\n  color: #8B4513;\n  background-color: rgba(139, 69, 19, 0.08);\n  border: 1px solid rgba(139, 69, 19, 0.1);\n}\n/* 评分区域 */\n.rating-container {\n  background-color: rgba(248, 245, 240, 0.5);\n  border-radius: 16rpx;\n  padding: 20rpx;\n}\n.rating-stars {\n  display: flex;\n  align-items: center;\n  margin-bottom: 20rpx;\n}\n.star-row {\n  display: flex;\n  margin-right: 20rpx;\n}\n.star {\n  font-size: 40rpx;\n  color: #ddd;\n  margin-right: 10rpx;\n}\n.star.active {\n  color: #FFBB00;\n}\n.rating-value {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #333;\n}\n.rating-bars .rating-item {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15rpx;\n}\n.rating-label {\n  width: 120rpx;\n  font-size: 26rpx;\n  color: #666;\n}\n.rating-bar-bg {\n  flex: 1;\n  height: 10rpx;\n  background-color: #e0e0e0;\n  border-radius: 5rpx;\n  overflow: hidden;\n  margin: 0 20rpx;\n}\n.rating-bar {\n  height: 100%;\n  background: linear-gradient(to right, #8B4513, #D2691E);\n  border-radius: 5rpx;\n}\n.rating-number {\n  font-size: 26rpx;\n  color: #333;\n}\n/* 相关文物 */\n.related-items {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 20rpx;\n}\n.related-item {\n  border-radius: 15rpx;\n  overflow: hidden;\n  background-color: #fff;\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n}\n.item-image-container {\n  height: 180rpx;\n  position: relative;\n}\n.item-image-container uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.item-image-container .item-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.4));\n}\n.item-info {\n  padding: 15rpx;\n}\n.item-name {\n  font-size: 26rpx;\n  font-weight: bold;\n  color: #333;\n  display: block;\n  margin-bottom: 5rpx;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.item-period {\n  font-size: 22rpx;\n  color: #8B4513;\n}\n/* 底部安全区域 */\n.safe-area-bottom {\n  height: 120rpx;\n}\n/* 底部操作按钮 */\n.bottom-action {\n  position: fixed;\n  left: 30rpx;\n  right: 30rpx;\n  bottom: 30rpx;\n  z-index: 50;\n  display: flex;\n  gap: 20rpx;\n}\n.action-button {\n  flex: 1;\n  height: 90rpx;\n  border-radius: 45rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 8rpx 20rpx rgba(139, 69, 19, 0.2);\n}\n.ar-button {\n  background: linear-gradient(135deg, #9B5523, #7B3503);\n}\n.view3d-button {\n  background: linear-gradient(135deg, #8B4513, #A0522D);\n}\n.map-button {\n  background-color: rgba(139, 69, 19, 0.2);\n}\n.action-icon {\n  font-size: 28rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-right: 10rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  padding: 5rpx 10rpx;\n  border-radius: 10rpx;\n}\n.action-text {\n  font-size: 28rpx;\n  color: #fff;\n  font-weight: bold;\n}\n.map-button .action-icon,\n.map-button .action-text {\n  color: #8B4513;\n}\n/* 地图弹窗 */\n.map-popup {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 100;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.map-container {\n  width: 90%;\n  height: 80%;\n  background-color: #fff;\n  border-radius: 20rpx;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);\n}\n.map-header {\n  height: 100rpx;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30rpx;\n  border-bottom: 1rpx solid #f0f0f0;\n}\n.map-title {\n  font-size: 34rpx;\n  font-weight: bold;\n  color: #333;\n}\n.close-btn {\n  width: 60rpx;\n  height: 60rpx;\n  border-radius: 30rpx;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 30rpx;\n  color: #666;\n}\n.location-map {\n  flex: 1;\n  width: 100%;\n}\n.map-footer {\n  height: 150rpx;\n  padding: 20rpx 30rpx;\n  border-top: 1rpx solid #f0f0f0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.address {\n  font-size: 28rpx;\n  color: #666;\n}\n.navigation-btn {\n  height: 80rpx;\n  border-radius: 40rpx;\n  background: linear-gradient(to right, #D2691E, #8B4513);\n  color: white;\n  font-size: 28rpx;\n  font-weight: 500;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);\n  margin: 0;\n}\n/* 加载中状态 */\n.loading-mask {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(248, 245, 240, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n}\n.loading-content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.loading-spinner {\n  width: 70rpx;\n  height: 70rpx;\n  border: 4rpx solid rgba(139, 69, 19, 0.1);\n  border-top-color: #8B4513;\n  border-radius: 50%;\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.loading-text {\n  font-size: 28rpx;\n  color: #8B4513;\n  margin-top: 20rpx;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -12145,7 +12072,12 @@ var render = function () {
                 "v-uni-scroll-view",
                 {
                   staticClass: _vm._$g(22, "sc"),
-                  attrs: { "scroll-x": true, "show-scrollbar": false, _i: 22 },
+                  attrs: {
+                    "scroll-x": true,
+                    "show-scrollbar": false,
+                    enhanced: true,
+                    _i: 22,
+                  },
                 },
                 [
                   _c(
@@ -12195,15 +12127,14 @@ var render = function () {
               staticClass: _vm._$g(26, "sc"),
               attrs: {
                 "scroll-y": true,
-                "refresher-enabled": true,
-                "refresher-triggered": _vm._$g(26, "a-refresher-triggered"),
+                enhanced: true,
+                "enable-passive": true,
+                bounces: false,
+                "lower-threshold": "150",
                 _i: 26,
               },
               on: {
                 scrolltolower: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-                refresherrefresh: function ($event) {
                   return _vm.$handleViewEvent($event)
                 },
                 scroll: function ($event) {
@@ -12216,7 +12147,7 @@ var render = function () {
                 ? _c(
                     "uni-view",
                     { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
-                    _vm._l(5, function (i, $11, $21, $31) {
+                    _vm._l(3, function (i, $11, $21, $31) {
                       return _c(
                         "uni-view",
                         {
@@ -12446,18 +12377,22 @@ var render = function () {
                     ],
                     2
                   ),
+              _c("uni-view", {
+                staticClass: _vm._$g(54, "sc"),
+                attrs: { _i: 54 },
+              }),
             ],
             1
           ),
         ],
         1
       ),
-      _vm._$g(54, "i")
+      _vm._$g(55, "i")
         ? _c(
             "uni-view",
             {
-              staticClass: _vm._$g(54, "sc"),
-              attrs: { _i: 54 },
+              staticClass: _vm._$g(55, "sc"),
+              attrs: { _i: 55 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -12467,7 +12402,7 @@ var render = function () {
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(55, "sc"), attrs: { _i: 55 } },
+                { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
                 [_vm._v("↑")]
               ),
             ],
@@ -12572,7 +12507,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n@-webkit-keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeInUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(30rpx);\n            transform: translateY(30rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@-webkit-keyframes shimmer {\n0% {\n    background-position: -200% 0;\n}\n100% {\n    background-position: 200% 0;\n}\n}\n@keyframes shimmer {\n0% {\n    background-position: -200% 0;\n}\n100% {\n    background-position: 200% 0;\n}\n}\n.heritage-list-page {\n  min-height: 100vh;\n  background-color: #f9f9f9;\n  position: relative;\n}\n.header-bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 300rpx;\n  background: linear-gradient(135deg, #8B4513, #D2691E);\n  border-radius: 0 0 50rpx 50rpx;\n  z-index: 1;\n}\n.status-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 100rpx;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30rpx;\n  z-index: 110;\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  border-radius: 0 0 30rpx 30rpx;\n}\n.status-bar .back-btn {\n  width: 80rpx;\n  height: 80rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  border-radius: 50%;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.status-bar .back-btn:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n.status-bar .back-btn .back-icon {\n  font-size: 42rpx;\n  font-weight: bold;\n  z-index: 2;\n  -webkit-transform: translateX(-2rpx);\n          transform: translateX(-2rpx);\n}\n.status-bar .back-btn .back-ripple {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.3);\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.status-bar .back-btn .back-ripple.animate {\n  -webkit-animation: ripple 0.8s cubic-bezier(0, 0.5, 0.5, 1);\n          animation: ripple 0.8s cubic-bezier(0, 0.5, 0.5, 1);\n}\n@-webkit-keyframes ripple {\n0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0.5;\n}\n100% {\n    -webkit-transform: scale(2.5);\n            transform: scale(2.5);\n    opacity: 0;\n}\n}\n@keyframes ripple {\n0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n    opacity: 0.5;\n}\n100% {\n    -webkit-transform: scale(2.5);\n            transform: scale(2.5);\n    opacity: 0;\n}\n}\n.status-bar .menu-btn {\n  width: 80rpx;\n  height: 80rpx;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  border-radius: 50%;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.status-bar .menu-btn:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}\n.status-bar .menu-btn .menu-line {\n  width: 30rpx;\n  height: 3rpx;\n  margin: 4rpx 0;\n  transition: all 0.3s ease;\n}\n.status-bar .menu-btn .menu-line:nth-child(1) {\n  width: 20rpx;\n  align-self: flex-end;\n}\n.status-bar .menu-btn .menu-line:nth-child(3) {\n  width: 20rpx;\n  align-self: flex-start;\n}\n.status-bar .page-title-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation: float 3s ease-in-out infinite;\n          animation: float 3s ease-in-out infinite;\n}\n.status-bar .page-title-container .page-title {\n  font-size: 38rpx;\n  font-weight: bold;\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);\n  letter-spacing: 2rpx;\n}\n.status-bar .page-title-container .title-decoration {\n  display: flex;\n  align-items: center;\n  margin-top: 8rpx;\n}\n.status-bar .page-title-container .title-decoration .decoration-dot {\n  width: 8rpx;\n  height: 8rpx;\n  border-radius: 50%;\n  margin-right: 6rpx;\n  transition: background-color 0.3s ease;\n}\n.status-bar .page-title-container .title-decoration .decoration-line {\n  height: 4rpx;\n  width: 60rpx;\n  transition: background 0.3s ease;\n}\n@-webkit-keyframes float {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-5rpx);\n            transform: translateY(-5rpx);\n}\n100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes float {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n50% {\n    -webkit-transform: translateY(-5rpx);\n            transform: translateY(-5rpx);\n}\n100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.content-container {\n  padding-top: 100rpx;\n  position: relative;\n  z-index: 10;\n}\n.search-container {\n  padding: 20rpx 30rpx;\n  background-color: transparent;\n  position: relative;\n  z-index: 5;\n  margin-bottom: 10rpx;\n}\n.search-container .search-box {\n  display: flex;\n  align-items: center;\n  height: 80rpx;\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 40rpx;\n  padding: 0 30rpx;\n  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(255, 255, 255, 0.5);\n}\n.search-container .search-box.focused {\n  -webkit-transform: translateY(-4rpx);\n          transform: translateY(-4rpx);\n  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.15);\n  background-color: #fff;\n}\n.search-container .search-box .search-icon {\n  font-size: 32rpx;\n  color: #8B4513;\n  margin-right: 15rpx;\n}\n.search-container .search-box .search-input {\n  flex: 1;\n  height: 80rpx;\n  font-size: 28rpx;\n  color: #333;\n}\n.search-container .search-box .clear-icon {\n  font-size: 30rpx;\n  color: #999;\n  padding: 15rpx;\n}\n.filter-container {\n  padding: 20rpx 0;\n  background-color: transparent;\n  margin-bottom: 20rpx;\n  box-shadow: none;\n  position: relative;\n  z-index: 5;\n}\n.filter-container .filter-scroll {\n  white-space: nowrap;\n}\n.filter-container .filter-scroll .filter-tabs {\n  display: inline-flex;\n  padding: 0 20rpx;\n}\n.filter-container .filter-scroll .filter-tabs .filter-tab {\n  padding: 15rpx 30rpx;\n  margin: 0 10rpx;\n  border-radius: 30rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.08);\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  border: 1rpx solid rgba(255, 255, 255, 0.5);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.filter-container .filter-scroll .filter-tabs .filter-tab.active {\n  background-color: rgba(139, 69, 19, 0.2);\n  color: #8B4513;\n  -webkit-transform: translateY(-4rpx);\n          transform: translateY(-4rpx);\n  box-shadow: 0 6rpx 15rpx rgba(139, 69, 19, 0.2);\n  font-weight: bold;\n}\n.filter-container .filter-scroll .filter-tabs .filter-tab:active {\n  -webkit-transform: translateY(-2rpx) scale(0.98);\n          transform: translateY(-2rpx) scale(0.98);\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);\n}\n.filter-container .filter-scroll .filter-tabs .filter-tab .tab-text {\n  font-size: 28rpx;\n}\n.heritage-list-scroll {\n  height: calc(100vh - 420rpx);\n  background-color: rgba(249, 249, 249, 0.95);\n  border-radius: 30rpx 30rpx 0 0;\n  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);\n  overflow: hidden;\n  margin-top: 10rpx;\n}\n.heritage-list-scroll .loading-container {\n  padding: 20rpx 30rpx;\n}\n.heritage-list-scroll .loading-container .skeleton-item {\n  display: flex;\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-image {\n  width: 200rpx;\n  height: 150rpx;\n  border-radius: 8rpx;\n  margin-right: 20rpx;\n  background-color: #eee;\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-content {\n  flex: 1;\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-content .skeleton-title {\n  height: 32rpx;\n  width: 70%;\n  margin-bottom: 20rpx;\n  background-color: #eee;\n  border-radius: 4rpx;\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-content .skeleton-text {\n  height: 24rpx;\n  width: 90%;\n  margin-bottom: 15rpx;\n  background-color: #eee;\n  border-radius: 4rpx;\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-content .skeleton-text.short {\n  width: 50%;\n}\n.heritage-list-scroll .loading-container .skeleton-item .skeleton-shine {\n  background: linear-gradient(90deg, #eee 8%, #f5f5f5 18%, #eee 33%);\n  background-size: 200% 100%;\n  -webkit-animation: shimmer 1.5s infinite linear;\n          animation: shimmer 1.5s infinite linear;\n}\n.heritage-list-scroll .empty-state {\n  padding: 100rpx 30rpx;\n  text-align: center;\n}\n.heritage-list-scroll .empty-state .empty-icon {\n  font-size: 120rpx;\n  color: #ddd;\n  margin-bottom: 20rpx;\n}\n.heritage-list-scroll .empty-state .empty-text {\n  font-size: 36rpx;\n  color: #999;\n  margin-bottom: 20rpx;\n}\n.heritage-list-scroll .empty-state .empty-tip {\n  font-size: 28rpx;\n  color: #bbb;\n}\n.heritage-list-scroll .heritage-list {\n  padding: 20rpx 30rpx;\n}\n.heritage-list-scroll .heritage-list .heritage-item {\n  display: flex;\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  transition: all 0.3s ease;\n  -webkit-animation: fadeInUp 0.5s ease forwards;\n          animation: fadeInUp 0.5s ease forwards;\n  opacity: 0;\n}\n.heritage-list-scroll .heritage-list .heritage-item:active {\n  -webkit-transform: translateY(-6rpx) scale(0.98);\n          transform: translateY(-6rpx) scale(0.98);\n  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.08);\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-image-container {\n  position: relative;\n  width: 200rpx;\n  height: 150rpx;\n  border-radius: 8rpx;\n  overflow: hidden;\n  margin-right: 20rpx;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-image-container .item-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: -webkit-transform 0.5s ease;\n  transition: transform 0.5s ease;\n  transition: transform 0.5s ease, -webkit-transform 0.5s ease;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-image-container .item-overlay {\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-image-container .item-badge {\n  position: absolute;\n  top: 10rpx;\n  right: 10rpx;\n  padding: 4rpx 12rpx;\n  background-color: #ff4a4a;\n  color: white;\n  font-size: 20rpx;\n  border-radius: 20rpx;\n}\n.heritage-list-scroll .heritage-list .heritage-item:active .item-image {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-title-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15rpx;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-title-row .item-title {\n  font-size: 32rpx;\n  font-weight: bold;\n  color: #333;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-title-row .item-favorite {\n  font-size: 36rpx;\n  color: #ddd;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-title-row .item-favorite.active {\n  color: #ff4a4a;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-period {\n  font-size: 26rpx;\n  color: #8B4513;\n  margin-bottom: 15rpx;\n  padding: 4rpx 12rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  border-radius: 4rpx;\n  display: inline-block;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-location {\n  font-size: 26rpx;\n  color: #999;\n  display: flex;\n  align-items: center;\n}\n.heritage-list-scroll .heritage-list .heritage-item .item-content .item-location .location-icon {\n  font-size: 24rpx;\n  margin-right: 8rpx;\n}\n.heritage-list-scroll .heritage-list .list-end-text, .heritage-list-scroll .heritage-list .loading-more {\n  text-align: center;\n  padding: 30rpx 0;\n  color: #999;\n  font-size: 28rpx;\n}\n.back-to-top {\n  position: fixed;\n  bottom: 60rpx;\n  right: 30rpx;\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.9);\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  -webkit-animation: fadeInUp 0.3s ease;\n          animation: fadeInUp 0.3s ease;\n  z-index: 10;\n}\n.back-to-top .top-icon {\n  font-size: 32rpx;\n  color: #666;\n}\n.back-to-top:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.heritage-list-page {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n  position: relative;\n  background-color: #f8f5f0;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif;\n  -webkit-overflow-scrolling: touch;\n}\n.status-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 90rpx;\n  display: flex;\n  align-items: center;\n  padding: 0 30rpx;\n  z-index: 100;\n  transition: background-color 0.3s ease, box-shadow 0.3s ease;\n  /* 这里添加一个顶部安全区域的padding，确保不会被手机状态栏遮挡 */\n  padding-top: var(--status-bar-height);\n  will-change: transform;\n}\n.status-bar:after {\n  content: \"\";\n  position: absolute;\n  bottom: -10rpx;\n  left: 0;\n  right: 0;\n  height: 10rpx;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);\n  opacity: 1;\n}\n.back-btn {\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  overflow: hidden;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.back-btn:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n.back-icon {\n  font-size: 40rpx;\n  font-weight: bold;\n  transition: color 0.3s ease;\n  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\n}\n.back-ripple {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 0;\n  height: 0;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.4);\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  opacity: 0;\n  transition: all 0.3s ease;\n}\n.back-ripple.animate {\n  width: 150rpx;\n  height: 150rpx;\n  opacity: 1;\n}\n.page-title-container {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-left: 20rpx;\n}\n.page-title {\n  font-size: 36rpx;\n  font-weight: bold;\n  transition: color 0.3s ease, -webkit-transform 0.3s ease;\n  transition: color 0.3s ease, transform 0.3s ease;\n  transition: color 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;\n  letter-spacing: 2rpx;\n  position: relative;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n}\n.page-title[style*=\"color: #333\"] {\n  text-shadow: none;\n}\n.title-decoration {\n  display: flex;\n  align-items: center;\n  margin-top: 8rpx;\n  -webkit-transform: translateX(10rpx);\n          transform: translateX(10rpx);\n}\n.decoration-dot {\n  width: 8rpx;\n  height: 8rpx;\n  border-radius: 50%;\n  margin-right: 6rpx;\n  transition: background-color 0.3s ease;\n}\n.decoration-line {\n  width: 40rpx;\n  height: 2rpx;\n  transition: background 0.3s ease;\n}\n.menu-btn {\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 8rpx;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n}\n.menu-btn:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n}\n.menu-line {\n  width: 30rpx;\n  height: 2rpx;\n  transition: background-color 0.3s ease;\n}\n.header-bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 420rpx;\n  background: linear-gradient(135deg, #8B4513, #654321);\n  border-bottom-left-radius: 40rpx;\n  border-bottom-right-radius: 40rpx;\n  z-index: -1;\n  overflow: hidden;\n}\n.header-bg:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 15rpx;\n  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0px, rgba(255, 255, 255, 0.15) 10px, transparent 10px, transparent 20px);\n  z-index: 2;\n}\n.header-bg:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60%;\n  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);\n  opacity: 0.7;\n}\n.content-container {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  padding: 0 30rpx;\n  /* 给顶部状态栏和标题腾出空间 */\n  padding-top: calc(var(--status-bar-height) + 110rpx);\n}\n.search-container {\n  margin-top: 20rpx;\n  margin-bottom: 30rpx;\n  position: relative;\n  z-index: 3;\n}\n.search-box {\n  display: flex;\n  align-items: center;\n  background-color: rgba(255, 255, 255, 0.9);\n  border-radius: 50rpx;\n  padding: 15rpx 25rpx;\n  box-shadow: 0 10rpx 30rpx -5rpx rgba(0, 0, 0, 0.1);\n  transition: box-shadow 0.3s ease, -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  transition: transform 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n}\n.search-box.focused {\n  background-color: #fff;\n  box-shadow: 0 15rpx 40rpx -5rpx rgba(0, 0, 0, 0.15);\n  -webkit-transform: translateY(-5rpx);\n          transform: translateY(-5rpx);\n}\n.search-icon {\n  margin-right: 15rpx;\n  color: #8B4513;\n  font-size: 32rpx;\n}\n.search-input {\n  flex: 1;\n  height: 60rpx;\n  font-size: 28rpx;\n  color: #333;\n}\n.clear-icon {\n  color: #999;\n  font-size: 30rpx;\n  padding: 10rpx;\n  border-radius: 50%;\n  height: 24rpx;\n  width: 24rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.clear-icon:active {\n  -webkit-transform: scale(0.85);\n          transform: scale(0.85);\n  background-color: rgba(0, 0, 0, 0.1);\n}\n.filter-container {\n  margin-bottom: 20rpx;\n  position: relative;\n  z-index: 2;\n}\n.filter-scroll {\n  width: 100%;\n  white-space: nowrap;\n  padding: 5rpx 0;\n}\n.filter-tabs {\n  display: inline-flex;\n  padding: 10rpx 0;\n}\n.filter-tab {\n  padding: 12rpx 30rpx;\n  margin-right: 15rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  border-radius: 40rpx;\n  transition: background-color 0.3s ease, -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease, background-color 0.3s ease;\n  transition: transform 0.2s ease, background-color 0.3s ease, -webkit-transform 0.2s ease;\n  border: 1px solid rgba(255, 255, 255, 0.6);\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);\n}\n.filter-tab:first-child {\n  margin-left: 4rpx;\n}\n.filter-tab.active {\n  background-color: #8B4513;\n  background-image: linear-gradient(to bottom, #9B5523, #7B3503);\n  border-color: transparent;\n  box-shadow: 0 6rpx 15rpx rgba(139, 69, 19, 0.3);\n  -webkit-transform: translateY(-2rpx);\n          transform: translateY(-2rpx);\n}\n.filter-tab:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.tab-text {\n  font-size: 26rpx;\n  color: #666;\n  transition: color 0.3s ease;\n}\n.filter-tab.active .tab-text {\n  color: #fff;\n  font-weight: bold;\n}\n.heritage-list-scroll {\n  flex: 1;\n  height: calc(100vh - var(--status-bar-height) - 360rpx);\n  position: relative;\n  z-index: 1;\n  -webkit-overflow-scrolling: touch;\n}\n.loading-container {\n  padding: 20rpx 0;\n}\n.skeleton-item {\n  display: flex;\n  background-color: rgba(255, 255, 255, 0.8);\n  border-radius: 20rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);\n  overflow: hidden;\n}\n.skeleton-image {\n  width: 180rpx;\n  height: 180rpx;\n  border-radius: 15rpx;\n  background-color: #eee;\n  flex-shrink: 0;\n}\n.skeleton-content {\n  flex: 1;\n  padding-left: 20rpx;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.skeleton-title {\n  height: 40rpx;\n  width: 60%;\n  background-color: #eee;\n  margin-bottom: 20rpx;\n  border-radius: 8rpx;\n}\n.skeleton-text {\n  height: 30rpx;\n  width: 80%;\n  background-color: #eee;\n  margin-bottom: 15rpx;\n  border-radius: 6rpx;\n}\n.skeleton-text.short {\n  width: 40%;\n}\n.skeleton-shine {\n  position: relative;\n  overflow: hidden;\n}\n.skeleton-shine::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);\n  -webkit-animation: shimmer 2s infinite;\n          animation: shimmer 2s infinite;\n}\n@-webkit-keyframes shimmer {\n100% {\n    left: 100%;\n}\n}\n@keyframes shimmer {\n100% {\n    left: 100%;\n}\n}\n.empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 120rpx 0;\n}\n.empty-icon {\n  font-size: 100rpx;\n  margin-bottom: 30rpx;\n  color: rgba(139, 69, 19, 0.2);\n}\n.empty-text {\n  font-size: 34rpx;\n  color: #999;\n  margin-bottom: 15rpx;\n  font-weight: 500;\n}\n.empty-tip {\n  font-size: 26rpx;\n  color: #bbb;\n  background: rgba(0, 0, 0, 0.03);\n  padding: 10rpx 30rpx;\n  border-radius: 30rpx;\n  margin-top: 10rpx;\n}\n.heritage-list {\n  padding-bottom: 60rpx;\n  will-change: transform;\n}\n.heritage-item {\n  display: flex;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 20rpx;\n  margin-bottom: 24rpx;\n  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);\n  -webkit-animation: fadeIn 0.3s ease forwards;\n          animation: fadeIn 0.3s ease forwards;\n  opacity: 0;\n  -webkit-transform: translateY(20rpx);\n          transform: translateY(20rpx);\n  transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  transition: transform 0.2s ease, box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  border: 1px solid rgba(0, 0, 0, 0.02);\n  position: relative;\n  will-change: transform, opacity;\n}\n.heritage-item:before {\n  content: \"\";\n  position: absolute;\n  top: 8rpx;\n  left: 8rpx;\n  right: 8rpx;\n  bottom: 8rpx;\n  border: 1px dashed rgba(139, 69, 19, 0.08);\n  border-radius: 15rpx;\n  pointer-events: none;\n}\n.heritage-item:active {\n  -webkit-transform: scale(0.98);\n          transform: scale(0.98);\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.04);\n}\n@-webkit-keyframes fadeIn {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.item-image-container {\n  width: 180rpx;\n  height: 180rpx;\n  border-radius: 15rpx;\n  overflow: hidden;\n  position: relative;\n  flex-shrink: 0;\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n}\n.item-image {\n  width: 100%;\n  height: 100%;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n  will-change: transform;\n}\n.heritage-item:active .item-image {\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05);\n}\n.item-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));\n}\n.item-badge {\n  position: absolute;\n  top: 10rpx;\n  right: 10rpx;\n  background-color: #ff6b6b;\n  color: #fff;\n  font-size: 20rpx;\n  padding: 4rpx 14rpx;\n  border-radius: 20rpx;\n  font-weight: bold;\n  box-shadow: 0 4rpx 8rpx rgba(255, 107, 107, 0.3);\n}\n.item-content {\n  flex: 1;\n  padding-left: 24rpx;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.item-title-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15rpx;\n}\n.item-title {\n  font-size: 32rpx;\n  font-weight: bold;\n  color: #333;\n  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);\n}\n.item-favorite {\n  font-size: 38rpx;\n  color: #ddd;\n  transition: color 0.2s ease, -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease, color 0.2s ease;\n  transition: transform 0.2s ease, color 0.2s ease, -webkit-transform 0.2s ease;\n  will-change: transform, color;\n}\n.item-favorite.active {\n  color: #ff6b6b;\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n.item-period {\n  font-size: 24rpx;\n  color: #8B4513;\n  padding: 6rpx 16rpx;\n  background-color: rgba(139, 69, 19, 0.08);\n  border-radius: 30rpx;\n  display: inline-block;\n  margin-bottom: 20rpx;\n  border: 1px solid rgba(139, 69, 19, 0.1);\n}\n.item-location {\n  display: flex;\n  align-items: center;\n  margin-top: auto;\n  background-color: rgba(0, 0, 0, 0.02);\n  padding: 6rpx 12rpx;\n  border-radius: 30rpx;\n  align-self: flex-start;\n}\n.location-icon {\n  font-size: 24rpx;\n  color: #8B4513;\n  margin-right: 8rpx;\n}\n.location-text {\n  font-size: 24rpx;\n  color: #999;\n}\n.list-end-text {\n  text-align: center;\n  color: #999;\n  font-size: 24rpx;\n  padding: 30rpx 0;\n  position: relative;\n}\n.list-end-text:before, .list-end-text:after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  width: 15%;\n  height: 1px;\n  background: rgba(0, 0, 0, 0.1);\n}\n.list-end-text:before {\n  left: 20%;\n}\n.list-end-text:after {\n  right: 20%;\n}\n.loading-more {\n  text-align: center;\n  color: #8B4513;\n  font-size: 24rpx;\n  padding: 30rpx 0;\n  position: relative;\n}\n.loading-more:after {\n  content: \"\";\n  display: inline-block;\n  width: 30rpx;\n  height: 30rpx;\n  margin-left: 10rpx;\n  border: 2rpx solid rgba(139, 69, 19, 0.2);\n  border-top: 2rpx solid #8B4513;\n  border-radius: 50%;\n  -webkit-animation: rotate 1s linear infinite;\n          animation: rotate 1s linear infinite;\n  vertical-align: middle;\n}\n@-webkit-keyframes rotate {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes rotate {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n.back-to-top {\n  position: fixed;\n  right: 30rpx;\n  bottom: 120rpx;\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.95);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.15);\n  transition: box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  transition: transform 0.2s ease, box-shadow 0.2s ease, -webkit-transform 0.2s ease;\n  z-index: 10;\n  border: 1px solid rgba(139, 69, 19, 0.1);\n  opacity: 0;\n  -webkit-transform: translateY(20rpx) scale(0.9);\n          transform: translateY(20rpx) scale(0.9);\n  -webkit-animation: fadeInUp 0.25s forwards;\n          animation: fadeInUp 0.25s forwards;\n  will-change: transform, opacity;\n}\n.back-to-top:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);\n}\n@-webkit-keyframes fadeInUp {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0) scale(1);\n            transform: translateY(0) scale(1);\n}\n}\n@keyframes fadeInUp {\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0) scale(1);\n            transform: translateY(0) scale(1);\n}\n}\n.top-icon {\n  color: #8B4513;\n  font-size: 36rpx;\n  font-weight: bold;\n}\n::-webkit-scrollbar {\n  width: 0;\n  height: 0;\n  color: transparent;\n}\n.safe-area-bottom {\n  height: 60rpx;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -13836,29 +13771,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
-try {
-  components = {
-    uniIcons:
-      __webpack_require__(/*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 5)
-        .default,
-  }
-} catch (e) {
-  if (
-    e.message.indexOf("Cannot find module") !== -1 &&
-    e.message.indexOf(".vue") !== -1
-  ) {
-    console.error(e.message)
-    console.error("1. 排查组件名称拼写是否正确")
-    console.error(
-      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
-    )
-    console.error(
-      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
-    )
-  } else {
-    throw e
-  }
-}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -13878,17 +13790,28 @@ var render = function () {
           _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }),
           _c(
             "uni-view",
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            [
+              _c("uni-view", {
+                staticClass: _vm._$g(5, "sc"),
+                attrs: { _i: 5 },
+              }),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
             {
-              staticClass: _vm._$g(4, "sc"),
-              style: _vm._$g(4, "s"),
-              attrs: { _i: 4 },
+              staticClass: _vm._$g(6, "sc"),
+              style: _vm._$g(6, "s"),
+              attrs: { _i: 6 },
             },
             [
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(5, "sc"),
-                  attrs: { _i: 5 },
+                  staticClass: _vm._$g(7, "sc"),
+                  attrs: { _i: 7 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -13896,32 +13819,23 @@ var render = function () {
                   },
                 },
                 [
-                  _c("uni-view", {
-                    staticClass: _vm._$g(6, "sc"),
-                    attrs: { _i: 6 },
-                  }),
-                  _c("v-uni-text", { attrs: { _i: 7 } }, [_vm._v("返回")]),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                    [_vm._v("〈")]
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                    [_vm._v("返回")]
+                  ),
                 ],
                 1
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
                 [
-                  _c(
-                    "uni-view",
-                    {
-                      staticClass: _vm._$g(9, "sc"),
-                      attrs: { _i: 9 },
-                      on: {
-                        click: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
-                    [_c("uni-icons", { attrs: { _i: 10 } })],
-                    1
-                  ),
                   _c(
                     "uni-view",
                     {
@@ -13933,67 +13847,24 @@ var render = function () {
                         },
                       },
                     },
-                    [_c("uni-icons", { attrs: { _i: 12 } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                [_vm._v("文物景点")]
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
-                [_vm._v(_vm._$g(15, "t0-0"))]
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
                     [
-                      _c("uni-icons", { attrs: { _i: 18 } }),
-                      _c("uni-icons", { attrs: { _i: 19 } }),
-                      _c("uni-icons", { attrs: { _i: 20 } }),
-                      _c("uni-icons", { attrs: { _i: 21 } }),
-                      _c("uni-icons", { attrs: { _i: 22 } }),
+                      _c(
+                        "v-uni-text",
+                        {
+                          staticClass: _vm._$g(12, "sc"),
+                          class: _vm._$g(12, "c"),
+                          attrs: { _i: 12 },
+                        },
+                        [_vm._v("♥")]
+                      ),
                     ],
                     1
                   ),
                   _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-                    [_vm._v(_vm._$g(23, "t0-0"))]
-                  ),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
-                    [_vm._v("(" + _vm._$g(24, "t0-0") + "条评价)")]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-                [
-                  _c(
                     "uni-view",
                     {
-                      staticClass: _vm._$g(26, "sc"),
-                      attrs: { _i: 26 },
+                      staticClass: _vm._$g(13, "sc"),
+                      attrs: { _i: 13 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -14001,21 +13872,11 @@ var render = function () {
                       },
                     },
                     [
-                      _c("uni-icons", { attrs: { _i: 27 } }),
-                      _c("v-uni-text", { attrs: { _i: 28 } }, [
-                        _vm._v(_vm._$g(28, "t0-0")),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-                    [
-                      _c("uni-icons", { attrs: { _i: 30 } }),
-                      _c("v-uni-text", { attrs: { _i: 31 } }, [
-                        _vm._v("建于" + _vm._$g(31, "t0-0")),
-                      ]),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                        [_vm._v("⊕")]
+                      ),
                     ],
                     1
                   ),
@@ -14025,61 +13886,111 @@ var render = function () {
             ],
             1
           ),
-          _c("uni-view", { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } }),
-        ],
-        1
-      ),
-      _vm._$g(33, "i")
-        ? _c(
+          _c(
             "uni-view",
-            { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
-            [
-              _c("uni-view", {
-                staticClass: _vm._$g(34, "sc"),
-                attrs: { _i: 34 },
-              }),
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
-                [_vm._v("加载中...")]
-              ),
-            ],
-            1
-          )
-        : _c(
-            "v-uni-scroll-view",
-            {
-              staticClass: _vm._$g(36, "sc"),
-              attrs: { "scroll-y": "true", _i: 36 },
-            },
+            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                [_vm._v(_vm._$g(16, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                [_vm._v(_vm._$g(17, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                [_vm._v(_vm._$g(18, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(19, "sc"),
+                  attrs: { _i: 19 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                    [_vm._v("📍")]
+                  ),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                    [_vm._v(_vm._$g(21, "t0-0"))]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _c("uni-view", { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } }),
+        ],
+        1
+      ),
+      _c(
+        "v-uni-scroll-view",
+        {
+          staticClass: _vm._$g(23, "sc"),
+          attrs: { "scroll-y": "true", bounces: false, enhanced: true, _i: 23 },
+        },
+        [
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
+                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
                         [
                           _c("uni-view", {
-                            staticClass: _vm._$g(40, "sc"),
-                            attrs: { _i: 40 },
+                            staticClass: _vm._$g(28, "sc"),
+                            attrs: { _i: 28 },
                           }),
-                          _c("v-uni-text", { attrs: { _i: 41 } }, [
-                            _vm._v("景点位置"),
+                          _c("v-uni-text", { attrs: { _i: 29 } }, [
+                            _vm._v("文物简介"),
                           ]),
                         ],
                         1
                       ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                    [
+                      _c(
+                        "v-uni-text",
+                        {
+                          staticClass: _vm._$g(31, "sc"),
+                          class: _vm._$g(31, "c"),
+                          attrs: { _i: 31 },
+                        },
+                        [_vm._v(_vm._$g(31, "t0-0"))]
+                      ),
                       _c(
                         "uni-view",
                         {
-                          staticClass: _vm._$g(42, "sc"),
-                          attrs: { _i: 42 },
+                          staticClass: _vm._$g(32, "sc"),
+                          attrs: { _i: 32 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -14087,293 +13998,16 @@ var render = function () {
                           },
                         },
                         [
-                          _c("v-uni-text", { attrs: { _i: 43 } }, [
-                            _vm._v(_vm._$g(43, "t0-0")),
+                          _c("v-uni-text", { attrs: { _i: 33 } }, [
+                            _vm._v(_vm._$g(33, "t0-0")),
                           ]),
                           _c(
-                            "uni-view",
-                            {
-                              staticClass: _vm._$g(44, "sc"),
-                              attrs: { _i: 44 },
-                            },
-                            [
-                              _c("v-uni-text", { attrs: { _i: 45 } }, [
-                                _vm._v("查看地图"),
-                              ]),
-                              _c("uni-icons", { attrs: { _i: 46 } }),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
-                        [
-                          _c("uni-view", {
-                            staticClass: _vm._$g(49, "sc"),
-                            attrs: { _i: 49 },
-                          }),
-                          _c("v-uni-text", { attrs: { _i: 50 } }, [
-                            _vm._v("文物简介"),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
-                        [
-                          _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g(52, "sc"),
-                              class: _vm._$g(52, "c"),
-                              attrs: { _i: 52 },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$handleViewEvent($event)
-                                },
-                              },
+                              staticClass: _vm._$g(34, "sc"),
+                              attrs: { _i: 34 },
                             },
-                            [_vm._v(_vm._$g(52, "t0-0"))]
-                          ),
-                          _c(
-                            "uni-view",
-                            {
-                              staticClass: _vm._$g(53, "sc"),
-                              attrs: { _i: 53 },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$handleViewEvent($event)
-                                },
-                              },
-                            },
-                            [
-                              _c("v-uni-text", { attrs: { _i: 54 } }, [
-                                _vm._v(_vm._$g(54, "t0-0")),
-                              ]),
-                              _c("uni-icons", { attrs: { _i: 55 } }),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._$g(56, "i")
-                    ? _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
-                        [
-                          _c(
-                            "uni-view",
-                            {
-                              staticClass: _vm._$g(57, "sc"),
-                              attrs: { _i: 57 },
-                            },
-                            [
-                              _c("uni-view", {
-                                staticClass: _vm._$g(58, "sc"),
-                                attrs: { _i: 58 },
-                              }),
-                              _c("v-uni-text", { attrs: { _i: 59 } }, [
-                                _vm._v("景点图集"),
-                              ]),
-                            ],
-                            1
-                          ),
-                          _c(
-                            "v-uni-scroll-view",
-                            {
-                              staticClass: _vm._$g(60, "sc"),
-                              attrs: {
-                                "scroll-x": "true",
-                                "show-scrollbar": "false",
-                                _i: 60,
-                              },
-                            },
-                            [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticClass: _vm._$g(61, "sc"),
-                                  attrs: { _i: 61 },
-                                },
-                                _vm._l(
-                                  _vm._$g(62, "f"),
-                                  function (img, index, $20, $30) {
-                                    return _c(
-                                      "uni-view",
-                                      {
-                                        key: img,
-                                        staticClass: _vm._$g("62-" + $30, "sc"),
-                                        attrs: { _i: "62-" + $30 },
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.$handleViewEvent($event)
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _c("v-uni-image", {
-                                          attrs: {
-                                            src: _vm._$g("63-" + $30, "a-src"),
-                                            mode: "aspectFill",
-                                            _i: "63-" + $30,
-                                          },
-                                        }),
-                                      ],
-                                      1
-                                    )
-                                  }
-                                ),
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
-                        [
-                          _c("uni-view", {
-                            staticClass: _vm._$g(66, "sc"),
-                            attrs: { _i: 66 },
-                          }),
-                          _c("v-uni-text", { attrs: { _i: 67 } }, [
-                            _vm._v("文物特色"),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
-                        _vm._l(
-                          _vm._$g(69, "f"),
-                          function (feature, index, $21, $31) {
-                            return _c(
-                              "uni-view",
-                              {
-                                key: feature,
-                                staticClass: _vm._$g("69-" + $31, "sc"),
-                                attrs: { _i: "69-" + $31 },
-                              },
-                              [
-                                _c(
-                                  "uni-view",
-                                  {
-                                    staticClass: _vm._$g("70-" + $31, "sc"),
-                                    attrs: { _i: "70-" + $31 },
-                                  },
-                                  [_vm._v(_vm._$g("70-" + $31, "t0-0"))]
-                                ),
-                                _c(
-                                  "uni-view",
-                                  {
-                                    staticClass: _vm._$g("71-" + $31, "sc"),
-                                    attrs: { _i: "71-" + $31 },
-                                  },
-                                  [_vm._v(_vm._$g("71-" + $31, "t0-0"))]
-                                ),
-                              ],
-                              1
-                            )
-                          }
-                        ),
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
-                    [
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(74, "sc"),
-                              attrs: { _i: 74 },
-                            },
-                            [_vm._v(_vm._$g(74, "t0-0") + "人")]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(75, "sc"),
-                              attrs: { _i: 75 },
-                            },
-                            [_vm._v("月访问量")]
-                          ),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(77, "sc"),
-                              attrs: { _i: 77 },
-                            },
-                            [_vm._v(_vm._$g(77, "t0-0"))]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(78, "sc"),
-                              attrs: { _i: 78 },
-                            },
-                            [_vm._v("建成年份")]
-                          ),
-                        ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
-                        [
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(80, "sc"),
-                              attrs: { _i: 80 },
-                            },
-                            [_vm._v(_vm._$g(80, "t0-0") + "%")]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g(81, "sc"),
-                              attrs: { _i: 81 },
-                            },
-                            [_vm._v("游客满意度")]
+                            [_vm._v(_vm._$g(34, "t0-0"))]
                           ),
                         ],
                         1
@@ -14384,142 +14018,289 @@ var render = function () {
                 ],
                 1
               ),
-              _vm._$g(82, "i")
-                ? _c(
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                [
+                  _c(
                     "uni-view",
-                    { staticClass: _vm._$g(82, "sc"), attrs: { _i: 82 } },
+                    { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
+                        { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
                         [
-                          _c("v-uni-text", { attrs: { _i: 84 } }, [
-                            _vm._v("相关推荐"),
-                          ]),
                           _c("uni-view", {
-                            staticClass: _vm._$g(85, "sc"),
-                            attrs: { _i: 85 },
+                            staticClass: _vm._$g(38, "sc"),
+                            attrs: { _i: 38 },
                           }),
+                          _c("v-uni-text", { attrs: { _i: 39 } }, [
+                            _vm._v("文物特点"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
+                        [_vm._v("建于" + _vm._$g(41, "t0-0"))]
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                        [_vm._v(_vm._$g(42, "t0-0") + "类别")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
+                        [_vm._v("国家一级文物")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                        [_vm._v("可AR体验")]
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._$g(45, "i")
+                ? _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(47, "sc"),
+                              attrs: { _i: 47 },
+                            },
+                            [
+                              _c("uni-view", {
+                                staticClass: _vm._$g(48, "sc"),
+                                attrs: { _i: 48 },
+                              }),
+                              _c("v-uni-text", { attrs: { _i: 49 } }, [
+                                _vm._v("实景图集"),
+                              ]),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(50, "sc"),
+                              attrs: { _i: 50 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
+                            [
+                              _c("v-uni-text", { attrs: { _i: 51 } }, [
+                                _vm._v("查看全部"),
+                              ]),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(52, "sc"),
+                                  attrs: { _i: 52 },
+                                },
+                                [_vm._v("›")]
+                              ),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
                       _c(
-                        "uni-view",
-                        { staticClass: _vm._$g(86, "sc"), attrs: { _i: 86 } },
-                        _vm._l(
-                          _vm._$g(87, "f"),
-                          function (item, index, $22, $32) {
-                            return _c(
-                              "uni-view",
-                              {
-                                key: item,
-                                staticClass: _vm._$g("87-" + $32, "sc"),
-                                attrs: { _i: "87-" + $32 },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.$handleViewEvent($event)
-                                  },
-                                },
-                              },
-                              [
-                                _c("v-uni-image", {
-                                  attrs: {
-                                    src: _vm._$g("88-" + $32, "a-src"),
-                                    mode: "aspectFill",
-                                    _i: "88-" + $32,
-                                  },
-                                }),
-                                _c(
+                        "v-uni-scroll-view",
+                        {
+                          staticClass: _vm._$g(53, "sc"),
+                          attrs: {
+                            "scroll-x": "true",
+                            "show-scrollbar": false,
+                            enhanced: true,
+                            _i: 53,
+                          },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(54, "sc"),
+                              attrs: { _i: 54 },
+                            },
+                            _vm._l(
+                              _vm._$g(55, "f"),
+                              function (img, index, $20, $30) {
+                                return _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("89-" + $32, "sc"),
-                                    attrs: { _i: "89-" + $32 },
+                                    key: img,
+                                    staticClass: _vm._$g("55-" + $30, "sc"),
+                                    attrs: { _i: "55-" + $30 },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.$handleViewEvent($event)
+                                      },
+                                    },
                                   },
                                   [
-                                    _c(
-                                      "v-uni-text",
-                                      {
-                                        staticClass: _vm._$g("90-" + $32, "sc"),
-                                        attrs: { _i: "90-" + $32 },
+                                    _c("v-uni-image", {
+                                      attrs: {
+                                        src: _vm._$g("56-" + $30, "a-src"),
+                                        mode: "aspectFill",
+                                        _i: "56-" + $30,
                                       },
-                                      [_vm._v(_vm._$g("90-" + $32, "t0-0"))]
-                                    ),
-                                    _c(
-                                      "uni-view",
-                                      {
-                                        staticClass: _vm._$g("91-" + $32, "sc"),
-                                        attrs: { _i: "91-" + $32 },
-                                      },
-                                      [
-                                        _c(
-                                          "uni-view",
-                                          {
-                                            staticClass: _vm._$g(
-                                              "92-" + $32,
-                                              "sc"
-                                            ),
-                                            attrs: { _i: "92-" + $32 },
-                                          },
-                                          [
-                                            _c("uni-icons", {
-                                              attrs: { _i: "93-" + $32 },
-                                            }),
-                                            _c(
-                                              "v-uni-text",
-                                              { attrs: { _i: "94-" + $32 } },
-                                              [
-                                                _vm._v(
-                                                  _vm._$g("94-" + $32, "t0-0")
-                                                ),
-                                              ]
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                        _c(
-                                          "v-uni-text",
-                                          {
-                                            staticClass: _vm._$g(
-                                              "95-" + $32,
-                                              "sc"
-                                            ),
-                                            attrs: { _i: "95-" + $32 },
-                                          },
-                                          [_vm._v(_vm._$g("95-" + $32, "t0-0"))]
-                                        ),
-                                      ],
-                                      1
-                                    ),
+                                    }),
+                                    _c("uni-view", {
+                                      staticClass: _vm._$g("57-" + $30, "sc"),
+                                      attrs: { _i: "57-" + $30 },
+                                    }),
                                   ],
                                   1
-                                ),
-                              ],
-                              1
-                            )
-                          }
-                        ),
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                        ],
                         1
                       ),
                     ],
                     1
                   )
                 : _vm._e(),
-              _c("uni-view", {
-                staticClass: _vm._$g(96, "sc"),
-                attrs: { _i: 96 },
-              }),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(58, "sc"), attrs: { _i: 58 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
+                        [
+                          _c("uni-view", {
+                            staticClass: _vm._$g(61, "sc"),
+                            attrs: { _i: 61 },
+                          }),
+                          _c("v-uni-text", { attrs: { _i: 62 } }, [
+                            _vm._v("相关文物"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
+                    _vm._l(_vm._$g(64, "f"), function (item, index, $21, $31) {
+                      return _c(
+                        "uni-view",
+                        {
+                          key: item,
+                          staticClass: _vm._$g("64-" + $31, "sc"),
+                          attrs: { _i: "64-" + $31 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g("65-" + $31, "sc"),
+                              attrs: { _i: "65-" + $31 },
+                            },
+                            [
+                              _c("v-uni-image", {
+                                attrs: {
+                                  src: _vm._$g("66-" + $31, "a-src"),
+                                  mode: "aspectFill",
+                                  _i: "66-" + $31,
+                                },
+                              }),
+                              _c("uni-view", {
+                                staticClass: _vm._$g("67-" + $31, "sc"),
+                                attrs: { _i: "67-" + $31 },
+                              }),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g("68-" + $31, "sc"),
+                              attrs: { _i: "68-" + $31 },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("69-" + $31, "sc"),
+                                  attrs: { _i: "69-" + $31 },
+                                },
+                                [_vm._v(_vm._$g("69-" + $31, "t0-0"))]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("70-" + $31, "sc"),
+                                  attrs: { _i: "70-" + $31 },
+                                },
+                                [_vm._v(_vm._$g("70-" + $31, "t0-0"))]
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  ),
+                ],
+                1
+              ),
             ],
             1
           ),
+          _c("uni-view", { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } }),
+        ],
+        1
+      ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(97, "sc"), attrs: { _i: 97 } },
+        { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
         [
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(98, "sc"),
-              attrs: { _i: 98 },
+              staticClass: _vm._$g(73, "sc"),
+              attrs: { _i: 73 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -14527,50 +14308,47 @@ var render = function () {
               },
             },
             [
-              _c("uni-icons", { attrs: { _i: 99 } }),
-              _c("v-uni-text", { attrs: { _i: 100 } }, [_vm._v("分享")]),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            {
-              staticClass: _vm._$g(101, "sc"),
-              attrs: { _i: 101 },
-              on: {
-                click: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-              },
-            },
-            [
-              _c("uni-icons", { attrs: { _i: 102 } }),
-              _c("v-uni-text", { attrs: { _i: 103 } }, [
-                _vm._v(_vm._$g(103, "t0-0")),
-              ]),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            {
-              staticClass: _vm._$g(104, "sc"),
-              attrs: { _i: 104 },
-              on: {
-                click: function ($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-              },
-            },
-            [
-              _c("uni-icons", { attrs: { _i: 105 } }),
-              _c("v-uni-text", { attrs: { _i: 106 } }, [_vm._v("AR体验")]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(74, "sc"), attrs: { _i: 74 } },
+                [_vm._v("AR")]
+              ),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(75, "sc"), attrs: { _i: 75 } },
+                [_vm._v("体验此文物")]
+              ),
             ],
             1
           ),
         ],
         1
       ),
+      _vm._$g(76, "i")
+        ? _c(
+            "uni-view",
+            { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(77, "sc"), attrs: { _i: 77 } },
+                [
+                  _c("uni-view", {
+                    staticClass: _vm._$g(78, "sc"),
+                    attrs: { _i: 78 },
+                  }),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+                    [_vm._v("加载中...")]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        : _vm._e(),
     ],
     1
   )
@@ -14669,7 +14447,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.detail-container {\n  min-height: 100vh;\n  background-color: #f8f4eb;\n  position: relative;\n}\n.detail-container .page-header {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 460rpx;\n  overflow: hidden;\n  z-index: 5;\n}\n.detail-container .page-header .header-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.detail-container .page-header .header-gradient {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 100%);\n}\n.detail-container .page-header .header-toolbar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30rpx;\n  z-index: 10;\n  height: 100rpx;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .back-btn {\n  display: flex;\n  align-items: center;\n  padding: 12rpx 24rpx;\n  border-radius: 50rpx;\n  background: rgba(0, 0, 0, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  transition: all 0.25s ease;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .back-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background: rgba(0, 0, 0, 0.4);\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon {\n  width: 34rpx;\n  height: 34rpx;\n  position: relative;\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::before, .detail-container .page-header .header-toolbar .back-btn .back-icon::after {\n  content: \"\";\n  position: absolute;\n  left: 10rpx;\n  width: 20rpx;\n  height: 3rpx;\n  background-color: #ffffff;\n  border-radius: 4rpx;\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::before {\n  top: 10rpx;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.detail-container .page-header .header-toolbar .back-btn .back-icon::after {\n  bottom: 10rpx;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n}\n.detail-container .page-header .header-toolbar .back-btn uni-text {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.95);\n  letter-spacing: 2rpx;\n  margin-left: 6rpx;\n}\n.detail-container .page-header .header-toolbar .action-buttons {\n  display: flex;\n  align-items: center;\n  gap: 20rpx;\n}\n.detail-container .page-header .header-toolbar .action-buttons .toolbar-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);\n  transition: all 0.25s ease;\n  pointer-events: auto;\n}\n.detail-container .page-header .header-toolbar .action-buttons .toolbar-btn:active {\n  -webkit-transform: scale(0.92);\n          transform: scale(0.92);\n  background: rgba(0, 0, 0, 0.4);\n}\n.detail-container .page-header .header-info {\n  position: absolute;\n  bottom: 90rpx;\n  left: 40rpx;\n  right: 40rpx;\n  z-index: 2;\n}\n.detail-container .page-header .header-info .header-tag {\n  display: inline-block;\n  font-size: 24rpx;\n  font-weight: bold;\n  color: #ffffff;\n  background-color: rgba(139, 69, 19, 0.8);\n  padding: 6rpx 16rpx;\n  border-radius: 6rpx;\n  margin-bottom: 16rpx;\n  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);\n}\n.detail-container .page-header .header-info .header-title {\n  font-size: 48rpx;\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 16rpx;\n  text-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.3);\n  letter-spacing: 2rpx;\n}\n.detail-container .page-header .header-info .header-meta {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-stars {\n  display: flex;\n  align-items: center;\n}\n.detail-container .page-header .header-info .header-meta .rating-stars uni-icons {\n  margin-right: 4rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-value {\n  font-size: 30rpx;\n  font-weight: bold;\n  color: #ffffff;\n  margin: 0 12rpx;\n}\n.detail-container .page-header .header-info .header-meta .rating-count {\n  font-size: 24rpx;\n  color: rgba(255, 255, 255, 0.8);\n}\n.detail-container .page-header .header-info .header-quick-info {\n  display: flex;\n  align-items: center;\n  gap: 30rpx;\n  margin-top: 20rpx;\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #ffffff;\n  background-color: rgba(0, 0, 0, 0.25);\n  padding: 8rpx 20rpx;\n  border-radius: 50rpx;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item uni-text {\n  margin-left: 8rpx;\n}\n.detail-container .page-header .header-info .header-quick-info .quick-info-item:active {\n  background-color: rgba(0, 0, 0, 0.35);\n}\n.detail-container .page-header .header-wave {\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  right: 0;\n  height: 40rpx;\n  background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"white\" fill-opacity=\"1\" d=\"M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z\"></path></svg>');\n  background-size: cover;\n  background-position: center;\n}\n.detail-container .loading-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: #f8f4eb;\n  z-index: 20;\n}\n.detail-container .loading-container .loading-spinner {\n  width: 60rpx;\n  height: 60rpx;\n  border: 5rpx solid rgba(139, 69, 19, 0.2);\n  border-top-color: rgba(139, 69, 19, 0.8);\n  border-radius: 50%;\n  margin-bottom: 30rpx;\n  -webkit-animation: spin 1.2s linear infinite;\n          animation: spin 1.2s linear infinite;\n}\n.detail-container .loading-container .loading-text {\n  font-size: 28rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll {\n  position: relative;\n  flex: 1;\n  width: 100%;\n  height: calc(100vh - 100rpx);\n  z-index: 2;\n  padding-top: 460rpx;\n}\n.detail-container .detail-scroll .detail-card {\n  padding: 20rpx 30rpx;\n  background-color: #ffffff;\n  border-radius: 30rpx 30rpx 0 0;\n  position: relative;\n  z-index: 3;\n  box-shadow: 0 -6rpx 20rpx rgba(0, 0, 0, 0.08);\n  min-height: calc(100vh - 460rpx);\n}\n.detail-container .detail-scroll .detail-card::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 2px, transparent 2px, transparent 12px);\n  opacity: 0.5;\n  border-radius: 30rpx 30rpx 0 0;\n  z-index: -1;\n}\n.detail-container .detail-scroll .detail-card .info-section {\n  margin-bottom: 50rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title {\n  display: flex;\n  align-items: center;\n  margin-bottom: 20rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .title-icon {\n  width: 36rpx;\n  height: 36rpx;\n  margin-right: 14rpx;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/location.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon::before {\n  content: \"\";\n  width: 14rpx;\n  height: 14rpx;\n  background-color: #8B4513;\n  border-radius: 50%;\n  position: absolute;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .location-icon::after {\n  content: \"\";\n  width: 24rpx;\n  height: 24rpx;\n  border: 2rpx solid #8B4513;\n  border-radius: 50%;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .intro-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/info.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .intro-icon::before {\n  content: \"i\";\n  font-style: italic;\n  font-weight: bold;\n  color: #8B4513;\n  font-size: 24rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/gallery.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon::before {\n  content: \"\";\n  width: 20rpx;\n  height: 16rpx;\n  border: 2rpx solid #8B4513;\n  position: absolute;\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .gallery-icon::after {\n  content: \"\";\n  width: 16rpx;\n  height: 12rpx;\n  border: 2rpx solid #8B4513;\n  position: absolute;\n  background-color: rgba(139, 69, 19, 0.2);\n  top: 4rpx;\n  left: 4rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .feature-icon {\n  /* 删除对外部图片的依赖 */\n  /*background-image: url('/static/icons/feature.png');*/\n  background-color: rgba(139, 69, 19, 0.1);\n  position: relative;\n  /* 使用CSS创建图标 */\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title .feature-icon::before {\n  content: \"✓\";\n  color: #8B4513;\n  font-size: 24rpx;\n  font-weight: bold;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title uni-text {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #333;\n  position: relative;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-title uni-text::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6rpx;\n  left: 0;\n  width: 40rpx;\n  height: 4rpx;\n  background: linear-gradient(to right, #8B4513, transparent);\n  border-radius: 2rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .section-content {\n  font-size: 28rpx;\n  color: #666;\n  line-height: 1.6;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgba(139, 69, 19, 0.05);\n  padding: 20rpx 24rpx;\n  border-radius: 16rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content .location-action {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .location-content .location-action uni-text {\n  margin-right: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .heritage-desc {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n}\n.detail-container .detail-scroll .detail-card .info-section .heritage-desc.expanded {\n  -webkit-line-clamp: initial;\n}\n.detail-container .detail-scroll .detail-card .info-section .expand-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 16rpx;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .expand-btn uni-text {\n  margin-right: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll {\n  width: 100%;\n  white-space: nowrap;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container {\n  display: inline-flex;\n  padding: 10rpx 0;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item {\n  width: 240rpx;\n  height: 160rpx;\n  margin-right: 20rpx;\n  border-radius: 16rpx;\n  overflow: hidden;\n  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.detail-container .detail-scroll .detail-card .info-section .gallery-scroll .gallery-container .gallery-item:last-child {\n  margin-right: 0;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 24rpx;\n  padding: 16rpx 20rpx;\n  background-color: rgba(139, 69, 19, 0.05);\n  border-radius: 12rpx;\n  border-left: 6rpx solid #8B4513;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-dot {\n  display: none;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-title {\n  font-size: 28rpx;\n  font-weight: 600;\n  color: #8B4513;\n  margin-bottom: 8rpx;\n}\n.detail-container .detail-scroll .detail-card .info-section .feature-item .feature-description {\n  font-size: 26rpx;\n  color: #666;\n  line-height: 1.5;\n}\n.detail-container .detail-scroll .detail-card .visitors-section {\n  display: flex;\n  justify-content: space-around;\n  background-color: rgba(139, 69, 19, 0.05);\n  border-radius: 20rpx;\n  padding: 30rpx 0;\n  margin-bottom: 0;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item .visitor-count {\n  font-size: 36rpx;\n  font-weight: bold;\n  color: #8B4513;\n  margin-bottom: 10rpx;\n}\n.detail-container .detail-scroll .detail-card .visitors-section .visitor-item .visitor-label {\n  font-size: 24rpx;\n  color: #666;\n}\n.detail-container .detail-scroll .related-section {\n  margin: 50rpx 30rpx;\n}\n.detail-container .detail-scroll .related-section .section-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 30rpx;\n}\n.detail-container .detail-scroll .related-section .section-header uni-text {\n  font-size: 34rpx;\n  font-weight: 600;\n  color: #333;\n  margin-right: 20rpx;\n}\n.detail-container .detail-scroll .related-section .section-header .header-decor {\n  flex: 1;\n  height: 1px;\n  background: linear-gradient(to right, #8B4513, transparent);\n}\n.detail-container .detail-scroll .related-section .related-list .related-item {\n  display: flex;\n  background-color: #ffffff;\n  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.06);\n  border-radius: 20rpx;\n  padding: 20rpx;\n  margin-bottom: 24rpx;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item uni-image {\n  width: 160rpx;\n  height: 120rpx;\n  border-radius: 12rpx;\n  margin-right: 20rpx;\n  object-fit: cover;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-name {\n  font-size: 28rpx;\n  font-weight: 600;\n  color: #333;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-rating {\n  display: flex;\n  align-items: center;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-rating uni-text {\n  font-size: 24rpx;\n  color: #666;\n  margin-left: 6rpx;\n}\n.detail-container .detail-scroll .related-section .related-list .related-item .related-info .related-meta .related-distance {\n  font-size: 24rpx;\n  color: #8B4513;\n}\n.detail-container .detail-scroll .bottom-space {\n  height: 120rpx;\n}\n.detail-container .action-bar {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 100rpx;\n  background-color: #ffffff;\n  display: flex;\n  align-items: center;\n  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.08);\n  z-index: 10;\n}\n.detail-container .action-bar .action-btn {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.detail-container .action-bar .action-btn uni-text {\n  font-size: 24rpx;\n  margin-top: 6rpx;\n  color: #666;\n}\n.detail-container .action-bar .action-btn.ar-btn {\n  flex: 1.5;\n  background: linear-gradient(135deg, #8B4513, #D2691E);\n  margin: 10rpx 30rpx;\n  border-radius: 50rpx;\n  box-shadow: 0 6rpx 16rpx rgba(139, 69, 19, 0.2);\n}\n.detail-container .action-bar .action-btn.ar-btn uni-text {\n  color: #FFFFFF;\n  font-weight: 500;\n}\n.detail-container .action-bar .action-btn:active {\n  opacity: 0.8;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.heritage-detail-page {\n  position: relative;\n  min-height: 100vh;\n  background-color: #f8f5f0;\n  font-family: \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif;\n}\n/* 顶部图片区域 */\n.header-section {\n  position: relative;\n  height: 500rpx;\n  overflow: hidden;\n}\n.header-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.header-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.7) 100%);\n}\n/* 古建筑风格顶部装饰 */\n.header-decoration {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 20rpx;\n  z-index: 5;\n  overflow: hidden;\n}\n.decoration-line {\n  width: 100%;\n  height: 15rpx;\n  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0px, rgba(255, 255, 255, 0.6) 10px, transparent 10px, transparent 20px);\n}\n/* 顶部导航栏 */\n.top-toolbar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 90rpx;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 10;\n}\n.back-button {\n  display: flex;\n  align-items: center;\n  height: 70rpx;\n  padding: 0 20rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 35rpx;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.back-icon {\n  font-size: 40rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-right: 8rpx;\n}\n.back-text {\n  font-size: 28rpx;\n  color: #fff;\n}\n.action-buttons {\n  display: flex;\n  align-items: center;\n}\n.action-btn {\n  width: 70rpx;\n  height: 70rpx;\n  border-radius: 35rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-left: 20rpx;\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n}\n.icon-star, .icon-share {\n  font-size: 36rpx;\n  color: #fff;\n}\n.icon-star.filled {\n  color: #FFD700;\n}\n/* 标题信息区域 */\n.header-info {\n  position: absolute;\n  left: 30rpx;\n  right: 30rpx;\n  bottom: 80rpx;\n  z-index: 10;\n}\n.header-category {\n  display: inline-block;\n  font-size: 24rpx;\n  color: #fff;\n  background-color: rgba(139, 69, 19, 0.8);\n  padding: 6rpx 20rpx;\n  border-radius: 20rpx;\n  margin-bottom: 15rpx;\n}\n.header-title {\n  font-size: 48rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-bottom: 10rpx;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n}\n.header-period {\n  font-size: 28rpx;\n  color: rgba(255, 255, 255, 0.9);\n  margin-bottom: 15rpx;\n}\n.header-location {\n  display: flex;\n  align-items: center;\n  margin-top: 20rpx;\n}\n.location-icon {\n  font-size: 28rpx;\n  margin-right: 10rpx;\n}\n.location-text {\n  font-size: 26rpx;\n  color: rgba(255, 255, 255, 0.9);\n}\n/* 波浪形装饰 */\n.header-wave {\n  position: absolute;\n  bottom: -2rpx;\n  left: 0;\n  right: 0;\n  height: 40rpx;\n  background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%23f8f5f0\" fill-opacity=\"1\" d=\"M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z\"></path></svg>');\n  background-size: cover;\n  background-position: center;\n  z-index: 5;\n}\n/* 内容区域 */\n.content-scroll {\n  position: relative;\n  flex: 1;\n  width: 100%;\n  height: calc(100vh - 500rpx);\n  z-index: 2;\n}\n.content-card {\n  padding: 30rpx;\n  padding-top: 0;\n  background-color: #f8f5f0;\n  position: relative;\n  z-index: 3;\n}\n/* 区块通用样式 */\n.section {\n  margin-bottom: 40rpx;\n  background-color: #fff;\n  border-radius: 20rpx;\n  padding: 30rpx;\n  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);\n  position: relative;\n  overflow: hidden;\n  /* 背景纹理 */\n}\n.section::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-image: repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 2px, transparent 2px, transparent 12px);\n  opacity: 0.3;\n  z-index: -1;\n}\n.section-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 25rpx;\n}\n.section-title {\n  display: flex;\n  align-items: center;\n  font-size: 32rpx;\n  font-weight: bold;\n  color: #654321;\n}\n.title-decoration {\n  width: 8rpx;\n  height: 30rpx;\n  background-color: #8B4513;\n  margin-right: 15rpx;\n  border-radius: 4rpx;\n}\n.view-all {\n  display: flex;\n  align-items: center;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.arrow-icon {\n  margin-left: 5rpx;\n  font-size: 26rpx;\n}\n/* 描述区块 */\n.description-text {\n  font-size: 28rpx;\n  line-height: 1.7;\n  color: #333;\n  text-align: justify;\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  overflow: hidden;\n  transition: all 0.3s ease;\n}\n.description-text.expanded {\n  -webkit-line-clamp: unset;\n  max-height: none;\n}\n.expand-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 20rpx;\n  font-size: 26rpx;\n  color: #8B4513;\n}\n.expand-icon {\n  margin-left: 10rpx;\n}\n/* 特点标签区域 */\n.features-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 20rpx;\n}\n.feature-tag {\n  font-size: 24rpx;\n  padding: 10rpx 25rpx;\n  border-radius: 30rpx;\n  color: #8B4513;\n  background-color: rgba(139, 69, 19, 0.08);\n  border: 1px solid rgba(139, 69, 19, 0.1);\n}\n/* 图片区域 */\n.gallery-scroll {\n  width: 100%;\n  white-space: nowrap;\n}\n.gallery-items {\n  display: inline-flex;\n  padding: 10rpx 0;\n}\n.gallery-item {\n  width: 240rpx;\n  height: 180rpx;\n  border-radius: 15rpx;\n  overflow: hidden;\n  margin-right: 20rpx;\n  position: relative;\n}\n.gallery-item uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.gallery-item .item-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.5));\n}\n.gallery-item:active uni-image {\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05);\n}\n/* 相关推荐 */\n.related-items {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 20rpx;\n}\n.related-item {\n  border-radius: 15rpx;\n  overflow: hidden;\n  background-color: #fff;\n  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);\n}\n.item-image-container {\n  height: 180rpx;\n  position: relative;\n}\n.item-image-container uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.item-image-container .item-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.4));\n}\n.item-info {\n  padding: 15rpx;\n}\n.item-name {\n  font-size: 26rpx;\n  font-weight: bold;\n  color: #333;\n  display: block;\n  margin-bottom: 5rpx;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.item-period {\n  font-size: 22rpx;\n  color: #8B4513;\n}\n/* 底部安全区域 */\n.safe-area-bottom {\n  height: 120rpx;\n}\n/* 底部AR体验按钮 */\n.bottom-action {\n  position: fixed;\n  left: 30rpx;\n  right: 30rpx;\n  bottom: 30rpx;\n  z-index: 50;\n}\n.ar-button {\n  height: 90rpx;\n  border-radius: 45rpx;\n  background: linear-gradient(135deg, #9B5523, #7B3503);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 8rpx 20rpx rgba(139, 69, 19, 0.3);\n}\n.ar-icon {\n  font-size: 28rpx;\n  font-weight: bold;\n  color: #fff;\n  margin-right: 15rpx;\n  background-color: rgba(255, 255, 255, 0.2);\n  padding: 5rpx 10rpx;\n  border-radius: 10rpx;\n}\n.ar-text {\n  font-size: 30rpx;\n  color: #fff;\n  font-weight: bold;\n}\n/* 加载中状态 */\n.loading-mask {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(248, 245, 240, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n}\n.loading-content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.loading-spinner {\n  width: 70rpx;\n  height: 70rpx;\n  border: 4rpx solid rgba(139, 69, 19, 0.1);\n  border-top-color: #8B4513;\n  border-radius: 50%;\n  -webkit-animation: spin 1s linear infinite;\n          animation: spin 1s linear infinite;\n}\n.loading-text {\n  font-size: 28rpx;\n  color: #8B4513;\n  margin-top: 20rpx;\n}\n@-webkit-keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes spin {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -18213,7 +17991,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.create-post {\n  min-height: 100vh;\n  background-color: #f5f6fa;\n}\n.create-post .nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n}\n.create-post .nav-bar .left {\n  padding: 20rpx;\n}\n.create-post .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #333;\n}\n.create-post .nav-bar .right {\n  padding: 20rpx;\n}\n.create-post .nav-bar .right .submit-btn {\n  font-size: 28rpx;\n  color: #4a90e2;\n  font-weight: 500;\n}\n.create-post .nav-bar .right .submit-btn.disabled {\n  color: #999;\n}\n.create-post .post-content {\n  margin-top: 108rpx;\n  padding: 30rpx;\n}\n.create-post .post-content .input-group {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 24rpx;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.create-post .post-content .input-group uni-input {\n  font-size: 32rpx;\n  color: #333;\n}\n.create-post .post-content .input-group .picker {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 32rpx;\n  color: #333;\n}\n.create-post .post-content .input-group.content {\n  height: 400rpx;\n}\n.create-post .post-content .input-group.content uni-textarea {\n  width: 100%;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n  line-height: 1.6;\n}\n.create-post .post-content .input-group .word-count {\n  position: absolute;\n  right: 24rpx;\n  bottom: 24rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n.create-post .post-content .upload-section {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 24rpx;\n}\n.create-post .post-content .upload-section .upload-title {\n  font-size: 28rpx;\n  color: #333;\n  margin-bottom: 20rpx;\n}\n.create-post .post-content .upload-section .image-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 20rpx;\n}\n.create-post .post-content .upload-section .image-list .image-item {\n  width: 200rpx;\n  height: 200rpx;\n  position: relative;\n  border-radius: 12rpx;\n  overflow: hidden;\n}\n.create-post .post-content .upload-section .image-list .image-item uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.create-post .post-content .upload-section .image-list .image-item .delete-btn {\n  position: absolute;\n  top: 10rpx;\n  right: 10rpx;\n  width: 40rpx;\n  height: 40rpx;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.create-post .post-content .upload-section .image-list .upload-btn {\n  width: 200rpx;\n  height: 200rpx;\n  background-color: #f5f6fa;\n  border-radius: 12rpx;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 2rpx dashed #ddd;\n}\n.create-post .post-content .upload-section .image-list .upload-btn uni-text {\n  font-size: 24rpx;\n  color: #999;\n  margin-top: 10rpx;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.create-post {\n  min-height: 100vh;\n  background-color: #f5f6fa;\n}\n.create-post .nav-bar {\n  position: fixed;\n  top: var(--status-bar-height);\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n}\n.create-post .nav-bar .left {\n  padding: 20rpx;\n}\n.create-post .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #333;\n}\n.create-post .nav-bar .right {\n  padding: 20rpx;\n}\n.create-post .nav-bar .right .submit-btn {\n  font-size: 28rpx;\n  color: #4a90e2;\n  font-weight: 500;\n}\n.create-post .nav-bar .right .submit-btn.disabled {\n  color: #999;\n}\n.create-post .post-content {\n  margin-top: calc(var(--status-bar-height) + 108rpx);\n  padding: 30rpx;\n}\n.create-post .post-content .input-group {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 24rpx;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.create-post .post-content .input-group uni-input {\n  font-size: 32rpx;\n  color: #333;\n}\n.create-post .post-content .input-group .picker {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 32rpx;\n  color: #333;\n}\n.create-post .post-content .input-group.content {\n  height: 400rpx;\n}\n.create-post .post-content .input-group.content uni-textarea {\n  width: 100%;\n  height: 100%;\n  font-size: 28rpx;\n  color: #333;\n  line-height: 1.6;\n}\n.create-post .post-content .input-group .word-count {\n  position: absolute;\n  right: 24rpx;\n  bottom: 24rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n.create-post .post-content .upload-section {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 24rpx;\n}\n.create-post .post-content .upload-section .upload-title {\n  font-size: 28rpx;\n  color: #333;\n  margin-bottom: 20rpx;\n}\n.create-post .post-content .upload-section .image-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 20rpx;\n}\n.create-post .post-content .upload-section .image-list .image-item {\n  width: 200rpx;\n  height: 200rpx;\n  position: relative;\n  border-radius: 12rpx;\n  overflow: hidden;\n}\n.create-post .post-content .upload-section .image-list .image-item uni-image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.create-post .post-content .upload-section .image-list .image-item .delete-btn {\n  position: absolute;\n  top: 10rpx;\n  right: 10rpx;\n  width: 40rpx;\n  height: 40rpx;\n  background-color: rgba(0, 0, 0, 0.5);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.create-post .post-content .upload-section .image-list .upload-btn {\n  width: 200rpx;\n  height: 200rpx;\n  background-color: #f5f6fa;\n  border-radius: 12rpx;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 2rpx dashed #ddd;\n}\n.create-post .post-content .upload-section .image-list .upload-btn uni-text {\n  font-size: 24rpx;\n  color: #999;\n  margin-top: 10rpx;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -19230,12 +19008,9 @@ if(false) {}
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/app-plus/getUrl.js */ 14);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/static/forum/paper-texture.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 exports = ___CSS_LOADER_API_IMPORT___(false);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.post-detail {\n  min-height: 100vh;\n  background-color: #f8f5f0;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-repeat: repeat;\n  padding-bottom: 100rpx;\n}\n.post-detail .nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .nav-bar .left,\n.post-detail .nav-bar .right {\n  padding: 20rpx;\n  transition: opacity 0.3s ease;\n}\n.post-detail .nav-bar .left:active,\n.post-detail .nav-bar .right:active {\n  opacity: 0.7;\n}\n.post-detail .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content {\n  margin-top: 108rpx;\n  background-color: rgba(255, 255, 255, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 30rpx;\n  -webkit-animation: fadeIn 0.5s ease-out;\n          animation: fadeIn 0.5s ease-out;\n  border-radius: 20rpx;\n  margin: 118rpx 20rpx 20rpx;\n  box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.post-detail .post-content .post-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 30rpx;\n  padding-bottom: 20rpx;\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-header .author-info {\n  display: flex;\n  align-items: center;\n}\n.post-detail .post-content .post-header .author-info .avatar {\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  margin-right: 20rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .post-header .author-info .info .name {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #8b4513;\n  margin-bottom: 4rpx;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content .post-header .author-info .info .time {\n  font-size: 24rpx;\n  color: #a0522d;\n}\n.post-detail .post-content .post-header .post-actions .delete-btn {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n}\n.post-detail .post-content .post-header .post-actions .delete-btn:active {\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .content {\n  margin-bottom: 30rpx;\n}\n.post-detail .post-content .content .title {\n  font-size: 36rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 20rpx;\n  line-height: 1.4;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content .content .text {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.8;\n  text-align: justify;\n  font-family: \"宋体\", SimSun, serif;\n}\n.post-detail .post-content .tags {\n  display: flex;\n  margin-bottom: 30rpx;\n  flex-wrap: wrap;\n  gap: 12rpx;\n}\n.post-detail .post-content .tags .tag {\n  padding: 6rpx 20rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 20rpx;\n  font-size: 24rpx;\n  color: #8b4513;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .tags .tag:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.post-detail .post-content .tags .tag.essence {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .tags .tag.category {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .stats {\n  display: flex;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n  padding-top: 30rpx;\n  margin-bottom: 30rpx;\n}\n.post-detail .post-content .stats .stat-item {\n  flex: 1;\n  text-align: center;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.post-detail .post-content .stats .stat-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.post-detail .post-content .stats .stat-item .label {\n  font-size: 24rpx;\n  color: #a0522d;\n  margin-bottom: 8rpx;\n}\n.post-detail .post-content .stats .stat-item .value {\n  font-size: 32rpx;\n  color: #8b4513;\n  font-weight: 600;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n}\n.post-detail .post-content .post-actions {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 20rpx 0;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n  margin-top: 20rpx;\n}\n.post-detail .post-content .post-actions .action {\n  display: flex;\n  align-items: center;\n  padding: 12rpx 30rpx;\n  border-radius: 30rpx;\n  transition: all 0.3s ease;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-actions .action:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-actions .action uni-icons {\n  margin-right: 8rpx;\n}\n.post-detail .post-content .post-actions .action uni-text {\n  font-size: 28rpx;\n  color: #8b4513;\n}\n.post-detail .comments {\n  margin: 20rpx;\n  background-color: rgba(255, 255, 255, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 30rpx;\n  -webkit-animation: slideUp 0.5s ease-out;\n          animation: slideUp 0.5s ease-out;\n  border-radius: 20rpx;\n  box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n@-webkit-keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.post-detail .comments .section-title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 30rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .empty {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 60rpx 0;\n}\n.post-detail .comments .empty uni-image {\n  width: 200rpx;\n  height: 200rpx;\n  margin-bottom: 20rpx;\n  opacity: 0.8;\n}\n.post-detail .comments .empty uni-text {\n  font-size: 28rpx;\n  color: #a0522d;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .comment-item {\n  padding: 30rpx 0;\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.post-detail .comments .comment-list .comment-item:last-child {\n  border-bottom: none;\n}\n.post-detail .comments .comment-list .comment-item:active {\n  -webkit-transform: translateX(4rpx);\n          transform: translateX(4rpx);\n}\n.post-detail .comments .comment-list .comment-item .comment-user {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .avatar {\n  width: 64rpx;\n  height: 64rpx;\n  border-radius: 50%;\n  margin-right: 16rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .comments .comment-list .comment-item .comment-user .info .name {\n  font-size: 26rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 4rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .info .time {\n  font-size: 22rpx;\n  color: #a0522d;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .delete-btn {\n  margin-left: auto;\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .delete-btn:active {\n  background-color: rgba(255, 77, 79, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-content {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.6;\n  margin-bottom: 16rpx;\n  padding-left: 80rpx;\n  font-family: \"宋体\", SimSun, serif;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions {\n  display: flex;\n  padding-left: 80rpx;\n  gap: 20rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action {\n  display: flex;\n  align-items: center;\n  padding: 6rpx 16rpx;\n  border-radius: 20rpx;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action uni-icons {\n  margin-right: 4rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action uni-text {\n  font-size: 24rpx;\n  color: #8b4513;\n}\n.post-detail .comments .comment-list .load-more {\n  text-align: center;\n  padding: 30rpx 0;\n  color: #a0522d;\n  font-size: 26rpx;\n  transition: opacity 0.3s ease;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .load-more:active {\n  opacity: 0.7;\n}\n.post-detail .comment-input {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 20rpx 30rpx;\n  display: flex;\n  align-items: center;\n  box-shadow: 0 -2rpx 10rpx rgba(139, 69, 19, 0.1);\n  -webkit-animation: slideUp 0.3s ease-out;\n          animation: slideUp 0.3s ease-out;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input uni-input {\n  flex: 1;\n  height: 72rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 36rpx;\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  margin-right: 20rpx;\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n}\n.post-detail .comment-input uni-input:focus {\n  background-color: rgba(255, 255, 255, 0.95);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input .send-btn {\n  width: 120rpx;\n  height: 72rpx;\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  border-radius: 36rpx;\n  color: #fff;\n  font-size: 28rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  border: none;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comment-input .send-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 4rpx rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input .send-btn[disabled] {\n  background: #ccc;\n  box-shadow: none;\n}\n.post-detail .edit-btn {\n  padding: 20rpx;\n  transition: opacity 0.3s ease;\n}\n.post-detail .edit-btn:active {\n  opacity: 0.7;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.post-detail {\n  min-height: 100vh;\n  background-color: #f8f5f0;\n  background: linear-gradient(135deg, #f8f5f0 0%, #fff5e6 100%);\n  padding-top: var(--status-bar-height);\n  padding-bottom: 100rpx;\n}\n.post-detail .nav-bar {\n  position: fixed;\n  top: var(--status-bar-height);\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .nav-bar .left,\n.post-detail .nav-bar .right {\n  padding: 20rpx;\n  transition: opacity 0.3s ease;\n}\n.post-detail .nav-bar .left:active,\n.post-detail .nav-bar .right:active {\n  opacity: 0.7;\n}\n.post-detail .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content {\n  margin-top: calc(var(--status-bar-height) + 108rpx);\n  background-color: rgba(255, 255, 255, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 30rpx;\n  -webkit-animation: fadeIn 0.5s ease-out;\n          animation: fadeIn 0.5s ease-out;\n  border-radius: 20rpx;\n  margin: calc(var(--status-bar-height) + 108rpx) 20rpx 20rpx;\n  box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n@-webkit-keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.post-detail .post-content .post-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 30rpx;\n  padding-bottom: 20rpx;\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-header .author-info {\n  display: flex;\n  align-items: center;\n}\n.post-detail .post-content .post-header .author-info .avatar {\n  width: 80rpx;\n  height: 80rpx;\n  border-radius: 50%;\n  margin-right: 20rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .post-header .author-info .info .name {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #8b4513;\n  margin-bottom: 4rpx;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content .post-header .author-info .info .time {\n  font-size: 24rpx;\n  color: #a0522d;\n}\n.post-detail .post-content .post-header .post-actions .delete-btn {\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n}\n.post-detail .post-content .post-header .post-actions .delete-btn:active {\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .content {\n  margin-bottom: 30rpx;\n}\n.post-detail .post-content .content .title {\n  font-size: 36rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 20rpx;\n  line-height: 1.4;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .post-content .content .text {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.8;\n  text-align: justify;\n  font-family: \"宋体\", SimSun, serif;\n}\n.post-detail .post-content .tags {\n  display: flex;\n  margin-bottom: 30rpx;\n  flex-wrap: wrap;\n  gap: 12rpx;\n}\n.post-detail .post-content .tags .tag {\n  padding: 6rpx 20rpx;\n  background-color: rgba(139, 69, 19, 0.1);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 20rpx;\n  font-size: 24rpx;\n  color: #8b4513;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .tags .tag:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.post-detail .post-content .tags .tag.essence {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .tags .tag.category {\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  color: #fff;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .post-content .stats {\n  display: flex;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n  padding-top: 30rpx;\n  margin-bottom: 30rpx;\n}\n.post-detail .post-content .stats .stat-item {\n  flex: 1;\n  text-align: center;\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.post-detail .post-content .stats .stat-item:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.post-detail .post-content .stats .stat-item .label {\n  font-size: 24rpx;\n  color: #a0522d;\n  margin-bottom: 8rpx;\n}\n.post-detail .post-content .stats .stat-item .value {\n  font-size: 32rpx;\n  color: #8b4513;\n  font-weight: 600;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n}\n.post-detail .post-content .post-actions {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 20rpx 0;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n  margin-top: 20rpx;\n}\n.post-detail .post-content .post-actions .action {\n  display: flex;\n  align-items: center;\n  padding: 12rpx 30rpx;\n  border-radius: 30rpx;\n  transition: all 0.3s ease;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-actions .action:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .post-content .post-actions .action uni-icons {\n  margin-right: 8rpx;\n}\n.post-detail .post-content .post-actions .action uni-text {\n  font-size: 28rpx;\n  color: #8b4513;\n}\n.post-detail .comments {\n  margin: 20rpx;\n  background-color: rgba(255, 255, 255, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 30rpx;\n  -webkit-animation: slideUp 0.5s ease-out;\n          animation: slideUp 0.5s ease-out;\n  border-radius: 20rpx;\n  box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.1);\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n@-webkit-keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n@keyframes slideUp {\nfrom {\n    opacity: 0;\n    -webkit-transform: translateY(20rpx);\n            transform: translateY(20rpx);\n}\nto {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n}\n.post-detail .comments .section-title {\n  font-size: 32rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 30rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .empty {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 60rpx 0;\n}\n.post-detail .comments .empty uni-image {\n  width: 200rpx;\n  height: 200rpx;\n  margin-bottom: 20rpx;\n  opacity: 0.8;\n}\n.post-detail .comments .empty uni-text {\n  font-size: 28rpx;\n  color: #a0522d;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .comment-item {\n  padding: 30rpx 0;\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.post-detail .comments .comment-list .comment-item:last-child {\n  border-bottom: none;\n}\n.post-detail .comments .comment-list .comment-item:active {\n  -webkit-transform: translateX(4rpx);\n          transform: translateX(4rpx);\n}\n.post-detail .comments .comment-list .comment-item .comment-user {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .avatar {\n  width: 64rpx;\n  height: 64rpx;\n  border-radius: 50%;\n  margin-right: 16rpx;\n  border: 2rpx solid #8b4513;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n}\n.post-detail .comments .comment-list .comment-item .comment-user .info .name {\n  font-size: 26rpx;\n  font-weight: 600;\n  color: #8b4513;\n  margin-bottom: 4rpx;\n  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .info .time {\n  font-size: 22rpx;\n  color: #a0522d;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .delete-btn {\n  margin-left: auto;\n  padding: 10rpx;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n}\n.post-detail .comments .comment-list .comment-item .comment-user .delete-btn:active {\n  background-color: rgba(255, 77, 79, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-content {\n  font-size: 28rpx;\n  color: #5c4033;\n  line-height: 1.6;\n  margin-bottom: 16rpx;\n  padding-left: 80rpx;\n  font-family: \"宋体\", SimSun, serif;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions {\n  display: flex;\n  padding-left: 80rpx;\n  gap: 20rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action {\n  display: flex;\n  align-items: center;\n  padding: 6rpx 16rpx;\n  border-radius: 20rpx;\n  background-color: rgba(139, 69, 19, 0.05);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  background-color: rgba(139, 69, 19, 0.1);\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action uni-icons {\n  margin-right: 4rpx;\n}\n.post-detail .comments .comment-list .comment-item .comment-actions .action uni-text {\n  font-size: 24rpx;\n  color: #8b4513;\n}\n.post-detail .comments .comment-list .load-more {\n  text-align: center;\n  padding: 30rpx 0;\n  color: #a0522d;\n  font-size: 26rpx;\n  transition: opacity 0.3s ease;\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comments .comment-list .load-more:active {\n  opacity: 0.7;\n}\n.post-detail .comment-input {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  padding: 20rpx 30rpx;\n  display: flex;\n  align-items: center;\n  box-shadow: 0 -2rpx 10rpx rgba(139, 69, 19, 0.1);\n  -webkit-animation: slideUp 0.3s ease-out;\n          animation: slideUp 0.3s ease-out;\n  border-top: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input uni-input {\n  flex: 1;\n  height: 72rpx;\n  background-color: rgba(255, 255, 255, 0.8);\n  -webkit-backdrop-filter: blur(5px);\n          backdrop-filter: blur(5px);\n  border-radius: 36rpx;\n  padding: 0 30rpx;\n  font-size: 28rpx;\n  margin-right: 20rpx;\n  transition: all 0.3s ease;\n  border: 1rpx solid rgba(139, 69, 19, 0.2);\n}\n.post-detail .comment-input uni-input:focus {\n  background-color: rgba(255, 255, 255, 0.95);\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input .send-btn {\n  width: 120rpx;\n  height: 72rpx;\n  background: linear-gradient(135deg, #8b4513, #a0522d);\n  border-radius: 36rpx;\n  color: #fff;\n  font-size: 28rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  border: none;\n  box-shadow: 0 2rpx 8rpx rgba(139, 69, 19, 0.2);\n  font-family: \"楷体\", KaiTi, serif;\n}\n.post-detail .comment-input .send-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n  box-shadow: 0 2rpx 4rpx rgba(139, 69, 19, 0.1);\n}\n.post-detail .comment-input .send-btn[disabled] {\n  background: #ccc;\n  box-shadow: none;\n}\n.post-detail .edit-btn {\n  padding: 20rpx;\n  transition: opacity 0.3s ease;\n}\n.post-detail .edit-btn:active {\n  opacity: 0.7;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -19594,7 +19369,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.edit-post {\n  min-height: 100vh;\n  background-color: #f5f6fa;\n}\n.edit-post .nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n}\n.edit-post .nav-bar .left {\n  padding: 20rpx;\n}\n.edit-post .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #333;\n}\n.edit-post .nav-bar .submit-btn {\n  padding: 12rpx 30rpx;\n  background: linear-gradient(135deg, #4a90e2, #57b6e9);\n  border-radius: 30rpx;\n  color: #fff;\n  font-size: 28rpx;\n}\n.edit-post .nav-bar .submit-btn.disabled {\n  background: #ccc;\n  opacity: 0.7;\n}\n.edit-post .nav-bar .submit-btn:active {\n  opacity: 0.8;\n}\n.edit-post .form {\n  margin-top: 108rpx;\n  padding: 30rpx;\n}\n.edit-post .form .form-item {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.edit-post .form .form-item uni-input {\n  font-size: 32rpx;\n  color: #333;\n  width: 100%;\n}\n.edit-post .form .form-item uni-textarea {\n  width: 100%;\n  height: 400rpx;\n  font-size: 28rpx;\n  color: #333;\n  line-height: 1.6;\n}\n.edit-post .form .form-item .count {\n  position: absolute;\n  right: 20rpx;\n  bottom: 20rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n.edit-post .form .form-item .picker {\n  display: flex;\n  align-items: center;\n  height: 80rpx;\n}\n.edit-post .form .form-item .picker .label {\n  font-size: 28rpx;\n  color: #666;\n  margin-right: 20rpx;\n}\n.edit-post .form .form-item .picker .value {\n  flex: 1;\n  font-size: 28rpx;\n  color: #333;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.edit-post {\n  min-height: 100vh;\n  background-color: #f8f5f0;\n  background: linear-gradient(135deg, #f8f5f0 0%, #fff5e6 100%);\n  padding-top: var(--status-bar-height);\n  padding-bottom: 100rpx;\n}\n.edit-post .nav-bar {\n  position: fixed;\n  top: var(--status-bar-height);\n  left: 0;\n  right: 0;\n  height: 88rpx;\n  background-color: rgba(248, 245, 240, 0.95);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 30rpx;\n  z-index: 100;\n  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);\n  border-bottom: 1rpx solid rgba(139, 69, 19, 0.1);\n}\n.edit-post .nav-bar .left {\n  padding: 20rpx;\n}\n.edit-post .nav-bar .title {\n  font-size: 32rpx;\n  font-weight: 500;\n  color: #333;\n}\n.edit-post .nav-bar .submit-btn {\n  padding: 12rpx 30rpx;\n  background: linear-gradient(135deg, #4a90e2, #57b6e9);\n  border-radius: 30rpx;\n  color: #fff;\n  font-size: 28rpx;\n}\n.edit-post .nav-bar .submit-btn.disabled {\n  background: #ccc;\n  opacity: 0.7;\n}\n.edit-post .nav-bar .submit-btn:active {\n  opacity: 0.8;\n}\n.edit-post .form {\n  margin-top: calc(var(--status-bar-height) + 108rpx);\n  padding: 30rpx;\n}\n.edit-post .form .form-item {\n  background-color: #fff;\n  border-radius: 16rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  position: relative;\n}\n.edit-post .form .form-item uni-input {\n  font-size: 32rpx;\n  color: #333;\n  width: 100%;\n}\n.edit-post .form .form-item uni-textarea {\n  width: 100%;\n  height: 400rpx;\n  font-size: 28rpx;\n  color: #333;\n  line-height: 1.6;\n}\n.edit-post .form .form-item .count {\n  position: absolute;\n  right: 20rpx;\n  bottom: 20rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n.edit-post .form .form-item .picker {\n  display: flex;\n  align-items: center;\n  height: 80rpx;\n}\n.edit-post .form .form-item .picker .label {\n  font-size: 28rpx;\n  color: #666;\n  margin-right: 20rpx;\n}\n.edit-post .form .form-item .picker .value {\n  flex: 1;\n  font-size: 28rpx;\n  color: #333;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -20025,6 +19800,591 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loa
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*每个页面公共css */\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 319 */
+/*!***************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?mpType=page ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./3d-view.vue?vue&type=template&id=163f4775&mpType=page */ 320);
+/* harmony import */ var _3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./3d-view.vue?vue&type=script&lang=js&mpType=page */ 322);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page */ 324);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null,
+  false,
+  _3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "pages/guide/3d-view.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+/* 320 */
+/*!*********************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=template&id=163f4775&mpType=page ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./3d-view.vue?vue&type=template&id=163f4775&mpType=page */ 321);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_template_id_163f4775_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+/* 321 */
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=template&id=163f4775&mpType=page ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+try {
+  components = {
+    uniIcons:
+      __webpack_require__(/*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 5)
+        .default,
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "uni-view",
+    { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
+    [
+      _c(
+        "uni-view",
+        {
+          staticClass: _vm._$g(1, "sc"),
+          style: _vm._$g(1, "s"),
+          attrs: { _i: 1 },
+        },
+        [
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(2, "sc"),
+              attrs: { _i: 2 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [_c("uni-icons", { attrs: { _i: 3 } })],
+            1
+          ),
+          _c(
+            "v-uni-text",
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            [_vm._v(_vm._$g(4, "t0-0"))]
+          ),
+        ],
+        1
+      ),
+      _vm._$g(5, "i")
+        ? _c(
+            "uni-view",
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                    [
+                      _c("uni-view", {
+                        staticClass: _vm._$g(8, "sc"),
+                        attrs: { _i: 8 },
+                      }),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(9, "sc"),
+                        attrs: { _i: 9 },
+                      }),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(10, "sc"),
+                        attrs: { _i: 10 },
+                      }),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(11, "sc"),
+                        attrs: { _i: 11 },
+                      }),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(12, "sc"),
+                        attrs: { _i: 12 },
+                      }),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(13, "sc"),
+                        attrs: { _i: 13 },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                [_vm._v("正在加载3D模型")]
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                [_vm._v("加载时间取决于模型复杂度和网络状况")]
+              ),
+            ],
+            1
+          )
+        : _c(
+            "uni-view",
+            { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+            [
+              _c("v-uni-image", {
+                staticClass: _vm._$g(17, "sc"),
+                attrs: { src: _vm._$g(17, "a-src"), mode: "aspectFit", _i: 17 },
+              }),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(19, "sc"),
+                      attrs: { _i: 19 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 20 } })],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(21, "sc"),
+                      attrs: { _i: 21 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 22 } })],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(23, "sc"),
+                      attrs: { _i: 23 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 24 } })],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(25, "sc"),
+                      attrs: { _i: 25 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_c("uni-icons", { attrs: { _i: 26 } })],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(27, "sc"),
+                  class: _vm._$g(27, "c"),
+                  attrs: { _i: 27 },
+                },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g(28, "sc"),
+                      attrs: { _i: 28 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                        [_vm._v("模型信息")]
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                        [_vm._v(_vm._$g(30, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._$g(31, "i")
+                    ? _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(32, "sc"),
+                              attrs: { _i: 32 },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(33, "sc"),
+                                  attrs: { _i: 33 },
+                                },
+                                [_vm._v("模型名称")]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(34, "sc"),
+                                  attrs: { _i: 34 },
+                                },
+                                [_vm._v(_vm._$g(34, "t0-0"))]
+                              ),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(35, "sc"),
+                              attrs: { _i: 35 },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(36, "sc"),
+                                  attrs: { _i: 36 },
+                                },
+                                [_vm._v("模型类型")]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(37, "sc"),
+                                  attrs: { _i: 37 },
+                                },
+                                [_vm._v("建筑3D模型")]
+                              ),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(38, "sc"),
+                              attrs: { _i: 38 },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(39, "sc"),
+                                  attrs: { _i: 39 },
+                                },
+                                [_vm._v("细节等级")]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(40, "sc"),
+                                  attrs: { _i: 40 },
+                                },
+                                [_vm._v("高精度")]
+                              ),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(41, "sc"),
+                              attrs: { _i: 41 },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(42, "sc"),
+                                  attrs: { _i: 42 },
+                                },
+                                [_vm._v("建造年代")]
+                              ),
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g(43, "sc"),
+                                  attrs: { _i: 43 },
+                                },
+                                [_vm._v(_vm._$g(43, "t0-0"))]
+                              ),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(44, "sc"),
+                              attrs: { _i: 44 },
+                            },
+                            [_vm._v(_vm._$g(44, "t0-0"))]
+                          ),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+        [
+          _c(
+            "v-uni-button",
+            {
+              staticClass: _vm._$g(46, "sc"),
+              attrs: { _i: 46 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 47 } }),
+              _c("v-uni-text", { attrs: { _i: 48 } }, [_vm._v("下载模型")]),
+            ],
+            1
+          ),
+          _c(
+            "v-uni-button",
+            {
+              staticClass: _vm._$g(49, "sc"),
+              attrs: { _i: 49 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 50 } }),
+              _c("v-uni-text", { attrs: { _i: 51 } }, [_vm._v("分享")]),
+            ],
+            1
+          ),
+          _c(
+            "v-uni-button",
+            {
+              staticClass: _vm._$g(52, "sc"),
+              attrs: { _i: 52 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c("uni-icons", { attrs: { _i: 53 } }),
+              _c("v-uni-text", { attrs: { _i: 54 } }, [_vm._v("AR查看")]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 322 */
+/*!***************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=script&lang=js&mpType=page ***!
+  \***************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./3d-view.vue?vue&type=script&lang=js&mpType=page */ 323);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_script_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 323 */
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=script&lang=js&mpType=page ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: function data() {
+    return {
+      wxsProps: {}
+    };
+  },
+  components: {}
+};
+exports.default = _default;
+
+/***/ }),
+/* 324 */
+/*!************************************************************************************************************************************************!*\
+  !*** E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page */ 325);
+/* harmony import */ var _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_app_vue_style_loader_index_js_ref_8_oneOf_1_0_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_2_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_8_oneOf_1_5_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_D_HBuilderX_4_45_2025010502_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_view_style_js_3d_view_vue_vue_type_style_index_0_lang_scss_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 325 */
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!./3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page */ 326);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader/lib/addStylesClient.js */ 16).default
+var update = add("55b7f056", content, false, {"sourceMap":false,"shadowMode":false});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+/* 326 */
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!E:/十一的小硬盘/A · 全国创新创业大赛/晋韵古建 · AR 启智/Jin_AR_Heritage/Jin_AR_Heritage/pages/guide/3d-view.vue?vue&type=style&index=0&lang=scss&mpType=page ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 13);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "@charset \"UTF-8\";\n/**\n * 这里是uni-app内置的常用样式变量\n *\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\n *\n */\n/**\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\n *\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\n */\n/* 颜色变量 */\n/* 行为相关颜色 */\n/* 文字基本颜色 */\n/* 背景颜色 */\n/* 边框颜色 */\n/* 尺寸变量 */\n/* 文字尺寸 */\n/* 图片尺寸 */\n/* Border Radius */\n/* 水平间距 */\n/* 垂直间距 */\n/* 透明度 */\n/* 文章场景相关 */\n.container {\n  min-height: 100vh;\n  background-color: #f8f8f8;\n  position: relative;\n}\n.nav-bar {\n  background: linear-gradient(135deg, #3182CE, #2B6CB0);\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  height: 44px;\n  position: relative;\n}\n.nav-bar .back-btn {\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  left: 5px;\n}\n.nav-bar .title {\n  color: #fff;\n  font-size: 18px;\n  font-weight: bold;\n  width: 100%;\n  text-align: center;\n}\n.loading-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: calc(100vh - 44px - var(--status-bar-height));\n  padding: 20px;\n}\n.loading-container .loading-animation {\n  width: 100px;\n  height: 100px;\n  margin-bottom: 30px;\n  -webkit-perspective: 800px;\n          perspective: 800px;\n}\n.loading-container .loading-animation .cube {\n  width: 100%;\n  height: 100%;\n  position: relative;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  -webkit-animation: rotate 5s infinite linear;\n          animation: rotate 5s infinite linear;\n}\n.loading-container .loading-animation .cube .face {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  opacity: 0.9;\n  border: 2px solid rgba(255, 255, 255, 0.5);\n}\n.loading-container .loading-animation .cube .front {\n  background-color: rgba(49, 130, 206, 0.7);\n  -webkit-transform: translateZ(50px);\n          transform: translateZ(50px);\n}\n.loading-container .loading-animation .cube .back {\n  background-color: rgba(49, 130, 206, 0.7);\n  -webkit-transform: rotateY(180deg) translateZ(50px);\n          transform: rotateY(180deg) translateZ(50px);\n}\n.loading-container .loading-animation .cube .left {\n  background-color: rgba(49, 130, 206, 0.6);\n  -webkit-transform: rotateY(-90deg) translateZ(50px);\n          transform: rotateY(-90deg) translateZ(50px);\n}\n.loading-container .loading-animation .cube .right {\n  background-color: rgba(49, 130, 206, 0.6);\n  -webkit-transform: rotateY(90deg) translateZ(50px);\n          transform: rotateY(90deg) translateZ(50px);\n}\n.loading-container .loading-animation .cube .top {\n  background-color: rgba(49, 130, 206, 0.8);\n  -webkit-transform: rotateX(90deg) translateZ(50px);\n          transform: rotateX(90deg) translateZ(50px);\n}\n.loading-container .loading-animation .cube .bottom {\n  background-color: rgba(49, 130, 206, 0.8);\n  -webkit-transform: rotateX(-90deg) translateZ(50px);\n          transform: rotateX(-90deg) translateZ(50px);\n}\n.loading-container .loading-text {\n  font-size: 18px;\n  color: #333;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.loading-container .loading-tips {\n  font-size: 14px;\n  color: #666;\n  text-align: center;\n}\n.model-container {\n  height: calc(100vh - 44px - 70px - var(--status-bar-height));\n  margin-top: calc(44px + var(--status-bar-height));\n  background-color: #f5f5f5;\n  position: relative;\n  overflow: hidden;\n}\n.model-container .model-placeholder {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n.controls {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.controls .control-btn {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: rgba(255, 255, 255, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s;\n}\n.controls .control-btn:active {\n  -webkit-transform: scale(0.95);\n          transform: scale(0.95);\n}\n.controls .rotate {\n  background-color: rgba(0, 122, 255, 0.1);\n}\n.info-panel {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(255, 255, 255, 0.95);\n  border-radius: 16px 16px 0 0;\n  padding: 15px;\n  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);\n  -webkit-transform: translateY(calc(100% - 50px));\n          transform: translateY(calc(100% - 50px));\n  transition: -webkit-transform 0.3s ease;\n  transition: transform 0.3s ease;\n  transition: transform 0.3s ease, -webkit-transform 0.3s ease;\n}\n.info-panel.active {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n}\n.info-panel .info-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.info-panel .info-header .info-title {\n  font-size: 16px;\n  font-weight: bold;\n  color: #333;\n}\n.info-panel .info-header .toggle-icon {\n  font-size: 14px;\n  color: #007AFF;\n}\n.info-panel .info-content {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.info-panel .info-content .info-item {\n  display: flex;\n  justify-content: space-between;\n}\n.info-panel .info-content .info-item .info-label {\n  font-size: 14px;\n  color: #666;\n}\n.info-panel .info-content .info-item .info-value {\n  font-size: 14px;\n  color: #333;\n  font-weight: 500;\n}\n.info-panel .info-content .info-desc {\n  font-size: 14px;\n  color: #666;\n  line-height: 1.5;\n  margin-top: 10px;\n  padding-top: 10px;\n  border-top: 1px solid #eee;\n}\n.action-bar {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  padding: 0 15px;\n  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);\n  z-index: 100;\n}\n.action-bar .action-btn {\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  border-radius: 20px;\n  font-size: 14px;\n  background-color: #f5f5f5;\n}\n.action-bar .action-btn uni-text {\n  margin-left: 5px;\n}\n.action-bar .action-btn.download {\n  background-color: rgba(0, 122, 255, 0.1);\n  color: #007AFF;\n  width: 250rpx;\n}\n.action-bar .action-btn.share {\n  background-color: rgba(76, 217, 100, 0.1);\n  color: #4CD964;\n  width: 200rpx;\n  margin: 0 20rpx;\n}\n.action-bar .action-btn.ar {\n  background: linear-gradient(135deg, #4A5568, #2D3748);\n  color: #fff;\n  width: 250rpx;\n}\n@-webkit-keyframes rotate {\n0% {\n    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);\n            transform: rotateX(0) rotateY(0) rotateZ(0);\n}\n100% {\n    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\n            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\n}\n}\n@keyframes rotate {\n0% {\n    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);\n            transform: rotateX(0) rotateY(0) rotateZ(0);\n}\n100% {\n    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\n            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);\n}\n}", ""]);
 // Exports
 module.exports = exports;
 

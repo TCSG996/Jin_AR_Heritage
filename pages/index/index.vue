@@ -156,15 +156,18 @@
 								const defaultImage = '/static/spot-default.png';
 								let imageUrl = defaultImage;
 								
-								if (spot.arModelUrl) {
-									// 处理图片路径
-									imageUrl = spot.arModelUrl.startsWith('http') ? 
-										spot.arModelUrl : 
-										`${this.baseURL}${spot.arModelUrl}`;
+								if (spot.imageUrl) {
+									// 使用imageUrl作为图片路径，而不是arModelUrl
+									imageUrl = spot.imageUrl.startsWith('http') ? 
+										spot.imageUrl : 
+										`${this.baseURL}${spot.imageUrl}`;
 								}
 								
+								// 确保ID是数字类型，这对于detail页面很重要
+								const numericId = parseInt(spot.id);
+								
 								return {
-									id: spot.id,
+									id: numericId || spot.id, // 使用解析后的数字ID，如果解析失败则使用原始ID
 									name: spot.name || '未命名景点',
 									desc: spot.description || '暂无描述信息',
 									image: imageUrl
@@ -266,7 +269,7 @@
 
 			// 查看景点详情
 			viewSpot(spot) {
-				console.log('查看景点:', spot);
+				console.log('查看景点:', spot, 'ID类型:', typeof spot.id);
 				uni.navigateTo({
 					url: `/pages/index/heritage/detail?id=${spot.id}`
 				});

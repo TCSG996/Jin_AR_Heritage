@@ -148,7 +148,7 @@
 
 <script>
 	import api from '@/api/index.js';
-	
+
 	export default {
 		data() {
 			return {
@@ -247,47 +247,47 @@
 						if (res && res.code === 200) {
 							// 登录成功，保存用户信息和token
 							uni.setStorageSync('token', res.data.token);
-							
+
 							// 确保用户信息正确存储
 							console.log('登录响应数据:', res.data);
-							
+
 							// 构建用户信息对象
 							let userInfo = null;
-							
+
 							// 尝试从不同位置获取用户信息
 							if (res.data.userInfo) {
-								userInfo = typeof res.data.userInfo === 'string' 
-									? JSON.parse(res.data.userInfo) 
-									: res.data.userInfo;
+								userInfo = typeof res.data.userInfo === 'string' ?
+									JSON.parse(res.data.userInfo) :
+									res.data.userInfo;
 							} else if (res.data.user) {
 								userInfo = res.data.user;
 							}
-							
+
 							// 如果没有获取到用户信息，创建基本信息
 							if (!userInfo) {
 								userInfo = {
 									username: this.loginForm.username
 								};
 							}
-							
+
 							// 确保有用户ID
 							if (res.data.userId) {
 								userInfo.id = res.data.userId;
 							} else if (res.data.id) {
 								userInfo.id = res.data.id;
 							}
-							
+
 							// 如果仍然没有用户ID，尝试从其他地方获取
 							if (!userInfo.id && res.data.user && res.data.user.id) {
 								userInfo.id = res.data.user.id;
 							}
-							
+
 							// 补充其他可能缺失的信息
 							userInfo.nickname = userInfo.nickname || this.loginForm.username;
 							userInfo.avatar = userInfo.avatar || '/static/logo.png';
-							
+
 							console.log('保存的用户信息:', userInfo);
-							
+
 							// 验证是否有用户ID
 							if (!userInfo.id) {
 								console.error('登录响应中未找到用户ID');
@@ -297,7 +297,7 @@
 								});
 								return;
 							}
-							
+
 							// 保存用户信息
 							uni.setStorageSync('userInfo', JSON.stringify(userInfo));
 
@@ -409,7 +409,7 @@
 				// 防止重复点击
 				if (this.isRegistering) return;
 				this.isRegistering = true;
-				
+
 				// 准备注册数据
 				const registerData = {
 					username: this.registerForm.username,
@@ -418,9 +418,9 @@
 					phone: this.registerForm.phone,
 					email: this.registerForm.email
 				};
-				
+
 				console.log('注册请求数据:', registerData);
-				
+
 				// 使用封装的API接口进行注册
 				api.user.register(registerData)
 					.then(res => {
@@ -460,12 +460,13 @@
 <style lang="scss">
 	.login-container {
 		min-height: 100vh;
-		background-color: #f9f6f2; /* 米黄色背景，模拟宣纸质感 */
+		background-color: #f9f6f2;
+		/* 米黄色背景，模拟宣纸质感 */
 		padding: 40rpx;
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		
+
 		/* 背景装饰 */
 		.background-decoration {
 			position: absolute;
@@ -475,13 +476,13 @@
 			height: 100%;
 			overflow: hidden;
 			z-index: 0;
-			
+
 			.bg-circle {
 				position: absolute;
 				border-radius: 50%;
 				opacity: 0.8;
 			}
-			
+
 			.circle-1 {
 				width: 600rpx;
 				height: 600rpx;
@@ -490,7 +491,7 @@
 				background: linear-gradient(135deg, rgba(193, 154, 107, 0.15), rgba(193, 154, 107, 0.05));
 				animation: float 15s infinite ease-in-out;
 			}
-			
+
 			.circle-2 {
 				width: 500rpx;
 				height: 500rpx;
@@ -499,7 +500,7 @@
 				background: linear-gradient(135deg, rgba(168, 95, 59, 0.1), rgba(168, 95, 59, 0.03));
 				animation: float 18s infinite ease-in-out reverse;
 			}
-			
+
 			.circle-3 {
 				width: 300rpx;
 				height: 300rpx;
@@ -508,7 +509,7 @@
 				background: linear-gradient(135deg, rgba(0, 128, 85, 0.08), rgba(0, 128, 85, 0.02));
 				animation: float 12s infinite ease-in-out;
 			}
-			
+
 			.bg-pattern {
 				position: absolute;
 				top: 0;
@@ -516,43 +517,45 @@
 				right: 0;
 				bottom: 0;
 				/* 使用重复渐变替代图片，避免图片路径错误 */
-				background-image: 
-					repeating-linear-gradient(45deg, 
-						rgba(255, 255, 255, 0.05) 0px, 
-						rgba(255, 255, 255, 0.05) 2px, 
-						transparent 2px, 
+				background-image:
+					repeating-linear-gradient(45deg,
+						rgba(255, 255, 255, 0.05) 0px,
+						rgba(255, 255, 255, 0.05) 2px,
+						transparent 2px,
 						transparent 12px);
 				opacity: 0.3;
 				mix-blend-mode: overlay;
 				z-index: 1;
 			}
 		}
-		
+
 		/* 返回按钮 */
 		.back-btn {
 			display: flex;
 			align-items: center;
 			font-size: 32rpx;
-			color: #008055; /* 中国传统青绿色 */
+			color: #008055;
+			/* 中国传统青绿色 */
+			margin-top: 50rpx;
 			margin-bottom: 60rpx;
 			z-index: 1;
-			
+
 			&:active {
 				opacity: 0.7;
 			}
-			
+
 			text {
 				margin-left: 10rpx;
 				font-weight: 500;
 			}
 		}
-		
+
 		/* 登录标题 */
 		.login-header {
 			margin-bottom: 80rpx;
 			z-index: 1;
 			animation: fadeInDown 0.8s ease-out;
-			
+
 			.login-title {
 				font-size: 56rpx;
 				font-weight: bold;
@@ -560,21 +563,22 @@
 				margin-bottom: 20rpx;
 				letter-spacing: 4rpx;
 				text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);
-				font-family: "FangSong", "仿宋", serif; /* 使用仿宋字体增强传统感 */
+				font-family: "FangSong", "仿宋", serif;
+				/* 使用仿宋字体增强传统感 */
 			}
-			
+
 			.login-subtitle {
 				font-size: 28rpx;
 				color: #666;
 				letter-spacing: 2rpx;
 			}
 		}
-		
+
 		/* 登录表单 */
 		.login-form {
 			z-index: 1;
 			animation: fadeInUp 0.8s ease-out;
-			
+
 			/* 输入框样式 */
 			.input-item {
 				display: flex;
@@ -587,21 +591,22 @@
 				background-color: rgba(255, 255, 255, 0.8);
 				box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
 				padding: 0 20rpx;
-				border: 1px solid rgba(193, 154, 107, 0.2); /* 木色边框 */
-				
+				border: 1px solid rgba(193, 154, 107, 0.2);
+				/* 木色边框 */
+
 				&.phone-item {
 					&.input-focus {
 						border-color: #008055;
 						box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);
 					}
 				}
-				
+
 				&.password-item {
 					&.input-focus {
 						border-color: #008055;
 						box-shadow: 0 4rpx 15rpx rgba(0, 128, 85, 0.15);
 					}
-					
+
 					.password-toggle {
 						width: 70rpx;
 						height: 70rpx;
@@ -610,12 +615,12 @@
 						justify-content: center;
 						border-radius: 35rpx;
 						transition: all 0.3s;
-						
+
 						&:active {
 							background-color: rgba(0, 128, 85, 0.1);
 						}
 					}
-					
+
 					.password-strength {
 						position: absolute;
 						bottom: -30rpx;
@@ -624,7 +629,7 @@
 						display: flex;
 						align-items: center;
 						animation: fadeIn 0.3s ease-out;
-						
+
 						.strength-bar {
 							flex: 1;
 							height: 6rpx;
@@ -632,35 +637,35 @@
 							border-radius: 3rpx;
 							overflow: hidden;
 							margin-right: 10rpx;
-							
+
 							.strength-level {
 								height: 100%;
 								width: 0%;
 								border-radius: 3rpx;
 								transition: all 0.3s;
-								
+
 								&.weak {
 									width: 25%;
 									background-color: #e74c3c;
 								}
-								
+
 								&.medium {
 									width: 50%;
 									background-color: #f39c12;
 								}
-								
+
 								&.strong {
 									width: 75%;
 									background-color: #27ae60;
 								}
-								
+
 								&.very-strong {
 									width: 100%;
 									background-color: #008055;
 								}
 							}
 						}
-						
+
 						.strength-text {
 							font-size: 22rpx;
 							color: #999;
@@ -669,7 +674,7 @@
 						}
 					}
 				}
-				
+
 				.input-icon {
 					display: flex;
 					align-items: center;
@@ -680,19 +685,19 @@
 					border-radius: 30rpx;
 					background-color: rgba(0, 128, 85, 0.1);
 				}
-				
+
 				input {
 					flex: 1;
 					height: 100%;
 					font-size: 30rpx;
 					color: #333;
-					
+
 					&::placeholder {
 						color: #999;
 						font-size: 28rpx;
 					}
 				}
-				
+
 				.input-clear {
 					padding: 10rpx;
 					display: flex;
@@ -700,30 +705,30 @@
 					justify-content: center;
 				}
 			}
-			
+
 			/* 操作区域 */
 			.action-area {
 				display: flex;
 				justify-content: space-between;
 				margin-bottom: 60rpx;
-				
+
 				.register-link,
 				.forgot-password {
 					font-size: 26rpx;
 					color: #008055;
 					display: flex;
 					align-items: center;
-					
+
 					&:active {
 						opacity: 0.7;
 					}
-					
+
 					uni-icons {
 						margin-right: 6rpx;
 					}
 				}
 			}
-			
+
 			/* 登录按钮 */
 			.login-btn {
 				height: 90rpx;
@@ -742,7 +747,7 @@
 				position: relative;
 				overflow: hidden;
 				font-weight: 500;
-				
+
 				&::after {
 					content: '';
 					position: absolute;
@@ -753,50 +758,51 @@
 					background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 					transition: all 0.5s;
 				}
-				
+
 				&:active {
 					transform: scale(0.98);
 					box-shadow: 0 5rpx 10rpx rgba(0, 128, 85, 0.2);
-					
+
 					&::after {
 						left: 100%;
 					}
 				}
-				
+
 				&:disabled {
 					opacity: 0.7;
 				}
-				
+
 				.loading-icon {
 					animation: spin 1s linear infinite;
 				}
 			}
-			
+
 			/* 第三方登录 */
 			.third-party-login {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin-bottom: 60rpx;
-				
+
 				.divider {
 					flex: 1;
 					height: 1px;
-					background-color: rgba(193, 154, 107, 0.3); /* 木色分割线 */
+					background-color: rgba(193, 154, 107, 0.3);
+					/* 木色分割线 */
 				}
-				
+
 				text {
 					padding: 0 30rpx;
 					font-size: 28rpx;
 					color: #999;
 				}
 			}
-			
+
 			/* 第三方登录图标 */
 			.third-party-icons {
 				display: flex;
 				justify-content: center;
-				
+
 				.icon-item {
 					width: 90rpx;
 					height: 90rpx;
@@ -808,13 +814,14 @@
 					justify-content: center;
 					align-items: center;
 					transition: all 0.3s;
-					border: 1px solid rgba(193, 154, 107, 0.2); /* 木色边框 */
-					
+					border: 1px solid rgba(193, 154, 107, 0.2);
+					/* 木色边框 */
+
 					&:active {
 						transform: scale(0.95);
 						box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 					}
-					
+
 					image {
 						width: 60%;
 						height: 60%;
@@ -823,7 +830,7 @@
 				}
 			}
 		}
-		
+
 		/* 底部版权信息 */
 		.footer {
 			margin-top: auto;
@@ -834,7 +841,7 @@
 			z-index: 1;
 		}
 	}
-	
+
 	/* 注册弹窗样式 */
 	.register-popup {
 		width: 600rpx;
@@ -843,44 +850,47 @@
 		padding: 40rpx;
 		box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
 		animation: scaleIn 0.3s ease-out;
-		border: 1px solid rgba(193, 154, 107, 0.2); /* 木色边框 */
-		
+		border: 1px solid rgba(193, 154, 107, 0.2);
+		/* 木色边框 */
+
 		.popup-header {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin-bottom: 40rpx;
-			
+
 			.popup-title {
 				font-size: 36rpx;
 				font-weight: bold;
 				color: #333;
 				letter-spacing: 2rpx;
-				font-family: "FangSong", "仿宋", serif; /* 使用仿宋字体增强传统感 */
+				font-family: "FangSong", "仿宋", serif;
+				/* 使用仿宋字体增强传统感 */
 			}
-			
+
 			.popup-close {
 				padding: 10rpx;
 				border-radius: 50%;
 				transition: all 0.3s;
-				
+
 				&:active {
 					background-color: #f5f5f5;
 				}
 			}
 		}
-		
+
 		.popup-form {
 			.popup-input {
 				height: 90rpx;
-				border-bottom: 1px solid rgba(193, 154, 107, 0.3); /* 木色边框 */
+				border-bottom: 1px solid rgba(193, 154, 107, 0.3);
+				/* 木色边框 */
 				margin-bottom: 30rpx;
 				display: flex;
 				align-items: center;
 				padding: 0 10rpx;
 				position: relative;
 				transition: all 0.3s;
-				
+
 				uni-icons {
 					display: flex;
 					align-items: center;
@@ -891,25 +901,25 @@
 					border-radius: 25rpx;
 					background-color: rgba(0, 128, 85, 0.1);
 				}
-				
+
 				input {
 					flex: 1;
 					height: 100%;
 					font-size: 28rpx;
 					color: #333;
-					
+
 					&::placeholder {
 						color: #999;
 						font-size: 26rpx;
 					}
 				}
-				
+
 				&:focus-within {
 					border-bottom-color: #008055;
 					background-color: rgba(0, 128, 85, 0.03);
 					border-radius: 8rpx 8rpx 0 0;
 				}
-				
+
 				&::after {
 					content: '';
 					position: absolute;
@@ -920,18 +930,18 @@
 					background: linear-gradient(90deg, #008055, #00a878);
 					transition: all 0.3s ease;
 				}
-				
+
 				&:focus-within::after {
 					width: 100%;
 				}
 			}
 		}
-		
+
 		.popup-buttons {
 			display: flex;
 			justify-content: space-between;
 			margin-top: 40rpx;
-			
+
 			button {
 				width: 45%;
 				height: 80rpx;
@@ -943,102 +953,105 @@
 				align-items: center;
 				transition: all 0.3s;
 			}
-			
+
 			.cancel-btn {
 				background-color: #f5f5f5;
 				color: #666;
-				border: 1px solid rgba(193, 154, 107, 0.2); /* 木色边框 */
-				
+				border: 1px solid rgba(193, 154, 107, 0.2);
+				/* 木色边框 */
+
 				&:active {
 					background-color: #e9e9e9;
 					transform: scale(0.98);
 				}
 			}
-			
+
 			.confirm-btn {
 				background: linear-gradient(135deg, #008055, #00a878);
 				color: #fff;
 				box-shadow: 0 5rpx 15rpx rgba(0, 128, 85, 0.2);
-				
+
 				&:active {
 					opacity: 0.9;
 					transform: scale(0.98);
 					box-shadow: 0 2rpx 8rpx rgba(0, 128, 85, 0.2);
 				}
-				
+
 				&:disabled {
 					opacity: 0.7;
 				}
-				
+
 				.loading-icon {
 					animation: spin 1s linear infinite;
 				}
 			}
 		}
 	}
-	
+
 	/* 动画效果 */
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);
 		}
-		
+
 		100% {
 			transform: rotate(360deg);
 		}
 	}
-	
+
 	@keyframes float {
-		0%, 100% {
+
+		0%,
+		100% {
 			transform: translateY(0);
 		}
-		
+
 		50% {
 			transform: translateY(-20rpx);
 		}
 	}
-	
+
 	@keyframes fadeInDown {
 		from {
 			opacity: 0;
 			transform: translateY(-30rpx);
 		}
-		
+
 		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
 	}
-	
+
 	@keyframes fadeInUp {
 		from {
 			opacity: 0;
 			transform: translateY(30rpx);
 		}
-		
+
 		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
 	}
-	
+
 	@keyframes scaleIn {
 		from {
 			opacity: 0;
 			transform: scale(0.9);
 		}
-		
+
 		to {
 			opacity: 1;
 			transform: scale(1);
 		}
 	}
-	
+
 	@keyframes fadeIn {
 		from {
 			opacity: 0;
 		}
-		
+
 		to {
 			opacity: 1;
 		}

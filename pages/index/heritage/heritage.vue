@@ -1,189 +1,177 @@
 <template>
-	<view class="heritage-detail">
-		<view class="nav-bar" :style="{ 
-			opacity: navbarOpacity, 
-			boxShadow: navbarShadow,
-			backgroundColor: navbarBackground
-		}">
-			<view class="back-btn" :style="{
-				backgroundColor: navbarOpacity > 0.5 ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.15)'
-			}" @click="goBack">
-				<view class="back-icon" :style="{ color: navbarOpacity > 0.5 ? '#333' : '#fff' }">〈</view>
-				<view class="back-ripple" :class="{ 'animate': backRipple }"></view>
+	<view class="heritage-detail-page">
+		<!-- 顶部图片区域 -->
+		<view class="header-section">
+			<image class="header-image" :src="heritage.image" mode="aspectFill"></image>
+			<view class="header-overlay"></view>
+			
+			<!-- 古建筑元素装饰 -->
+			<view class="header-decoration">
+				<view class="decoration-line"></view>
 			</view>
-			<view class="nav-title"
-				:style="{ opacity: navbarTitleOpacity, color: navbarOpacity > 0.5 ? '#333' : '#fff' }">
-				{{ heritage.name }}
-			</view>
-			<view class="action-btn" :style="{
-				backgroundColor: navbarOpacity > 0.5 ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.15)'
-			}" @click="toggleShare">
-				<view class="action-icon" :style="{ color: navbarOpacity > 0.5 ? '#333' : '#fff' }">⋮</view>
-				<view class="action-menu" v-if="showShareMenu">
-					<view class="menu-item" @click.stop="shareToWechat">
-						<text class="menu-icon">💬</text>
-						<text class="menu-text">微信分享</text>
+			
+			<!-- 顶部导航栏 -->
+			<view class="top-toolbar" :style="{paddingTop: statusBarHeight + 'px'}">
+				<view class="back-button" @tap="goBack">
+					<text class="back-icon">〈</text>
+					<text class="back-text">返回</text>
+				</view>
+				<view class="action-buttons">
+					<view class="action-btn collect-btn" @tap="toggleFavorite">
+						<text class="icon-star" :class="{'filled': isFavorite}">♥</text>
 					</view>
-					<view class="menu-item" @click.stop="addToFavorites">
-						<text class="menu-icon">♥</text>
-						<text class="menu-text">添加收藏</text>
-					</view>
-					<view class="menu-item" @click.stop="reportIssue">
-						<text class="menu-icon">⚠️</text>
-						<text class="menu-text">报告问题</text>
+					<view class="action-btn share-btn" @tap="toggleShare">
+						<text class="icon-share">⊕</text>
 					</view>
 				</view>
 			</view>
+			
+			<!-- 标题信息区域 -->
+			<view class="header-info">
+				<view class="header-category">文物景点</view>
+				<view class="header-title">{{heritage.name}}</view>
+				<view class="header-period">{{heritage.period}}</view>
+				<view class="header-location" @tap="openMap">
+					<text class="location-icon">📍</text>
+					<text class="location-text">{{heritage.location}}</text>
+				</view>
+			</view>
+			
+			<!-- 波浪形装饰 -->
+			<view class="header-wave"></view>
 		</view>
-
-		<scroll-view class="heritage-container" scroll-y @scroll="handleScroll" scroll-with-animation>
-			<view class="heritage-gallery" :style="{ height: galleryHeight + 'px' }">
-				<swiper class="gallery-swiper" @change="onSwiperChange" :current="currentSwiper" :indicator-dots="false"
-					autoplay interval="4000" circular>
-					<swiper-item v-for="(image, index) in heritage.images" :key="index">
-						<image class="gallery-image" :src="image" mode="aspectFill" @click="previewImage(image)">
-						</image>
-					</swiper-item>
-				</swiper>
-				<view class="gallery-indicator">
-					<view class="indicator-dot" v-for="(_, index) in heritage.images" :key="index"
-						:class="{ active: index === currentSwiper }"></view>
+		
+		<!-- 内容区域 -->
+		<scroll-view class="content-scroll" scroll-y="true" :bounces="false" @scroll="handleScroll">
+			<!-- 内容卡片 -->
+			<view class="content-card">
+				<!-- 描述卡片 -->
+				<view class="section description-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>文物简介</text>
+						</view>
+					</view>
+					<view class="section-content">
+						<text class="description-text" :class="{'expanded': isExpanded}">{{heritage.description}}</text>
+						<view class="expand-btn" @tap="toggleExpand">
+							<text>{{isExpanded ? '收起' : '展开'}}</text>
+							<text class="expand-icon">{{isExpanded ? '↑' : '↓'}}</text>
+						</view>
+					</view>
 				</view>
-				<view class="view-3d-btn" @click="open3DView">
-					<text class="icon">3D</text>
-					<text class="text">查看3D</text>
+				
+				<!-- 特点标签区域 -->
+				<view class="section features-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>文物特点</text>
+						</view>
+					</view>
+					<view class="features-tags">
+						<view class="feature-tag" v-for="(feature, idx) in features" :key="idx">
+							{{feature.name}}
+						</view>
+						<view class="feature-tag">建于{{heritage.period}}</view>
+						<view class="feature-tag">国家一级文物</view>
+					</view>
+				</view>
+				
+				<!-- 评分区域 -->
+				<view class="section rating-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>文物评分</text>
+						</view>
+					</view>
+					<view class="rating-container">
+						<view class="rating-stars">
+							<view class="star-row">
+								<view v-for="i in 5" :key="i" class="star" :class="{ 'active': i <= rating }"
+									@tap="setRating(i)">★</view>
+							</view>
+							<text class="rating-value">{{rating}}.0</text>
+						</view>
+						<view class="rating-bars">
+							<view class="rating-item" v-for="(item, idx) in ratingItems" :key="idx">
+								<text class="rating-label">{{item.label}}</text>
+								<view class="rating-bar-bg">
+									<view class="rating-bar" :style="{ width: item.value * 20 + '%' }"></view>
+								</view>
+								<text class="rating-number">{{item.value}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+				
+				<!-- 相关文物 -->
+				<view class="section related-section">
+					<view class="section-header">
+						<view class="section-title">
+							<view class="title-decoration"></view>
+							<text>附近文物</text>
+						</view>
+					</view>
+					<view class="related-items">
+						<view class="related-item" v-for="(item, idx) in relatedHeritages" :key="idx"
+							@tap="goToDetail(item.id)">
+							<view class="item-image-container">
+								<image :src="item.image" mode="aspectFill"></image>
+								<view class="item-overlay"></view>
+							</view>
+							<view class="item-info">
+								<text class="item-name">{{item.name}}</text>
+								<text class="item-period">距离 {{1 + idx}}km</text>
+							</view>
+						</view>
+					</view>
 				</view>
 			</view>
+			
+			<!-- 底部安全区域 -->
+			<view class="safe-area-bottom"></view>
 		</scroll-view>
-
-		<view class="heritage-content">
-			<view class="title-row">
-				<text class="heritage-name">{{heritage.name}}</text>
-				<view class="favorite-btn" @click="toggleFavorite">
-					<text :class="['favorite-icon', isFavorite ? 'active' : '']">♥</text>
-					<view class="favorite-tooltip" v-if="showTooltip">已添加到收藏</view>
-				</view>
+		
+		<!-- 底部操作栏 -->
+		<view class="bottom-action">
+			<view class="action-button ar-button" @tap="openAR">
+				<text class="action-icon">AR</text>
+				<text class="action-text">AR体验</text>
 			</view>
-
-			<view class="tag-row">
-				<view class="heritage-tag primary">{{heritage.period}}</view>
-				<view class="heritage-tag">国家一级文物</view>
-				<view class="heritage-tag">山西特色</view>
+			<view class="action-button view3d-button" @tap="open3DView">
+				<text class="action-icon">3D</text>
+				<text class="action-text">3D观看</text>
 			</view>
-
-			<view class="heritage-info">
-				<view class="info-item">
-					<view class="info-icon">🕰️</view>
-					<text class="label">年代</text>
-					<text class="value">{{heritage.period}}</text>
-				</view>
-				<view class="info-item">
-					<view class="info-icon">📍</view>
-					<text class="label">位置</text>
-					<text class="value">{{heritage.location}}</text>
-				</view>
-				<view class="info-item">
-					<view class="info-icon">🕒</view>
-					<text class="label">开放时间</text>
-					<text class="value">9:00-17:00</text>
-				</view>
-			</view>
-
-			<view class="heritage-description">
-				<view class="section-title">
-					<text class="title-text">文物简介</text>
-					<view class="title-line"></view>
-				</view>
-				<text class="description-content" :class="{'expanded': isExpanded}">{{heritage.description}}</text>
-				<view class="expand-btn" @click="toggleExpand">
-					<text>{{isExpanded ? '收起' : '展开'}}</text>
-					<text :class="['expand-icon', isExpanded ? 'up' : '']">▼</text>
-				</view>
-			</view>
-
-			<view class="heritage-features">
-				<view class="section-title">
-					<text class="title-text">文物特色</text>
-					<view class="title-line"></view>
-				</view>
-				<view class="feature-items">
-					<view class="feature-item" v-for="(feature, idx) in features" :key="idx">
-						<view class="feature-icon">{{feature.icon}}</view>
-						<text class="feature-text">{{feature.name}}</text>
-					</view>
-				</view>
-			</view>
-
-			<view class="heritage-rating">
-				<view class="section-title">
-					<text class="title-text">评分</text>
-					<view class="title-line"></view>
-				</view>
-				<view class="rating-container">
-					<view class="rating-stars">
-						<view class="star-row">
-							<view v-for="i in 5" :key="i" class="star" :class="{ 'active': i <= rating }"
-								@click="setRating(i)">★</view>
-						</view>
-						<text class="rating-value">{{rating}}.0</text>
-					</view>
-					<view class="rating-bars">
-						<view class="rating-item" v-for="(item, idx) in ratingItems" :key="idx">
-							<text class="rating-label">{{item.label}}</text>
-							<view class="rating-bar-bg">
-								<view class="rating-bar" :style="{ width: item.value * 20 + '%' }"></view>
-							</view>
-							<text class="rating-number">{{item.value}}</text>
-						</view>
-					</view>
-				</view>
-			</view>
-
-			<view class="nearby-heritage">
-				<view class="section-title">
-					<text class="title-text">附近文物</text>
-					<view class="title-line"></view>
-				</view>
-				<scroll-view scroll-x class="nearby-scroll" :show-scrollbar="false">
-					<view class="nearby-items">
-						<view class="nearby-item" v-for="(item, idx) in relatedHeritages" :key="idx"
-							@click="goToDetail(item.id)">
-							<view class="nearby-image-container">
-								<image :src="item.image" mode="aspectFill" class="nearby-image"></image>
-								<view class="nearby-overlay"></view>
-							</view>
-							<text class="nearby-name">{{item.name}}</text>
-							<text class="nearby-distance">距离 {{1 + idx}}km</text>
-						</view>
-					</view>
-				</scroll-view>
+			<view class="action-button map-button" @tap="openMap">
+				<text class="action-icon">🗺️</text>
+				<text class="action-text">查看地图</text>
 			</view>
 		</view>
-
-		<view class="action-bar">
-			<button class="ar-btn">
-				<text class="btn-icon">🔍</text>
-				AR体验
-			</button>
-			<button class="map-btn" @click="openMap">
-				<text class="btn-icon">🗺️</text>
-				查看地图
-			</button>
-		</view>
-
+		
 		<!-- 地图弹窗 -->
 		<view class="map-popup" v-if="showMapPopup">
 			<view class="map-container">
 				<view class="map-header">
 					<text class="map-title">{{heritage.name}}的位置</text>
-					<view class="close-btn" @click="closeMapPopup">✕</view>
+					<view class="close-btn" @tap="closeMapPopup">✕</view>
 				</view>
 				<map id="myMap" class="location-map" :latitude="mapLocation.latitude" :longitude="mapLocation.longitude"
 					:markers="mapMarkers" scale="14" show-location type="amap" :style="{height: '100%'}"></map>
 				<view class="map-footer">
 					<text class="address">{{heritage.location}}</text>
-					<button class="navigation-btn" @click="openSystemMap">导航到此处</button>
+					<button class="navigation-btn" @tap="openSystemMap">导航到此处</button>
 				</view>
+			</view>
+		</view>
+		
+		<!-- 加载中状态 -->
+		<view class="loading-mask" v-if="isLoading">
+			<view class="loading-content">
+				<view class="loading-spinner"></view>
+				<text class="loading-text">加载中...</text>
 			</view>
 		</view>
 	</view>
@@ -197,6 +185,7 @@
 	export default {
 		data() {
 			return {
+				statusBarHeight: 20,
 				heritage: {},
 				isFavorite: false,
 				isExpanded: false,
@@ -212,6 +201,7 @@
 				backRipple: false,
 				showShareMenu: false,
 				galleryHeight: 550,
+				isLoading: true,
 				features: [{
 						icon: '🏛️',
 						name: '建筑风格独特'
@@ -249,13 +239,19 @@
 		},
 		computed: {
 			relatedHeritages() {
-				return this.heritageList.filter(item => item.id !== this.heritage.id).slice(0, 3);
+				return this.heritageList.filter(item => item.id !== this.heritage.id).slice(0, 4);
 			},
 			heritageList() {
 				return heritageList;
 			}
 		},
 		onLoad(option) {
+			// 获取状态栏高度
+            const systemInfo = uni.getSystemInfoSync();
+            this.statusBarHeight = systemInfo.statusBarHeight;
+            
+			this.isLoading = true;
+			
 			const id = parseInt(option.id)
 			this.heritage = heritageList.find(item => item.id === id) || {}
 
@@ -275,6 +271,11 @@
 
 			// 预设地图位置
 			this.setMapLocation();
+			
+			// 模拟加载过程
+			setTimeout(() => {
+				this.isLoading = false;
+			}, 800);
 		},
 		onPageScroll(e) {
 			this.scrollTop = e.scrollTop;
@@ -395,6 +396,30 @@
 									url: './3d-view?id=' + this.heritage.id
 								});
 							}, 2000);
+						}
+					}
+				});
+			},
+			openAR() {
+				uni.showModal({
+					title: 'AR体验',
+					content: '即将启动AR模式体验该文物',
+					confirmText: '开始体验',
+					confirmColor: '#8B4513',
+					success: (res) => {
+						if (res.confirm) {
+							uni.showToast({
+								title: 'AR模式准备中...',
+								icon: 'loading',
+								duration: 1500
+							});
+							
+							// 模拟加载AR功能
+							setTimeout(() => {
+								uni.navigateTo({
+									url: '../AR/index?id=' + this.heritage.id
+								});
+							}, 1500);
 						}
 					}
 				});
@@ -559,806 +584,599 @@
 </script>
 
 <style lang="scss">
-	@keyframes ripple {
-		0% {
-			transform: scale(0.5);
-			opacity: 0.5;
-		}
-
-		100% {
-			transform: scale(2.5);
-			opacity: 0;
-		}
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-			transform: translateY(10rpx);
-		}
-
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.heritage-detail {
-		min-height: 100vh;
-		background-color: #fff;
-		position: relative;
-
-		.nav-bar {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 10;
-			padding: 0 30rpx;
-			box-sizing: border-box;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			height: 100rpx;
-			transition: background-color 0.3s, box-shadow 0.3s;
-			backdrop-filter: blur(10rpx);
-			background-color: v-bind(navbarBackground);
-			box-shadow: v-bind(navbarShadow);
-
-			.back-btn,
-			.action-btn {
-				width: 60rpx;
-				height: 60rpx;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				position: relative;
-				border-radius: 50%;
-				transform: scale(1);
-				transition: all 0.2s ease;
-
-				&:active {
-					transform: scale(0.9);
-				}
-			}
-
-			.back-btn {
-				.back-icon {
-					font-size: 36rpx;
-					color: #666;
-				}
-
-				.back-ripple {
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					border-radius: 50%;
-					background-color: rgba(139, 69, 19, 0.2);
-					transform: scale(0);
-					opacity: 0;
-
-					&.animate {
-						animation: ripple 0.8s cubic-bezier(0, 0.5, 0.5, 1);
-					}
-				}
-			}
-
-			.action-btn {
-				.action-icon {
-					font-size: 32rpx;
-					font-weight: bold;
-					transform: rotate(90deg);
-				}
-
-				.action-menu {
-					position: absolute;
-					top: 90rpx;
-					right: 0;
-					width: 240rpx;
-					background-color: #fff;
-					border-radius: 15rpx;
-					box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.15);
-					padding: 15rpx 0;
-					z-index: 101;
-					animation: fadeIn 0.2s ease;
-
-					&:before {
-						content: '';
-						position: absolute;
-						top: -10rpx;
-						right: 30rpx;
-						width: 0;
-						height: 0;
-						border-left: 10rpx solid transparent;
-						border-right: 10rpx solid transparent;
-						border-bottom: 10rpx solid #fff;
-					}
-
-					.menu-item {
-						display: flex;
-						align-items: center;
-						padding: 20rpx 30rpx;
-						transition: background-color 0.2s ease;
-
-						&:active {
-							background-color: #f5f5f5;
-						}
-
-						.menu-icon {
-							margin-right: 15rpx;
-							font-size: 32rpx;
-						}
-
-						.menu-text {
-							font-size: 28rpx;
-							color: #333;
-						}
-					}
-				}
-			}
-
-			.nav-title {
-				font-size: 34rpx;
-				font-weight: bold;
-				transition: opacity 0.3s, transform 0.3s;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				max-width: 60%;
-				text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.1);
-				color: #333;
-				opacity: v-bind(navbarOpacity);
-				transform: translateY(v-bind('navbarOpacity * 0 + "rpx"'));
-			}
-		}
-
-		.heritage-gallery {
-			position: relative;
-			width: 100%;
-			overflow: hidden;
-
-			.gallery-swiper {
-				width: 100%;
-				height: 100%;
-			}
-
-			.gallery-image {
-				width: 100%;
-				height: 100%;
-			}
-
-			.gallery-indicator {
-				position: absolute;
-				bottom: 30rpx;
-				left: 50%;
-				transform: translateX(-50%);
-				display: flex;
-
-				.indicator-dot {
-					width: 16rpx;
-					height: 16rpx;
-					border-radius: 50%;
-					background-color: rgba(255, 255, 255, 0.5);
-					margin: 0 8rpx;
-					transition: all 0.3s;
-
-					&.active {
-						width: 40rpx;
-						border-radius: 8rpx;
-						background-color: white;
-					}
-				}
-			}
-
-			.view-3d-btn {
-				position: absolute;
-				bottom: 30rpx;
-				right: 30rpx;
-				background-color: rgba(255, 255, 255, 0.8);
-				border-radius: 30rpx;
-				padding: 10rpx 20rpx;
-				display: flex;
-				align-items: center;
-				box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
-				backdrop-filter: blur(5px);
-				border: 1rpx solid rgba(255, 255, 255, 0.8);
-				transition: all 0.3s ease;
-
-				&:active {
-					transform: scale(0.95);
-					background-color: rgba(255, 255, 255, 1);
-				}
-
-				.icon {
-					font-size: 28rpx;
-					color: #8B4513;
-					font-weight: bold;
-					margin-right: 6rpx;
-				}
-
-				.text {
-					font-size: 26rpx;
-					color: #8B4513;
-				}
-			}
-		}
-
-		.heritage-content {
-			padding: 40rpx 30rpx 120rpx;
-			margin-top: -100rpx;
-			border-radius: 40rpx 40rpx 0 0;
-			background-color: #fff;
-			position: relative;
-			z-index: 1;
-			box-shadow: 0 -30rpx 60rpx rgba(0, 0, 0, 0.1);
-
-			.title-row {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 20rpx;
-
-				.heritage-name {
-					font-size: 44rpx;
-					font-weight: bold;
-					color: #333;
-					flex: 1;
-					text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
-					background: linear-gradient(90deg, #8B4513, #D2691E);
-					-webkit-background-clip: text;
-					color: transparent;
-				}
-
-				.favorite-btn {
-					width: 80rpx;
-					height: 80rpx;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					position: relative;
-
-					.favorite-icon {
-						font-size: 46rpx;
-						color: #ddd;
-						transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-						transform-origin: center;
-
-						&.active {
-							color: #ff4a4a;
-							transform: scale(1.2);
-							animation: pulse 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-						}
-
-						@keyframes pulse {
-							0% {
-								transform: scale(1);
-							}
-
-							50% {
-								transform: scale(1.4);
-							}
-
-							100% {
-								transform: scale(1.2);
-							}
-						}
-					}
-
-					.favorite-tooltip {
-						position: absolute;
-						top: -60rpx;
-						right: -40rpx;
-						background-color: rgba(0, 0, 0, 0.7);
-						color: white;
-						padding: 10rpx 20rpx;
-						border-radius: 10rpx;
-						font-size: 24rpx;
-						white-space: nowrap;
-						animation: fadeIn 0.3s ease;
-
-						&:after {
-							content: '';
-							position: absolute;
-							bottom: -10rpx;
-							right: 50rpx;
-							width: 0;
-							height: 0;
-							border-left: 10rpx solid transparent;
-							border-right: 10rpx solid transparent;
-							border-top: 10rpx solid rgba(0, 0, 0, 0.7);
-						}
-
-						@keyframes fadeIn {
-							from {
-								opacity: 0;
-								transform: translateY(10rpx);
-							}
-
-							to {
-								opacity: 1;
-								transform: translateY(0);
-							}
-						}
-					}
-				}
-			}
-
-			.tag-row {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 16rpx;
-				margin-bottom: 30rpx;
-
-				.heritage-tag {
-					padding: 10rpx 24rpx;
-					background-color: rgba(139, 69, 19, 0.1);
-					color: #8B4513;
-					border-radius: 20rpx;
-					font-size: 24rpx;
-					transform: translateY(0);
-					transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-					backdrop-filter: blur(5px);
-					border: 1rpx solid rgba(255, 255, 255, 0.8);
-
-					&.primary {
-						background-color: rgba(139, 69, 19, 0.8);
-						color: white;
-					}
-
-					&:active {
-						transform: translateY(-6rpx);
-						box-shadow: 0 6rpx 10rpx rgba(139, 69, 19, 0.1);
-					}
-				}
-			}
-
-			.heritage-info {
-				display: flex;
-				justify-content: space-between;
-				margin-bottom: 50rpx;
-				padding: 30rpx;
-				background-color: rgba(249, 245, 240, 0.8);
-				border-radius: 16rpx;
-				box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03), 0 1rpx 4rpx rgba(0, 0, 0, 0.02);
-				backdrop-filter: blur(5px);
-				border: 1rpx solid rgba(255, 255, 255, 0.8);
-
-				.info-item {
-					text-align: center;
-					position: relative;
-
-					&:not(:last-child):after {
-						content: '';
-						position: absolute;
-						right: -20rpx;
-						top: 50%;
-						transform: translateY(-50%);
-						height: 60%;
-						width: 1px;
-						background: rgba(0, 0, 0, 0.1);
-					}
-
-					.info-icon {
-						font-size: 36rpx;
-						margin-bottom: 10rpx;
-					}
-
-					.label {
-						font-size: 24rpx;
-						color: #666;
-						margin-bottom: 10rpx;
-						display: block;
-					}
-
-					.value {
-						font-size: 30rpx;
-						color: #333;
-						font-weight: 500;
-					}
-				}
-			}
-
-			.heritage-description {
-				margin-bottom: 50rpx;
-
-				.section-title {
-					display: flex;
-					align-items: center;
-					margin-bottom: 30rpx;
-
-					.title-text {
-						font-size: 36rpx;
-						font-weight: bold;
-						color: #333;
-						margin-right: 20rpx;
-						position: relative;
-
-						&:after {
-							content: '';
-							position: absolute;
-							bottom: -8rpx;
-							left: 0;
-							width: 40rpx;
-							height: 4rpx;
-							background: linear-gradient(to right, #8B4513, transparent);
-							border-radius: 2rpx;
-						}
-					}
-
-					.title-line {
-						flex: 1;
-						height: 2rpx;
-						background: linear-gradient(to right, #8B4513, transparent);
-					}
-				}
-
-				.description-content {
-					font-size: 30rpx;
-					color: #666;
-					line-height: 1.8;
-					text-align: justify;
-					max-height: 180rpx;
-					overflow: hidden;
-					transition: all 0.3s ease;
-					background-color: rgba(249, 245, 240, 0.4);
-					padding: 20rpx;
-					border-radius: 16rpx;
-					box-shadow: inset 0 0 10rpx rgba(0, 0, 0, 0.03);
-					position: relative;
-					display: -webkit-box;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 9;
-
-					&.expanded {
-						-webkit-line-clamp: unset;
-						max-height: none;
-					}
-				}
-
-				.expand-btn {
-					margin-top: 20rpx;
-					text-align: center;
-					color: #8B4513;
-					font-size: 28rpx;
-					padding: 10rpx 0;
-					background-color: rgba(249, 245, 240, 0.8);
-					border-radius: 10rpx;
-					width: 200rpx;
-					margin-left: auto;
-					margin-right: auto;
-					position: relative;
-
-					&:active {
-						opacity: 0.7;
-					}
-
-					.expand-icon {
-						font-size: 24rpx;
-						margin-left: 10rpx;
-						transition: transform 0.3s;
-						display: inline-block;
-
-						&.up {
-							transform: rotate(180deg);
-						}
-					}
-				}
-			}
-
-			.heritage-features {
-				margin-bottom: 50rpx;
-
-				.feature-items {
-					display: flex;
-					justify-content: space-between;
-					padding: 10rpx 0;
-
-					.feature-item {
-						width: 30%;
-						background-color: rgba(249, 245, 240, 0.6);
-						border-radius: 16rpx;
-						padding: 30rpx 20rpx;
-						text-align: center;
-						box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
-						transform: translateY(0);
-						transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-						backdrop-filter: blur(5px);
-						border: 1rpx solid rgba(255, 255, 255, 0.8);
-
-						&:active {
-							transform: translateY(-10rpx);
-							box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.08);
-						}
-
-						.feature-icon {
-							font-size: 50rpx;
-							margin-bottom: 20rpx;
-						}
-
-						.feature-text {
-							font-size: 26rpx;
-							color: #333;
-							font-weight: 500;
-						}
-					}
-				}
-			}
-
-			.heritage-rating {
-				margin-bottom: 50rpx;
-
-				.rating-container {
-					background-color: #f9f5f0;
-					border-radius: 16rpx;
-					padding: 30rpx;
-
-					.rating-stars {
-						display: flex;
-						align-items: center;
-						margin-bottom: 30rpx;
-
-						.star-row {
-							display: flex;
-							margin-right: 20rpx;
-						}
-
-						.star {
-							font-size: 40rpx;
-							color: #ddd;
-							margin-right: 10rpx;
-
-							&.active {
-								color: #FFBB00;
-							}
-						}
-
-						.rating-value {
-							font-size: 36rpx;
-							font-weight: bold;
-							color: #333;
-						}
-					}
-
-					.rating-bars {
-						.rating-item {
-							display: flex;
-							align-items: center;
-							margin-bottom: 20rpx;
-
-							.rating-label {
-								width: 120rpx;
-								font-size: 26rpx;
-								color: #666;
-							}
-
-							.rating-bar-bg {
-								flex: 1;
-								height: 10rpx;
-								background-color: #e0e0e0;
-								border-radius: 5rpx;
-								overflow: hidden;
-								margin: 0 20rpx;
-
-								.rating-bar {
-									height: 100%;
-									background: linear-gradient(to right, #8B4513, #D2691E);
-									border-radius: 5rpx;
-								}
-							}
-
-							.rating-number {
-								font-size: 26rpx;
-								color: #333;
-							}
-						}
-					}
-				}
-			}
-
-			.nearby-heritage {
-				.nearby-scroll {
-					margin: 0 -30rpx;
-
-					.nearby-items {
-						display: flex;
-						padding: 20rpx 30rpx;
-
-						.nearby-item {
-							margin-right: 30rpx;
-							width: 220rpx;
-							transform: scale(1);
-							transition: transform 0.3s ease;
-
-							&:active {
-								transform: scale(0.95);
-							}
-
-							.nearby-image-container {
-								position: relative;
-								width: 220rpx;
-								height: 160rpx;
-								border-radius: 12rpx;
-								overflow: hidden;
-								margin-bottom: 12rpx;
-								box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
-
-								.nearby-image {
-									width: 100%;
-									height: 100%;
-									object-fit: cover;
-								}
-
-								.nearby-overlay {
-									position: absolute;
-									left: 0;
-									top: 0;
-									right: 0;
-									bottom: 0;
-									background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
-								}
-							}
-
-							.nearby-name {
-								font-size: 26rpx;
-								color: #333;
-								white-space: nowrap;
-								text-overflow: ellipsis;
-								overflow: hidden;
-								display: block;
-							}
-
-							.nearby-distance {
-								font-size: 22rpx;
-								color: #8B4513;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		.action-bar {
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 100rpx;
-			padding: 0 30rpx;
-			box-sizing: border-box;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			backdrop-filter: blur(10px);
-			box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
-			z-index: 5;
-			background-color: rgba(255, 255, 255, 0.9);
-
-			button {
-				// width: 200rpx;
-				// height: 80rpx;
-				border-radius: 40rpx;
-				font-size: 28rpx;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				transition: all 0.2s ease;
-				border: none;
-
-				&:active {
-					transform: scale(0.95);
-				}
-
-				.button-icon {
-					font-size: 32rpx;
-					margin-right: 10rpx;
-				}
-			}
-
-			.ar-btn {
-				background: linear-gradient(to right, #D2691E, #8B4513);
-				color: white;
-				font-weight: 500;
-				box-shadow: 0 6rpx 12rpx rgba(139, 69, 19, 0.2);
-			}
-
-			.map-btn {
-				background-color: rgba(139, 69, 19, 0.1);
-				color: #8B4513;
-				font-weight: 500;
-			}
-		}
-
-		.map-popup {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5);
-			z-index: 100;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			.map-container {
-				width: 90%;
-				height: 80%;
-				background-color: #fff;
-				border-radius: 20rpx;
-				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-				box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
-
-				.map-header {
-					height: 100rpx;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					padding: 0 30rpx;
-					border-bottom: 1rpx solid #f0f0f0;
-
-					.map-title {
-						font-size: 34rpx;
-						font-weight: bold;
-						color: #333;
-					}
-
-					.close-btn {
-						width: 60rpx;
-						height: 60rpx;
-						border-radius: 30rpx;
-						background-color: #f0f0f0;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						font-size: 30rpx;
-						color: #666;
-
-						&:active {
-							background-color: #e0e0e0;
-						}
-					}
-				}
-
-				.location-map {
-					flex: 1;
-					width: 100%;
-				}
-
-				.map-footer {
-					height: 150rpx;
-					padding: 20rpx 30rpx;
-					border-top: 1rpx solid #f0f0f0;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-
-					.address {
-						font-size: 28rpx;
-						color: #666;
-					}
-
-					.navigation-btn {
-						height: 80rpx;
-						border-radius: 40rpx;
-						background: linear-gradient(to right, #D2691E, #8B4513);
-						color: white;
-						font-size: 28rpx;
-						font-weight: 500;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);
-						margin: 0;
-
-						&:active {
-							transform: scale(0.98);
-						}
-					}
-				}
-			}
-		}
-	}
+.heritage-detail-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8f5f0;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 顶部图片区域 */
+.header-section {
+  position: relative;
+  height: 500rpx;
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.4) 70%, 
+    rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* 古建筑风格顶部装饰 */
+.header-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20rpx;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.decoration-line {
+  width: 100%;
+  height: 15rpx;
+  background-image: repeating-linear-gradient(90deg, 
+    rgba(255,255,255,0.6) 0px, 
+    rgba(255,255,255,0.6) 10px, 
+    transparent 10px, 
+    transparent 20px);
+}
+
+/* 顶部导航栏 */
+.top-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  z-index: 10;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  padding: 0 20rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 35rpx;
+  backdrop-filter: blur(5px);
+}
+
+.back-icon {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 8rpx;
+}
+
+.back-text {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  backdrop-filter: blur(5px);
+}
+
+.icon-star, .icon-share {
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.icon-star.filled {
+  color: #FFD700;
+}
+
+/* 标题信息区域 */
+.header-info {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 80rpx;
+  z-index: 10;
+}
+
+.header-category {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: rgba(139, 69, 19, 0.8);
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 15rpx;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10rpx;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-period {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15rpx;
+}
+
+.header-location {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.location-icon {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.location-text {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 波浪形装饰 */
+.header-wave {
+  position: absolute;
+  bottom: -2rpx;
+  left: 0;
+  right: 0;
+  height: 40rpx;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8f5f0" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,128C840,128,960,160,1080,176C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+}
+
+/* 内容区域 */
+.content-scroll {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 500rpx);
+  z-index: 2;
+}
+
+.content-card {
+  padding: 30rpx;
+  padding-top: 0;
+  background-color: #f8f5f0;
+  position: relative;
+  z-index: 3;
+}
+
+/* 区块通用样式 */
+.section {
+  margin-bottom: 40rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  
+  /* 背景纹理 */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(45deg, 
+      rgba(139, 69, 19, 0.02) 0px, 
+      rgba(139, 69, 19, 0.02) 2px, 
+      transparent 2px, 
+      transparent 12px);
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #654321;
+}
+
+.title-decoration {
+  width: 8rpx;
+  height: 30rpx;
+  background-color: #8B4513;
+  margin-right: 15rpx;
+  border-radius: 4rpx;
+}
+
+/* 描述区块 */
+.description-text {
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.description-text.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
+
+.expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #8B4513;
+}
+
+.expand-icon {
+  margin-left: 10rpx;
+}
+
+/* 特点标签区域 */
+.features-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.feature-tag {
+  font-size: 24rpx;
+  padding: 10rpx 25rpx;
+  border-radius: 30rpx;
+  color: #8B4513;
+  background-color: rgba(139, 69, 19, 0.08);
+  border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+/* 评分区域 */
+.rating-container {
+  background-color: rgba(248, 245, 240, 0.5);
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.star-row {
+  display: flex;
+  margin-right: 20rpx;
+}
+
+.star {
+  font-size: 40rpx;
+  color: #ddd;
+  margin-right: 10rpx;
+}
+
+.star.active {
+  color: #FFBB00;
+}
+
+.rating-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.rating-bars .rating-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.rating-label {
+  width: 120rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.rating-bar-bg {
+  flex: 1;
+  height: 10rpx;
+  background-color: #e0e0e0;
+  border-radius: 5rpx;
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+
+.rating-bar {
+  height: 100%;
+  background: linear-gradient(to right, #8B4513, #D2691E);
+  border-radius: 5rpx;
+}
+
+.rating-number {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 相关文物 */
+.related-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.related-item {
+  border-radius: 15rpx;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.item-image-container {
+  height: 180rpx;
+  position: relative;
+  
+  image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.4));
+  }
+}
+
+.item-info {
+  padding: 15rpx;
+}
+
+.item-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-period {
+  font-size: 22rpx;
+  color: #8B4513;
+}
+
+/* 底部安全区域 */
+.safe-area-bottom {
+  height: 120rpx;
+}
+
+/* 底部操作按钮 */
+.bottom-action {
+  position: fixed;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 30rpx;
+  z-index: 50;
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-button {
+  flex: 1;
+  height: 90rpx;
+  border-radius: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(139, 69, 19, 0.2);
+}
+
+.ar-button {
+  background: linear-gradient(135deg, #9B5523, #7B3503);
+}
+
+.view3d-button {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.map-button {
+  background-color: rgba(139, 69, 19, 0.2);
+}
+
+.action-icon {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 10rpx;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.action-text {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+.map-button .action-icon,
+.map-button .action-text {
+  color: #8B4513;
+}
+
+/* 地图弹窗 */
+.map-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container {
+  width: 90%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
+}
+
+.map-header {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.map-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.close-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.location-map {
+  flex: 1;
+  width: 100%;
+}
+
+.map-footer {
+  height: 150rpx;
+  padding: 20rpx 30rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.address {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.navigation-btn {
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(to right, #D2691E, #8B4513);
+  color: white;
+  font-size: 28rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(139, 69, 19, 0.2);
+  margin: 0;
+}
+
+/* 加载中状态 */
+.loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(248, 245, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 70rpx;
+  height: 70rpx;
+  border: 4rpx solid rgba(139, 69, 19, 0.1);
+  border-top-color: #8B4513;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #8B4513;
+  margin-top: 20rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>

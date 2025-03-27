@@ -119,6 +119,16 @@
 			}
 		},
 		{
+			"path": "pages/guide/3d-view",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": false
+				}
+			}
+		},
+		{
 			"path": "pages/index/heritage/heritage",
 			"style": {
 				"navigationStyle": "custom"
@@ -219,6 +229,16 @@
 			"style": {
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/guide/3d-view",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": false
+				}
 			}
 		}
 	],
